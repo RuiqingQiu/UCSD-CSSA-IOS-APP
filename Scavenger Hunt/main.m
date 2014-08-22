@@ -1,0 +1,18 @@
+//
+//  main.m
+//  Scavenger Hunt
+//
+//  Created by Raymond Qiu on 8/22/14.
+//  Copyright (c) 2014 Ruiqing Qiu. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+
+#import "SHAppDelegate.h"
+
+int main(int argc, char * argv[])
+{
+    @autoreleasepool {
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([SHAppDelegate class]));
+    }
+}
