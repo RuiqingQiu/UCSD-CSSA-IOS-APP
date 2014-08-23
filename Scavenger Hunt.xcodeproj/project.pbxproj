@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		470069EF19A90A2D0092604F /* SHMapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 470069ED19A90A2D0092604F /* SHMapViewController.m */; };
+		470069F019A90A2D0092604F /* SHMapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 470069EE19A90A2D0092604F /* SHMapViewController.xib */; };
 		476EA97219A7FCB8004BC6B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 476EA97119A7FCB8004BC6B1 /* Foundation.framework */; };
 		476EA97419A7FCB8004BC6B1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 476EA97319A7FCB8004BC6B1 /* CoreGraphics.framework */; };
 		476EA97619A7FCB8004BC6B1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 476EA97519A7FCB8004BC6B1 /* UIKit.framework */; };
@@ -14,7 +16,6 @@
 		476EA97E19A7FCB8004BC6B1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 476EA97D19A7FCB8004BC6B1 /* main.m */; };
 		476EA98219A7FCB8004BC6B1 /* SHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 476EA98119A7FCB8004BC6B1 /* SHAppDelegate.m */; };
 		476EA98519A7FCB8004BC6B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 476EA98319A7FCB8004BC6B1 /* Main.storyboard */; };
-		476EA98819A7FCB8004BC6B1 /* SHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 476EA98719A7FCB8004BC6B1 /* SHViewController.m */; };
 		476EA98A19A7FCB8004BC6B1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 476EA98919A7FCB8004BC6B1 /* Images.xcassets */; };
 		476EA99119A7FCB9004BC6B1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 476EA99019A7FCB9004BC6B1 /* XCTest.framework */; };
 		476EA99219A7FCB9004BC6B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 476EA97119A7FCB8004BC6B1 /* Foundation.framework */; };
@@ -48,6 +49,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		470069EC19A90A2D0092604F /* SHMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHMapViewController.h; path = "Scavenger Hunt/SHMapViewController.h"; sourceTree = "<group>"; };
+		470069ED19A90A2D0092604F /* SHMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHMapViewController.m; path = "Scavenger Hunt/SHMapViewController.m"; sourceTree = "<group>"; };
+		470069EE19A90A2D0092604F /* SHMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SHMapViewController.xib; path = "Scavenger Hunt/SHMapViewController.xib"; sourceTree = "<group>"; };
 		476EA96E19A7FCB8004BC6B1 /* Scavenger Hunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scavenger Hunt.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		476EA97119A7FCB8004BC6B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		476EA97319A7FCB8004BC6B1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -59,8 +63,6 @@
 		476EA98019A7FCB8004BC6B1 /* SHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHAppDelegate.h; sourceTree = "<group>"; };
 		476EA98119A7FCB8004BC6B1 /* SHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHAppDelegate.m; sourceTree = "<group>"; };
 		476EA98419A7FCB8004BC6B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		476EA98619A7FCB8004BC6B1 /* SHViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHViewController.h; sourceTree = "<group>"; };
-		476EA98719A7FCB8004BC6B1 /* SHViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHViewController.m; sourceTree = "<group>"; };
 		476EA98919A7FCB8004BC6B1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		476EA98F19A7FCB9004BC6B1 /* Scavenger HuntTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Scavenger HuntTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		476EA99019A7FCB9004BC6B1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -123,6 +125,9 @@
 		476EA96519A7FCB8004BC6B1 = {
 			isa = PBXGroup;
 			children = (
+				470069EC19A90A2D0092604F /* SHMapViewController.h */,
+				470069ED19A90A2D0092604F /* SHMapViewController.m */,
+				470069EE19A90A2D0092604F /* SHMapViewController.xib */,
 				476EA97719A7FCB8004BC6B1 /* com.ucsdcssa.sh */,
 				476EA99619A7FCB9004BC6B1 /* Scavenger HuntTests */,
 				476EA97019A7FCB8004BC6B1 /* Frameworks */,
@@ -170,8 +175,6 @@
 				476EA98019A7FCB8004BC6B1 /* SHAppDelegate.h */,
 				476EA98119A7FCB8004BC6B1 /* SHAppDelegate.m */,
 				476EA98319A7FCB8004BC6B1 /* Main.storyboard */,
-				476EA98619A7FCB8004BC6B1 /* SHViewController.h */,
-				476EA98719A7FCB8004BC6B1 /* SHViewController.m */,
 				476EA98919A7FCB8004BC6B1 /* Images.xcassets */,
 				476EA97819A7FCB8004BC6B1 /* Supporting Files */,
 			);
@@ -285,6 +288,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				470069F019A90A2D0092604F /* SHMapViewController.xib in Resources */,
 				476EA98A19A7FCB8004BC6B1 /* Images.xcassets in Resources */,
 				476EA97C19A7FCB8004BC6B1 /* InfoPlist.strings in Resources */,
 				476EA98519A7FCB8004BC6B1 /* Main.storyboard in Resources */,
@@ -307,8 +311,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				470069EF19A90A2D0092604F /* SHMapViewController.m in Sources */,
 				476EA97E19A7FCB8004BC6B1 /* main.m in Sources */,
-				476EA98819A7FCB8004BC6B1 /* SHViewController.m in Sources */,
 				476EA98219A7FCB8004BC6B1 /* SHAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -524,6 +528,7 @@
 				476EA9A219A7FCB9004BC6B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		476EA9A319A7FCB9004BC6B1 /* Build configuration list for PBXNativeTarget "Scavenger HuntTests" */ = {
 			isa = XCConfigurationList;
@@ -532,6 +537,7 @@
 				476EA9A519A7FCB9004BC6B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,16 +1,16 @@
 //
-//  SHViewController.m
+//  SHMapViewController.m
 //  Scavenger Hunt
 //
-//  Created by Raymond Qiu on 8/22/14.
+//  Created by Raymond Qiu on 8/23/14.
 //  Copyright (c) 2014 Ruiqing Qiu. All rights reserved.
 //
 
-#import "SHViewController.h"
+#import "SHMapViewController.h"
 
 #import <GoogleMaps/GoogleMaps.h>
 
-@implementation SHViewController {
+@implementation SHMapViewController {
     GMSMapView *mapView_;
 }
 
@@ -31,4 +31,3 @@
 }
 
 @end
-
