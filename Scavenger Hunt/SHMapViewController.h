@@ -11,5 +11,8 @@
 
 @interface SHMapViewController : UIViewController
 {}
+@property (weak, nonatomic) IBOutlet UIImageView *Image1;
+@property (weak, nonatomic) IBOutlet UIImageView *Image2;
 @property IBOutlet GMSMapView *map;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @end
