@@ -10,6 +10,8 @@
 
 #import <GoogleMaps/GoogleMaps.h>
 
+CGPoint mapCenter,badgeTableCenter; //for view switching use -by zinsser
+
 @implementation SHMapViewController {
     //GMSMapView *mapView_;
 }
@@ -34,7 +36,34 @@
     CLLocationCoordinate2DMake(mapView_.myLocation.coordinate.latitude, mapView_.myLocation.coordinate.longitude);
     [mapView_ animateToLocation: target];
     [mapView_ animateToZoom:17];
+    
+    /*******************Zinsser's PanGestureContrl*******************/
+    mapCenter = mapView_.center;
+    badgeTableCenter = _badgeTable.center;
+    UIPanGestureRecognizer *mainPan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(mainMove:)];
+    [mainPan setMaximumNumberOfTouches:1];
+    [mainPan setMinimumNumberOfTouches:1];
+    [mapView_ addGestureRecognizer:mainPan];
+    
 }
+
+-(void) mainMove:(id)sender
+{
+    CGPoint translatedPoint = [(UIPanGestureRecognizer*)sender translationInView:self.view];
+    CGPoint mapPresentCenter = mapView_.center;
+    CGPoint badgeTablePresentCenter = _badgeTable.center;
+    
+    if ([(UIGestureRecognizer*)sender state] == UIGestureRecognizerStateBegan)
+    {
+        mapPresentCenter = CGPointMake(mapPresentCenter.x, mapPresentCenter.y+translatedPoint.y*0.5);
+        badgeTablePresentCenter = CGPointMake(badgeTablePresentCenter.x, badgeTablePresentCenter.y+translatedPoint.y);
+        [mapView_ setCenter:mapPresentCenter];
+        [_badgeTable setCenter:badgeTablePresentCenter];
+    }
+}
+
+
+
 /*
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if([keyPath isEqualToString:@"myLocation"]) {

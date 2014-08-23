@@ -12,4 +12,5 @@
 @interface SHMapViewController : UIViewController
 {}
 @property IBOutlet GMSMapView *map;
+@property (weak, nonatomic) IBOutlet UITableView *badgeTable;
 @end
