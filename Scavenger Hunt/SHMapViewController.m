@@ -27,8 +27,15 @@
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.86 longitude:151.20 zoom:6];
     mapView_.settings.myLocationButton = YES;
     [mapView_ animateToCameraPosition:camera];
-}
 
+}
+-(void) viewDidAppear:(BOOL)animated{
+    CLLocationCoordinate2D target =
+    CLLocationCoordinate2DMake(mapView_.myLocation.coordinate.latitude, mapView_.myLocation.coordinate.longitude);
+    [mapView_ animateToLocation: target];
+    [mapView_ animateToZoom:17];
+}
+/*
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
     if([keyPath isEqualToString:@"myLocation"]) {
         CLLocation *location = [object myLocation];
@@ -48,6 +55,6 @@
 }
 - (void)dealloc {
     [mapView_ removeObserver:self forKeyPath:@"myLocation"];
-}
+}*/
 
 @end
