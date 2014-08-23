@@ -43,7 +43,9 @@ CGPoint mapCenter,badgeTableCenter; //for view switching use -by zinsser
     UIPanGestureRecognizer *mainPan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(mainMove:)];
     [mainPan setMaximumNumberOfTouches:1];
     [mainPan setMinimumNumberOfTouches:1];
-    [mapView_ addGestureRecognizer:mainPan];
+    [self.badgeTable addGestureRecognizer:mainPan];
+    [self.badgeTable.panGestureRecognizer setMinimumNumberOfTouches:20];
+   
     
 }
 
@@ -53,13 +55,10 @@ CGPoint mapCenter,badgeTableCenter; //for view switching use -by zinsser
     CGPoint mapPresentCenter = mapView_.center;
     CGPoint badgeTablePresentCenter = _badgeTable.center;
     
-    if ([(UIGestureRecognizer*)sender state] == UIGestureRecognizerStateBegan)
-    {
-        mapPresentCenter = CGPointMake(mapPresentCenter.x, mapPresentCenter.y+translatedPoint.y*0.5);
-        badgeTablePresentCenter = CGPointMake(badgeTablePresentCenter.x, badgeTablePresentCenter.y+translatedPoint.y);
-        [mapView_ setCenter:mapPresentCenter];
-        [_badgeTable setCenter:badgeTablePresentCenter];
-    }
+    mapPresentCenter = CGPointMake(mapPresentCenter.x, mapPresentCenter.y+translatedPoint.y*0.5);
+    badgeTablePresentCenter = CGPointMake(badgeTablePresentCenter.x, badgeTablePresentCenter.y+translatedPoint.y);
+    [mapView_ setCenter:mapPresentCenter];
+    [_badgeTable setCenter:badgeTablePresentCenter];
 }
 
 
