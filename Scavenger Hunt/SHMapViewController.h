@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <GoogleMaps/GoogleMaps.h>
 
 @interface SHMapViewController : UIViewController
-
+{}
+@property IBOutlet GMSMapView *map;
 @end
