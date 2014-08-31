@@ -15,4 +15,5 @@
 @property (weak, nonatomic) IBOutlet UIImageView *Image2;
 @property IBOutlet GMSMapView *map;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UITextView *handBookTitle;
 @end

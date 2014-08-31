@@ -13,7 +13,7 @@
 #import "Badge.h"
 
 CGFloat handBookTitleHeight = 100;  //for view switching use -by zinsser
-CGPoint badgeTableCenter;           //for view switching use -by zinsser
+CGPoint tableViewCenter;           //for view switching use -by zinsser
 CGFloat yDistanceNeedToMove;        //for view switching use -by zinsser
 CGPoint handBookTitleOrigin;               //for view switching use -by zinsser
 
@@ -52,20 +52,20 @@ CGPoint handBookTitleOrigin;               //for view switching use -by zinsser
     /*******************Zinsser's PanGestureContrl*******************/
     {
         CGRect screenRect = [[UIScreen mainScreen] bounds];
-        CGRect tmpFrame = _badgeTable.frame;
+        CGRect tmpFrame = _tableView.frame;
         tmpFrame.size.width = screenRect.size.width;
         tmpFrame.size.height = screenRect.size.height - handBookTitleHeight;
-        _badgeTable.frame = tmpFrame;
+        _tableView.frame = tmpFrame;
     }
     
-    yDistanceNeedToMove = _badgeTable.frame.origin.y - handBookTitleHeight;
-    badgeTableCenter = _badgeTable.center;
+    yDistanceNeedToMove = _tableView.frame.origin.y - handBookTitleHeight;
+    tableViewCenter = _tableView.center;
     handBookTitleOrigin = _handBookTitle.frame.origin;
     UIPanGestureRecognizer *mainPan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(mainMove:)];
     [mainPan setMaximumNumberOfTouches:1];
     [mainPan setMinimumNumberOfTouches:1];
-    [self.badgeTable addGestureRecognizer:mainPan];
-    [self.badgeTable.panGestureRecognizer requireGestureRecognizerToFail:mainPan];
+    [self.tableView addGestureRecognizer:mainPan];
+    [self.tableView.panGestureRecognizer requireGestureRecognizerToFail:mainPan];
     
     UIPanGestureRecognizer * mainPanRev = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(mainMoveRev:)];
     [mainPanRev setMaximumNumberOfTouches:1];
@@ -73,12 +73,181 @@ CGPoint handBookTitleOrigin;               //for view switching use -by zinsser
     [self.handBookTitle addGestureRecognizer:mainPanRev];
     
     [mapView_.superview bringSubviewToFront:mapView_];
-    [_badgeTable.superview bringSubviewToFront:_badgeTable];
+    [_tableView.superview bringSubviewToFront:_tableView];
     
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+-(void) mainMove:(id)sender //Function for panGesture. MainVeiw to handbook
+{
+    
+    CGPoint translatedPoint = [(UIPanGestureRecognizer*)sender translationInView:self.view];
+    CGPoint velocityPoint = [(UIPanGestureRecognizer*)sender velocityInView:self.view];
+    //CGRect mapPresentFrame = mapView_.frame;
+    CGPoint tableViewPresentCenter = _tableView.center;
+    [_tableView.superview bringSubviewToFront:_tableView];
+    [_handBookTitle.superview bringSubviewToFront:_handBookTitle];
+    
+    {
+        CGRect screenRect = [[UIScreen mainScreen] bounds];
+        CGRect tmpFrame = _tableView.frame;
+        tmpFrame.size.width = screenRect.size.width;
+        tmpFrame.size.height = screenRect.size.height - handBookTitleHeight;
+        _tableView.frame = tmpFrame;
+    }
+    
+    if (_tableView.frame.origin.y < handBookTitleHeight || [(UIPanGestureRecognizer *)sender state] == UIGestureRecognizerStateEnded)
+    {
+        if (_tableView.frame.origin.y < handBookTitleHeight || (velocityPoint.y + _tableView.frame.origin.y * 1.0 - 200 < 0)) //handbook opened  This 1.0 200 need to be modified
+        {
+            [(UIPanGestureRecognizer*)sender setEnabled:false];
+            
+            [UIView beginAnimations:nil context:nil];
+            [UIView setAnimationDuration:0.5];
+            [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+            
+            CGRect tmpFrame = _tableView.frame;
+            tmpFrame.origin.y = handBookTitleHeight;
+            _tableView.frame = tmpFrame;
+            
+            _handBookTitle.alpha = 1.0;
+            
+            /*tmpFrame = mapView_.frame;
+             tmpFrame.size.height = tmpFrame.size.height - tableViewCenter.y - 100;
+             mapView_.frame = tmpFrame;*/
+            
+            [UIView commitAnimations];
+            
+        }
+        else if (_tableView.center.y > tableViewCenter.y + 50) //Refresh  This 100 needs to be modified
+        {
+            //TODO refresh!
+            
+            [UIView beginAnimations:nil context:nil];
+            [UIView setAnimationDuration:0.5];
+            [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+            
+            _tableView.Center = tableViewCenter;
+            _handBookTitle.alpha = 0.;
+            
+            [UIView commitAnimations];
+            
+            [mapView_.superview bringSubviewToFront:mapView_];
+        }
+        else    //nothing triggered. back to basic position
+        {
+            [UIView beginAnimations:nil context:nil];
+            [UIView setAnimationDuration:0.5];
+            [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+            
+            _tableView.Center = tableViewCenter;
+            _handBookTitle.alpha = 0.;
+            
+            [UIView commitAnimations];
+            
+            [mapView_.superview bringSubviewToFront:mapView_];
+        }
+    }
+    else //gesture still on going
+    {
+        if (tableViewPresentCenter.y+translatedPoint.y <= tableViewCenter.y + 50)
+        {
+            tableViewPresentCenter = CGPointMake(tableViewPresentCenter.x, tableViewPresentCenter.y+translatedPoint.y);
+            [_tableView setCenter:tableViewPresentCenter];
+            if (tableViewCenter.y - tableViewPresentCenter.y - 10 > 0.)
+                _handBookTitle.alpha = (tableViewCenter.y - tableViewPresentCenter.y - 10) / (yDistanceNeedToMove - 10);
+            else
+                _handBookTitle.alpha = 0.;
+        }
+    }
+}   //end of Function for panGesture. mainView to handbook
 
+-(void)mainMoveRev:(id)sender   //Function for panGesture. handbook to MainView
+{/*
+  CGPoint translatedPoint = [(UIPanGestureRecognizer*)sender translationInView:self.view];
+  CGPoint velocityPoint = [(UIPanGestureRecognizer*)sender velocityInView:self.view];
+  CGPoint handBookTitlePresentCenter = _handBookTitle.center;
+  CGPoint tableViewPresentCenter = _tableView.center;
+  [_tableView.superview bringSubviewToFront:_tableView];
+  [_handBookTitle.superview bringSubviewToFront:_handBookTitle];
+  
+  {
+  CGRect screenRect = [[UIScreen mainScreen] bounds];
+  CGRect tmpFrame = _tableView.frame;
+  tmpFrame.size.width = screenRect.size.width;
+  tmpFrame.size.height = screenRect.size.height - handBookTitleHeight;
+  _tableView.frame = tmpFrame;
+  }
+  
+  if (_tableView.frame.origin.y < handBookTitleHeight || [(UIPanGestureRecognizer *)sender state] == UIGestureRecognizerStateEnded)
+  {
+  if (_tableView.frame.origin.y < handBookTitleHeight || (velocityPoint.y + _tableView.frame.origin.y * 1.0 - 200 < 0)) //handbook opened  This 1.0 200 need to be modified
+  {
+  [(UIPanGestureRecognizer*)sender setEnabled:false];
+  
+  [UIView beginAnimations:nil context:nil];
+  [UIView setAnimationDuration:0.5];
+  [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+  
+  CGRect tmpFrame = _tableView.frame;
+  tmpFrame.origin.y = handBookTitleHeight;
+  _tableView.frame = tmpFrame;
+  
+  _handBookTitle.alpha = 1.0;
+  
+  /*tmpFrame = mapView_.frame;
+  tmpFrame.size.height = tmpFrame.size.height - tableViewCenter.y - 100;
+  mapView_.frame = tmpFrame;*/
+    /*
+     [UIView commitAnimations];
+     
+     }
+     else if (_tableView.center.y > tableViewCenter.y + 50) //Refresh  This 100 needs to be modified
+     {
+     //TODO refresh!
+     
+     [UIView beginAnimations:nil context:nil];
+     [UIView setAnimationDuration:0.5];
+     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+     
+     _tableView.Center = tableViewCenter;
+     _handBookTitle.alpha = 0.;
+     
+     [UIView commitAnimations];
+     
+     [mapView_.superview bringSubviewToFront:mapView_];
+     }
+     else    //nothing triggered. back to basic position
+     {
+     [UIView beginAnimations:nil context:nil];
+     [UIView setAnimationDuration:0.5];
+     [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+     
+     _tableView.Center = tableViewCenter;
+     _handBookTitle.alpha = 0.;
+     
+     [UIView commitAnimations];
+     
+     [mapView_.superview bringSubviewToFront:mapView_];
+     }
+     }
+     else //gesture still on going
+     {
+     if (tableViewPresentCenter.y+translatedPoint.y <= tableViewCenter.y + 50)
+     {
+     tableViewPresentCenter = CGPointMake(tableViewPresentCenter.x, tableViewPresentCenter.y+translatedPoint.y);
+     [_tableView setCenter:tableViewPresentCenter];
+     if (tableViewCenter.y - tableViewPresentCenter.y - 10 > 0.)
+     _handBookTitle.alpha = (tableViewCenter.y - tableViewPresentCenter.y - 10) / (yDistanceNeedToMove - 10);
+     else
+     _handBookTitle.alpha = 0.;
+     }
+     }*/
+}   //end of Function for panGesture. mainView to handbook
+
+
+
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return [[BadgeManager sharedBadgeManager].badgeList count];
 }
@@ -107,8 +276,7 @@ CGPoint handBookTitleOrigin;               //for view switching use -by zinsser
     
     
     return cell;
-    
-}
+} 
 
 
 /*
