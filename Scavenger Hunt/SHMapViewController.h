@@ -18,4 +18,5 @@
 @property (nonatomic, retain) CLLocationManager *locationManager;
 @property (nonatomic, retain) CLLocation *currentLocation;
 - (void)startLocationServices;
+@property (weak, nonatomic) IBOutlet UITextView *handBookTitle;
 @end

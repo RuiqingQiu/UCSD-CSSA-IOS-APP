@@ -8,6 +8,7 @@
 
 #import "BadgeManager.h"
 #import "Badge.h"
+#define BADGE_KEY @"cssa_scavenger_hunt_badge"
 const int BadgeNumber = 5;
 static BadgeManager *sharedManager;
 
@@ -34,5 +35,29 @@ static BadgeManager *sharedManager;
         sharedManager = [[self alloc]init];
     }
     return sharedManager;
+}
+
+-(NSArray*)getBadgeInventory
+{
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    NSData *data = [def objectForKey:BADGE_KEY];
+    NSArray *retrivedArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    NSArray* idArr = [[NSArray alloc] initWithArray:retrivedArray];
+    NSMutableArray* ret = [[NSMutableArray alloc]init];
+    for (NSNumber *badgeID in idArr) {
+        [ret addObject:[[Badge alloc] initWithID:[badgeID intValue]]];
+    }
+    return ret;
+}
+
+-(void)setBadgeInventory:(NSArray *)badgeList
+{
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    NSMutableArray* arr = [[NSMutableArray alloc]init];
+    for (Badge *badge in badgeList) {
+        [arr addObject:[NSNumber numberWithInt:badge.badgeID]];
+    }
+    [def setObject:[NSKeyedArchiver archivedDataWithRootObject:arr] forKey:BADGE_KEY];
+    [def synchronize];
 }
 @end
