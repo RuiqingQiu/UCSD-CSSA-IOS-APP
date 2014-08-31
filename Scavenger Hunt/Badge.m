@@ -54,6 +54,54 @@
             self.image = [UIImage imageNamed:@"Before_you_die.png"];
             break;
         case 6:
+            self.name = @"3";
+            self.isHidden = NO;
+            self.longtitude = 0.0;
+            self.latitude = 0.0;
+            self.description = @" ";
+            self.image = nil;
+            break;
+        case 7:
+            self.name = @"3";
+            self.isHidden = NO;
+            self.longtitude = 0.0;
+            self.latitude = 0.0;
+            self.description = @" ";
+            self.image = nil;
+            break;
+        case 8:
+            self.name = @"3";
+            self.isHidden = NO;
+            self.longtitude = 0.0;
+            self.latitude = 0.0;
+            self.description = @" ";
+            self.image = nil;
+            break;
+        case 9:
+            self.name = @"3";
+            self.isHidden = NO;
+            self.longtitude = 0.0;
+            self.latitude = 0.0;
+            self.description = @" ";
+            self.image = nil;
+            break;
+        case 10:
+            self.name = @"3";
+            self.isHidden = NO;
+            self.longtitude = 0.0;
+            self.latitude = 0.0;
+            self.description = @" ";
+            self.image = nil;
+            break;
+        case 11:
+            self.name = @"3";
+            self.isHidden = NO;
+            self.longtitude = 0.0;
+            self.latitude = 0.0;
+            self.description = @" ";
+            self.image = [UIImage imageNamed:@"JobHunter_Career_center.png"];
+            break;
+        case 12:
             self.name = @"4";
             self.isHidden = NO;
             self.longtitude = 0.0;
@@ -61,13 +109,117 @@
             self.description = @" ";
             self.image = [UIImage imageNamed:@"UC_Sea_ovt.png"];
             break;
+        case 13:
+            self.name = @"3";
+            self.isHidden = NO;
+            self.longtitude = 0.0;
+            self.latitude = 0.0;
+            self.description = @" ";
+            self.image = [UIImage imageNamed:@"A_bit_of_Mexico_Goodies.png"];;
+            break;
+        case 14:
+            self.name = @"3";
+            self.isHidden = NO;
+            self.longtitude = 0.0;
+            self.latitude = 0.0;
+            self.description = @" ";
+            self.image = nil;
+            break;
+        case 15:
+            self.name = @"3";
+            self.isHidden = NO;
+            self.longtitude = 0.0;
+            self.latitude = 0.0;
+            self.description = @" ";
+            self.image = nil;
+            break;
+        case 16:
+            self.name = @"3";
+            self.isHidden = NO;
+            self.longtitude = 0.0;
+            self.latitude = 0.0;
+            self.description = @" ";
+            self.image = nil;
+            break;
+        case 17:
+            self.name = @"3";
+            self.isHidden = NO;
+            self.longtitude = 0.0;
+            self.latitude = 0.0;
+            self.description = @" ";
+            self.image = nil;
+            break;
         case 18:
             self.name = @"18";
             self.isHidden = NO;
             self.latitude = 32.881957;
             self.longtitude = -117.234124;
             self.description = @" ";
-            self.image = [UIImage imageNamed:@"UC_Sea_ovt.png"];
+            self.image = [UIImage imageNamed:@"Stone_bear.png"];
+            break;
+        case 19:
+            self.name = @"3";
+            self.isHidden = NO;
+            self.longtitude = 0.0;
+            self.latitude = 0.0;
+            self.description = @" ";
+            self.image = nil;
+            break;
+        case 20:
+            self.name = @"3";
+            self.isHidden = NO;
+            self.longtitude = 0.0;
+            self.latitude = 0.0;
+            self.description = @" ";
+            self.image = [UIImage imageNamed:@"Fallen_Star.png"];;
+            break;
+        case 21:
+            self.name = @"3";
+            self.isHidden = NO;
+            self.longtitude = 0.0;
+            self.latitude = 0.0;
+            self.description = @" ";
+            self.image = nil;
+            break;
+        case 22:
+            self.name = @"3";
+            self.isHidden = NO;
+            self.longtitude = 0.0;
+            self.latitude = 0.0;
+            self.description = @" ";
+            self.image = nil;
+            break;
+        case 23:
+            self.name = @"3";
+            self.isHidden = NO;
+            self.longtitude = 0.0;
+            self.latitude = 0.0;
+            self.description = @" ";
+            self.image = nil;
+            break;
+        case 24:
+            self.name = @"3";
+            self.isHidden = NO;
+            self.longtitude = 0.0;
+            self.latitude = 0.0;
+            self.description = @" ";
+            self.image = nil;
+            break;
+        case 25:
+            self.name = @"3";
+            self.isHidden = NO;
+            self.longtitude = 0.0;
+            self.latitude = 0.0;
+            self.description = @" ";
+            self.image = [UIImage imageNamed:@"Home_for_4_years_Geisel.png"];;
+            break;
+        case 26:
+            self.name = @"3";
+            self.isHidden = NO;
+            self.longtitude = 0.0;
+            self.latitude = 0.0;
+            self.description = @" ";
+            self.image = nil;
             break;
         default:
             break;

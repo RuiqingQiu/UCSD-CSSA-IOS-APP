@@ -9,7 +9,7 @@
 #import "BadgeManager.h"
 #import "Badge.h"
 #define BADGE_KEY @"cssa_scavenger_hunt_badge"
-const int BadgeNumber = 5;
+const int BadgeNumber = 26;
 static BadgeManager *sharedManager;
 
 @implementation BadgeManager
