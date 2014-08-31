@@ -95,6 +95,21 @@
     self.currentLocation = newLocation;
     NSLog(@"Latidude %f Longitude: %f", newLocation.coordinate.latitude, newLocation.coordinate.longitude);
     
+    for(int i = 0; i < 5; i++){
+        double b_latitude = ((Badge*)[[BadgeManager sharedBadgeManager].badgeList objectAtIndex:i]).latitude;
+        double b_longitude =((Badge*)[[BadgeManager sharedBadgeManager].badgeList objectAtIndex:i]).longtitude;
+        NSLog(@"latitude: %4.0f, longitude: %4.0f", b_latitude, b_longitude);
+        CLLocation *badgeLocation = [[CLLocation alloc]
+                                initWithLatitude: b_latitude
+                                 longitude: b_longitude];
+    
+        CLLocationDistance distance = [newLocation distanceFromLocation:badgeLocation];
+        NSLog(@"%4.0f", distance);
+        //If it's 10 meters less, then set it to be visible.
+        if(distance < 10){
+            ((Badge*)[[BadgeManager sharedBadgeManager].badgeList objectAtIndex:1]).isHidden = NO;
+        }
+    }
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {

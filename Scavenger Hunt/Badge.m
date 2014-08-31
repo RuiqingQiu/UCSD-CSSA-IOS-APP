@@ -32,8 +32,8 @@
         case 3:
             self.name = @"1";
             self.isHidden = NO;
-            self.longtitude = 0.0;
-            self.latitude = 0.0;
+            self.longtitude = -117.239719;
+            self.latitude = 32.878560;
             self.description = @" ";
             self.image = [UIImage imageNamed:@"Xueba_help_me_AS_Notes.png"];
             break;
@@ -61,7 +61,14 @@
             self.description = @" ";
             self.image = [UIImage imageNamed:@"UC_Sea_ovt.png"];
             break;
-            
+        case 18:
+            self.name = @"18";
+            self.isHidden = NO;
+            self.latitude = 32.881957;
+            self.longtitude = -117.234124;
+            self.description = @" ";
+            self.image = [UIImage imageNamed:@"UC_Sea_ovt.png"];
+            break;
         default:
             break;
     }
