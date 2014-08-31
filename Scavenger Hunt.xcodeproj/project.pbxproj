@@ -47,6 +47,7 @@
 		47F1524519A95145006FCEDD /* Before_you_die.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F1523D19A95145006FCEDD /* Before_you_die.png */; };
 		47F1524619A95145006FCEDD /* A_bite_of_Mexico_Goodies.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F1523E19A95145006FCEDD /* A_bite_of_Mexico_Goodies.png */; };
 		47F1524819A9534D006FCEDD /* UC_Sea_ovt.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F1524719A9534D006FCEDD /* UC_Sea_ovt.png */; };
+		47F1524A19B3B37E006FCEDD /* JobHunter_Career_center.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F1524919B3B37E006FCEDD /* JobHunter_Career_center.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		47F1523D19A95145006FCEDD /* Before_you_die.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Before_you_die.png; sourceTree = "<group>"; };
 		47F1523E19A95145006FCEDD /* A_bite_of_Mexico_Goodies.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = A_bite_of_Mexico_Goodies.png; sourceTree = "<group>"; };
 		47F1524719A9534D006FCEDD /* UC_Sea_ovt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = UC_Sea_ovt.png; sourceTree = "<group>"; };
+		47F1524919B3B37E006FCEDD /* JobHunter_Career_center.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobHunter_Career_center.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +245,7 @@
 		47F1523619A9512D006FCEDD /* src */ = {
 			isa = PBXGroup;
 			children = (
+				47F1524919B3B37E006FCEDD /* JobHunter_Career_center.png */,
 				47F1524719A9534D006FCEDD /* UC_Sea_ovt.png */,
 				47F1523719A95145006FCEDD /* Xueba_help_me_AS_Notes.png */,
 				47F1523819A95145006FCEDD /* Sun_god_hug.png */,
@@ -341,6 +344,7 @@
 				47F1524219A95145006FCEDD /* Home_for_4_years_Geisel.png in Resources */,
 				47F1524619A95145006FCEDD /* A_bite_of_Mexico_Goodies.png in Resources */,
 				47F1524119A95145006FCEDD /* Stone_bear.png in Resources */,
+				47F1524A19B3B37E006FCEDD /* JobHunter_Career_center.png in Resources */,
 				47F1524519A95145006FCEDD /* Before_you_die.png in Resources */,
 				47F1524319A95145006FCEDD /* Fallen_Star.png in Resources */,
 				47F1524819A9534D006FCEDD /* UC_Sea_ovt.png in Resources */,

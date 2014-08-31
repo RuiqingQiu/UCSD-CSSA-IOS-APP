@@ -18,8 +18,8 @@ CGFloat yDistanceNeedToMove;        //for view switching use -by zinsser
 CGPoint handBookTitleOrigin;               //for view switching use -by zinsser
 
 @implementation SHMapViewController {
-    //GMSMapView *mapView_;
 }
+@synthesize locationManager, currentLocation;
 @synthesize map = mapView_;
 - (void)viewDidLoad {
     // Creates a marker in the center of the map.
@@ -40,7 +40,7 @@ CGPoint handBookTitleOrigin;               //for view switching use -by zinsser
     }
     //[_Image1 setImage: [UIImage imageNamed:@"UC_Sea_ovt.png"]];
     //[_Image2 setImage:((Badge*)[[BadgeManager sharedBadgeManager].badgeList objectAtIndex:1]).image];
-    
+    locationManager = [[CLLocationManager alloc] init];
     //NSLog(@"%@",[[BadgeManager sharedBadgeManager]getBadgeInventory]);
     //NSArray *list =[BadgeManager sharedBadgeManager].badgeList;
     //[[BadgeManager sharedBadgeManager]setBadgeInventory:list];
@@ -52,6 +52,7 @@ CGPoint handBookTitleOrigin;               //for view switching use -by zinsser
     CLLocationCoordinate2DMake(mapView_.myLocation.coordinate.latitude, mapView_.myLocation.coordinate.longitude);
     [mapView_ animateToLocation: target];
     [mapView_ animateToZoom:17];
+    [self startLocationServices];
     
     /*******************Zinsser's PanGestureContrl*******************/
     {
@@ -78,7 +79,6 @@ CGPoint handBookTitleOrigin;               //for view switching use -by zinsser
     
     [mapView_.superview bringSubviewToFront:mapView_];
     [_tableView.superview bringSubviewToFront:_tableView];
-    
 }
 
 -(void) mainMove:(id)sender //Function for panGesture. MainVeiw to handbook
@@ -282,27 +282,51 @@ CGPoint handBookTitleOrigin;               //for view switching use -by zinsser
     return cell;
 } 
 
+- (void)startLocationServices {
+	locationManager = [[CLLocationManager alloc] init];
+	locationManager.delegate = self;
+	
+	if ([CLLocationManager locationServicesEnabled]) {
+		[locationManager startUpdatingLocation];
+	} else {
+		NSLog(@"Location services is not enabled");
+	}
+}
 
-/*
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if([keyPath isEqualToString:@"myLocation"]) {
-        CLLocation *location = [object myLocation];
-        //...
-        NSLog(@"Location, %@,", location);
-        
-        CLLocationCoordinate2D target =
-        CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude);
-        
-        [mapView_ animateToLocation:target];
-        [mapView_ animateToZoom:17];
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    self.currentLocation = newLocation;
+    NSLog(@"Latidude %f Longitude: %f", newLocation.coordinate.latitude, newLocation.coordinate.longitude);
+    
+    for(int i = 0; i < 5; i++){
+        double b_latitude = ((Badge*)[[BadgeManager sharedBadgeManager].badgeList objectAtIndex:i]).latitude;
+        double b_longitude =((Badge*)[[BadgeManager sharedBadgeManager].badgeList objectAtIndex:i]).longtitude;
+        NSLog(@"latitude: %4.0f, longitude: %4.0f", b_latitude, b_longitude);
+        CLLocation *badgeLocation = [[CLLocation alloc]
+                                initWithLatitude: b_latitude
+                                 longitude: b_longitude];
+    
+        CLLocationDistance distance = [newLocation distanceFromLocation:badgeLocation];
+        NSLog(@"%4.0f", distance);
+        //If it's 10 meters less, then set it to be visible.
+        if(distance < 10){
+            ((Badge*)[[BadgeManager sharedBadgeManager].badgeList objectAtIndex:1]).isHidden = NO;
+        }
     }
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    [mapView_ addObserver:self forKeyPath:@"myLocation" options:0 context:nil];
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    if(error.code == kCLErrorDenied) {
+        [locationManager stopUpdatingLocation];
+    } else if(error.code == kCLErrorLocationUnknown) {
+        // retry
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error retrieving location"
+                        message:[error description]
+                        delegate:nil
+                        cancelButtonTitle:@"OK"
+                        otherButtonTitles:nil];
+        [alert show];
+    }
 }
-- (void)dealloc {
-    [mapView_ removeObserver:self forKeyPath:@"myLocation"];
-}*/
 
 @end
