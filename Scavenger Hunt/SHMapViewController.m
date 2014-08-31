@@ -13,8 +13,8 @@
 #import "Badge.h"
 
 @implementation SHMapViewController {
-    //GMSMapView *mapView_;
 }
+@synthesize locationManager, currentLocation;
 @synthesize map = mapView_;
 - (void)viewDidLoad {
     // Creates a marker in the center of the map.
@@ -36,6 +36,7 @@
     }
     //[_Image1 setImage: [UIImage imageNamed:@"UC_Sea_ovt.png"]];
     //[_Image2 setImage:((Badge*)[[BadgeManager sharedBadgeManager].badgeList objectAtIndex:1]).image];
+    locationManager = [[CLLocationManager alloc] init];
 }
 
 -(void) viewDidAppear:(BOOL)animated{
@@ -43,6 +44,7 @@
     CLLocationCoordinate2DMake(mapView_.myLocation.coordinate.latitude, mapView_.myLocation.coordinate.longitude);
     [mapView_ animateToLocation: target];
     [mapView_ animateToZoom:17];
+    [self startLocationServices];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -78,27 +80,36 @@
     
 }
 
+- (void)startLocationServices {
+	locationManager = [[CLLocationManager alloc] init];
+	locationManager.delegate = self;
+	
+	if ([CLLocationManager locationServicesEnabled]) {
+		[locationManager startUpdatingLocation];
+	} else {
+		NSLog(@"Location services is not enabled");
+	}
+}
 
-/*
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
-    if([keyPath isEqualToString:@"myLocation"]) {
-        CLLocation *location = [object myLocation];
-        //...
-        NSLog(@"Location, %@,", location);
-        
-        CLLocationCoordinate2D target =
-        CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude);
-        
-        [mapView_ animateToLocation:target];
-        [mapView_ animateToZoom:17];
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    self.currentLocation = newLocation;
+    NSLog(@"Latidude %f Longitude: %f", newLocation.coordinate.latitude, newLocation.coordinate.longitude);
+    
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    if(error.code == kCLErrorDenied) {
+        [locationManager stopUpdatingLocation];
+    } else if(error.code == kCLErrorLocationUnknown) {
+        // retry
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error retrieving location"
+                        message:[error description]
+                        delegate:nil
+                        cancelButtonTitle:@"OK"
+                        otherButtonTitles:nil];
+        [alert show];
     }
 }
-
-- (void)viewWillAppear:(BOOL)animated {
-    [mapView_ addObserver:self forKeyPath:@"myLocation" options:0 context:nil];
-}
-- (void)dealloc {
-    [mapView_ removeObserver:self forKeyPath:@"myLocation"];
-}*/
 
 @end
