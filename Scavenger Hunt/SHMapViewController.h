@@ -13,4 +13,5 @@
 {}
 @property IBOutlet GMSMapView *map;
 @property (weak, nonatomic) IBOutlet UITableView *badgeTable;
+@property (weak, nonatomic) IBOutlet UITextView *handBookTitle;
 @end
