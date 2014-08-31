@@ -40,6 +40,13 @@ CGPoint handBookTitleOrigin;               //for view switching use -by zinsser
     }
     //[_Image1 setImage: [UIImage imageNamed:@"UC_Sea_ovt.png"]];
     //[_Image2 setImage:((Badge*)[[BadgeManager sharedBadgeManager].badgeList objectAtIndex:1]).image];
+    
+    //NSLog(@"%@",[[BadgeManager sharedBadgeManager]getBadgeInventory]);
+    //NSArray *list =[BadgeManager sharedBadgeManager].badgeList;
+    //[[BadgeManager sharedBadgeManager]setBadgeInventory:list];
+   // NSLog(@"%@",[[BadgeManager sharedBadgeManager]getBadgeInventory]);
+
+
 }
 
 -(void) viewDidAppear:(BOOL)animated{

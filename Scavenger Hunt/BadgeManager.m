@@ -39,14 +39,25 @@ static BadgeManager *sharedManager;
 
 -(NSArray*)getBadgeInventory
 {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    NSArray* ret = [defaults objectForKey:BADGE_KEY];
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    NSData *data = [def objectForKey:BADGE_KEY];
+    NSArray *retrivedArray = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    NSArray* idArr = [[NSArray alloc] initWithArray:retrivedArray];
+    NSMutableArray* ret = [[NSMutableArray alloc]init];
+    for (NSNumber *badgeID in idArr) {
+        [ret addObject:[[Badge alloc] initWithID:[badgeID intValue]]];
+    }
     return ret;
 }
 
 -(void)setBadgeInventory:(NSArray *)badgeList
 {
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:badgeList forKey:BADGE_KEY];
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    NSMutableArray* arr = [[NSMutableArray alloc]init];
+    for (Badge *badge in badgeList) {
+        [arr addObject:[NSNumber numberWithInt:badge.badgeID]];
+    }
+    [def setObject:[NSKeyedArchiver archivedDataWithRootObject:arr] forKey:BADGE_KEY];
+    [def synchronize];
 }
 @end
