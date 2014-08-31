@@ -44,9 +44,7 @@ CGPoint handBookTitleOrigin;               //for view switching use -by zinsser
     //NSLog(@"%@",[[BadgeManager sharedBadgeManager]getBadgeInventory]);
     //NSArray *list =[BadgeManager sharedBadgeManager].badgeList;
     //[[BadgeManager sharedBadgeManager]setBadgeInventory:list];
-   // NSLog(@"%@",[[BadgeManager sharedBadgeManager]getBadgeInventory]);
-
-
+    // NSLog(@"%@",[[BadgeManager sharedBadgeManager]getBadgeInventory]);
 }
 
 -(void) viewDidAppear:(BOOL)animated{
