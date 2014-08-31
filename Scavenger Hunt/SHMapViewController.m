@@ -12,6 +12,11 @@
 #import "BadgeManager.h"
 #import "Badge.h"
 
+CGFloat handBookTitleHeight = 100;  //for view switching use -by zinsser
+CGPoint badgeTableCenter;           //for view switching use -by zinsser
+CGFloat yDistanceNeedToMove;        //for view switching use -by zinsser
+CGPoint handBookTitleOrigin;               //for view switching use -by zinsser
+
 @implementation SHMapViewController {
     //GMSMapView *mapView_;
 }
@@ -43,6 +48,33 @@
     CLLocationCoordinate2DMake(mapView_.myLocation.coordinate.latitude, mapView_.myLocation.coordinate.longitude);
     [mapView_ animateToLocation: target];
     [mapView_ animateToZoom:17];
+    
+    /*******************Zinsser's PanGestureContrl*******************/
+    {
+        CGRect screenRect = [[UIScreen mainScreen] bounds];
+        CGRect tmpFrame = _badgeTable.frame;
+        tmpFrame.size.width = screenRect.size.width;
+        tmpFrame.size.height = screenRect.size.height - handBookTitleHeight;
+        _badgeTable.frame = tmpFrame;
+    }
+    
+    yDistanceNeedToMove = _badgeTable.frame.origin.y - handBookTitleHeight;
+    badgeTableCenter = _badgeTable.center;
+    handBookTitleOrigin = _handBookTitle.frame.origin;
+    UIPanGestureRecognizer *mainPan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(mainMove:)];
+    [mainPan setMaximumNumberOfTouches:1];
+    [mainPan setMinimumNumberOfTouches:1];
+    [self.badgeTable addGestureRecognizer:mainPan];
+    [self.badgeTable.panGestureRecognizer requireGestureRecognizerToFail:mainPan];
+    
+    UIPanGestureRecognizer * mainPanRev = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(mainMoveRev:)];
+    [mainPanRev setMaximumNumberOfTouches:1];
+    [mainPanRev setMinimumNumberOfTouches:1];
+    [self.handBookTitle addGestureRecognizer:mainPanRev];
+    
+    [mapView_.superview bringSubviewToFront:mapView_];
+    [_badgeTable.superview bringSubviewToFront:_badgeTable];
+    
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
