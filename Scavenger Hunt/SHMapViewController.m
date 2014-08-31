@@ -37,7 +37,6 @@ CGPoint handBookTitleOrigin;               //for view switching use -by zinsser
     
     for(int i = 0; i < 5; i++) {
         NSLog(@"%@", ((Badge*)[[BadgeManager sharedBadgeManager].badgeList objectAtIndex:i]).image);
-        
     }
     //[_Image1 setImage: [UIImage imageNamed:@"UC_Sea_ovt.png"]];
     //[_Image2 setImage:((Badge*)[[BadgeManager sharedBadgeManager].badgeList objectAtIndex:1]).image];

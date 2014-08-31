@@ -12,6 +12,8 @@
 {
 }
 +(BadgeManager*)sharedBadgeManager;
+-(NSArray*)getBadgeInventory;
+-(void)setBadgeInventory: (NSArray*)badgeList;
 @property NSMutableArray* badgeList;
 
 @end
