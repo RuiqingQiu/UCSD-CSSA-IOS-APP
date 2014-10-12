@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="o1h-FQ-fy3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="o1h-FQ-fy3">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment defaultVersion="1808" identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
         <scene sceneID="kdU-QN-HH1">
             <objects>
                 <tabBarController definesPresentationContext="YES" id="o1h-FQ-fy3" sceneMemberID="viewController">
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="a38-o8-5cH">
                         <rect key="frame" x="129" y="330" width="163" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
@@ -55,7 +56,7 @@ Watch your back, I'll make you disappear.</string>
                                 <rect key="frame" x="0.0" y="357" width="320" height="211"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="95" id="c8e-17-6dD">
+                                    <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="default" indentationWidth="10" rowHeight="95" id="c8e-17-6dD">
                                         <rect key="frame" x="0.0" y="22" width="320" height="95"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c8e-17-6dD" id="e9J-tF-Vru">
@@ -63,7 +64,7 @@ Watch your back, I'll make you disappear.</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="20" rowHeight="95" id="9aK-6N-I0w">
+                                    <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="default" indentationWidth="20" rowHeight="95" id="9aK-6N-I0w">
                                         <rect key="frame" x="0.0" y="117" width="320" height="95"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9aK-6N-I0w" id="gzQ-0z-k5V">
@@ -182,12 +183,6 @@ Watch your back, I'll make you disappear.</string>
                                     <action selector="dismissPassword:" destination="OaN-3n-DIR" eventType="editingDidEndOnExit" id="kle-Qf-heJ"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="专业" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7e-qE-GM5">
-                                <rect key="frame" x="50" y="325" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="铭言" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKZ-Tv-Kcm">
                                 <rect key="frame" x="50" y="292" width="42" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -213,39 +208,10 @@ Watch your back, I'll make you disappear.</string>
                                 <state key="normal" title="请选择">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="btnPressed:" destination="OaN-3n-DIR" eventType="touchUpInside" id="ZQB-qo-inF"/>
+                                </connections>
                             </button>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Rw-Nm-Jqm">
-                                <rect key="frame" x="0.0" y="242" width="320" height="44"/>
-                                <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.74999999999999978"/>
-                                <items>
-                                    <navigationItem id="GHc-fZ-S34">
-                                        <barButtonItem key="rightBarButtonItem" title="完成" id="BC3-eo-dOQ">
-                                            <connections>
-                                                <action selector="doneButton:" destination="OaN-3n-DIR" id="Fje-gV-K9m"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kVb-yC-VDp">
-                                <rect key="frame" x="-71" y="45" width="391" height="406"/>
-                            </scrollView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lpp-4X-Gsd">
-                                <rect key="frame" x="40" y="220" width="240" height="128"/>
-                            </scrollView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nMA-Ta-djq">
-                                <rect key="frame" x="109" y="244" width="169" height="30"/>
-                                <state key="normal" title="请选择">
-                                    <color key="titleColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dYu-Vv-deA">
-                                <rect key="frame" x="0.0" y="387" width="320" height="44"/>
-                                <items>
-                                    <barButtonItem title="完成" id="O3R-4R-Vea"/>
-                                </items>
-                            </toolbar>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r6v-1f-CL3" userLabel="专业">
                                 <rect key="frame" x="128" y="199" width="166" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -258,12 +224,24 @@ Watch your back, I'll make you disappear.</string>
                                 <rect key="frame" x="109" y="326" width="103" height="48"/>
                                 <state key="normal" title="保存"/>
                                 <connections>
-                                    <action selector="btnPressed:" destination="OaN-3n-DIR" eventType="touchUpInside" id="SHF-rn-BNb"/>
                                     <action selector="save:" destination="OaN-3n-DIR" eventType="touchUpInside" id="z9b-eo-Ffw"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Rw-Nm-Jqm">
+                                <rect key="frame" x="0.0" y="281" width="320" height="44"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.74999999999999978"/>
+                                <items>
+                                    <navigationItem id="GHc-fZ-S34">
+                                        <barButtonItem key="rightBarButtonItem" title="完成" id="BC3-eo-dOQ">
+                                            <connections>
+                                                <action selector="doneButton:" destination="OaN-3n-DIR" id="Fje-gV-K9m"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Wee-qZ-jGD">
-                                <rect key="frame" x="0.0" y="286" width="320" height="162"/>
+                                <rect key="frame" x="-5" y="326" width="320" height="162"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </pickerView>
                         </subviews>
@@ -284,6 +262,7 @@ Watch your back, I'll make you disappear.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nAC-kA-Bt8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="249" y="327"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
