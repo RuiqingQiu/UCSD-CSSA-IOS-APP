@@ -49,6 +49,7 @@
 		47F1524819A9534D006FCEDD /* UC_Sea_ovt.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F1524719A9534D006FCEDD /* UC_Sea_ovt.png */; };
 		47F1524A19B3B37E006FCEDD /* JobHunter_Career_center.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F1524919B3B37E006FCEDD /* JobHunter_Career_center.png */; };
 		523BBDB019EB1428006FABC8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 523BBDAF19EB1428006FABC8 /* LoginViewController.m */; };
+		84D76CE319EEE6DC0043945F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D76CE219EEE6DC0043945F /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -112,6 +113,8 @@
 		47F1524919B3B37E006FCEDD /* JobHunter_Career_center.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobHunter_Career_center.png; sourceTree = "<group>"; };
 		523BBDAE19EB13EA006FABC8 /* LoginViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		523BBDAF19EB1428006FABC8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		84D76CE119EEE6DC0043945F /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = "Scavenger Hunt/ProfileViewController.h"; sourceTree = "<group>"; };
+		84D76CE219EEE6DC0043945F /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = "Scavenger Hunt/ProfileViewController.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +165,8 @@
 				470069EC19A90A2D0092604F /* SHMapViewController.h */,
 				470069ED19A90A2D0092604F /* SHMapViewController.m */,
 				470069EE19A90A2D0092604F /* SHMapViewController.xib */,
+				84D76CE119EEE6DC0043945F /* ProfileViewController.h */,
+				84D76CE219EEE6DC0043945F /* ProfileViewController.m */,
 				523BBDAE19EB13EA006FABC8 /* LoginViewController.h */,
 				523BBDAF19EB1428006FABC8 /* LoginViewController.m */,
 				476EA97719A7FCB8004BC6B1 /* com.ucsdcssa.sh */,
@@ -378,6 +383,7 @@
 				470069EF19A90A2D0092604F /* SHMapViewController.m in Sources */,
 				523BBDB019EB1428006FABC8 /* LoginViewController.m in Sources */,
 				47F1523219A93F5C006FCEDD /* Badge.m in Sources */,
+				84D76CE319EEE6DC0043945F /* ProfileViewController.m in Sources */,
 				476EA97E19A7FCB8004BC6B1 /* main.m in Sources */,
 				476EA98219A7FCB8004BC6B1 /* SHAppDelegate.m in Sources */,
 			);

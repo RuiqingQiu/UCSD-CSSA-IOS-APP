@@ -155,9 +155,11 @@
         
         NSString *keyAsString = (NSString *)key;
         NSString *valueAsString = (NSString *)value;
-        
-        NSLog(@"key: %@", keyAsString);
-        NSLog(@"value: %@", valueAsString);
+        if([keyAsString isEqualToString:@"rkey"]){
+            [[NSUserDefaults standardUserDefaults] setObject:valueAsString forKey:keyAsString];
+        }
+        //NSLog(@"key: %@", keyAsString);
+        //NSLog(@"value: %@", valueAsString);
     }
     
     // extract specific value...
