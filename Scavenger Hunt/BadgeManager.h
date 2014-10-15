@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Ruiqing Qiu. All rights reserved.
 //
 
+//Test
+
 #import <Foundation/Foundation.h>
 
 @interface BadgeManager : NSObject
