@@ -364,9 +364,9 @@ Watch your back, I'll make you disappear.</string>
                         <outlet property="Department" destination="sMN-Li-qit" id="g5f-9J-oT9"/>
                         <outlet property="JobTitle" destination="qBz-Lf-Yjh" id="dHe-nM-8EL"/>
                         <outlet property="Major" destination="ubJ-6j-p9P" id="UxO-jV-tQP"/>
+                        <outlet property="Motto" destination="Omf-d5-dE8" id="Ybz-Ed-JVk"/>
                         <outlet property="Name" destination="EKX-z1-3RW" id="m41-dH-Uem"/>
                         <outlet property="Status" destination="Zy9-tm-bz2" id="LTs-6n-TFD"/>
-                        <outlet property="axiom" destination="Omf-d5-dE8" id="7Q8-NS-jex"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ycd-nO-D2f" userLabel="First Responder" sceneMemberID="firstResponder"/>

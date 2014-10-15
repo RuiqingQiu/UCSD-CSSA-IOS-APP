@@ -117,7 +117,8 @@
     //[request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     //[request setValue:[NSString stringWithFormat:@"%d", [jsonData length]] forHTTPHeaderField:@"Content-Length"];
     //[request setHTTPBody: data];
-    NSString* str = [NSString stringWithFormat:@"username=%@&passwd=%@&name=%@&college@&major@&motto", loginNameString, passwordString,nameString,college,majorString,mottoString];
+    NSString* str = [NSString stringWithFormat:@"username=%@&passwd=%@&name=%@&college=%@&major=%@&motto=%@", loginNameString, passwordString,nameString,college,majorString,mottoString];
+    NSLog(@"%@",str);
     [request setHTTPBody:[str dataUsingEncoding:NSUTF8StringEncoding]];
     //NSData *receive;
     NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];

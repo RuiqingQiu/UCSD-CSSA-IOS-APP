@@ -11,7 +11,7 @@
 @interface ProfileViewController : UIViewController
 {
     __weak IBOutlet UILabel *Department;
-    __weak IBOutlet UILabel *axiom;
+    __weak IBOutlet UILabel *Motto;
     __weak IBOutlet UILabel *Status;
     __weak IBOutlet UILabel *Major;
     __weak IBOutlet UILabel *College;

@@ -9,6 +9,7 @@
 #import "ProfileViewController.h"
 
 @implementation ProfileViewController
+NSArray* arr;
 -(void)viewWillAppear:(BOOL)animated {
     self.responseData = [NSMutableData data];
     [super viewWillAppear:animated];
@@ -16,6 +17,7 @@
     NSString* str = (NSString*)obj;
     NSLog(@"key %@", str);
     [self loadDataWithRKey:str];
+    arr = [[NSArray alloc]initWithObjects:@"",@"ERC", @"Marshall", @"Muir", @"Revelle", @"Warren", @"Sixth",nil];
 }
 
 -(void)loadDataWithRKey:(NSString*) rkey
@@ -67,8 +69,24 @@
  
         NSLog(@"key: %@", keyAsString);
         NSLog(@"value: %@", valueAsString);
+        if(valueAsString == [NSNull null]){
+            continue;
+        }
         if ([keyAsString isEqualToString:@"name"]) {
             [Name setText:valueAsString];
+        }
+        if ([keyAsString isEqualToString:@"position"]) {
+            [JobTitle setText:valueAsString];
+        }
+        if ([keyAsString isEqualToString:@"college"]) {
+            NSString* colle = [arr objectAtIndex:[valueAsString intValue]];
+            [College setText:colle];
+        }
+        if ([keyAsString isEqualToString:@"major"]) {
+            [Major setText:valueAsString];
+        }
+        if ([keyAsString isEqualToString:@"motto"]) {
+            [Motto setText:valueAsString];
         }
     }
     
