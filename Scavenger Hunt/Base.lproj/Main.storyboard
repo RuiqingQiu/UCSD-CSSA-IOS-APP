@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A379b" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="o1h-FQ-fy3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="o1h-FQ-fy3">
     <dependencies>
         <deployment defaultVersion="1808" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -25,7 +25,7 @@
             </objects>
             <point key="canvasLocation" x="-381" y="-50"/>
         </scene>
-        <!--Map-->
+        <!--Map View Controller - Map-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
                 <viewController id="vXZ-lx-hvc" customClass="SHMapViewController" sceneMemberID="viewController">
@@ -57,7 +57,7 @@ Watch your back, I'll make you disappear.</string>
                                 <rect key="frame" x="0.0" y="357" width="320" height="211"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="95" id="c8e-17-6dD">
+                                    <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="default" indentationWidth="10" rowHeight="95" id="c8e-17-6dD">
                                         <rect key="frame" x="0.0" y="22" width="320" height="95"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c8e-17-6dD" id="e9J-tF-Vru">
@@ -65,7 +65,7 @@ Watch your back, I'll make you disappear.</string>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="20" rowHeight="95" id="9aK-6N-I0w">
+                                    <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="default" indentationWidth="20" rowHeight="95" id="9aK-6N-I0w">
                                         <rect key="frame" x="0.0" y="117" width="320" height="95"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9aK-6N-I0w" id="gzQ-0z-k5V">
@@ -112,7 +112,7 @@ Watch your back, I'll make you disappear.</string>
             </objects>
             <point key="canvasLocation" x="642" y="-368"/>
         </scene>
-        <!--Register-->
+        <!--Login View Controller - Register-->
         <scene sceneID="EDF-ad-N7d">
             <objects>
                 <viewController storyboardIdentifier="LoginViewController" id="OaN-3n-DIR" customClass="LoginViewController" sceneMemberID="viewController">
@@ -265,7 +265,7 @@ Watch your back, I'll make you disappear.</string>
             </objects>
             <point key="canvasLocation" x="201" y="325"/>
         </scene>
-        <!--Item-->
+        <!--Profile View Controller - Item-->
         <scene sceneID="SHb-ti-y6i">
             <objects>
                 <viewController id="1cM-Ye-UYb" customClass="ProfileViewController" sceneMemberID="viewController">
