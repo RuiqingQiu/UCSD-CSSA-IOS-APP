@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 
-@interface LoginViewController : UIViewController <UIPickerViewDelegate,UIPickerViewDataSource>
+@interface RegisterViewController : UIViewController <UIPickerViewDelegate,UIPickerViewDataSource>
 {
     IBOutlet UITextField *loginNameFiled;
     IBOutlet UITextField *passwordField;
