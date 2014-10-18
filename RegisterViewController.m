@@ -5,14 +5,14 @@
 //  Created by TK on 10/12/14.
 //  Copyright (c) 2014 Ruiqing Qiu. All rights reserved.
 //
-#import "LoginViewController.h"
+#import "RegisterViewController.h"
 
-@interface LoginViewController ()
+@interface RegisterViewController ()
 @property (nonatomic, strong) NSMutableData *responseData;
 
 @end
 
-@implementation LoginViewController
+@implementation RegisterViewController
 @synthesize responseData = _responseData;
 
 - (IBAction)save:(id)sender;
@@ -161,6 +161,14 @@
         }
         NSLog(@"key: %@", keyAsString);
         NSLog(@"value: %@", valueAsString);
+        
+        
+        if ([keyAsString isEqualToString:@"return"]) {
+            if ([valueAsString intValue] == 0) {
+                //success
+                [self.navigationController popViewControllerAnimated:YES];
+            }
+        }
     }
     
     // extract specific value...

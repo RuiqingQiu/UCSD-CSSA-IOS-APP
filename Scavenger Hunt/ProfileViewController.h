@@ -17,6 +17,13 @@
     __weak IBOutlet UILabel *College;
     __weak IBOutlet UILabel *JobTitle;
     __weak IBOutlet UILabel *Name;
+    IBOutlet UITextField *loging_user;
+    IBOutlet UITextField *login_pass;
+    IBOutlet UIView *loginView;
+    IBOutlet UIView *profileView;
 }
+- (IBAction)login:(id)sender;
+- (IBAction)dismissLoginName:(id)sender;
+- (IBAction)dismissPassword:(id)sender;
 @property (nonatomic, strong) NSMutableData *responseData;
 @end

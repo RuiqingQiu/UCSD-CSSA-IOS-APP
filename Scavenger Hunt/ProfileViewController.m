@@ -14,6 +14,15 @@ NSArray* arr;
     self.responseData = [NSMutableData data];
     [super viewWillAppear:animated];
     id obj = [[NSUserDefaults standardUserDefaults]objectForKey:@"rkey"];
+    //test
+    //obj = nil;
+    //
+    if (obj == nil) {
+        //show loginview
+        self.view = loginView;
+    }else{
+        self.view = profileView;
+    }
     NSString* str = (NSString*)obj;
     NSLog(@"key %@", str);
     [self loadDataWithRKey:str];
@@ -66,9 +75,30 @@ NSArray* arr;
         
         NSString *keyAsString = (NSString *)key;
         NSString *valueAsString = (NSString *)value;
- 
-        NSLog(@"key: %@", keyAsString);
-        NSLog(@"value: %@", valueAsString);
+        NSLog(@"%@",[[connection currentRequest].URL absoluteString]);
+        
+        if ([[[connection currentRequest].URL absoluteString]isEqualToString:@"http://c.zinsser.me/login.php"]) {
+            NSLog(@"key: %@", keyAsString);
+            NSLog(@"value: %@", valueAsString);
+            //do login
+            if ([keyAsString isEqualToString:@"rkey"]) {
+                 [[NSUserDefaults standardUserDefaults] setObject:valueAsString forKey:keyAsString];
+                [self viewWillAppear:NO];
+            }
+            
+            if ([keyAsString isEqualToString:@"return"]) {
+                if ([valueAsString intValue] != 0) {
+                    //err occur login fail
+                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Login Failed"
+                                                                    message:@"Login failed. Check your pswd and username!"
+                                                                   delegate:nil
+                                                          cancelButtonTitle:@"OK"
+                                                          otherButtonTitles:nil];
+                    [alert show];
+                }
+            }
+        }else{
+        
         if(valueAsString == [NSNull null]){
             continue;
         }
@@ -88,6 +118,8 @@ NSArray* arr;
         if ([keyAsString isEqualToString:@"motto"]) {
             [Motto setText:valueAsString];
         }
+            
+        }
     }
     
     // extract specific value...
@@ -99,4 +131,28 @@ NSArray* arr;
     }
     
 }
+- (IBAction)login:(id)sender {
+    NSString * timestamp = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]];
+    int i_time = [timestamp intValue];
+    int tkey = i_time^1212496151;
+    NSString* s_tkey = [NSString stringWithFormat:@"%i",tkey];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://c.zinsser.me/login.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    
+    [request setHTTPMethod:@"POST"];
+    
+    NSString* str = [NSString stringWithFormat:@"tkey=%@&username=%@&passwd=%@", s_tkey, loging_user.text,login_pass.text];
+    [request setHTTPBody:[str dataUsingEncoding:NSUTF8StringEncoding]];
+    //NSData *receive;
+    NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
+    [connection setAccessibilityHint:@"login"];
+    //[request setAccessibilityHint:@"login"];
+    //NSLog(@"%@",timestamp);
+}
+- (IBAction)dismissLoginName:(id)sender
+{
+[sender resignFirstResponder];}
+- (IBAction)dismissPassword:(id)sender
+{
+[sender resignFirstResponder];}
+
 @end
