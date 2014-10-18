@@ -55,6 +55,8 @@
 		AA20802F19F2653100AD7FFD /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = AA20802E19F2653100AD7FFD /* Annotation.m */; };
 		AA20803219F26D0E00AD7FFD /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20803119F26D0E00AD7FFD /* icon.png */; };
 		AA20803419F26F1100AD7FFD /* rsz_icon1.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20803319F26F1100AD7FFD /* rsz_icon1.png */; };
+		AA34240119F32DB60075A3DF /* map_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = AA34240019F32DB60075A3DF /* map_avatar.png */; };
+		AA34240319F330D90075A3DF /* map_pin_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = AA34240219F330D90075A3DF /* map_pin_v2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +129,8 @@
 		AA20803019F2654600AD7FFD /* Annotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Annotation.h; path = "Scavenger Hunt/Annotation.h"; sourceTree = "<group>"; };
 		AA20803119F26D0E00AD7FFD /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		AA20803319F26F1100AD7FFD /* rsz_icon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rsz_icon1.png; sourceTree = "<group>"; };
+		AA34240019F32DB60075A3DF /* map_avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_avatar.png; sourceTree = "<group>"; };
+		AA34240219F330D90075A3DF /* map_pin_v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_pin_v2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +277,8 @@
 		47F1523619A9512D006FCEDD /* src */ = {
 			isa = PBXGroup;
 			children = (
+				AA34240219F330D90075A3DF /* map_pin_v2.png */,
+				AA34240019F32DB60075A3DF /* map_avatar.png */,
 				AA20803319F26F1100AD7FFD /* rsz_icon1.png */,
 				AA20803119F26D0E00AD7FFD /* icon.png */,
 				47F1524919B3B37E006FCEDD /* JobHunter_Career_center.png */,
@@ -375,6 +381,7 @@
 				476EA97C19A7FCB8004BC6B1 /* InfoPlist.strings in Resources */,
 				AA20803219F26D0E00AD7FFD /* icon.png in Resources */,
 				47F1524019A95145006FCEDD /* Sun_god_hug.png in Resources */,
+				AA34240319F330D90075A3DF /* map_pin_v2.png in Resources */,
 				47F1524219A95145006FCEDD /* Home_for_4_years_Geisel.png in Resources */,
 				AA20803419F26F1100AD7FFD /* rsz_icon1.png in Resources */,
 				47F1524619A95145006FCEDD /* A_bite_of_Mexico_Goodies.png in Resources */,
@@ -382,6 +389,7 @@
 				47F1524A19B3B37E006FCEDD /* JobHunter_Career_center.png in Resources */,
 				47F1524519A95145006FCEDD /* Before_you_die.png in Resources */,
 				47F1524319A95145006FCEDD /* Fallen_Star.png in Resources */,
+				AA34240119F32DB60075A3DF /* map_avatar.png in Resources */,
 				47F1524819A9534D006FCEDD /* UC_Sea_ovt.png in Resources */,
 				47F1523F19A95145006FCEDD /* Xueba_help_me_AS_Notes.png in Resources */,
 				476EA98519A7FCB8004BC6B1 /* Main.storyboard in Resources */,

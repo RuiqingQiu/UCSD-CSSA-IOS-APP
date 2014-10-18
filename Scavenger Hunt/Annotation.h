@@ -10,10 +10,11 @@
 //Custom class for annotation
 @interface Annotation : NSObject<MKAnnotation>
 //用属性实现协议里面的方法，同时提供类外的接口
-@property(nonatomic,copy)NSString *title,*subtitle;
+@property(nonatomic,copy)NSString *title,*subtitle, *image_url;
 @property(nonatomic,assign)CLLocationCoordinate2D coordinate;
 
--(id)initWithTitle:(NSString *)newTitle Location:(CLLocationCoordinate2D)location;
+-(id)initWithTitle:(NSString *)newTitle Location:(CLLocationCoordinate2D)location image_url:(NSString *) url;
 -(MKAnnotationView*)annotationView;
+-(UIImage *) getImageFromURL:(NSString *)fileURL;
 @end
 
