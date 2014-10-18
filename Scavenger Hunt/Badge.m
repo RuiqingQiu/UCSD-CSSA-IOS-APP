@@ -26,7 +26,7 @@
             self.isHidden = NO;
             self.longtitude = 0.0;
             self.latitude = 0.0;
-            self.description = @" ";
+            //self.description = @" ";
             self.image = [UIImage imageNamed:@"Big_red_chair.png"];
             break;
         case 3:
@@ -34,7 +34,7 @@
             self.isHidden = NO;
             self.longtitude = -117.239719;
             self.latitude = 32.878560;
-            self.description = @" ";
+            //self.description = @" ";
             self.image = [UIImage imageNamed:@"Xueba_help_me_AS_Notes.png"];
             break;
         case 4:
@@ -42,7 +42,7 @@
             self.isHidden = NO;
             self.longtitude = 0.0;
             self.latitude = 0.0;
-            self.description = @" ";
+            //self.description = @" ";
             self.image = [UIImage imageNamed:@"Sun_god_hug.png"];
             break;
         case 5:
@@ -50,7 +50,7 @@
             self.isHidden = NO;
             self.longtitude = 0.0;
             self.latitude = 0.0;
-            self.description = @" ";
+            //self.description = @" ";
             self.image = [UIImage imageNamed:@"Before_you_die.png"];
             break;
         case 6:
@@ -58,7 +58,7 @@
             self.isHidden = NO;
             self.longtitude = 0.0;
             self.latitude = 0.0;
-            self.description = @" ";
+            //self.description = @" ";
             self.image = nil;
             break;
         case 7:
@@ -66,7 +66,7 @@
             self.isHidden = NO;
             self.longtitude = 0.0;
             self.latitude = 0.0;
-            self.description = @" ";
+            //self.description = @" ";
             self.image = nil;
             break;
         case 8:
@@ -74,7 +74,7 @@
             self.isHidden = NO;
             self.longtitude = 0.0;
             self.latitude = 0.0;
-            self.description = @" ";
+            //self.description = @" ";
             self.image = nil;
             break;
         case 9:
@@ -82,7 +82,7 @@
             self.isHidden = NO;
             self.longtitude = 0.0;
             self.latitude = 0.0;
-            self.description = @" ";
+            //self.description = @" ";
             self.image = nil;
             break;
         case 10:
@@ -90,7 +90,7 @@
             self.isHidden = NO;
             self.longtitude = 0.0;
             self.latitude = 0.0;
-            self.description = @" ";
+            //self.description = @" ";
             self.image = nil;
             break;
         case 11:
@@ -98,7 +98,7 @@
             self.isHidden = NO;
             self.longtitude = 0.0;
             self.latitude = 0.0;
-            self.description = @" ";
+            //self.description = @" ";
             self.image = [UIImage imageNamed:@"JobHunter_Career_center.png"];
             break;
         case 12:
@@ -106,7 +106,7 @@
             self.isHidden = NO;
             self.longtitude = 0.0;
             self.latitude = 0.0;
-            self.description = @" ";
+            //self.description = @" ";
             self.image = [UIImage imageNamed:@"UC_Sea_ovt.png"];
             break;
         case 13:
@@ -114,7 +114,7 @@
             self.isHidden = NO;
             self.longtitude = 0.0;
             self.latitude = 0.0;
-            self.description = @" ";
+            //self.description = @" ";
             self.image = [UIImage imageNamed:@"A_bit_of_Mexico_Goodies.png"];;
             break;
         case 14:
@@ -122,7 +122,7 @@
             self.isHidden = NO;
             self.longtitude = 0.0;
             self.latitude = 0.0;
-            self.description = @" ";
+            //self.description = @" ";
             self.image = nil;
             break;
         case 15:
@@ -130,7 +130,7 @@
             self.isHidden = NO;
             self.longtitude = 0.0;
             self.latitude = 0.0;
-            self.description = @" ";
+            //self.description = @" ";
             self.image = nil;
             break;
         case 16:
@@ -138,7 +138,7 @@
             self.isHidden = NO;
             self.longtitude = 0.0;
             self.latitude = 0.0;
-            self.description = @" ";
+            //self.description = @" ";
             self.image = nil;
             break;
         case 17:
@@ -146,7 +146,7 @@
             self.isHidden = NO;
             self.longtitude = 0.0;
             self.latitude = 0.0;
-            self.description = @" ";
+            //self.description = @" ";
             self.image = nil;
             break;
         case 18:
@@ -154,7 +154,7 @@
             self.isHidden = NO;
             self.latitude = 32.881957;
             self.longtitude = -117.234124;
-            self.description = @" ";
+            //self.description = @" ";
             self.image = [UIImage imageNamed:@"Stone_bear.png"];
             break;
         case 19:
@@ -162,7 +162,7 @@
             self.isHidden = NO;
             self.longtitude = 0.0;
             self.latitude = 0.0;
-            self.description = @" ";
+            //self.description = @" ";
             self.image = nil;
             break;
         case 20:
@@ -170,7 +170,7 @@
             self.isHidden = NO;
             self.longtitude = 0.0;
             self.latitude = 0.0;
-            self.description = @" ";
+            //self.description = @" ";
             self.image = [UIImage imageNamed:@"Fallen_Star.png"];;
             break;
         case 21:
@@ -178,7 +178,7 @@
             self.isHidden = NO;
             self.longtitude = 0.0;
             self.latitude = 0.0;
-            self.description = @" ";
+            //self.description = @" ";
             self.image = nil;
             break;
         case 22:
@@ -186,7 +186,7 @@
             self.isHidden = NO;
             self.longtitude = 0.0;
             self.latitude = 0.0;
-            self.description = @" ";
+            //self.description = @" ";
             self.image = nil;
             break;
         case 23:
@@ -194,7 +194,7 @@
             self.isHidden = NO;
             self.longtitude = 0.0;
             self.latitude = 0.0;
-            self.description = @" ";
+            //self.description = @" ";
             self.image = nil;
             break;
         case 24:
@@ -202,7 +202,7 @@
             self.isHidden = NO;
             self.longtitude = 0.0;
             self.latitude = 0.0;
-            self.description = @" ";
+            //self.description = @" ";
             self.image = nil;
             break;
         case 25:
@@ -210,7 +210,7 @@
             self.isHidden = NO;
             self.longtitude = 0.0;
             self.latitude = 0.0;
-            self.description = @" ";
+            //self.description = @" ";
             self.image = [UIImage imageNamed:@"Home_for_4_years_Geisel.png"];;
             break;
         case 26:
@@ -218,7 +218,7 @@
             self.isHidden = NO;
             self.longtitude = 0.0;
             self.latitude = 0.0;
-            self.description = @" ";
+            //self.description = @" ";
             self.image = nil;
             break;
         default:

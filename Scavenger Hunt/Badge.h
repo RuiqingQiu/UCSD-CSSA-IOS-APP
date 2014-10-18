@@ -17,7 +17,7 @@
 @property BOOL isHidden;
 @property double longtitude;
 @property double latitude;
-@property NSString *description;
+//@property NSString *description;
 @property int badgeID;
 @property UIImage *image;
 -(Badge*)initWithID:(int) BadgeID;

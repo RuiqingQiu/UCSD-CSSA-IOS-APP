@@ -50,6 +50,11 @@
 		47F1524A19B3B37E006FCEDD /* JobHunter_Career_center.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F1524919B3B37E006FCEDD /* JobHunter_Career_center.png */; };
 		523BBDB019EB1428006FABC8 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 523BBDAF19EB1428006FABC8 /* LoginViewController.m */; };
 		84D76CE319EEE6DC0043945F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D76CE219EEE6DC0043945F /* ProfileViewController.m */; };
+		AA20802B19F2646100AD7FFD /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA20802A19F2646100AD7FFD /* MapViewController.m */; };
+		AA20802D19F2649A00AD7FFD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA20802C19F2649A00AD7FFD /* MapKit.framework */; };
+		AA20802F19F2653100AD7FFD /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = AA20802E19F2653100AD7FFD /* Annotation.m */; };
+		AA20803219F26D0E00AD7FFD /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20803119F26D0E00AD7FFD /* icon.png */; };
+		AA20803419F26F1100AD7FFD /* rsz_icon1.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20803319F26F1100AD7FFD /* rsz_icon1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +120,13 @@
 		523BBDAF19EB1428006FABC8 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
 		84D76CE119EEE6DC0043945F /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = "Scavenger Hunt/ProfileViewController.h"; sourceTree = "<group>"; };
 		84D76CE219EEE6DC0043945F /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = "Scavenger Hunt/ProfileViewController.m"; sourceTree = "<group>"; };
+		AA20802919F2646100AD7FFD /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = "Scavenger Hunt/MapViewController.h"; sourceTree = "<group>"; };
+		AA20802A19F2646100AD7FFD /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = "Scavenger Hunt/MapViewController.m"; sourceTree = "<group>"; };
+		AA20802C19F2649A00AD7FFD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		AA20802E19F2653100AD7FFD /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Annotation.m; path = "Scavenger Hunt/Annotation.m"; sourceTree = "<group>"; };
+		AA20803019F2654600AD7FFD /* Annotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Annotation.h; path = "Scavenger Hunt/Annotation.h"; sourceTree = "<group>"; };
+		AA20803119F26D0E00AD7FFD /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		AA20803319F26F1100AD7FFD /* rsz_icon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rsz_icon1.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA20802D19F2649A00AD7FFD /* MapKit.framework in Frameworks */,
 				476EA9C119A7FDDE004BC6B1 /* CoreText.framework in Frameworks */,
 				476EA9BF19A7FDD1004BC6B1 /* SystemConfiguration.framework in Frameworks */,
 				476EA9BD19A7FDCB004BC6B1 /* QuartzCore.framework in Frameworks */,
@@ -157,6 +170,10 @@
 		476EA96519A7FCB8004BC6B1 = {
 			isa = PBXGroup;
 			children = (
+				AA20802E19F2653100AD7FFD /* Annotation.m */,
+				AA20803019F2654600AD7FFD /* Annotation.h */,
+				AA20802919F2646100AD7FFD /* MapViewController.h */,
+				AA20802A19F2646100AD7FFD /* MapViewController.m */,
 				47F1523619A9512D006FCEDD /* src */,
 				47F1523319A944E4006FCEDD /* BadgeManager.h */,
 				47F1523419A944E4006FCEDD /* BadgeManager.m */,
@@ -188,6 +205,7 @@
 		476EA97019A7FCB8004BC6B1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AA20802C19F2649A00AD7FFD /* MapKit.framework */,
 				476EA9C019A7FDDE004BC6B1 /* CoreText.framework */,
 				476EA9BE19A7FDD1004BC6B1 /* SystemConfiguration.framework */,
 				476EA9BC19A7FDCB004BC6B1 /* QuartzCore.framework */,
@@ -255,6 +273,8 @@
 		47F1523619A9512D006FCEDD /* src */ = {
 			isa = PBXGroup;
 			children = (
+				AA20803319F26F1100AD7FFD /* rsz_icon1.png */,
+				AA20803119F26D0E00AD7FFD /* icon.png */,
 				47F1524919B3B37E006FCEDD /* JobHunter_Career_center.png */,
 				47F1524719A9534D006FCEDD /* UC_Sea_ovt.png */,
 				47F1523719A95145006FCEDD /* Xueba_help_me_AS_Notes.png */,
@@ -317,6 +337,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Ruiqing Qiu";
 				TargetAttributes = {
+					476EA96D19A7FCB8004BC6B1 = {
+						DevelopmentTeam = RC47RUQEKD;
+					};
 					476EA98E19A7FCB9004BC6B1 = {
 						TestTargetID = 476EA96D19A7FCB8004BC6B1;
 					};
@@ -350,8 +373,10 @@
 				470069F019A90A2D0092604F /* SHMapViewController.xib in Resources */,
 				476EA98A19A7FCB8004BC6B1 /* Images.xcassets in Resources */,
 				476EA97C19A7FCB8004BC6B1 /* InfoPlist.strings in Resources */,
+				AA20803219F26D0E00AD7FFD /* icon.png in Resources */,
 				47F1524019A95145006FCEDD /* Sun_god_hug.png in Resources */,
 				47F1524219A95145006FCEDD /* Home_for_4_years_Geisel.png in Resources */,
+				AA20803419F26F1100AD7FFD /* rsz_icon1.png in Resources */,
 				47F1524619A95145006FCEDD /* A_bite_of_Mexico_Goodies.png in Resources */,
 				47F1524119A95145006FCEDD /* Stone_bear.png in Resources */,
 				47F1524A19B3B37E006FCEDD /* JobHunter_Career_center.png in Resources */,
@@ -382,7 +407,9 @@
 				47F1523519A944E4006FCEDD /* BadgeManager.m in Sources */,
 				470069EF19A90A2D0092604F /* SHMapViewController.m in Sources */,
 				523BBDB019EB1428006FABC8 /* LoginViewController.m in Sources */,
+				AA20802F19F2653100AD7FFD /* Annotation.m in Sources */,
 				47F1523219A93F5C006FCEDD /* Badge.m in Sources */,
+				AA20802B19F2646100AD7FFD /* MapViewController.m in Sources */,
 				84D76CE319EEE6DC0043945F /* ProfileViewController.m in Sources */,
 				476EA97E19A7FCB8004BC6B1 /* main.m in Sources */,
 				476EA98219A7FCB8004BC6B1 /* SHAppDelegate.m in Sources */,
@@ -510,6 +537,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -519,6 +548,7 @@
 				INFOPLIST_FILE = "Scavenger Hunt/Scavenger Hunt-Info.plist";
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -528,6 +558,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -537,6 +569,7 @@
 				INFOPLIST_FILE = "Scavenger Hunt/Scavenger Hunt-Info.plist";
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

@@ -159,8 +159,8 @@
         if([keyAsString isEqualToString:@"rkey"]){
             [[NSUserDefaults standardUserDefaults] setObject:valueAsString forKey:keyAsString];
         }
-        //NSLog(@"key: %@", keyAsString);
-        //NSLog(@"value: %@", valueAsString);
+        NSLog(@"key: %@", keyAsString);
+        NSLog(@"value: %@", valueAsString);
     }
     
     // extract specific value...

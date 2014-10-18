@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="o1h-FQ-fy3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="o1h-FQ-fy3">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
         <!--Tab Bar Controller-->
@@ -24,10 +24,10 @@
             </objects>
             <point key="canvasLocation" x="-381" y="-50"/>
         </scene>
-        <!--Map View Controller - Map-->
+        <!--Map-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="SHMapViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -36,82 +36,22 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="c0k-n4-z6b" customClass="GMSMapView">
-                                <rect key="frame" x="0.0" y="20" width="320" height="336"/>
-                                <subviews>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" alpha="0.20000000000000001" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="opK-KW-M4J">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
-                                        <color key="backgroundColor" red="0.0" green="0.9528812570306453" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                        <string key="text">This is the title of the handbook.
-I know it's not that pretty, but sorry...
-What? Not satisfied? 
-Watch your back, I'll make you disappear.</string>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="LYW-ex-96M">
-                                <rect key="frame" x="0.0" y="357" width="320" height="211"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="default" indentationWidth="10" rowHeight="95" id="c8e-17-6dD">
-                                        <rect key="frame" x="0.0" y="22" width="320" height="95"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c8e-17-6dD" id="e9J-tF-Vru">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="94"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="default" indentationWidth="20" rowHeight="95" id="9aK-6N-I0w">
-                                        <rect key="frame" x="0.0" y="117" width="320" height="95"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9aK-6N-I0w" id="gzQ-0z-k5V">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="94"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </prototypes>
-                                <sections/>
-                                <connections>
-                                    <outlet property="dataSource" destination="vXZ-lx-hvc" id="SVS-M4-8T7"/>
-                                    <outlet property="delegate" destination="vXZ-lx-hvc" id="U2t-pm-JLH"/>
-                                </connections>
-                            </tableView>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="IhT-Bu-F8c">
+                                <rect key="frame" x="0.0" y="-33" width="320" height="552"/>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" id="9YE-pO-i48"/>
                     <connections>
-                        <outlet property="handBookTitle" destination="opK-KW-M4J" id="hjO-5L-kT2"/>
-                        <outlet property="map" destination="c0k-n4-z6b" id="i6P-LM-gf2"/>
-                        <outlet property="tableView" destination="LYW-ex-96M" id="rvA-tP-A0K"/>
+                        <outlet property="myMapView" destination="IhT-Bu-F8c" id="3eh-WX-JRW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="219" y="-368"/>
         </scene>
-        <!--Map View Controller-->
-        <scene sceneID="wND-2M-dXu">
-            <objects>
-                <viewController id="jrH-uw-ZCM" customClass="SHMapViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="mUI-YG-o8s"/>
-                        <viewControllerLayoutGuide type="bottom" id="lX2-di-kkt"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ozm-3X-tHb">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HaK-oQ-ugh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="642" y="-368"/>
-        </scene>
-        <!--Login View Controller - Register-->
+        <!--Register-->
         <scene sceneID="EDF-ad-N7d">
             <objects>
                 <viewController storyboardIdentifier="LoginViewController" id="OaN-3n-DIR" customClass="LoginViewController" sceneMemberID="viewController">
@@ -297,7 +237,7 @@ Watch your back, I'll make you disappear.</string>
             </objects>
             <point key="canvasLocation" x="201" y="325"/>
         </scene>
-        <!--Profile View Controller - Item-->
+        <!--Item-->
         <scene sceneID="SHb-ti-y6i">
             <objects>
                 <viewController id="1cM-Ye-UYb" customClass="ProfileViewController" sceneMemberID="viewController">
