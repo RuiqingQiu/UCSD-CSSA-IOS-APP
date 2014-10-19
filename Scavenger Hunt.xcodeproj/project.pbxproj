@@ -50,6 +50,13 @@
 		47F1524A19B3B37E006FCEDD /* JobHunter_Career_center.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F1524919B3B37E006FCEDD /* JobHunter_Career_center.png */; };
 		523789E919F331F600391CC3 /* login_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 523789E719F331F600391CC3 /* login_avatar.png */; };
 		523789EA19F331F600391CC3 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 523789E819F331F600391CC3 /* background.png */; };
+		523A28D019F36DA00094999E /* lthj.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 523A28CF19F36BB30094999E /* lthj.TTF */; };
+		523A28D619F374840094999E /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 523A28D519F374840094999E /* EventViewController.m */; };
+		523A28D919F388950094999E /* Poster_halloween2.png in Resources */ = {isa = PBXBuildFile; fileRef = 523A28D719F388950094999E /* Poster_halloween2.png */; };
+		523A28DA19F388950094999E /* Poster_halloween.png in Resources */ = {isa = PBXBuildFile; fileRef = 523A28D819F388950094999E /* Poster_halloween.png */; };
+		523A28DC19F38AA50094999E /* login_avatar_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 523A28DB19F38AA50094999E /* login_avatar_v2.png */; };
+		523A28DE19F38C850094999E /* Poster_scavengerhunt.png in Resources */ = {isa = PBXBuildFile; fileRef = 523A28DD19F38C850094999E /* Poster_scavengerhunt.png */; };
+		523A28E019F38CE80094999E /* Poster_halloween_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 523A28DF19F38CE80094999E /* Poster_halloween_v2.png */; };
 		523BBDB019EB1428006FABC8 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 523BBDAF19EB1428006FABC8 /* RegisterViewController.m */; };
 		84D76CE319EEE6DC0043945F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D76CE219EEE6DC0043945F /* ProfileViewController.m */; };
 		AA20802B19F2646100AD7FFD /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA20802A19F2646100AD7FFD /* MapViewController.m */; };
@@ -122,6 +129,14 @@
 		47F1524919B3B37E006FCEDD /* JobHunter_Career_center.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JobHunter_Career_center.png; sourceTree = "<group>"; };
 		523789E719F331F600391CC3 /* login_avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_avatar.png; sourceTree = "<group>"; };
 		523789E819F331F600391CC3 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		523A28CF19F36BB30094999E /* lthj.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = lthj.TTF; sourceTree = "<group>"; };
+		523A28D419F374840094999E /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
+		523A28D519F374840094999E /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
+		523A28D719F388950094999E /* Poster_halloween2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Poster_halloween2.png; sourceTree = "<group>"; };
+		523A28D819F388950094999E /* Poster_halloween.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Poster_halloween.png; sourceTree = "<group>"; };
+		523A28DB19F38AA50094999E /* login_avatar_v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_avatar_v2.png; sourceTree = "<group>"; };
+		523A28DD19F38C850094999E /* Poster_scavengerhunt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Poster_scavengerhunt.png; sourceTree = "<group>"; };
+		523A28DF19F38CE80094999E /* Poster_halloween_v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Poster_halloween_v2.png; sourceTree = "<group>"; };
 		523BBDAE19EB13EA006FABC8 /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		523BBDAF19EB1428006FABC8 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		84D76CE119EEE6DC0043945F /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = "Scavenger Hunt/ProfileViewController.h"; sourceTree = "<group>"; };
@@ -192,6 +207,8 @@
 				470069EE19A90A2D0092604F /* SHMapViewController.xib */,
 				84D76CE119EEE6DC0043945F /* ProfileViewController.h */,
 				84D76CE219EEE6DC0043945F /* ProfileViewController.m */,
+				523A28D419F374840094999E /* EventViewController.h */,
+				523A28D519F374840094999E /* EventViewController.m */,
 				523BBDAE19EB13EA006FABC8 /* RegisterViewController.h */,
 				523BBDAF19EB1428006FABC8 /* RegisterViewController.m */,
 				476EA97719A7FCB8004BC6B1 /* com.ucsdcssa.sh */,
@@ -252,6 +269,7 @@
 		476EA97819A7FCB8004BC6B1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				523A28CF19F36BB30094999E /* lthj.TTF */,
 				476EA97919A7FCB8004BC6B1 /* Scavenger Hunt-Info.plist */,
 				476EA97A19A7FCB8004BC6B1 /* InfoPlist.strings */,
 				476EA97D19A7FCB8004BC6B1 /* main.m */,
@@ -295,6 +313,11 @@
 				47F1523C19A95145006FCEDD /* Big_red_chair.png */,
 				47F1523D19A95145006FCEDD /* Before_you_die.png */,
 				47F1523E19A95145006FCEDD /* A_bite_of_Mexico_Goodies.png */,
+				523A28D719F388950094999E /* Poster_halloween2.png */,
+				523A28D819F388950094999E /* Poster_halloween.png */,
+				523A28DF19F38CE80094999E /* Poster_halloween_v2.png */,
+				523A28DD19F38C850094999E /* Poster_scavengerhunt.png */,
+				523A28DB19F38AA50094999E /* login_avatar_v2.png */,
 			);
 			name = src;
 			sourceTree = "<group>";
@@ -389,17 +412,23 @@
 				47F1524219A95145006FCEDD /* Home_for_4_years_Geisel.png in Resources */,
 				AA20803419F26F1100AD7FFD /* rsz_icon1.png in Resources */,
 				47F1524619A95145006FCEDD /* A_bite_of_Mexico_Goodies.png in Resources */,
+				523A28DA19F388950094999E /* Poster_halloween.png in Resources */,
 				47F1524119A95145006FCEDD /* Stone_bear.png in Resources */,
 				47F1524A19B3B37E006FCEDD /* JobHunter_Career_center.png in Resources */,
 				523789EA19F331F600391CC3 /* background.png in Resources */,
+				523A28D019F36DA00094999E /* lthj.TTF in Resources */,
 				47F1524519A95145006FCEDD /* Before_you_die.png in Resources */,
+				523A28E019F38CE80094999E /* Poster_halloween_v2.png in Resources */,
 				47F1524319A95145006FCEDD /* Fallen_Star.png in Resources */,
 				AA34240119F32DB60075A3DF /* map_avatar.png in Resources */,
 				47F1524819A9534D006FCEDD /* UC_Sea_ovt.png in Resources */,
 				523789E919F331F600391CC3 /* login_avatar.png in Resources */,
+				523A28DE19F38C850094999E /* Poster_scavengerhunt.png in Resources */,
 				47F1523F19A95145006FCEDD /* Xueba_help_me_AS_Notes.png in Resources */,
 				476EA98519A7FCB8004BC6B1 /* Main.storyboard in Resources */,
 				476EA9A919A7FD50004BC6B1 /* GoogleMaps.bundle in Resources */,
+				523A28DC19F38AA50094999E /* login_avatar_v2.png in Resources */,
+				523A28D919F388950094999E /* Poster_halloween2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -425,6 +454,7 @@
 				47F1523219A93F5C006FCEDD /* Badge.m in Sources */,
 				AA20802B19F2646100AD7FFD /* MapViewController.m in Sources */,
 				84D76CE319EEE6DC0043945F /* ProfileViewController.m in Sources */,
+				523A28D619F374840094999E /* EventViewController.m in Sources */,
 				476EA97E19A7FCB8004BC6B1 /* main.m in Sources */,
 				476EA98219A7FCB8004BC6B1 /* SHAppDelegate.m in Sources */,
 			);
