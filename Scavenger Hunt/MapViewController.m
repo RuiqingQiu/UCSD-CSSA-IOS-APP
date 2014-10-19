@@ -15,7 +15,7 @@
 @synthesize myMapView;
 @synthesize locationManager;
 
-double latitude, longtitude;
+double latitude, longitude;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -59,8 +59,8 @@ double latitude, longtitude;
     region.center.latitude=32.8664011;
     region.center.longitude=-117.2233901;
     //设置显示范围
-    region.span.latitudeDelta=0.1;
-    region.span.longitudeDelta=0.1;
+    region.span.latitudeDelta=0.05;
+    region.span.longitudeDelta=0.05;
     //指定代理
     
     self.myMapView.delegate=self;
@@ -70,7 +70,7 @@ double latitude, longtitude;
     self.myMapView.region=region;
     
     CLLocationCoordinate2D place = CLLocationCoordinate2DMake(33, -117);
-    Annotation *place_anno = [[Annotation alloc]initWithTitle:@"Hello" Location:place];
+    Annotation *place_anno = [[Annotation alloc]initWithTitle:@"Hello" Location:place image_url:@""];
     [self.myMapView addAnnotation:place_anno];
 }
 
@@ -78,19 +78,11 @@ double latitude, longtitude;
 {
     CLLocation *location=userLocation.location;
     latitude = location.coordinate.latitude;
-    longtitude = location.coordinate.longitude;
+    longitude = location.coordinate.longitude;
     CLLocationCoordinate2D center=location.coordinate;
     [self.myMapView setCenterCoordinate:center animated:YES];
-    
-    //建立一个遵守协议的类 作为中介
-    Annotation *anno=[[Annotation alloc]init];
-    //大头针的信息
-    anno.title=@"title";
-    anno.subtitle=@"subtitle";
-    //大头针的位置
-    anno.coordinate=center;
-    
-    [self.myMapView addAnnotation:anno];
+    NSLog(@"update location");
+    [self send];
     
 }
 //与tableViewCell一样
@@ -171,8 +163,6 @@ double latitude, longtitude;
         if ([pinView isEqual:@"Current Location"]==NO)
         {
             [mapView selectAnnotation:pinView.annotation animated:YES];
-            //枚举立即停止 *stop
-            //*stop=YES;
         }
     }];
 }
@@ -204,12 +194,12 @@ double latitude, longtitude;
 
 
 /* For sending location data */
-- (IBAction)save:(id)sender;
+- (void)send
 {
     double time = [[NSDate date] timeIntervalSince1970];
     NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                 [[NSNumber numberWithDouble:latitude] stringValue],@"latitude",
-                                [[NSNumber numberWithDouble:longtitude]stringValue],@"longtitude",
+                                [[NSNumber numberWithDouble:longitude]stringValue],@"longitude",
                                 nil];
     NSLog(@"%@",dictionary);
     
@@ -218,18 +208,22 @@ double latitude, longtitude;
                                                        options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
                                                          error:&error];
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://c.zinsser.me/setLocation.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://c.zinsser.me/updateLocation.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     
     
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     NSData* data = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     [request setHTTPMethod:@"POST"];
-    NSString* str = [NSString stringWithFormat:@"latitude=%@&longtitude=%@", [[NSNumber numberWithDouble:latitude] stringValue], [[NSNumber numberWithDouble:longtitude]stringValue]];
+    id obj = [[NSUserDefaults standardUserDefaults]objectForKey:@"rkey"];
+    NSString* rkey = (NSString*)obj;
+    NSLog(@"update location, key %@", rkey);
+    NSString* str = [NSString stringWithFormat:@"rkey=%@&latitude=%@&longitude=%@", rkey,[[NSNumber numberWithDouble:latitude] stringValue], [[NSNumber numberWithDouble:longitude]stringValue]];
     NSLog(@"%@",str);
     [request setHTTPBody:[str dataUsingEncoding:NSUTF8StringEncoding]];
     NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
     
 }
+
 /* For loading datas */
 
 -(void)loadDataWithRKey:(NSString*) rkey
@@ -238,16 +232,15 @@ double latitude, longtitude;
         return;
     }
     //TODO, change it to load location
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://c.zinsser.me/getProfile.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://c.zinsser.me/getLocation.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     
     [request setHTTPMethod:@"POST"];
     
-    NSString* str = [NSString stringWithFormat:@"rkey=%@&profile_id=0", rkey];
+    NSString* str = [NSString stringWithFormat:@"rkey=%@", rkey];
     [request setHTTPBody:[str dataUsingEncoding:NSUTF8StringEncoding]];
+    NSLog(@"load data");
     //NSData *receive;
     NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
-    
-    
 }
 
 /* Loading other users' location */
@@ -276,7 +269,7 @@ double latitude, longtitude;
     
     // show all values
     for(id key in res) {
-        
+        NSLog(@"in loop");
         id value = [res objectForKey:key];
         
         NSString *keyAsString = (NSString *)key;
@@ -287,20 +280,35 @@ double latitude, longtitude;
         
         
         double latitude;
-        double longtitude;
+        double longitude;
         if(valueAsString == [NSNull null]){
             continue;
         }
-        if([keyAsString isEqualToString:@"latitude"]){
-            latitude = [valueAsString doubleValue];
+        //Check if it's the result
+        if([keyAsString isEqualToString:@"result"]){
+            NSArray*dic = (NSArray*)value;
+            
+            //Loop through all the data in the dictionary and put markers
+            for(int i = 0; i < dic.count; i++){
+                NSLog(@"zzzz%@", [[value objectAtIndex:i]objectForKey:@"name"]);
+                NSLog(@"latitude%@", [[value objectAtIndex:i]objectForKey:@"latitude"]);
+                NSLog(@"longitude%@", [[value objectAtIndex:i]objectForKey:@"longitude"]);
+                NSLog(@"avatar_url%@", [[value objectAtIndex:i]objectForKey:@"avatar_small"]);
+                
+                NSString* url =[[value objectAtIndex:i]objectForKey:@"avatar_small"];
+                
+                NSLog(@"%@", url);
+                if([url isEqual:[NSNull null]]){
+                    url = @"";
+                    NSLog(@"is null");
+                }
+                
+                CLLocationCoordinate2D tmp = CLLocationCoordinate2DMake([[[value objectAtIndex:i]objectForKey:@"latitude"] doubleValue],[[[value objectAtIndex:i]objectForKey:@"longitude"] doubleValue]
+);
+                Annotation *place_anno = [[Annotation alloc]initWithTitle:[[value objectAtIndex:i]objectForKey:@"name"] Location:tmp image_url:url];
+                [self.myMapView addAnnotation:place_anno];
+            }
         }
-        if([keyAsString isEqualToString:@"longtitude"]){
-            longtitude = [valueAsString doubleValue];
-        }
-        //Create an annotation at the place and add it to the map
-        CLLocationCoordinate2D tmp = CLLocationCoordinate2DMake(latitude, longtitude);
-        Annotation *place_anno = [[Annotation alloc]initWithTitle:@"Hello" Location:tmp];
-        [self.myMapView addAnnotation:place_anno];
     }
     
     // extract specific value...
@@ -311,6 +319,8 @@ double latitude, longtitude;
         NSLog(@"icon: %@", icon);
     }
 }
+
+
 
 
 @end
