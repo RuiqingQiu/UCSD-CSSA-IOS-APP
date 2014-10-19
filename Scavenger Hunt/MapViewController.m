@@ -7,6 +7,10 @@
 //
 #import "MapViewController.h"
 #import "Annotation.h"
+
+#define IS_IOS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
+
+
 @interface MapViewController ()
 -(void)tapRight;
 -(void)tapLeft;
@@ -15,7 +19,11 @@
 @synthesize myMapView;
 @synthesize locationManager;
 
+UIApplication *app;
+
 double latitude, longitude;
+NSString* str;
+BOOL locationStarted = FALSE;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -49,8 +57,11 @@ double latitude, longitude;
 {
     [super viewDidLoad];
     locationManager = [[CLLocationManager alloc] init];
-    [locationManager requestWhenInUseAuthorization];
-    [locationManager requestAlwaysAuthorization];
+    
+    if(IS_IOS_8_OR_LATER){
+        [locationManager requestWhenInUseAuthorization];
+        [locationManager requestAlwaysAuthorization];
+    }
     //初始化一个地图
     [self.view addSubview:self.myMapView];
     
@@ -69,13 +80,13 @@ double latitude, longitude;
     self.myMapView.showsUserLocation=YES;
     self.myMapView.region=region;
     
-    CLLocationCoordinate2D place = CLLocationCoordinate2DMake(33, -117);
-    Annotation *place_anno = [[Annotation alloc]initWithTitle:@"Hello" Location:place image_url:@""];
-    [self.myMapView addAnnotation:place_anno];
+    //NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(loadDataWithRKey:) userInfo:nil repeats:NO];
+    
 }
 
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
+    
     CLLocation *location=userLocation.location;
     latitude = location.coordinate.latitude;
     longitude = location.coordinate.longitude;
@@ -175,6 +186,7 @@ double latitude, longitude;
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -187,7 +199,7 @@ double latitude, longitude;
     self.responseData = [NSMutableData data];
     [super viewWillAppear:animated];
     id obj = [[NSUserDefaults standardUserDefaults]objectForKey:@"rkey"];
-    NSString* str = (NSString*)obj;
+    str = (NSString*)obj;
     NSLog(@"key %@", str);
     [self loadDataWithRKey:str];
 }
@@ -228,6 +240,7 @@ double latitude, longitude;
 
 -(void)loadDataWithRKey:(NSString*) rkey
 {
+    [self.myMapView removeAnnotations:myMapView.annotations];   // show all values
     if(rkey == nil){
         return;
     }
@@ -266,8 +279,6 @@ double latitude, longitude;
     // convert to JSON
     NSError *myError = nil;
     NSDictionary *res = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
-    
-    // show all values
     for(id key in res) {
         NSLog(@"in loop");
         id value = [res objectForKey:key];
@@ -318,6 +329,72 @@ double latitude, longitude;
         NSString *icon = [result objectForKey:@"icon"];
         NSLog(@"icon: %@", icon);
     }
+}
+
+
+//run background task
+-(void)runBackgroundTask: (int) time{
+    //check if application is in background mode
+    if ([UIApplication sharedApplication].applicationState == UIApplicationStateBackground) {
+        
+        //create UIBackgroundTaskIdentifier and create tackground task, which starts after time
+        __block UIBackgroundTaskIdentifier bgTask = [app beginBackgroundTaskWithExpirationHandler:^{
+            [app endBackgroundTask:bgTask];
+            bgTask = UIBackgroundTaskInvalid;
+        }];
+        
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+            NSTimer* t = [NSTimer scheduledTimerWithTimeInterval:time target:self selector:@selector(startTrackingBg) userInfo:nil repeats:NO];
+            [[NSRunLoop currentRunLoop] addTimer:t forMode:NSDefaultRunLoopMode];
+            [[NSRunLoop currentRunLoop] run];
+        });
+    }
+}
+
+//starts when application switchs into backghround
+- (void)applicationDidEnterBackground:(UIApplication *)application
+{
+    //check if application status is in background
+    if ( [UIApplication sharedApplication].applicationState == UIApplicationStateBackground) {
+        NSLog(@"start backgroun tracking from appdelegate");
+        
+        //start updating location with location manager
+        [locationManager startUpdatingLocation];
+    }
+    
+    //change locationManager status after time
+    [self runBackgroundTask:20];
+}
+
+//starts with background task
+-(void)startTrackingBg{
+    //write background time remaining
+    NSLog(@"backgroundTimeRemaining: %.0f", [[UIApplication sharedApplication] backgroundTimeRemaining]);
+    
+    //set default time
+    int time = 60;
+    //if locationManager is ON
+    if (locationStarted == TRUE ) {
+        //stop update location
+        [locationManager stopUpdatingLocation];
+        locationStarted = FALSE;
+    }else{
+        //start updating location
+        [locationManager startUpdatingLocation];
+        locationStarted = TRUE;
+        //ime how long the application will update your location
+        time = 5;
+    }
+    
+    [self runBackgroundTask:time];
+}
+
+//application switchs back from background
+- (void)applicationWillEnterForeground:(UIApplication *)application
+{
+    locationStarted = FALSE;
+    //stop updating
+    [locationManager stopUpdatingLocation];
 }
 
 

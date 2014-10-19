@@ -35,7 +35,8 @@
     annotationView.enabled = YES;
     annotationView.canShowCallout = YES;
     //All annotation is map_avatar.png
-    annotationView.image = [UIImage imageNamed:@"map_avatar.png"];
+    annotationView.image = [UIImage imageNamed:@"map_pin_v3.png"];
+    //For the right side to have an information button
     annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     return annotationView;
 }

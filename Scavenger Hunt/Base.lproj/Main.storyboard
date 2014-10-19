@@ -116,6 +116,74 @@
             </objects>
             <point key="canvasLocation" x="277" y="-612"/>
         </scene>
+        <!--Item-->
+        <scene sceneID="GGo-PQ-X8p">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="1Ic-MY-Hgf" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="65f-Ik-hic"/>
+                    <connections>
+                        <segue destination="pPc-iK-Czu" kind="push" id="9yP-ct-0HV"/>
+                        <segue destination="g2a-qd-0hA" kind="push" id="2Wn-l9-CGo"/>
+                    </connections>
+                </pageViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sUT-zo-a1W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="239" y="-1284"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="z7v-Zh-wN3">
+            <objects>
+                <viewController id="pPc-iK-Czu" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bhW-hx-hC2"/>
+                        <viewControllerLayoutGuide type="bottom" id="a39-hd-jKs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="rOw-ka-An1">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRo-cE-ap6">
+                                <rect key="frame" x="101" y="142" width="10" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="VWg-ak-QXy"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VVI-Dh-IXM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="726" y="-1564"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="ek7-4b-aqT">
+            <objects>
+                <viewController id="g2a-qd-0hA" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QHm-Pj-Y4Y"/>
+                        <viewControllerLayoutGuide type="bottom" id="9KX-FI-nMc"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Yw5-y3-8LN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pu-Mg-GH2">
+                                <rect key="frame" x="147" y="192" width="10" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="DRv-xM-FbJ"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pcH-rX-6aM" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="726" y="-914"/>
+        </scene>
         <!--Register-->
         <scene sceneID="EDF-ad-N7d">
             <objects>
@@ -396,6 +464,14 @@
                                                 <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KsO-2G-1tT">
+                                                <rect key="frame" x="40" y="80" width="100" height="100"/>
+                                            </imageView>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKX-z1-3RW" userLabel="Label - NameLabel">
+                                                <rect key="frame" x="181" y="108" width="82" height="44"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -423,6 +499,7 @@
                         <outlet property="Motto" destination="Omf-d5-dE8" id="Ybz-Ed-JVk"/>
                         <outlet property="Name" destination="EKX-z1-3RW" id="m41-dH-Uem"/>
                         <outlet property="Status" destination="Zy9-tm-bz2" id="LTs-6n-TFD"/>
+                        <outlet property="avatar" destination="KsO-2G-1tT" id="xeY-PW-gGZ"/>
                         <outlet property="loginView" destination="1vh-hR-hID" id="kWX-tz-qKT"/>
                         <outlet property="login_pass" destination="95N-TH-IbZ" id="Lrr-qw-nx1"/>
                         <outlet property="loging_user" destination="Vg5-dH-jC5" id="mtZ-kz-CJG"/>

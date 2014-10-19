@@ -19,6 +19,7 @@
     __weak IBOutlet UILabel *Name;
     IBOutlet UITextField *loging_user;
     IBOutlet UITextField *login_pass;
+    IBOutlet UIImageView *avatar;
     IBOutlet UIView *loginView;
     IBOutlet UIView *profileView;
 }

@@ -22,6 +22,7 @@ NSArray* arr;
         self.view = loginView;
     }else{
         self.view = profileView;
+        
     }
     NSString* str = (NSString*)obj;
     NSLog(@"key %@", str);
@@ -58,6 +59,18 @@ NSArray* arr;
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
     NSLog(@"didFailWithError");
     NSLog([NSString stringWithFormat:@"Connection failed: %@", [error description]]);
+}
+
+
+-(UIImage *) getImageFromURL:(NSString *)fileURL {
+    NSLog(@"%@", fileURL);
+    UIImage * result;
+    
+    NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fileURL]];
+    result = [UIImage imageWithData:data];
+    NSLog(@"result: %@", result);
+    
+    return result;
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
@@ -98,26 +111,31 @@ NSArray* arr;
                 }
             }
         }else{
-        
-        if(valueAsString == [NSNull null]){
-            continue;
-        }
-        if ([keyAsString isEqualToString:@"name"]) {
-            [Name setText:valueAsString];
-        }
-        if ([keyAsString isEqualToString:@"position"]) {
-            [JobTitle setText:valueAsString];
-        }
-        if ([keyAsString isEqualToString:@"college"]) {
-            NSString* colle = [arr objectAtIndex:[valueAsString intValue]];
-            [College setText:colle];
-        }
-        if ([keyAsString isEqualToString:@"major"]) {
-            [Major setText:valueAsString];
-        }
-        if ([keyAsString isEqualToString:@"motto"]) {
-            [Motto setText:valueAsString];
-        }
+            NSLog(@"%@", keyAsString);
+            NSLog(@"%@", valueAsString);
+            if(valueAsString == [NSNull null]){
+                continue;
+            }
+            if ([keyAsString isEqualToString:@"name"]) {
+                [Name setText:valueAsString];
+            }
+            if ([keyAsString isEqualToString:@"position"]) {
+                [JobTitle setText:valueAsString];
+            }
+            if ([keyAsString isEqualToString:@"college"]) {
+                NSString* colle = [arr objectAtIndex:[valueAsString intValue]];
+                [College setText:colle];
+            }
+            if ([keyAsString isEqualToString:@"major"]) {
+                [Major setText:valueAsString];
+            }
+            if ([keyAsString isEqualToString:@"motto"]) {
+                [Motto setText:valueAsString];
+
+            }
+            if([keyAsString isEqualToString:@"avatar_large"]){
+                [avatar setImage:[self getImageFromURL:valueAsString]];
+            }
             
         }
     }
@@ -131,6 +149,8 @@ NSArray* arr;
     }
     
 }
+
+
 - (IBAction)login:(id)sender {
     NSString * timestamp = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]];
     int i_time = [timestamp intValue];
