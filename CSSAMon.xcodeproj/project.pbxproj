@@ -17,11 +17,6 @@
 		476EA98219A7FCB8004BC6B1 /* SHAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 476EA98119A7FCB8004BC6B1 /* SHAppDelegate.m */; };
 		476EA98519A7FCB8004BC6B1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 476EA98319A7FCB8004BC6B1 /* Main.storyboard */; };
 		476EA98A19A7FCB8004BC6B1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 476EA98919A7FCB8004BC6B1 /* Images.xcassets */; };
-		476EA99119A7FCB9004BC6B1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 476EA99019A7FCB9004BC6B1 /* XCTest.framework */; };
-		476EA99219A7FCB9004BC6B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 476EA97119A7FCB8004BC6B1 /* Foundation.framework */; };
-		476EA99319A7FCB9004BC6B1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 476EA97519A7FCB8004BC6B1 /* UIKit.framework */; };
-		476EA99B19A7FCB9004BC6B1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 476EA99919A7FCB9004BC6B1 /* InfoPlist.strings */; };
-		476EA99D19A7FCB9004BC6B1 /* Scavenger_HuntTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 476EA99C19A7FCB9004BC6B1 /* Scavenger_HuntTests.m */; };
 		476EA9A719A7FD25004BC6B1 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 476EA9A619A7FD25004BC6B1 /* GoogleMaps.framework */; };
 		476EA9A919A7FD50004BC6B1 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 476EA9A819A7FD50004BC6B1 /* GoogleMaps.bundle */; };
 		476EA9AB19A7FD91004BC6B1 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 476EA9AA19A7FD91004BC6B1 /* AVFoundation.framework */; };
@@ -50,6 +45,8 @@
 		47F1524A19B3B37E006FCEDD /* JobHunter_Career_center.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F1524919B3B37E006FCEDD /* JobHunter_Career_center.png */; };
 		523BBDB019EB1428006FABC8 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 523BBDAF19EB1428006FABC8 /* RegisterViewController.m */; };
 		84D76CE319EEE6DC0043945F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D76CE219EEE6DC0043945F /* ProfileViewController.m */; };
+		AA20373219F36E150076BEF3 /* Icon_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20373119F36E150076BEF3 /* Icon_v2.png */; };
+		AA20373619F376880076BEF3 /* map_pin_v3.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20373519F376880076BEF3 /* map_pin_v3.png */; };
 		AA20802B19F2646100AD7FFD /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA20802A19F2646100AD7FFD /* MapViewController.m */; };
 		AA20802D19F2649A00AD7FFD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA20802C19F2649A00AD7FFD /* MapKit.framework */; };
 		AA20802F19F2653100AD7FFD /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = AA20802E19F2653100AD7FFD /* Annotation.m */; };
@@ -59,37 +56,23 @@
 		AA34240319F330D90075A3DF /* map_pin_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = AA34240219F330D90075A3DF /* map_pin_v2.png */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		476EA99419A7FCB9004BC6B1 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 476EA96619A7FCB8004BC6B1 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 476EA96D19A7FCB8004BC6B1;
-			remoteInfo = "Scavenger Hunt";
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		470069EC19A90A2D0092604F /* SHMapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SHMapViewController.h; path = "Scavenger Hunt/SHMapViewController.h"; sourceTree = "<group>"; };
 		470069ED19A90A2D0092604F /* SHMapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SHMapViewController.m; path = "Scavenger Hunt/SHMapViewController.m"; sourceTree = "<group>"; };
 		470069EE19A90A2D0092604F /* SHMapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = SHMapViewController.xib; path = "Scavenger Hunt/SHMapViewController.xib"; sourceTree = "<group>"; };
-		476EA96E19A7FCB8004BC6B1 /* Scavenger Hunt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Scavenger Hunt.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		476EA96E19A7FCB8004BC6B1 /* CSSAMon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CSSAMon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		476EA97119A7FCB8004BC6B1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		476EA97319A7FCB8004BC6B1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		476EA97519A7FCB8004BC6B1 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		476EA97919A7FCB8004BC6B1 /* Scavenger Hunt-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Scavenger Hunt-Info.plist"; sourceTree = "<group>"; };
+		476EA97919A7FCB8004BC6B1 /* CSSAMon-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CSSAMon-Info.plist"; sourceTree = "<group>"; };
 		476EA97B19A7FCB8004BC6B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		476EA97D19A7FCB8004BC6B1 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		476EA97F19A7FCB8004BC6B1 /* Scavenger Hunt-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Scavenger Hunt-Prefix.pch"; sourceTree = "<group>"; };
+		476EA97F19A7FCB8004BC6B1 /* CSSAMon-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CSSAMon-Prefix.pch"; sourceTree = "<group>"; };
 		476EA98019A7FCB8004BC6B1 /* SHAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHAppDelegate.h; sourceTree = "<group>"; };
 		476EA98119A7FCB8004BC6B1 /* SHAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHAppDelegate.m; sourceTree = "<group>"; };
 		476EA98419A7FCB8004BC6B1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		476EA98919A7FCB8004BC6B1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		476EA98F19A7FCB9004BC6B1 /* Scavenger HuntTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Scavenger HuntTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		476EA99019A7FCB9004BC6B1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		476EA99819A7FCB9004BC6B1 /* Scavenger HuntTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Scavenger HuntTests-Info.plist"; sourceTree = "<group>"; };
-		476EA99A19A7FCB9004BC6B1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		476EA99C19A7FCB9004BC6B1 /* Scavenger_HuntTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Scavenger_HuntTests.m; sourceTree = "<group>"; };
 		476EA9A619A7FD25004BC6B1 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		476EA9A819A7FD50004BC6B1 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
 		476EA9AA19A7FD91004BC6B1 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -122,10 +105,12 @@
 		523BBDAF19EB1428006FABC8 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		84D76CE119EEE6DC0043945F /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = "Scavenger Hunt/ProfileViewController.h"; sourceTree = "<group>"; };
 		84D76CE219EEE6DC0043945F /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = "Scavenger Hunt/ProfileViewController.m"; sourceTree = "<group>"; };
+		AA20373119F36E150076BEF3 /* Icon_v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_v2.png; sourceTree = "<group>"; };
+		AA20373519F376880076BEF3 /* map_pin_v3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_pin_v3.png; sourceTree = "<group>"; };
 		AA20802919F2646100AD7FFD /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = "Scavenger Hunt/MapViewController.h"; sourceTree = "<group>"; };
 		AA20802A19F2646100AD7FFD /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = "Scavenger Hunt/MapViewController.m"; sourceTree = "<group>"; };
 		AA20802C19F2649A00AD7FFD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		AA20802E19F2653100AD7FFD /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Annotation.m; path = "Scavenger Hunt/Annotation.m"; sourceTree = "<group>"; };
+		AA20802E19F2653100AD7FFD /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Annotation.m; path = "Scavenger Hunt/Annotation.m"; sourceTree = "<group>"; wrapsLines = 0; };
 		AA20803019F2654600AD7FFD /* Annotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Annotation.h; path = "Scavenger Hunt/Annotation.h"; sourceTree = "<group>"; };
 		AA20803119F26D0E00AD7FFD /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		AA20803319F26F1100AD7FFD /* rsz_icon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rsz_icon1.png; sourceTree = "<group>"; };
@@ -158,16 +143,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		476EA98C19A7FCB9004BC6B1 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				476EA99119A7FCB9004BC6B1 /* XCTest.framework in Frameworks */,
-				476EA99319A7FCB9004BC6B1 /* UIKit.framework in Frameworks */,
-				476EA99219A7FCB9004BC6B1 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -191,7 +166,6 @@
 				523BBDAE19EB13EA006FABC8 /* RegisterViewController.h */,
 				523BBDAF19EB1428006FABC8 /* RegisterViewController.m */,
 				476EA97719A7FCB8004BC6B1 /* com.ucsdcssa.sh */,
-				476EA99619A7FCB9004BC6B1 /* Scavenger HuntTests */,
 				476EA97019A7FCB8004BC6B1 /* Frameworks */,
 				476EA96F19A7FCB8004BC6B1 /* Products */,
 			);
@@ -200,8 +174,7 @@
 		476EA96F19A7FCB8004BC6B1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				476EA96E19A7FCB8004BC6B1 /* Scavenger Hunt.app */,
-				476EA98F19A7FCB9004BC6B1 /* Scavenger HuntTests.xctest */,
+				476EA96E19A7FCB8004BC6B1 /* CSSAMon.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -248,28 +221,10 @@
 		476EA97819A7FCB8004BC6B1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				476EA97919A7FCB8004BC6B1 /* Scavenger Hunt-Info.plist */,
+				476EA97919A7FCB8004BC6B1 /* CSSAMon-Info.plist */,
 				476EA97A19A7FCB8004BC6B1 /* InfoPlist.strings */,
 				476EA97D19A7FCB8004BC6B1 /* main.m */,
-				476EA97F19A7FCB8004BC6B1 /* Scavenger Hunt-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		476EA99619A7FCB9004BC6B1 /* Scavenger HuntTests */ = {
-			isa = PBXGroup;
-			children = (
-				476EA99C19A7FCB9004BC6B1 /* Scavenger_HuntTests.m */,
-				476EA99719A7FCB9004BC6B1 /* Supporting Files */,
-			);
-			path = "Scavenger HuntTests";
-			sourceTree = "<group>";
-		};
-		476EA99719A7FCB9004BC6B1 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				476EA99819A7FCB9004BC6B1 /* Scavenger HuntTests-Info.plist */,
-				476EA99919A7FCB9004BC6B1 /* InfoPlist.strings */,
+				476EA97F19A7FCB8004BC6B1 /* CSSAMon-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -277,6 +232,8 @@
 		47F1523619A9512D006FCEDD /* src */ = {
 			isa = PBXGroup;
 			children = (
+				AA20373519F376880076BEF3 /* map_pin_v3.png */,
+				AA20373119F36E150076BEF3 /* Icon_v2.png */,
 				AA34240219F330D90075A3DF /* map_pin_v2.png */,
 				AA34240019F32DB60075A3DF /* map_avatar.png */,
 				AA20803319F26F1100AD7FFD /* rsz_icon1.png */,
@@ -298,9 +255,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		476EA96D19A7FCB8004BC6B1 /* Scavenger Hunt */ = {
+		476EA96D19A7FCB8004BC6B1 /* CSSAMon */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 476EA9A019A7FCB9004BC6B1 /* Build configuration list for PBXNativeTarget "Scavenger Hunt" */;
+			buildConfigurationList = 476EA9A019A7FCB9004BC6B1 /* Build configuration list for PBXNativeTarget "CSSAMon" */;
 			buildPhases = (
 				476EA96A19A7FCB8004BC6B1 /* Sources */,
 				476EA96B19A7FCB8004BC6B1 /* Frameworks */,
@@ -310,28 +267,10 @@
 			);
 			dependencies = (
 			);
-			name = "Scavenger Hunt";
+			name = CSSAMon;
 			productName = "Scavenger Hunt";
-			productReference = 476EA96E19A7FCB8004BC6B1 /* Scavenger Hunt.app */;
+			productReference = 476EA96E19A7FCB8004BC6B1 /* CSSAMon.app */;
 			productType = "com.apple.product-type.application";
-		};
-		476EA98E19A7FCB9004BC6B1 /* Scavenger HuntTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 476EA9A319A7FCB9004BC6B1 /* Build configuration list for PBXNativeTarget "Scavenger HuntTests" */;
-			buildPhases = (
-				476EA98B19A7FCB9004BC6B1 /* Sources */,
-				476EA98C19A7FCB9004BC6B1 /* Frameworks */,
-				476EA98D19A7FCB9004BC6B1 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				476EA99519A7FCB9004BC6B1 /* PBXTargetDependency */,
-			);
-			name = "Scavenger HuntTests";
-			productName = "Scavenger HuntTests";
-			productReference = 476EA98F19A7FCB9004BC6B1 /* Scavenger HuntTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -346,12 +285,9 @@
 					476EA96D19A7FCB8004BC6B1 = {
 						DevelopmentTeam = RC47RUQEKD;
 					};
-					476EA98E19A7FCB9004BC6B1 = {
-						TestTargetID = 476EA96D19A7FCB8004BC6B1;
-					};
 				};
 			};
-			buildConfigurationList = 476EA96919A7FCB8004BC6B1 /* Build configuration list for PBXProject "Scavenger Hunt" */;
+			buildConfigurationList = 476EA96919A7FCB8004BC6B1 /* Build configuration list for PBXProject "CSSAMon" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -364,8 +300,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				476EA96D19A7FCB8004BC6B1 /* Scavenger Hunt */,
-				476EA98E19A7FCB9004BC6B1 /* Scavenger HuntTests */,
+				476EA96D19A7FCB8004BC6B1 /* CSSAMon */,
 			);
 		};
 /* End PBXProject section */
@@ -377,6 +312,7 @@
 			files = (
 				47F1524419A95145006FCEDD /* Big_red_chair.png in Resources */,
 				470069F019A90A2D0092604F /* SHMapViewController.xib in Resources */,
+				AA20373619F376880076BEF3 /* map_pin_v3.png in Resources */,
 				476EA98A19A7FCB8004BC6B1 /* Images.xcassets in Resources */,
 				476EA97C19A7FCB8004BC6B1 /* InfoPlist.strings in Resources */,
 				AA20803219F26D0E00AD7FFD /* icon.png in Resources */,
@@ -393,15 +329,8 @@
 				47F1524819A9534D006FCEDD /* UC_Sea_ovt.png in Resources */,
 				47F1523F19A95145006FCEDD /* Xueba_help_me_AS_Notes.png in Resources */,
 				476EA98519A7FCB8004BC6B1 /* Main.storyboard in Resources */,
+				AA20373219F36E150076BEF3 /* Icon_v2.png in Resources */,
 				476EA9A919A7FD50004BC6B1 /* GoogleMaps.bundle in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		476EA98D19A7FCB9004BC6B1 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				476EA99B19A7FCB9004BC6B1 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,23 +353,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		476EA98B19A7FCB9004BC6B1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				476EA99D19A7FCB9004BC6B1 /* Scavenger_HuntTests.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		476EA99519A7FCB9004BC6B1 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 476EA96D19A7FCB8004BC6B1 /* Scavenger Hunt */;
-			targetProxy = 476EA99419A7FCB9004BC6B1 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		476EA97A19A7FCB8004BC6B1 /* InfoPlist.strings */ = {
@@ -457,14 +370,6 @@
 				476EA98419A7FCB8004BC6B1 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		476EA99919A7FCB9004BC6B1 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				476EA99A19A7FCB9004BC6B1 /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -552,10 +457,10 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Scavenger Hunt/Scavenger Hunt-Prefix.pch";
-				INFOPLIST_FILE = "Scavenger Hunt/Scavenger Hunt-Info.plist";
+				GCC_PREFIX_HEADER = "Scavenger Hunt/CSSAMon-Prefix.pch";
+				INFOPLIST_FILE = "Scavenger Hunt/CSSAMon-Info.plist";
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CSSAMon;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
@@ -573,59 +478,19 @@
 					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Scavenger Hunt/Scavenger Hunt-Prefix.pch";
-				INFOPLIST_FILE = "Scavenger Hunt/Scavenger Hunt-Info.plist";
+				GCC_PREFIX_HEADER = "Scavenger Hunt/CSSAMon-Prefix.pch";
+				INFOPLIST_FILE = "Scavenger Hunt/CSSAMon-Info.plist";
 				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = CSSAMon;
 				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		476EA9A419A7FCB9004BC6B1 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Scavenger Hunt.app/Scavenger Hunt";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Scavenger Hunt/Scavenger Hunt-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Scavenger HuntTests/Scavenger HuntTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		476EA9A519A7FCB9004BC6B1 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Scavenger Hunt.app/Scavenger Hunt";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Scavenger Hunt/Scavenger Hunt-Prefix.pch";
-				INFOPLIST_FILE = "Scavenger HuntTests/Scavenger HuntTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		476EA96919A7FCB8004BC6B1 /* Build configuration list for PBXProject "Scavenger Hunt" */ = {
+		476EA96919A7FCB8004BC6B1 /* Build configuration list for PBXProject "CSSAMon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				476EA99E19A7FCB9004BC6B1 /* Debug */,
@@ -634,20 +499,11 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		476EA9A019A7FCB9004BC6B1 /* Build configuration list for PBXNativeTarget "Scavenger Hunt" */ = {
+		476EA9A019A7FCB9004BC6B1 /* Build configuration list for PBXNativeTarget "CSSAMon" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				476EA9A119A7FCB9004BC6B1 /* Debug */,
 				476EA9A219A7FCB9004BC6B1 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		476EA9A319A7FCB9004BC6B1 /* Build configuration list for PBXNativeTarget "Scavenger HuntTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				476EA9A419A7FCB9004BC6B1 /* Debug */,
-				476EA9A519A7FCB9004BC6B1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
