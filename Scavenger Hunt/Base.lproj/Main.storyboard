@@ -20,7 +20,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cd6-kK-HRQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1576" y="-30"/>
+            <point key="canvasLocation" x="-820" y="-50"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="kdU-QN-HH1">
@@ -36,58 +36,12 @@
                     <connections>
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="8wR-s0-Obe"/>
                         <segue destination="1cM-Ye-UYb" kind="relationship" relationship="viewControllers" id="AQ6-f9-6sS"/>
-                        <segue destination="lgf-AI-HNa" kind="relationship" relationship="viewControllers" id="ec3-Mr-NEr"/>
+                        <segue destination="1Ic-MY-Hgf" kind="relationship" relationship="viewControllers" id="egd-0n-LQq"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ayp-wp-EQZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-959" y="-30"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="uYU-C0-H0z">
-            <objects>
-                <viewController id="lgf-AI-HNa" customClass="EventViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="eCH-7E-Qae"/>
-                        <viewControllerLayoutGuide type="bottom" id="cbd-bL-cGn"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="EzU-N2-kPK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="2" translatesAutoresizingMaskIntoConstraints="NO" id="5AC-KY-zG4">
-                                <rect key="frame" x="141" y="350" width="39" height="37"/>
-                                <connections>
-                                    <action selector="changePage:" destination="lgf-AI-HNa" eventType="valueChanged" id="KAe-Ir-2my"/>
-                                </connections>
-                            </pageControl>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Poster_halloween_v2.png" translatesAutoresizingMaskIntoConstraints="NO" id="Yy0-SD-iZ6">
-                                <rect key="frame" x="43" y="83" width="235" height="232"/>
-                                <color key="tintColor" red="0.1215686351" green="0.14509804549999999" blue="0.18823531269999999" alpha="1" colorSpace="deviceRGB"/>
-                            </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mso-FU-g8y">
-                                <rect key="frame" x="138" y="395" width="45" height="30"/>
-                                <state key="normal" title="下一页">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="click:" destination="lgf-AI-HNa" eventType="touchUpInside" id="HAK-Kp-gZn"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.12156863510608673" green="0.14509804546833038" blue="0.18823531270027161" alpha="1" colorSpace="deviceRGB"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="Mx8-oy-K9r"/>
-                    <navigationItem key="navigationItem" id="U4N-iq-RWu"/>
-                    <connections>
-                        <outlet property="img" destination="Yy0-SD-iZ6" id="I4Q-P5-6Tz"/>
-                        <outlet property="pageCtrl" destination="5AC-KY-zG4" id="fyX-4D-5FS"/>
-                        <outlet property="view" destination="EzU-N2-kPK" id="FWc-gw-YKq"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="G6S-UX-0j8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-322" y="-799"/>
+            <point key="canvasLocation" x="-405" y="-666"/>
         </scene>
         <!--Map-->
         <scene sceneID="ufC-wZ-h7g">
@@ -388,19 +342,29 @@
                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="42u-dg-8cC" userLabel="insideView">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="827"/>
                                         <subviews>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="部门：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzH-ch-ehV">
+                                                <rect key="frame" x="25" y="220" width="63" height="29"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="职称：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ULR-Nn-xU9">
                                                 <rect key="frame" x="25" y="257" width="68" height="30"/>
-                                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="学院：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UVv-cU-QDo">
                                                 <rect key="frame" x="25" y="295" width="63" height="30"/>
-                                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="专业：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iW6-fZ-qWb">
                                                 <rect key="frame" x="25" y="334" width="63" height="26"/>
-                                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="铭言：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Acy-42-42Z">
+                                                <rect key="frame" x="25" y="410" width="63" height="22"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMN-Li-qit" userLabel="Label - 部门Label">
@@ -440,28 +404,7 @@
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="状态：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRk-5X-YGF">
                                                 <rect key="frame" x="25" y="372" width="63" height="23"/>
-                                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="17"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="e2d-7Z-BH8">
-                                                <rect key="frame" x="0.0" y="65" width="323" height="128"/>
-                                            </imageView>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="login_avatar.png" translatesAutoresizingMaskIntoConstraints="NO" id="zRH-AD-TYf">
-                                                <rect key="frame" x="-19" y="75" width="152" height="145"/>
-                                            </imageView>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKX-z1-3RW" userLabel="Label - NameLabel">
-                                                <rect key="frame" x="185" y="107" width="82" height="44"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="部门：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hzH-ch-ehV">
-                                                <rect key="frame" x="25" y="220" width="63" height="29"/>
-                                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="17"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="铭言：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Acy-42-42Z">
-                                                <rect key="frame" x="25" y="410" width="63" height="22"/>
-                                                <fontDescription key="fontDescription" name="Optima-ExtraBlack" family="Optima" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KsO-2G-1tT">
@@ -557,9 +500,6 @@
     </scenes>
     <resources>
         <image name="Before_you_die.png" width="600" height="600"/>
-        <image name="Poster_halloween_v2.png" width="540" height="540"/>
-        <image name="background.png" width="640" height="250"/>
-        <image name="login_avatar.png" width="300" height="300"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
