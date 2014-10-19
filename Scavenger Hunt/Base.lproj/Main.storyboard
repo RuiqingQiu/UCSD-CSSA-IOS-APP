@@ -396,11 +396,6 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKX-z1-3RW" userLabel="Label - NameLabel">
-                                                <rect key="frame" x="218" y="66" width="82" height="44"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MPp-aV-jRF">
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -408,6 +403,14 @@
                                             </label>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="状态：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zRk-5X-YGF">
                                                 <rect key="frame" x="25" y="372" width="63" height="23"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KsO-2G-1tT">
+                                                <rect key="frame" x="40" y="80" width="100" height="100"/>
+                                            </imageView>
+                                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKX-z1-3RW" userLabel="Label - NameLabel">
+                                                <rect key="frame" x="181" y="108" width="82" height="44"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -438,6 +441,7 @@
                         <outlet property="Motto" destination="Omf-d5-dE8" id="Ybz-Ed-JVk"/>
                         <outlet property="Name" destination="EKX-z1-3RW" id="m41-dH-Uem"/>
                         <outlet property="Status" destination="Zy9-tm-bz2" id="LTs-6n-TFD"/>
+                        <outlet property="avatar" destination="KsO-2G-1tT" id="xeY-PW-gGZ"/>
                         <outlet property="loginView" destination="1vh-hR-hID" id="kWX-tz-qKT"/>
                         <outlet property="login_pass" destination="95N-TH-IbZ" id="Lrr-qw-nx1"/>
                         <outlet property="loging_user" destination="Vg5-dH-jC5" id="mtZ-kz-CJG"/>
