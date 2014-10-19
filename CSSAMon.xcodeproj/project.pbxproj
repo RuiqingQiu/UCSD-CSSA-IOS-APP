@@ -47,12 +47,12 @@
 		523789EA19F331F600391CC3 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 523789E819F331F600391CC3 /* background.png */; };
 		523A28D019F36DA00094999E /* lthj.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 523A28CF19F36BB30094999E /* lthj.TTF */; };
 		523A28D619F374840094999E /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 523A28D519F374840094999E /* EventViewController.m */; };
-		523A28D919F388950094999E /* Poster_halloween2.png in Resources */ = {isa = PBXBuildFile; fileRef = 523A28D719F388950094999E /* Poster_halloween2.png */; };
 		523A28DA19F388950094999E /* Poster_halloween.png in Resources */ = {isa = PBXBuildFile; fileRef = 523A28D819F388950094999E /* Poster_halloween.png */; };
 		523A28DC19F38AA50094999E /* login_avatar_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 523A28DB19F38AA50094999E /* login_avatar_v2.png */; };
 		523A28DE19F38C850094999E /* Poster_scavengerhunt.png in Resources */ = {isa = PBXBuildFile; fileRef = 523A28DD19F38C850094999E /* Poster_scavengerhunt.png */; };
 		523A28E019F38CE80094999E /* Poster_halloween_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 523A28DF19F38CE80094999E /* Poster_halloween_v2.png */; };
 		523BBDB019EB1428006FABC8 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 523BBDAF19EB1428006FABC8 /* RegisterViewController.m */; };
+		5282C85919F4798B00301F20 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 5282C85819F4798B00301F20 /* background.png */; };
 		84D76CE319EEE6DC0043945F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D76CE219EEE6DC0043945F /* ProfileViewController.m */; };
 		AA20373219F36E150076BEF3 /* Icon_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20373119F36E150076BEF3 /* Icon_v2.png */; };
 		AA20373619F376880076BEF3 /* map_pin_v3.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20373519F376880076BEF3 /* map_pin_v3.png */; };
@@ -60,7 +60,6 @@
 		AA20802B19F2646100AD7FFD /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA20802A19F2646100AD7FFD /* MapViewController.m */; };
 		AA20802D19F2649A00AD7FFD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA20802C19F2649A00AD7FFD /* MapKit.framework */; };
 		AA20802F19F2653100AD7FFD /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = AA20802E19F2653100AD7FFD /* Annotation.m */; };
-		AA20803219F26D0E00AD7FFD /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20803119F26D0E00AD7FFD /* icon.png */; };
 		AA20803419F26F1100AD7FFD /* rsz_icon1.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20803319F26F1100AD7FFD /* rsz_icon1.png */; };
 		AA34240119F32DB60075A3DF /* map_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = AA34240019F32DB60075A3DF /* map_avatar.png */; };
 		AA34240319F330D90075A3DF /* map_pin_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = AA34240219F330D90075A3DF /* map_pin_v2.png */; };
@@ -117,13 +116,13 @@
 		523A28CF19F36BB30094999E /* lthj.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = lthj.TTF; sourceTree = "<group>"; };
 		523A28D419F374840094999E /* EventViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EventViewController.h; sourceTree = "<group>"; };
 		523A28D519F374840094999E /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
-		523A28D719F388950094999E /* Poster_halloween2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Poster_halloween2.png; sourceTree = "<group>"; };
 		523A28D819F388950094999E /* Poster_halloween.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Poster_halloween.png; sourceTree = "<group>"; };
 		523A28DB19F38AA50094999E /* login_avatar_v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_avatar_v2.png; sourceTree = "<group>"; };
 		523A28DD19F38C850094999E /* Poster_scavengerhunt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Poster_scavengerhunt.png; sourceTree = "<group>"; };
 		523A28DF19F38CE80094999E /* Poster_halloween_v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Poster_halloween_v2.png; sourceTree = "<group>"; };
 		523BBDAE19EB13EA006FABC8 /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		523BBDAF19EB1428006FABC8 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		5282C85819F4798B00301F20 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		84D76CE119EEE6DC0043945F /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = "Scavenger Hunt/ProfileViewController.h"; sourceTree = "<group>"; };
 		84D76CE219EEE6DC0043945F /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = "Scavenger Hunt/ProfileViewController.m"; sourceTree = "<group>"; };
 		AA20373119F36E150076BEF3 /* Icon_v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_v2.png; sourceTree = "<group>"; };
@@ -134,7 +133,6 @@
 		AA20802C19F2649A00AD7FFD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		AA20802E19F2653100AD7FFD /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Annotation.m; path = "Scavenger Hunt/Annotation.m"; sourceTree = "<group>"; wrapsLines = 0; };
 		AA20803019F2654600AD7FFD /* Annotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Annotation.h; path = "Scavenger Hunt/Annotation.h"; sourceTree = "<group>"; };
-		AA20803119F26D0E00AD7FFD /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		AA20803319F26F1100AD7FFD /* rsz_icon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rsz_icon1.png; sourceTree = "<group>"; };
 		AA34240019F32DB60075A3DF /* map_avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_avatar.png; sourceTree = "<group>"; };
 		AA34240219F330D90075A3DF /* map_pin_v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_pin_v2.png; sourceTree = "<group>"; };
@@ -247,7 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				523A28CF19F36BB30094999E /* lthj.TTF */,
-				476EA97919A7FCB8004BC6B1 /* Scavenger Hunt-Info.plist */,
+				476EA97919A7FCB8004BC6B1 /* CSSAMon-Info.plist */,
 				476EA97A19A7FCB8004BC6B1 /* InfoPlist.strings */,
 				476EA97D19A7FCB8004BC6B1 /* main.m */,
 				476EA97F19A7FCB8004BC6B1 /* CSSAMon-Prefix.pch */,
@@ -264,8 +262,8 @@
 				AA20373119F36E150076BEF3 /* Icon_v2.png */,
 				AA34240219F330D90075A3DF /* map_pin_v2.png */,
 				AA34240019F32DB60075A3DF /* map_avatar.png */,
+				5282C85819F4798B00301F20 /* background.png */,
 				AA20803319F26F1100AD7FFD /* rsz_icon1.png */,
-				AA20803119F26D0E00AD7FFD /* icon.png */,
 				47F1524919B3B37E006FCEDD /* JobHunter_Career_center.png */,
 				47F1524719A9534D006FCEDD /* UC_Sea_ovt.png */,
 				47F1523719A95145006FCEDD /* Xueba_help_me_AS_Notes.png */,
@@ -276,7 +274,6 @@
 				47F1523C19A95145006FCEDD /* Big_red_chair.png */,
 				47F1523D19A95145006FCEDD /* Before_you_die.png */,
 				47F1523E19A95145006FCEDD /* A_bite_of_Mexico_Goodies.png */,
-				523A28D719F388950094999E /* Poster_halloween2.png */,
 				523A28D819F388950094999E /* Poster_halloween.png */,
 				523A28DF19F38CE80094999E /* Poster_halloween_v2.png */,
 				523A28DD19F38C850094999E /* Poster_scavengerhunt.png */,
@@ -344,11 +341,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				47F1524419A95145006FCEDD /* Big_red_chair.png in Resources */,
+				5282C85919F4798B00301F20 /* background.png in Resources */,
 				470069F019A90A2D0092604F /* SHMapViewController.xib in Resources */,
 				AA20373619F376880076BEF3 /* map_pin_v3.png in Resources */,
 				476EA98A19A7FCB8004BC6B1 /* Images.xcassets in Resources */,
 				476EA97C19A7FCB8004BC6B1 /* InfoPlist.strings in Resources */,
-				AA20803219F26D0E00AD7FFD /* icon.png in Resources */,
 				47F1524019A95145006FCEDD /* Sun_god_hug.png in Resources */,
 				AA34240319F330D90075A3DF /* map_pin_v2.png in Resources */,
 				47F1524219A95145006FCEDD /* Home_for_4_years_Geisel.png in Resources */,
@@ -373,7 +370,6 @@
 				AA20373219F36E150076BEF3 /* Icon_v2.png in Resources */,
 				476EA9A919A7FD50004BC6B1 /* GoogleMaps.bundle in Resources */,
 				523A28DC19F38AA50094999E /* login_avatar_v2.png in Resources */,
-				523A28D919F388950094999E /* Poster_halloween2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

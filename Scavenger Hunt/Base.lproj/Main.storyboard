@@ -343,6 +343,9 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background.png" translatesAutoresizingMaskIntoConstraints="NO" id="DAq-D7-cod">
+                                                <rect key="frame" x="0.0" y="66" width="320" height="146"/>
+                                            </imageView>
                                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sMN-Li-qit" userLabel="Label - 部门Label">
                                                 <rect key="frame" x="114" y="220" width="123" height="29"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -477,6 +480,7 @@
     <resources>
         <image name="Before_you_die.png" width="600" height="600"/>
         <image name="Poster_halloween_v2.png" width="540" height="540"/>
+        <image name="background.png" width="640" height="250"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
