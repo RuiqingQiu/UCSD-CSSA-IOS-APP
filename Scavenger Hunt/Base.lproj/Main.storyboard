@@ -36,12 +36,56 @@
                     <connections>
                         <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="8wR-s0-Obe"/>
                         <segue destination="1cM-Ye-UYb" kind="relationship" relationship="viewControllers" id="AQ6-f9-6sS"/>
-                        <segue destination="1Ic-MY-Hgf" kind="relationship" relationship="viewControllers" id="egd-0n-LQq"/>
+                        <segue destination="fLe-uD-pP1" kind="relationship" relationship="viewControllers" id="CDY-AB-bnz"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ayp-wp-EQZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-405" y="-666"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Wi7-RW-IDR">
+            <objects>
+                <viewController id="fLe-uD-pP1" customClass="EventViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Wpw-ve-lkr"/>
+                        <viewControllerLayoutGuide type="bottom" id="KMe-VR-NBa"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="cCw-N1-vQu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="FMp-dM-i9v">
+                                <rect key="frame" x="145" y="402" width="39" height="37"/>
+                                <connections>
+                                    <action selector="changePage:" destination="fLe-uD-pP1" eventType="valueChanged" id="WBd-gm-6Qs"/>
+                                </connections>
+                            </pageControl>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Poster_halloween_v2.png" translatesAutoresizingMaskIntoConstraints="NO" id="kFn-TU-fji">
+                                <rect key="frame" x="44" y="87" width="233" height="244"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qrl-bw-jJx">
+                                <rect key="frame" x="138" y="437" width="45" height="30"/>
+                                <state key="normal" title="下一页">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="click:" destination="fLe-uD-pP1" eventType="touchUpInside" id="77o-GT-N3H"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="AOP-D0-Wey"/>
+                    <connections>
+                        <outlet property="img" destination="kFn-TU-fji" id="hu5-KP-WWA"/>
+                        <outlet property="pageCtrl" destination="FMp-dM-i9v" id="OYe-Qd-8GH"/>
+                        <outlet property="view" destination="cCw-N1-vQu" id="W9E-HU-VXh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wlc-6l-3uo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18" y="-1184"/>
         </scene>
         <!--Map-->
         <scene sceneID="ufC-wZ-h7g">
@@ -69,74 +113,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="277" y="-612"/>
-        </scene>
-        <!--Item-->
-        <scene sceneID="GGo-PQ-X8p">
-            <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="1Ic-MY-Hgf" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="65f-Ik-hic"/>
-                    <connections>
-                        <segue destination="pPc-iK-Czu" kind="push" id="9yP-ct-0HV"/>
-                        <segue destination="g2a-qd-0hA" kind="push" id="2Wn-l9-CGo"/>
-                    </connections>
-                </pageViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="sUT-zo-a1W" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="239" y="-1284"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="z7v-Zh-wN3">
-            <objects>
-                <viewController id="pPc-iK-Czu" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="bhW-hx-hC2"/>
-                        <viewControllerLayoutGuide type="bottom" id="a39-hd-jKs"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="rOw-ka-An1">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RRo-cE-ap6">
-                                <rect key="frame" x="101" y="142" width="10" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="VWg-ak-QXy"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VVI-Dh-IXM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="726" y="-1564"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="ek7-4b-aqT">
-            <objects>
-                <viewController id="g2a-qd-0hA" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="QHm-Pj-Y4Y"/>
-                        <viewControllerLayoutGuide type="bottom" id="9KX-FI-nMc"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Yw5-y3-8LN">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2pu-Mg-GH2">
-                                <rect key="frame" x="147" y="192" width="10" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="DRv-xM-FbJ"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="pcH-rX-6aM" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="726" y="-914"/>
         </scene>
         <!--Register-->
         <scene sceneID="EDF-ad-N7d">
@@ -500,6 +476,7 @@
     </scenes>
     <resources>
         <image name="Before_you_die.png" width="600" height="600"/>
+        <image name="Poster_halloween_v2.png" width="540" height="540"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
