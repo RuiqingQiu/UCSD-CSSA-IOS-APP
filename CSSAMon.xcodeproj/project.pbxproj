@@ -47,6 +47,7 @@
 		84D76CE319EEE6DC0043945F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D76CE219EEE6DC0043945F /* ProfileViewController.m */; };
 		AA20373219F36E150076BEF3 /* Icon_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20373119F36E150076BEF3 /* Icon_v2.png */; };
 		AA20373619F376880076BEF3 /* map_pin_v3.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20373519F376880076BEF3 /* map_pin_v3.png */; };
+		AA20373819F3802B0076BEF3 /* icon_v3.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20373719F3802B0076BEF3 /* icon_v3.png */; };
 		AA20802B19F2646100AD7FFD /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA20802A19F2646100AD7FFD /* MapViewController.m */; };
 		AA20802D19F2649A00AD7FFD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA20802C19F2649A00AD7FFD /* MapKit.framework */; };
 		AA20802F19F2653100AD7FFD /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = AA20802E19F2653100AD7FFD /* Annotation.m */; };
@@ -54,6 +55,7 @@
 		AA20803419F26F1100AD7FFD /* rsz_icon1.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20803319F26F1100AD7FFD /* rsz_icon1.png */; };
 		AA34240119F32DB60075A3DF /* map_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = AA34240019F32DB60075A3DF /* map_avatar.png */; };
 		AA34240319F330D90075A3DF /* map_pin_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = AA34240219F330D90075A3DF /* map_pin_v2.png */; };
+		AAF65FF719F3887100C9D6EB /* icon_v4.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF65FF619F3887100C9D6EB /* icon_v4.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -107,6 +109,7 @@
 		84D76CE219EEE6DC0043945F /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = "Scavenger Hunt/ProfileViewController.m"; sourceTree = "<group>"; };
 		AA20373119F36E150076BEF3 /* Icon_v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_v2.png; sourceTree = "<group>"; };
 		AA20373519F376880076BEF3 /* map_pin_v3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_pin_v3.png; sourceTree = "<group>"; };
+		AA20373719F3802B0076BEF3 /* icon_v3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_v3.png; sourceTree = "<group>"; };
 		AA20802919F2646100AD7FFD /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = "Scavenger Hunt/MapViewController.h"; sourceTree = "<group>"; };
 		AA20802A19F2646100AD7FFD /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = "Scavenger Hunt/MapViewController.m"; sourceTree = "<group>"; };
 		AA20802C19F2649A00AD7FFD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -116,6 +119,7 @@
 		AA20803319F26F1100AD7FFD /* rsz_icon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rsz_icon1.png; sourceTree = "<group>"; };
 		AA34240019F32DB60075A3DF /* map_avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_avatar.png; sourceTree = "<group>"; };
 		AA34240219F330D90075A3DF /* map_pin_v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_pin_v2.png; sourceTree = "<group>"; };
+		AAF65FF619F3887100C9D6EB /* icon_v4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_v4.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +236,8 @@
 		47F1523619A9512D006FCEDD /* src */ = {
 			isa = PBXGroup;
 			children = (
+				AAF65FF619F3887100C9D6EB /* icon_v4.png */,
+				AA20373719F3802B0076BEF3 /* icon_v3.png */,
 				AA20373519F376880076BEF3 /* map_pin_v3.png */,
 				AA20373119F36E150076BEF3 /* Icon_v2.png */,
 				AA34240219F330D90075A3DF /* map_pin_v2.png */,
@@ -325,7 +331,9 @@
 				47F1524A19B3B37E006FCEDD /* JobHunter_Career_center.png in Resources */,
 				47F1524519A95145006FCEDD /* Before_you_die.png in Resources */,
 				47F1524319A95145006FCEDD /* Fallen_Star.png in Resources */,
+				AA20373819F3802B0076BEF3 /* icon_v3.png in Resources */,
 				AA34240119F32DB60075A3DF /* map_avatar.png in Resources */,
+				AAF65FF719F3887100C9D6EB /* icon_v4.png in Resources */,
 				47F1524819A9534D006FCEDD /* UC_Sea_ovt.png in Resources */,
 				47F1523F19A95145006FCEDD /* Xueba_help_me_AS_Notes.png in Resources */,
 				476EA98519A7FCB8004BC6B1 /* Main.storyboard in Resources */,
