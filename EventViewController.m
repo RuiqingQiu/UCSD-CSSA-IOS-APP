@@ -12,7 +12,7 @@ NSInteger text_num = 1;
 -(void)viewDidAppear:(BOOL)animated
 {
     //self.navigationController.navigationBar.hidden;
-    imgarr = [NSArray arrayWithObjects:@"Poster_halloween_v2.png",@"Poster_scavengerhunt.png", nil];
+    imgarr = [NSArray arrayWithObjects:@"Poster_halloween_v2.png",@"Poster_scavengerhuntcs2.png", nil];
     [pageCtrl setNumberOfPages:[imgarr count]];
     
     self.navigationController.navigationBar.hidden = YES;
