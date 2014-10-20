@@ -25,6 +25,9 @@ double latitude, longitude;
 NSString* str;
 BOOL locationStarted = FALSE;
 
+//Timer for update
+NSTimer *timer;
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -79,8 +82,7 @@ BOOL locationStarted = FALSE;
     //
     self.myMapView.showsUserLocation=YES;
     self.myMapView.region=region;
-    
-    //NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(loadDataWithRKey:) userInfo:nil repeats:NO];
+
     
 }
 
@@ -91,14 +93,16 @@ BOOL locationStarted = FALSE;
     latitude = location.coordinate.latitude;
     longitude = location.coordinate.longitude;
     CLLocationCoordinate2D center=location.coordinate;
-    [self.myMapView setCenterCoordinate:center animated:YES];
+    //[self.myMapView setCenterCoordinate:center animated:YES];
     NSLog(@"update location");
-    [self send];
+    //Send data for updating location
+    //[self send];
     
 }
 //与tableViewCell一样
 //在[self.myMapView addAnnotation:anno];后， 会马上调用这个协议中的方法 返回一个MKAnnotationView供地图显示
 //注意：在地图本身去添加用户位置的时候（小蓝点）也会调用这个方法
+
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
     if([annotation isKindOfClass:[Annotation class]])//If this is custom class
@@ -145,11 +149,12 @@ BOOL locationStarted = FALSE;
     [left addTarget:self action:@selector(tapLeft) forControlEvents:UIControlEventTouchUpInside];
     pinView.leftCalloutAccessoryView=left;
     
-    // pinView.rightCalloutAccessoryView=[UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    pinView.rightCalloutAccessoryView=[UIButton buttonWithType:UIButtonTypeDetailDisclosure];
     
     return pinView;
     
 }
+
 -(void)tapLeft
 {
     NSString *str=[NSArray array];
@@ -173,7 +178,7 @@ BOOL locationStarted = FALSE;
     [views enumerateObjectsUsingBlock:^(MKAnnotationView *pinView, NSUInteger idx, BOOL *stop) {
         if ([pinView isEqual:@"Current Location"]==NO)
         {
-            [mapView selectAnnotation:pinView.annotation animated:YES];
+            //[mapView selectAnnotation:pinView.annotation animated:YES];
         }
     }];
 }
@@ -202,11 +207,20 @@ BOOL locationStarted = FALSE;
     str = (NSString*)obj;
     NSLog(@"key %@", str);
     [self loadDataWithRKey:str];
+    timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(send:) userInfo:nil repeats:YES];
+}
+
+-(void)viewWillDisappear:(BOOL)animated{
+    if ([timer isValid]){
+        // the timer is valid and running, how about invalidating it
+        [timer invalidate];
+        timer = nil;
+    }
 }
 
 
 /* For sending location data */
-- (void)send
+- (void)send:(NSTimer *)timer
 {
     double time = [[NSDate date] timeIntervalSince1970];
     NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
@@ -229,11 +243,11 @@ BOOL locationStarted = FALSE;
     id obj = [[NSUserDefaults standardUserDefaults]objectForKey:@"rkey"];
     NSString* rkey = (NSString*)obj;
     NSLog(@"update location, key %@", rkey);
-    NSString* str = [NSString stringWithFormat:@"rkey=%@&latitude=%@&longitude=%@", rkey,[[NSNumber numberWithDouble:latitude] stringValue], [[NSNumber numberWithDouble:longitude]stringValue]];
-    NSLog(@"%@",str);
-    [request setHTTPBody:[str dataUsingEncoding:NSUTF8StringEncoding]];
+    NSString* str_tmp = [NSString stringWithFormat:@"rkey=%@&latitude=%@&longitude=%@", rkey,[[NSNumber numberWithDouble:latitude] stringValue], [[NSNumber numberWithDouble:longitude]stringValue]];
+    NSLog(@"%@",str_tmp);
+    [request setHTTPBody:[str_tmp dataUsingEncoding:NSUTF8StringEncoding]];
     NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
-    
+    [self loadDataWithRKey:str];
 }
 
 /* For loading datas */
@@ -252,6 +266,9 @@ BOOL locationStarted = FALSE;
     NSString* str = [NSString stringWithFormat:@"rkey=%@", rkey];
     [request setHTTPBody:[str dataUsingEncoding:NSUTF8StringEncoding]];
     NSLog(@"load data");
+    
+    
+    
     //NSData *receive;
     NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
 }
@@ -378,9 +395,12 @@ BOOL locationStarted = FALSE;
         //stop update location
         [locationManager stopUpdatingLocation];
         locationStarted = FALSE;
+        [self.locationManager stopUpdatingLocation];
     }else{
         //start updating location
         [locationManager startUpdatingLocation];
+        [self.locationManager startUpdatingLocation];
+
         locationStarted = TRUE;
         //ime how long the application will update your location
         time = 5;
@@ -389,6 +409,7 @@ BOOL locationStarted = FALSE;
     [self runBackgroundTask:time];
 }
 
+/*
 //application switchs back from background
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
@@ -396,7 +417,7 @@ BOOL locationStarted = FALSE;
     //stop updating
     [locationManager stopUpdatingLocation];
 }
-
+*/
 
 
 
