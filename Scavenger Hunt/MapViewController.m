@@ -212,6 +212,14 @@ NSTimer *timer;
     [self loadDataWithRKey:str];
     timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(send:) userInfo:nil repeats:YES];
 }
+-(void)viewDidAppear:(BOOL)animated
+{
+    self.navigationController.navigationBar.hidden = YES;
+}
+-(void)viewDidDisappear:(BOOL)animated
+{
+    self.navigationController.navigationBar.hidden = NO;
+}
 
 -(void)viewWillDisappear:(BOOL)animated{
     //[locationManager stopUpdatingLocation];
