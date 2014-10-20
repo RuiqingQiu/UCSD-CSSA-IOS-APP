@@ -24,6 +24,7 @@ UIApplication *app;
 double latitude, longitude;
 NSString* str;
 BOOL locationStarted = FALSE;
+NSString *rkey;
 
 //Timer for update
 NSTimer *timer;
@@ -201,16 +202,19 @@ NSTimer *timer;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
+    //[locationManager startUpdatingLocation];
     self.responseData = [NSMutableData data];
     [super viewWillAppear:animated];
     id obj = [[NSUserDefaults standardUserDefaults]objectForKey:@"rkey"];
     str = (NSString*)obj;
+    rkey = (NSString*)obj;
     NSLog(@"key %@", str);
     [self loadDataWithRKey:str];
-    timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(send:) userInfo:nil repeats:YES];
+    timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(send:) userInfo:nil repeats:YES];
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
+    //[locationManager stopUpdatingLocation];
     if ([timer isValid]){
         // the timer is valid and running, how about invalidating it
         [timer invalidate];
@@ -248,6 +252,35 @@ NSTimer *timer;
     [request setHTTPBody:[str_tmp dataUsingEncoding:NSUTF8StringEncoding]];
     NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
     [self loadDataWithRKey:str];
+}
+
+
+-(void)sendLocationBackground{
+    double time = [[NSDate date] timeIntervalSince1970];
+    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                [[NSNumber numberWithDouble:latitude] stringValue],@"latitude",
+                                [[NSNumber numberWithDouble:longitude]stringValue],@"longitude",
+                                nil];
+    NSLog(@"%@",dictionary);
+    
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionary
+                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
+                                                         error:&error];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://c.zinsser.me/updateLocation.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    
+    
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSData* data = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
+    [request setHTTPMethod:@"POST"];
+    NSLog(@"update location, key %@", rkey);
+    NSString* str_tmp = [NSString stringWithFormat:@"rkey=%@&latitude=%@&longitude=%@", rkey,[[NSNumber numberWithDouble:latitude] stringValue], [[NSNumber numberWithDouble:longitude]stringValue]];
+    NSLog(@"%@",str_tmp);
+    [request setHTTPBody:[str_tmp dataUsingEncoding:NSUTF8StringEncoding]];
+    NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
+    [self loadDataWithRKey:str];
+
 }
 
 /* For loading datas */
@@ -351,6 +384,44 @@ NSTimer *timer;
 
 //run background task
 -(void)runBackgroundTask: (int) time{
+    
+    UIApplication * application = [UIApplication sharedApplication];
+    
+    if([[UIDevice currentDevice] respondsToSelector:@selector(isMultitaskingSupported)])
+    {
+        NSLog(@"Multitasking Supported");
+        
+        __block UIBackgroundTaskIdentifier background_task;
+        background_task = [application beginBackgroundTaskWithExpirationHandler:^ {
+            
+            //Clean up code. Tell the system that we are done.
+            [application endBackgroundTask: background_task];
+            background_task = UIBackgroundTaskInvalid;
+        }];
+        
+        //To make the code block asynchronous
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            
+            //### background task starts
+            NSLog(@"Running in the background\n");
+            while(TRUE)
+            {
+                NSLog(@"Background time Remaining: %f",[[UIApplication sharedApplication] backgroundTimeRemaining]);
+                [NSThread sleepForTimeInterval:1]; //wait for 1 sec
+            }
+            //#### background task ends
+            
+            //Clean up code. Tell the system that we are done.
+            [application endBackgroundTask: background_task];
+            background_task = UIBackgroundTaskInvalid; 
+        });
+    }
+    else
+    {
+        NSLog(@"Multitasking Not Supported");
+    }
+/*
+    
     //check if application is in background mode
     if ([UIApplication sharedApplication].applicationState == UIApplicationStateBackground) {
         
@@ -361,16 +432,25 @@ NSTimer *timer;
         }];
         
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
+            [self send:timer];
+            NSLog(@"background");
             NSTimer* t = [NSTimer scheduledTimerWithTimeInterval:time target:self selector:@selector(startTrackingBg) userInfo:nil repeats:NO];
             [[NSRunLoop currentRunLoop] addTimer:t forMode:NSDefaultRunLoopMode];
             [[NSRunLoop currentRunLoop] run];
         });
-    }
+        
+    }*/
 }
+- (void)applicationWillEnterForeground:(UIApplication *)application
+{
+    NSLog(@"enter background");
+}
+
 
 //starts when application switchs into backghround
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
+    NSLog(@"enter background");
     //check if application status is in background
     if ( [UIApplication sharedApplication].applicationState == UIApplicationStateBackground) {
         NSLog(@"start backgroun tracking from appdelegate");
@@ -378,9 +458,8 @@ NSTimer *timer;
         //start updating location with location manager
         [locationManager startUpdatingLocation];
     }
-    
     //change locationManager status after time
-    [self runBackgroundTask:20];
+    [self runBackgroundTask:10];
 }
 
 //starts with background task
@@ -389,22 +468,7 @@ NSTimer *timer;
     NSLog(@"backgroundTimeRemaining: %.0f", [[UIApplication sharedApplication] backgroundTimeRemaining]);
     
     //set default time
-    int time = 60;
-    //if locationManager is ON
-    if (locationStarted == TRUE ) {
-        //stop update location
-        [locationManager stopUpdatingLocation];
-        locationStarted = FALSE;
-        [self.locationManager stopUpdatingLocation];
-    }else{
-        //start updating location
-        [locationManager startUpdatingLocation];
-        [self.locationManager startUpdatingLocation];
-
-        locationStarted = TRUE;
-        //ime how long the application will update your location
-        time = 5;
-    }
+    int time = 10;
     
     [self runBackgroundTask:time];
 }
