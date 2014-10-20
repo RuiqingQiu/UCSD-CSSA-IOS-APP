@@ -213,6 +213,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+  
     
     // Initialize Data
     dataArray = [[NSArray alloc]initWithObjects:@"ERC", @"Marshall", @"Muir", @"Revelle", @"Warren", @"Sixth",nil];

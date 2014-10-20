@@ -219,6 +219,7 @@ NSTimer *timer;
         // the timer is valid and running, how about invalidating it
         [timer invalidate];
         timer = nil;
+        //self.navigationController.navigationBar.hidden = NO;
     }
 }
 
@@ -472,6 +473,8 @@ NSTimer *timer;
     
     [self runBackgroundTask:time];
 }
+
+
 
 /*
 //application switchs back from background

@@ -49,10 +49,10 @@
 		523A28D619F374840094999E /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 523A28D519F374840094999E /* EventViewController.m */; };
 		523A28DA19F388950094999E /* Poster_halloween.png in Resources */ = {isa = PBXBuildFile; fileRef = 523A28D819F388950094999E /* Poster_halloween.png */; };
 		523A28DC19F38AA50094999E /* login_avatar_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 523A28DB19F38AA50094999E /* login_avatar_v2.png */; };
-		523A28DE19F38C850094999E /* Poster_scavengerhunt.png in Resources */ = {isa = PBXBuildFile; fileRef = 523A28DD19F38C850094999E /* Poster_scavengerhunt.png */; };
 		523A28E019F38CE80094999E /* Poster_halloween_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 523A28DF19F38CE80094999E /* Poster_halloween_v2.png */; };
 		523BBDB019EB1428006FABC8 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 523BBDAF19EB1428006FABC8 /* RegisterViewController.m */; };
 		5282C85919F4798B00301F20 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 5282C85819F4798B00301F20 /* background.png */; };
+		5282C85D19F49F6D00301F20 /* Poster_scavengerhuntcs2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5282C85C19F49F6D00301F20 /* Poster_scavengerhuntcs2.png */; };
 		84D76CE319EEE6DC0043945F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D76CE219EEE6DC0043945F /* ProfileViewController.m */; };
 		AA20373219F36E150076BEF3 /* Icon_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20373119F36E150076BEF3 /* Icon_v2.png */; };
 		AA20373619F376880076BEF3 /* map_pin_v3.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20373519F376880076BEF3 /* map_pin_v3.png */; };
@@ -123,11 +123,11 @@
 		523A28D519F374840094999E /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
 		523A28D819F388950094999E /* Poster_halloween.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Poster_halloween.png; sourceTree = "<group>"; };
 		523A28DB19F38AA50094999E /* login_avatar_v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login_avatar_v2.png; sourceTree = "<group>"; };
-		523A28DD19F38C850094999E /* Poster_scavengerhunt.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Poster_scavengerhunt.png; sourceTree = "<group>"; };
 		523A28DF19F38CE80094999E /* Poster_halloween_v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Poster_halloween_v2.png; sourceTree = "<group>"; };
 		523BBDAE19EB13EA006FABC8 /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		523BBDAF19EB1428006FABC8 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		5282C85819F4798B00301F20 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		5282C85C19F49F6D00301F20 /* Poster_scavengerhuntcs2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Poster_scavengerhuntcs2.png; sourceTree = "<group>"; };
 		84D76CE119EEE6DC0043945F /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = "Scavenger Hunt/ProfileViewController.h"; sourceTree = "<group>"; };
 		84D76CE219EEE6DC0043945F /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = "Scavenger Hunt/ProfileViewController.m"; sourceTree = "<group>"; };
 		AA20373119F36E150076BEF3 /* Icon_v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_v2.png; sourceTree = "<group>"; };
@@ -291,7 +291,7 @@
 				47F1523E19A95145006FCEDD /* A_bite_of_Mexico_Goodies.png */,
 				523A28D819F388950094999E /* Poster_halloween.png */,
 				523A28DF19F38CE80094999E /* Poster_halloween_v2.png */,
-				523A28DD19F38C850094999E /* Poster_scavengerhunt.png */,
+				5282C85C19F49F6D00301F20 /* Poster_scavengerhuntcs2.png */,
 				523A28DB19F38AA50094999E /* login_avatar_v2.png */,
 			);
 			name = src;
@@ -366,6 +366,7 @@
 				47F1524219A95145006FCEDD /* Home_for_4_years_Geisel.png in Resources */,
 				AA20803419F26F1100AD7FFD /* rsz_icon1.png in Resources */,
 				47F1524619A95145006FCEDD /* A_bite_of_Mexico_Goodies.png in Resources */,
+				5282C85D19F49F6D00301F20 /* Poster_scavengerhuntcs2.png in Resources */,
 				AA6EA24F19F4821600208893 /* Icon13 .png in Resources */,
 				523A28DA19F388950094999E /* Poster_halloween.png in Resources */,
 				47F1524119A95145006FCEDD /* Stone_bear.png in Resources */,
@@ -381,7 +382,6 @@
 				AAF65FF719F3887100C9D6EB /* icon_v4.png in Resources */,
 				47F1524819A9534D006FCEDD /* UC_Sea_ovt.png in Resources */,
 				523789E919F331F600391CC3 /* login_avatar.png in Resources */,
-				523A28DE19F38C850094999E /* Poster_scavengerhunt.png in Resources */,
 				AA6EA25119F4929300208893 /* crown-7.png in Resources */,
 				47F1523F19A95145006FCEDD /* Xueba_help_me_AS_Notes.png in Resources */,
 				AA6EA25519F4948800208893 /* origami-7.png in Resources */,
