@@ -40,11 +40,7 @@
     [defaults3 setObject:majorString forKey:@"majorString"];
     [defaults3 synchronize];
     
-    //NSString *collegeString = collegeField.text;
-    //NSUserDefaults *defaults4 = [NSUserDefaults standardUserDefaults];
-    //[defaults4 setObject:collegeString forKey:@"collegeString"];
-    //[defaults4 synchronize];
-    
+
     NSString *collegeString = button.currentTitle;
     NSString *choice = @"请选择";
     NSString *erc = @"ERC";
@@ -125,7 +121,16 @@
     //if (connection) {
     //    receive = [[NSMutableData data] retain];
     //}
-    
+   
+
+}
+-(void)keyboardHide:(UITapGestureRecognizer*)tap{
+    [loginNameFiled resignFirstResponder];
+    [passwordField resignFirstResponder];
+    [nameField resignFirstResponder];
+    [majorField resignFirstResponder];
+    [mottoField resignFirstResponder];
+
 }
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     NSLog(@"didReceiveResponse");
@@ -217,6 +222,12 @@
     [bar setHidden:YES];
     
     self.responseData = [NSMutableData data];
+    
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)];
+    //设置成NO表示当前控件响应后会传播到其他控件上，默认为YES。
+    tapGestureRecognizer.cancelsTouchesInView = NO;
+    //将触摸事件添加到当前view
+    [self.view addGestureRecognizer:tapGestureRecognizer];
 }
 
 
