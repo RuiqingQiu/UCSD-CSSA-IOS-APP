@@ -39,13 +39,18 @@ NSArray* arr;
 -(void)viewDidAppear:(BOOL)animated
 {
     self.navigationController.navigationBar.hidden = YES;
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)];
+    //设置成NO表示当前控件响应后会传播到其他控件上，默认为YES。
+    tapGestureRecognizer.cancelsTouchesInView = NO;
+    //将触摸事件添加到当前view
+    [self.view addGestureRecognizer:tapGestureRecognizer];
 }
 -(void)viewDidDisappear:(BOOL)animated
 {
     self.navigationController.navigationBar.hidden = NO;
 }
 
-- (void)viewDidLoad
+/**- (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidLoad];
     
@@ -54,7 +59,7 @@ NSArray* arr;
     tapGestureRecognizer.cancelsTouchesInView = NO;
     //将触摸事件添加到当前view
     [self.view addGestureRecognizer:tapGestureRecognizer];
-}
+}*/
 
 -(void)keyboardHide:(UITapGestureRecognizer*)tap{
 
