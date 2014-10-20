@@ -63,6 +63,8 @@
 		AA20803419F26F1100AD7FFD /* rsz_icon1.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20803319F26F1100AD7FFD /* rsz_icon1.png */; };
 		AA34240119F32DB60075A3DF /* map_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = AA34240019F32DB60075A3DF /* map_avatar.png */; };
 		AA34240319F330D90075A3DF /* map_pin_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = AA34240219F330D90075A3DF /* map_pin_v2.png */; };
+		AA6EA24D19F481FE00208893 /* splash screen.png in Resources */ = {isa = PBXBuildFile; fileRef = AA6EA24C19F481FE00208893 /* splash screen.png */; };
+		AA6EA24F19F4821600208893 /* Icon13 .png in Resources */ = {isa = PBXBuildFile; fileRef = AA6EA24E19F4821600208893 /* Icon13 .png */; };
 		AAF65FF719F3887100C9D6EB /* icon_v4.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF65FF619F3887100C9D6EB /* icon_v4.png */; };
 /* End PBXBuildFile section */
 
@@ -136,6 +138,8 @@
 		AA20803319F26F1100AD7FFD /* rsz_icon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rsz_icon1.png; sourceTree = "<group>"; };
 		AA34240019F32DB60075A3DF /* map_avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_avatar.png; sourceTree = "<group>"; };
 		AA34240219F330D90075A3DF /* map_pin_v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_pin_v2.png; sourceTree = "<group>"; };
+		AA6EA24C19F481FE00208893 /* splash screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash screen.png"; sourceTree = "<group>"; };
+		AA6EA24E19F4821600208893 /* Icon13 .png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon13 .png"; sourceTree = "<group>"; };
 		AAF65FF619F3887100C9D6EB /* icon_v4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_v4.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -256,6 +260,8 @@
 		47F1523619A9512D006FCEDD /* src */ = {
 			isa = PBXGroup;
 			children = (
+				AA6EA24E19F4821600208893 /* Icon13 .png */,
+				AA6EA24C19F481FE00208893 /* splash screen.png */,
 				AAF65FF619F3887100C9D6EB /* icon_v4.png */,
 				AA20373719F3802B0076BEF3 /* icon_v3.png */,
 				AA20373519F376880076BEF3 /* map_pin_v3.png */,
@@ -351,6 +357,7 @@
 				47F1524219A95145006FCEDD /* Home_for_4_years_Geisel.png in Resources */,
 				AA20803419F26F1100AD7FFD /* rsz_icon1.png in Resources */,
 				47F1524619A95145006FCEDD /* A_bite_of_Mexico_Goodies.png in Resources */,
+				AA6EA24F19F4821600208893 /* Icon13 .png in Resources */,
 				523A28DA19F388950094999E /* Poster_halloween.png in Resources */,
 				47F1524119A95145006FCEDD /* Stone_bear.png in Resources */,
 				47F1524A19B3B37E006FCEDD /* JobHunter_Career_center.png in Resources */,
@@ -368,6 +375,7 @@
 				47F1523F19A95145006FCEDD /* Xueba_help_me_AS_Notes.png in Resources */,
 				476EA98519A7FCB8004BC6B1 /* Main.storyboard in Resources */,
 				AA20373219F36E150076BEF3 /* Icon_v2.png in Resources */,
+				AA6EA24D19F481FE00208893 /* splash screen.png in Resources */,
 				476EA9A919A7FD50004BC6B1 /* GoogleMaps.bundle in Resources */,
 				523A28DC19F38AA50094999E /* login_avatar_v2.png in Resources */,
 			);
