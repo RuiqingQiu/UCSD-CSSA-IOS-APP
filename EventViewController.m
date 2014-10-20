@@ -14,13 +14,30 @@ NSInteger text_num = 1;
     //self.navigationController.navigationBar.hidden;
     imgarr = [NSArray arrayWithObjects:@"Poster_halloween_v2.png",@"Poster_scavengerhunt.png", nil];
     [pageCtrl setNumberOfPages:[imgarr count]];
+    
+    self.navigationController.navigationBar.hidden = YES;
 }
 -(void)viewWillAppear:(BOOL)animated
 {
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     //self.navigationController.navigationBar.hidden = YES;
 }
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+}
+
+-(void)viewDidDisappear:(BOOL)animated
+{
+    self.navigationController.navigationBar.hidden = NO;
+}
+/**-(void)viewWillDisappear:(BOOL)animated
+{
+ self.navigationController.navigationBar.hidden = NO;
+}**/
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
+    NSLog(@"!!");
     return UIStatusBarStyleLightContent;
 }
 -(void)viewDidLoad{
@@ -114,4 +131,5 @@ NSInteger text_num = 1;
   
         [self changePage2:sender];
 }
+
 @end

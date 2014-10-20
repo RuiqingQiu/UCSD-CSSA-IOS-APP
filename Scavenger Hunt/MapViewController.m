@@ -208,6 +208,15 @@ NSTimer *timer;
     NSLog(@"key %@", str);
     [self loadDataWithRKey:str];
     timer = [NSTimer scheduledTimerWithTimeInterval:5 target:self selector:@selector(send:) userInfo:nil repeats:YES];
+    //self.navigationController.navigationBar.hidden = YES;
+}
+-(void)viewDidAppear:(BOOL)animated
+{
+    self.navigationController.navigationBar.hidden = YES;
+}
+-(void)viewDidDisappear:(BOOL)animated
+{
+    self.navigationController.navigationBar.hidden = NO;
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
@@ -215,6 +224,7 @@ NSTimer *timer;
         // the timer is valid and running, how about invalidating it
         [timer invalidate];
         timer = nil;
+        //self.navigationController.navigationBar.hidden = NO;
     }
 }
 
@@ -408,6 +418,8 @@ NSTimer *timer;
     
     [self runBackgroundTask:time];
 }
+
+
 
 /*
 //application switchs back from background

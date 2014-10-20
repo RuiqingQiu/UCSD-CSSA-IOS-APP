@@ -28,8 +28,22 @@ NSArray* arr;
     NSLog(@"key %@", str);
     [self loadDataWithRKey:str];
     arr = [[NSArray alloc]initWithObjects:@"",@"ERC", @"Marshall", @"Muir", @"Revelle", @"Warren", @"Sixth",nil];
+    //self.navigationController.navigationBar.hidden = YES;
 }
 
+-(void)viewWillDisappear:(BOOL)animated
+{
+   // self.navigationController.navigationBar.hidden = NO;
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    self.navigationController.navigationBar.hidden = YES;
+}
+-(void)viewDidDisappear:(BOOL)animated
+{
+    self.navigationController.navigationBar.hidden = NO;
+}
 
 - (void)viewDidLoad
 {
