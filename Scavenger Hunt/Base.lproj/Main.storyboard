@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2AK-7q-WAG">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
@@ -42,7 +43,7 @@
             </objects>
             <point key="canvasLocation" x="-405" y="-666"/>
         </scene>
-        <!--Item-->
+        <!--Event-->
         <scene sceneID="Wi7-RW-IDR">
             <objects>
                 <viewController id="fLe-uD-pP1" customClass="EventViewController" sceneMemberID="viewController">
@@ -66,7 +67,7 @@
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="AOP-D0-Wey"/>
+                    <tabBarItem key="tabBarItem" title="Event" image="origami-7.png" id="AOP-D0-Wey" userLabel="Event"/>
                     <connections>
                         <outlet property="img" destination="kFn-TU-fji" id="hu5-KP-WWA"/>
                         <outlet property="pageCtrl" destination="FMp-dM-i9v" id="OYe-Qd-8GH"/>
@@ -95,7 +96,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Map" id="9YE-pO-i48"/>
+                    <tabBarItem key="tabBarItem" title="Map" image="pin-map-7.png" id="9YE-pO-i48"/>
                     <connections>
                         <outlet property="myMapView" destination="IhT-Bu-F8c" id="3eh-WX-JRW"/>
                     </connections>
@@ -381,7 +382,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Profile" id="OPw-lw-CQK"/>
+                    <tabBarItem key="tabBarItem" title="Profile" image="crown-7.png" id="OPw-lw-CQK"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="College" destination="Pvn-cZ-eq1" id="6cB-9d-QJM"/>
@@ -451,6 +452,9 @@
         <image name="Before_you_die.png" width="600" height="600"/>
         <image name="Poster_halloween_v2.png" width="540" height="540"/>
         <image name="background.png" width="640" height="250"/>
+        <image name="crown-7.png" width="30" height="30"/>
+        <image name="origami-7.png" width="30" height="30"/>
+        <image name="pin-map-7.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
