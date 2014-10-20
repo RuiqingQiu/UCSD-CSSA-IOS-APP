@@ -9,7 +9,10 @@
 #import "SHAppDelegate.h"
 #import <GoogleMaps/GoogleMaps.h>
 #import "SHMapViewController.h"
+#import "MapViewController.h"
+#define UPDATE_LOCATION_INTERVAL 60
 
+NSTimer* t;
 @implementation SHAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -26,15 +29,45 @@
 }
 
 
+
+//starts when application switchs into backghround
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        __block UIBackgroundTaskIdentifier bgTask = [application beginBackgroundTaskWithName:@"MyTask" expirationHandler:^{
+        // Clean up any unfinished task business by marking where you
+        // stopped or ending the task outright.
+        [application endBackgroundTask:bgTask];
+        bgTask = UIBackgroundTaskInvalid;
+    }];
+    
+    // Start the long-running task and return immediately.
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        // Do the work associated with the task, preferably in chunks.
+       t = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(callSend) userInfo:nil repeats:YES];
+        [[NSRunLoop currentRunLoop] run];
+    });
+}
+                      
+-(void)callSend{
+    NSLog(@"in call send");
+    UIStoryboard *mystoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    MapViewController *mapViewController = [mystoryboard instantiateViewControllerWithIdentifier:@"MapViewController"];
+    NSLog(@"%@", mapViewController);
+    [mapViewController sendBackground:nil];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
+    if ([t isValid]){
+        // the timer is valid and running, how about invalidating it
+        [t invalidate];
+        t = nil;
+        //self.navigationController.navigationBar.hidden = NO;
+    }
+
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application

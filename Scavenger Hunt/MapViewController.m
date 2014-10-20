@@ -20,7 +20,7 @@
 @synthesize locationManager;
 
 UIApplication *app;
-
+static NSMutableData *responseData;
 double latitude, longitude;
 NSString* str;
 BOOL locationStarted = FALSE;
@@ -203,7 +203,7 @@ NSTimer *timer;
 
 -(void)viewWillAppear:(BOOL)animated {
     //[locationManager startUpdatingLocation];
-    self.responseData = [NSMutableData data];
+    responseData = [NSMutableData data];
     [super viewWillAppear:animated];
     id obj = [[NSUserDefaults standardUserDefaults]objectForKey:@"rkey"];
     str = (NSString*)obj;
@@ -263,8 +263,9 @@ NSTimer *timer;
     [self loadDataWithRKey:str];
 }
 
-
--(void)sendLocationBackground{
+/* For sending location data */
+- (void)sendBackground:(NSTimer *)timer
+{
     double time = [[NSDate date] timeIntervalSince1970];
     NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                 [[NSNumber numberWithDouble:latitude] stringValue],@"latitude",
@@ -283,15 +284,15 @@ NSTimer *timer;
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     NSData* data = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     [request setHTTPMethod:@"POST"];
+    id obj = [[NSUserDefaults standardUserDefaults]objectForKey:@"rkey"];
+    NSString* rkey = (NSString*)obj;
     NSLog(@"update location, key %@", rkey);
     NSString* str_tmp = [NSString stringWithFormat:@"rkey=%@&latitude=%@&longitude=%@", rkey,[[NSNumber numberWithDouble:latitude] stringValue], [[NSNumber numberWithDouble:longitude]stringValue]];
     NSLog(@"%@",str_tmp);
     [request setHTTPBody:[str_tmp dataUsingEncoding:NSUTF8StringEncoding]];
     NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
-    [self loadDataWithRKey:str];
 
 }
-
 /* For loading datas */
 
 -(void)loadDataWithRKey:(NSString*) rkey
@@ -319,11 +320,11 @@ NSTimer *timer;
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     NSLog(@"didReceiveResponse");
-    [self.responseData setLength:0];
+    [responseData setLength:0];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    [self.responseData appendData:data];
+    [responseData appendData:data];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
@@ -333,11 +334,12 @@ NSTimer *timer;
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     NSLog(@"connectionDidFinishLoading");
-    NSLog(@"Succeeded! Received %lu bytes of data",(unsigned long)[self.responseData length]);
+    NSLog(@"Succeeded! Received %lu bytes of data",(unsigned long)[responseData length]);
     
     // convert to JSON
     NSError *myError = nil;
-    NSDictionary *res = [NSJSONSerialization JSONObjectWithData:self.responseData options:NSJSONReadingMutableLeaves error:&myError];
+    NSLog(@"self response data, %@", responseData);
+    NSDictionary *res = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:&myError];
     for(id key in res) {
         NSLog(@"in loop");
         id value = [res objectForKey:key];
@@ -389,99 +391,6 @@ NSTimer *timer;
         NSLog(@"icon: %@", icon);
     }
 }
-
-
-//run background task
--(void)runBackgroundTask: (int) time{
-    
-    UIApplication * application = [UIApplication sharedApplication];
-    
-    if([[UIDevice currentDevice] respondsToSelector:@selector(isMultitaskingSupported)])
-    {
-        NSLog(@"Multitasking Supported");
-        
-        __block UIBackgroundTaskIdentifier background_task;
-        background_task = [application beginBackgroundTaskWithExpirationHandler:^ {
-            
-            //Clean up code. Tell the system that we are done.
-            [application endBackgroundTask: background_task];
-            background_task = UIBackgroundTaskInvalid;
-        }];
-        
-        //To make the code block asynchronous
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            
-            //### background task starts
-            NSLog(@"Running in the background\n");
-            while(TRUE)
-            {
-                NSLog(@"Background time Remaining: %f",[[UIApplication sharedApplication] backgroundTimeRemaining]);
-                [NSThread sleepForTimeInterval:1]; //wait for 1 sec
-            }
-            //#### background task ends
-            
-            //Clean up code. Tell the system that we are done.
-            [application endBackgroundTask: background_task];
-            background_task = UIBackgroundTaskInvalid; 
-        });
-    }
-    else
-    {
-        NSLog(@"Multitasking Not Supported");
-    }
-/*
-    
-    //check if application is in background mode
-    if ([UIApplication sharedApplication].applicationState == UIApplicationStateBackground) {
-        
-        //create UIBackgroundTaskIdentifier and create tackground task, which starts after time
-        __block UIBackgroundTaskIdentifier bgTask = [app beginBackgroundTaskWithExpirationHandler:^{
-            [app endBackgroundTask:bgTask];
-            bgTask = UIBackgroundTaskInvalid;
-        }];
-        
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0), ^{
-            [self send:timer];
-            NSLog(@"background");
-            NSTimer* t = [NSTimer scheduledTimerWithTimeInterval:time target:self selector:@selector(startTrackingBg) userInfo:nil repeats:NO];
-            [[NSRunLoop currentRunLoop] addTimer:t forMode:NSDefaultRunLoopMode];
-            [[NSRunLoop currentRunLoop] run];
-        });
-        
-    }*/
-}
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    NSLog(@"enter background");
-}
-
-
-//starts when application switchs into backghround
-- (void)applicationDidEnterBackground:(UIApplication *)application
-{
-    NSLog(@"enter background");
-    //check if application status is in background
-    if ( [UIApplication sharedApplication].applicationState == UIApplicationStateBackground) {
-        NSLog(@"start backgroun tracking from appdelegate");
-        
-        //start updating location with location manager
-        [locationManager startUpdatingLocation];
-    }
-    //change locationManager status after time
-    [self runBackgroundTask:10];
-}
-
-//starts with background task
--(void)startTrackingBg{
-    //write background time remaining
-    NSLog(@"backgroundTimeRemaining: %.0f", [[UIApplication sharedApplication] backgroundTimeRemaining]);
-    
-    //set default time
-    int time = 10;
-    
-    [self runBackgroundTask:time];
-}
-
 
 
 /*

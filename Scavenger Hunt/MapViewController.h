@@ -13,6 +13,7 @@
 @property (strong, nonatomic) IBOutlet MKMapView *myMapView;
 @property CLLocationManager *locationManager;
 //For loading data from the server
-@property (nonatomic, strong) NSMutableData *responseData;
-
+//@property (nonatomic, strong) NSMutableData *responseData;
+-(void)sendBackground:(NSTimer*)timer;
+-(void)send:(NSTimer*) timer;
 @end
