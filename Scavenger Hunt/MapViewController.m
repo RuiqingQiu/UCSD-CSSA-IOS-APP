@@ -83,8 +83,16 @@ NSTimer *timer;
     //
     self.myMapView.showsUserLocation=YES;
     self.myMapView.region=region;
-
     
+    UIButton *button1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button1.frame = CGRectMake(225, 475, 100, 30);
+    [button1 setTitle:@"Refresh" forState:UIControlStateNormal];
+    [button1 addTarget:self action:@selector(buttonDidTap:) forControlEvents:UIControlEventTouchUpInside];
+    [self.myMapView addSubview:button1];
+    
+}
+-(void)buttonDidTap:(UIButton *)sender{
+    [self loadDataWithRKey:str];
 }
 
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
@@ -100,9 +108,18 @@ NSTimer *timer;
     //[self send];
     
 }
+- (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView{
+    /*NSLog(@"%d",self.myMapView.annotations.count);
+    for (id<MKAnnotation> currentAnnotation in self.myMapView.annotations) {
+        [self.myMapView selectAnnotation:currentAnnotation animated:FALSE];
+        NSLog(@"here");
+    }
+    NSLog(@"mapview did finish loading");*/
+}
 //与tableViewCell一样
 //在[self.myMapView addAnnotation:anno];后， 会马上调用这个协议中的方法 返回一个MKAnnotationView供地图显示
 //注意：在地图本身去添加用户位置的时候（小蓝点）也会调用这个方法
+//mapView:regionWillChangeAnimated:
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
@@ -333,7 +350,7 @@ NSTimer *timer;
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    NSLog(@"connectionDidFinishLoading");
+    NSLog(@"mapview connectionDidFinishLoading");
     NSLog(@"Succeeded! Received %lu bytes of data",(unsigned long)[responseData length]);
     
     // convert to JSON
@@ -341,7 +358,7 @@ NSTimer *timer;
     NSLog(@"self response data, %@", responseData);
     NSDictionary *res = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:&myError];
     for(id key in res) {
-        NSLog(@"in loop");
+        NSLog(@"mapview in loop");
         id value = [res objectForKey:key];
         
         NSString *keyAsString = (NSString *)key;
@@ -392,17 +409,12 @@ NSTimer *timer;
     }
 }
 
-
-/*
-//application switchs back from background
-- (void)applicationWillEnterForeground:(UIApplication *)application
-{
-    locationStarted = FALSE;
-    //stop updating
-    [locationManager stopUpdatingLocation];
+- (void)mapView:(MKMapView *)mapView didSelectAnnotation:(MKAnnotationView *)view{
+    
 }
-*/
-
+- (void)mapView:(MKMapView *)mapView didDeselectAnnotation:(MKAnnotationView *)view{
+    
+}
 
 
 @end

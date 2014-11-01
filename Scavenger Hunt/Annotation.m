@@ -38,6 +38,13 @@
     annotationView.image = [UIImage imageNamed:@"map_pin_v3.png"];
     //For the right side to have an information button
     annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    
+
+    NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:image_url]];
+    UIImageView *leftIconView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:imageData]];
+    annotationView.leftCalloutAccessoryView = leftIconView;
+
+
     return annotationView;
 }
 
