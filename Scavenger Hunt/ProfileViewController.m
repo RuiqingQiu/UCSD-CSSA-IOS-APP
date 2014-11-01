@@ -10,6 +10,7 @@
 
 @implementation ProfileViewController
 NSArray* arr;
+bool editOrNot = YES;
 -(void)viewWillAppear:(BOOL)animated {
     self.responseData = [NSMutableData data];
     [super viewWillAppear:animated];
@@ -50,23 +51,19 @@ NSArray* arr;
     self.navigationController.navigationBar.hidden = NO;
 }
 
-/**- (void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidLoad];
-    
-    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)];
-    //设置成NO表示当前控件响应后会传播到其他控件上，默认为YES。
-    tapGestureRecognizer.cancelsTouchesInView = NO;
-    //将触摸事件添加到当前view
-    [self.view addGestureRecognizer:tapGestureRecognizer];
-}*/
+
 
 -(void)keyboardHide:(UITapGestureRecognizer*)tap{
 
     [login_pass resignFirstResponder];
     [loging_user resignFirstResponder];
-
+    [nameField resignFirstResponder];
+    [positionField resignFirstResponder];
+    //[collegeField resignFirstResponder];
+    [majorField resignFirstResponder];
+    [mottoField resignFirstResponder];
     
+
 }
 
 
@@ -153,24 +150,29 @@ NSArray* arr;
         }else{
             NSLog(@"%@", keyAsString);
             NSLog(@"%@", valueAsString);
+            positionField.backgroundColor = [UIColor clearColor];
+            //nameField.background = [UIColor clearColor];
+            collegeField.backgroundColor = [UIColor clearColor];
+            majorField.backgroundColor = [UIColor clearColor];
+            mottoField.backgroundColor = [UIColor clearColor];
             if(valueAsString == [NSNull null]){
                 continue;
             }
             if ([keyAsString isEqualToString:@"name"]) {
-                [Name setText:valueAsString];
+                [nameField setText:valueAsString];
             }
             if ([keyAsString isEqualToString:@"position"]) {
-                [JobTitle setText:valueAsString];
+                [positionField setText:valueAsString];
             }
             if ([keyAsString isEqualToString:@"college"]) {
                 NSString* colle = [arr objectAtIndex:[valueAsString intValue]];
-                [College setText:colle];
+                [collegeField setText:colle];
             }
             if ([keyAsString isEqualToString:@"major"]) {
-                [Major setText:valueAsString];
+                [majorField setText:valueAsString];
             }
             if ([keyAsString isEqualToString:@"motto"]) {
-                [Motto setText:valueAsString];
+                [mottoField setText:valueAsString];
 
             }
             if([keyAsString isEqualToString:@"avatar_large"]){
@@ -191,6 +193,32 @@ NSArray* arr;
 }
 
 
+
+- (IBAction)editProfile:(id)sender
+{
+    
+    if(editOrNot == YES)
+    {
+        nameField.enabled = YES;
+        majorField.enabled = YES;
+        mottoField.enabled = YES;
+        [editButton setTitle:@"Save" forState:UIControlStateNormal];
+        editButton.titleLabel.font = [UIFont systemFontOfSize:15];
+        [nameField becomeFirstResponder];
+        editOrNot = NO;
+    }
+    else
+    {
+        collegeField.enabled = NO;
+        majorField.enabled = NO;
+        mottoField.enabled =NO;
+        editOrNot = YES;
+        [editButton setTitle:@"Edit" forState:UIControlStateNormal];
+        editButton.titleLabel.font = [UIFont systemFontOfSize:15];
+    }
+     
+}
+
 - (IBAction)login:(id)sender {
     NSString * timestamp = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]];
     int i_time = [timestamp intValue];
@@ -210,9 +238,63 @@ NSArray* arr;
 }
 - (IBAction)dismissLoginName:(id)sender
 {
-[sender resignFirstResponder];}
+[sender resignFirstResponder];
+}
+
+- (IBAction)dismissNmae:(id)sender {
+    [sender resignFirstResponder];
+}
 - (IBAction)dismissPassword:(id)sender
 {
 [sender resignFirstResponder];}
+
+- (IBAction)dismissPosition:(id)sender {
+    [sender resignFirstResponder];
+}
+
+- (IBAction)signOut:(id)sender {
+    NSLog(@"signout");
+    NSString *appDomain = [[NSBundle mainBundle] bundleIdentifier];
+    [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
+    self.view = loginView;
+    
+    
+    
+    
+    
+}
+
+- (IBAction)dismissMotto:(id)sender {
+      //[sender resignFirstResponder];
+}
+
+
+- (IBAction)dismissMajor:(id)sender {
+    [sender resignFirstResponder];
+}
+
+
+- (IBAction)didBeginEditing:(id)sender {
+    
+    [self animateTextField: self up: YES];
+}
+
+- (IBAction)didEndEditing:(id)sender {
+    [self animateTextField: self up: NO];
+}
+- (void) animateTextField: (UITextField*) textField up: (BOOL) up
+{
+    const int movementDistance = 80; // tweak as needed
+    const float movementDuration = 0.3f; // tweak as needed
+    
+    int movement = (up ? -movementDistance : movementDistance);
+    
+    [UIView beginAnimations: @"anim" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
+}
+
 
 @end

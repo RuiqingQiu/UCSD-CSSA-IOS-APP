@@ -18,6 +18,7 @@
         coordinate = location;
         image_url = url;
     }
+    
     return self;
 }
 
@@ -64,5 +65,7 @@
     }*/
     NSLog(@"here");
     
+    
 }
+
 @end
