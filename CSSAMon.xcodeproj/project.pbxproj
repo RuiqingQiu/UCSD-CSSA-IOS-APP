@@ -53,6 +53,8 @@
 		523BBDB019EB1428006FABC8 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 523BBDAF19EB1428006FABC8 /* RegisterViewController.m */; };
 		5282C85919F4798B00301F20 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 5282C85819F4798B00301F20 /* background.png */; };
 		5282C85D19F49F6D00301F20 /* Poster_scavengerhuntcs2.png in Resources */ = {isa = PBXBuildFile; fileRef = 5282C85C19F49F6D00301F20 /* Poster_scavengerhuntcs2.png */; };
+		5B73DB191A17EB12000834A9 /* WYPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B73DB161A17EB12000834A9 /* WYPopoverController.m */; };
+		5B73DB1A1A17EB12000834A9 /* WYStoryboardPopoverSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B73DB181A17EB12000834A9 /* WYStoryboardPopoverSegue.m */; };
 		84D76CE319EEE6DC0043945F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D76CE219EEE6DC0043945F /* ProfileViewController.m */; };
 		AA20373219F36E150076BEF3 /* Icon_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20373119F36E150076BEF3 /* Icon_v2.png */; };
 		AA20373619F376880076BEF3 /* map_pin_v3.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20373519F376880076BEF3 /* map_pin_v3.png */; };
@@ -128,6 +130,10 @@
 		523BBDAF19EB1428006FABC8 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		5282C85819F4798B00301F20 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		5282C85C19F49F6D00301F20 /* Poster_scavengerhuntcs2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Poster_scavengerhuntcs2.png; sourceTree = "<group>"; };
+		5B73DB151A17EB12000834A9 /* WYPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYPopoverController.h; sourceTree = "<group>"; };
+		5B73DB161A17EB12000834A9 /* WYPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYPopoverController.m; sourceTree = "<group>"; };
+		5B73DB171A17EB12000834A9 /* WYStoryboardPopoverSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYStoryboardPopoverSegue.h; sourceTree = "<group>"; };
+		5B73DB181A17EB12000834A9 /* WYStoryboardPopoverSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYStoryboardPopoverSegue.m; sourceTree = "<group>"; };
 		84D76CE119EEE6DC0043945F /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileViewController.h; path = "Scavenger Hunt/ProfileViewController.h"; sourceTree = "<group>"; };
 		84D76CE219EEE6DC0043945F /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileViewController.m; path = "Scavenger Hunt/ProfileViewController.m"; sourceTree = "<group>"; };
 		AA20373119F36E150076BEF3 /* Icon_v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon_v2.png; sourceTree = "<group>"; };
@@ -184,6 +190,7 @@
 				AA20803019F2654600AD7FFD /* Annotation.h */,
 				AA20802919F2646100AD7FFD /* MapViewController.h */,
 				AA20802A19F2646100AD7FFD /* MapViewController.m */,
+				5B73DB141A17EB12000834A9 /* WYPopoverController */,
 				47F1523619A9512D006FCEDD /* src */,
 				47F1523319A944E4006FCEDD /* BadgeManager.h */,
 				47F1523419A944E4006FCEDD /* BadgeManager.m */,
@@ -297,6 +304,17 @@
 			name = src;
 			sourceTree = "<group>";
 		};
+		5B73DB141A17EB12000834A9 /* WYPopoverController */ = {
+			isa = PBXGroup;
+			children = (
+				5B73DB151A17EB12000834A9 /* WYPopoverController.h */,
+				5B73DB161A17EB12000834A9 /* WYPopoverController.m */,
+				5B73DB171A17EB12000834A9 /* WYStoryboardPopoverSegue.h */,
+				5B73DB181A17EB12000834A9 /* WYStoryboardPopoverSegue.m */,
+			);
+			path = WYPopoverController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -402,10 +420,12 @@
 			files = (
 				47F1523519A944E4006FCEDD /* BadgeManager.m in Sources */,
 				470069EF19A90A2D0092604F /* SHMapViewController.m in Sources */,
+				5B73DB1A1A17EB12000834A9 /* WYStoryboardPopoverSegue.m in Sources */,
 				523BBDB019EB1428006FABC8 /* RegisterViewController.m in Sources */,
 				AA20802F19F2653100AD7FFD /* Annotation.m in Sources */,
 				47F1523219A93F5C006FCEDD /* Badge.m in Sources */,
 				AA20802B19F2646100AD7FFD /* MapViewController.m in Sources */,
+				5B73DB191A17EB12000834A9 /* WYPopoverController.m in Sources */,
 				84D76CE319EEE6DC0043945F /* ProfileViewController.m in Sources */,
 				523A28D619F374840094999E /* EventViewController.m in Sources */,
 				476EA97E19A7FCB8004BC6B1 /* main.m in Sources */,
