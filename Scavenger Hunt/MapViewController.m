@@ -7,6 +7,8 @@
 //
 #import "MapViewController.h"
 #import "Annotation.h"
+#import "NearbyViewController.h"
+
 
 #define IS_IOS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
 
@@ -18,7 +20,7 @@
 @implementation MapViewController
 @synthesize myMapView;
 @synthesize locationManager;
-
+@synthesize popoverController;
 UIApplication *app;
 static NSMutableData *responseData;
 double latitude, longitude;
@@ -90,9 +92,36 @@ NSTimer *timer;
     [button1 addTarget:self action:@selector(buttonDidTap:) forControlEvents:UIControlEventTouchUpInside];
     [self.myMapView addSubview:button1];
     
+    UIButton *nearby = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    nearby.frame = CGRectMake(15, 475, 100, 30);
+    [nearby setTitle:@"Nearby" forState:UIControlStateNormal];
+    [nearby addTarget:self action:@selector(showNearbyList:) forControlEvents:UIControlEventTouchUpInside];
+    [self.myMapView addSubview:nearby];
+    
+    
 }
 -(void)buttonDidTap:(UIButton *)sender{
     [self loadDataWithRKey:str];
+}
+
+-(void)showNearbyList:(UIButton *)sender{
+    UIView *btn = (UIView *)sender;
+    //[self loadDataWithRKey:str];
+    NearbyViewController *nearbyVC = [self.storyboard instantiateViewControllerWithIdentifier:@"NearbyViewController"];
+    nearbyVC.preferredContentSize = CGSizeMake(100, 200);
+    nearbyVC.title = @"nearby people";
+    
+    popoverController = [[WYPopoverController alloc] initWithContentViewController:nearbyVC];
+    popoverController.delegate = self;
+    popoverController.passthroughViews = @[btn];
+    popoverController.popoverLayoutMargins = UIEdgeInsetsMake(10, 10, 10, 10);
+    popoverController.wantsDefaultContentAppearance = NO;
+    
+    [popoverController presentPopoverFromRect:btn.bounds
+                                               inView:btn
+                             permittedArrowDirections:WYPopoverArrowDirectionAny
+                                             animated:YES
+                                              options:WYPopoverAnimationOptionFadeWithScale];
 }
 
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
