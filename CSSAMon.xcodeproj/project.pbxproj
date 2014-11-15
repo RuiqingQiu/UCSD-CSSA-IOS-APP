@@ -328,7 +328,7 @@
 				ORGANIZATIONNAME = "Ruiqing Qiu";
 				TargetAttributes = {
 					476EA96D19A7FCB8004BC6B1 = {
-						DevelopmentTeam = 87JW9TVDXS;
+						DevelopmentTeam = RC47RUQEKD;
 					};
 				};
 			};
