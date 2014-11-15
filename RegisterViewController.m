@@ -88,7 +88,10 @@
     [defaults5 synchronize];
     
     double time = [[NSDate date] timeIntervalSince1970];
+    
+    NSString *tkeyString = [NSString stringWithFormat:@"%d",((int)time^1212496151)];
     NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                tkeyString,@"tkey",
                                 loginNameString,@"username",
                                 passwordString,@"passwd",
                                 nameString,@"name",
@@ -114,7 +117,7 @@
     //[request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     //[request setValue:[NSString stringWithFormat:@"%d", [jsonData length]] forHTTPHeaderField:@"Content-Length"];
     //[request setHTTPBody: data];
-    NSString* str = [NSString stringWithFormat:@"username=%@&passwd=%@&name=%@&college=%@&major=%@&motto=%@", loginNameString, [self md5:passwordString],nameString,college,majorString,mottoString];
+    NSString* str = [NSString stringWithFormat:@"tkey=%@&username=%@&passwd=%@&name=%@&college=%@&major=%@&motto=%@", tkeyString,loginNameString, [self md5:passwordString],nameString,college,majorString,mottoString];
     NSLog(@"%@",str);
     [request setHTTPBody:[str dataUsingEncoding:NSUTF8StringEncoding]];
     //NSData *receive;
