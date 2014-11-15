@@ -311,23 +311,13 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Motto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zo0-hN-ylM">
-                                <rect key="frame" x="21" y="334" width="91" height="22"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="College" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4V-KE-FnR">
-                                <rect key="frame" x="21" y="204" width="91" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s1y-Qv-GUo" userLabel="collegeField">
-                                <rect key="frame" x="120" y="204" width="189" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="91" y="204" width="189" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QTH-gD-tVk" userLabel="postionField">
-                                <rect key="frame" x="148" y="107" width="128" height="30"/>
+                                <rect key="frame" x="166" y="107" width="128" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
@@ -335,16 +325,16 @@
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DeZ-Js-Tqi" userLabel="nameField">
-                                <rect key="frame" x="148" y="72" width="86" height="27"/>
+                                <rect key="frame" x="166" y="72" width="86" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
                                     <action selector="dismissNmae:" destination="1cM-Ye-UYb" eventType="editingDidEndOnExit" id="V9R-ht-bMN"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Major" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTd-5K-T4l">
-                                <rect key="frame" x="21" y="271" width="91" height="26"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="专业：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NTd-5K-T4l">
+                                <rect key="frame" x="33" y="257" width="73" height="26"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LrC-iI-VEj">
@@ -353,23 +343,13 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ugp-Mr-W4y" userLabel="majorField">
-                                <rect key="frame" x="120" y="269" width="184" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="91" y="255" width="189" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
                                     <action selector="didBeginEditing:" destination="1cM-Ye-UYb" eventType="editingDidBegin" id="YSU-NT-z4C"/>
                                     <action selector="didEndEditing:" destination="1cM-Ye-UYb" eventType="editingDidEnd" id="ZnV-gw-Amv"/>
                                     <action selector="dismissMajor:" destination="1cM-Ye-UYb" eventType="editingDidEndOnExit" id="gHd-Tc-PpZ"/>
-                                </connections>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tzX-Vb-1hH">
-                                <rect key="frame" x="120" y="349" width="184" height="111"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
-                                <connections>
-                                    <action selector="didBeginEditing:" destination="1cM-Ye-UYb" eventType="editingDidBegin" id="hJ6-bi-8Qp"/>
-                                    <action selector="didEndEditing:" destination="1cM-Ye-UYb" eventType="editingDidEnd" id="FkD-Kc-SXg"/>
-                                    <action selector="dismissMotto:" destination="1cM-Ye-UYb" eventType="editingDidEndOnExit" id="iUD-GM-FVc"/>
                                 </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdg-Qq-f8m">
@@ -381,11 +361,13 @@
                                     <action selector="signOut:" destination="1cM-Ye-UYb" eventType="touchUpInside" id="LLk-Ih-sZ4"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="spP-sm-r6Y">
-                                <rect key="frame" x="20" y="62" width="115" height="115"/>
-                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="学院：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4V-KE-FnR">
+                                <rect key="frame" x="33" y="204" width="73" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FmO-b6-nLV">
-                                <rect key="frame" x="222" y="78" width="42" height="15"/>
+                                <rect key="frame" x="222" y="79" width="38" height="14"/>
                                 <state key="normal" image="edit.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -393,13 +375,31 @@
                                     <action selector="editProfile:" destination="1cM-Ye-UYb" eventType="touchUpInside" id="uQW-2y-7n7"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nRQ-Nr-th2">
+                                <rect key="frame" x="33" y="64" width="115" height="115"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="铭言：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zo0-hN-ylM">
+                                <rect key="frame" x="33" y="310" width="73" height="22"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tzX-Vb-1hH">
+                                <rect key="frame" x="91" y="310" width="189" height="111"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                <connections>
+                                    <action selector="didBeginEditing:" destination="1cM-Ye-UYb" eventType="editingDidBegin" id="hJ6-bi-8Qp"/>
+                                    <action selector="didEndEditing:" destination="1cM-Ye-UYb" eventType="editingDidEnd" id="FkD-Kc-SXg"/>
+                                    <action selector="dismissMotto:" destination="1cM-Ye-UYb" eventType="editingDidEndOnExit" id="iUD-GM-FVc"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="crown-7.png" id="OPw-lw-CQK"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="avatar" destination="spP-sm-r6Y" id="zU2-n5-lIx"/>
+                        <outlet property="avatar" destination="nRQ-Nr-th2" id="hpo-3O-UTz"/>
                         <outlet property="collegeField" destination="s1y-Qv-GUo" id="TVv-JZ-neK"/>
                         <outlet property="editButton" destination="FmO-b6-nLV" id="eWo-wC-mhe"/>
                         <outlet property="loginView" destination="1vh-hR-hID" id="kWX-tz-qKT"/>
