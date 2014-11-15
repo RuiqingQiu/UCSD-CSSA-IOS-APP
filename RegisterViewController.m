@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Ruiqing Qiu. All rights reserved.
 //
 #import "RegisterViewController.h"
+#include <CommonCrypto/CommonDigest.h>
 
 @interface RegisterViewController ()
 @property (nonatomic, strong) NSMutableData *responseData;
@@ -87,7 +88,10 @@
     [defaults5 synchronize];
     
     double time = [[NSDate date] timeIntervalSince1970];
+    
+    NSString *tkeyString = [NSString stringWithFormat:@"%d",((int)time^1212496151)];
     NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
+                                tkeyString,@"tkey",
                                 loginNameString,@"username",
                                 passwordString,@"passwd",
                                 nameString,@"name",
@@ -113,7 +117,7 @@
     //[request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     //[request setValue:[NSString stringWithFormat:@"%d", [jsonData length]] forHTTPHeaderField:@"Content-Length"];
     //[request setHTTPBody: data];
-    NSString* str = [NSString stringWithFormat:@"username=%@&passwd=%@&name=%@&college=%@&major=%@&motto=%@", loginNameString, passwordString,nameString,college,majorString,mottoString];
+    NSString* str = [NSString stringWithFormat:@"tkey=%@&username=%@&passwd=%@&name=%@&college=%@&major=%@&motto=%@", tkeyString,loginNameString, [self md5:passwordString],nameString,college,majorString,mottoString];
     NSLog(@"%@",str);
     [request setHTTPBody:[str dataUsingEncoding:NSUTF8StringEncoding]];
     //NSData *receive;
@@ -124,6 +128,22 @@
    
 
 }
+
+- (NSString *) md5:(NSString *) input
+{
+    const char *cStr = [input UTF8String];
+    unsigned char digest[16];
+    CC_MD5( cStr, strlen(cStr), digest ); // This is the md5 call
+    
+    NSMutableString *output = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
+    
+    for(int i = 0; i < CC_MD5_DIGEST_LENGTH; i++)
+        [output appendFormat:@"%02x", digest[i]];
+    
+    return  output;
+    
+}
+
 -(void)keyboardHide:(UITapGestureRecognizer*)tap{
     [loginNameFiled resignFirstResponder];
     [passwordField resignFirstResponder];

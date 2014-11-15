@@ -7,7 +7,7 @@
 //
 
 #import "ProfileViewController.h"
-
+#include <CommonCrypto/CommonDigest.h>
 @implementation ProfileViewController
 NSArray* arr;
 bool editOrNot = YES;
@@ -189,7 +189,7 @@ bool editOrNot = YES;
         NSString *icon = [result objectForKey:@"icon"];
         NSLog(@"icon: %@", icon);
     }
-    
+
 }
 
 
@@ -228,7 +228,7 @@ bool editOrNot = YES;
     
     [request setHTTPMethod:@"POST"];
     
-    NSString* str = [NSString stringWithFormat:@"tkey=%@&username=%@&passwd=%@", s_tkey, loging_user.text,login_pass.text];
+    NSString* str = [NSString stringWithFormat:@"tkey=%@&username=%@&passwd=%@", s_tkey, loging_user.text,[self md5:login_pass.text]];
     [request setHTTPBody:[str dataUsingEncoding:NSUTF8StringEncoding]];
     //NSData *receive;
     NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
@@ -296,5 +296,20 @@ bool editOrNot = YES;
     [UIView commitAnimations];
 }
 
+
+- (NSString *) md5:(NSString *) input
+{
+    const char *cStr = [input UTF8String];
+    unsigned char digest[16];
+    CC_MD5( cStr, strlen(cStr), digest ); // This is the md5 call
+    
+    NSMutableString *output = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
+    
+    for(int i = 0; i < CC_MD5_DIGEST_LENGTH; i++)
+        [output appendFormat:@"%02x", digest[i]];
+    
+    return  output;
+    
+}
 
 @end
