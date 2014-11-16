@@ -220,8 +220,11 @@ bool editOrNot = YES;
 }
 
 - (IBAction)login:(id)sender {
-    NSString * timestamp = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]];
-    int i_time = [timestamp intValue];
+    NSString * timestampJson = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://www.convert-unix-time.com/api?timestamp=now"] encoding:NSUTF8StringEncoding error:nil];
+    NSDictionary * timestampDictionary = [NSJSONSerialization JSONObjectWithData:[timestampJson dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
+    int i_time = [[timestampDictionary valueForKey:@"timestamp"] intValue];
+    //NSString * timestamp = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]];
+    //int i_time = [timestamp intValue];
     int tkey = i_time^1212496151;
     NSString* s_tkey = [NSString stringWithFormat:@"%i",tkey];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://c.zinsser.me/login.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
