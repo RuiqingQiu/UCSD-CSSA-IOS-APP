@@ -87,9 +87,11 @@
     [defaults5 setObject:mottoString forKey:@"mottoString"];
     [defaults5 synchronize];
     
-    double time = [[NSDate date] timeIntervalSince1970];
+    NSString * timestampJson = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://www.convert-unix-time.com/api?timestamp=now"] encoding:NSUTF8StringEncoding error:nil];
+    NSDictionary * timestampDictionary = [NSJSONSerialization JSONObjectWithData:[timestampJson dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
+    int i_time = [[timestampDictionary valueForKey:@"timestamp"] intValue];
     
-    NSString *tkeyString = [NSString stringWithFormat:@"%d",((int)time^1212496151)];
+    NSString *tkeyString = [NSString stringWithFormat:@"%d",((int)i_time^1212496151)];
     NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                 tkeyString,@"tkey",
                                 loginNameString,@"username",
