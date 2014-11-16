@@ -115,7 +115,7 @@ bool isOfficer;
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"rkey"] != nil)
     {
         NSString *rkey = [[NSUserDefaults standardUserDefaults] stringForKey:@"rkey"];
-        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://c.zinsser.me/isOfficer.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://b.ucsdcssa.org/isOfficer.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
         
         [request setHTTPMethod:@"POST"];
         

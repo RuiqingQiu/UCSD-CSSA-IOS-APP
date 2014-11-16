@@ -72,7 +72,7 @@ bool editOrNot = YES;
     if(rkey == nil){
         return;
     }
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://c.zinsser.me/getProfile.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://b.ucsdcssa.org/getProfile.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     
     [request setHTTPMethod:@"POST"];
     
@@ -127,7 +127,7 @@ bool editOrNot = YES;
         NSString *valueAsString = (NSString *)value;
         NSLog(@"%@",[[connection currentRequest].URL absoluteString]);
         
-        if ([[[connection currentRequest].URL absoluteString]isEqualToString:@"http://c.zinsser.me/login.php"]) {
+        if ([[[connection currentRequest].URL absoluteString]isEqualToString:@"http://b.ucsdcssa.org/login.php"]) {
             NSLog(@"key: %@", keyAsString);
             NSLog(@"value: %@", valueAsString);
             //do login
@@ -227,7 +227,7 @@ bool editOrNot = YES;
     //int i_time = [timestamp intValue];
     int tkey = i_time^1212496151;
     NSString* s_tkey = [NSString stringWithFormat:@"%i",tkey];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://c.zinsser.me/login.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://b.ucsdcssa.org/login.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     
     [request setHTTPMethod:@"POST"];
     
