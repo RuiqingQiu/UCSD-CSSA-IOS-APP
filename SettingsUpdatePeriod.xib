@@ -13,12 +13,6 @@
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FlP-8h-qaB" id="9xg-n0-eUu">
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SIe-eB-stl">
-                        <rect key="frame" x="8" y="12" width="171" height="21"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="4" minValue="0.0" maxValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="g8n-Qy-E4P">
                         <rect key="frame" x="185" y="8" width="129" height="31"/>
                         <connections>
@@ -28,7 +22,6 @@
                 </subviews>
             </tableViewCellContentView>
             <connections>
-                <outlet property="settingsLabel" destination="SIe-eB-stl" id="Rv4-Gy-HMC"/>
                 <outlet property="settingsSlider" destination="g8n-Qy-E4P" id="zA2-k5-cI2"/>
             </connections>
             <point key="canvasLocation" x="275" y="195"/>

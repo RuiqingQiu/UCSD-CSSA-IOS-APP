@@ -9,7 +9,6 @@
 #import "SettingsToggleUpdateTableViewCell.h"
 
 @implementation SettingsToggleUpdateTableViewCell
-@synthesize settingsLabel = _settingsLabel;
 @synthesize settingsSwitch = _settingsSwitch;
 
 - (void)awakeFromNib {
@@ -34,12 +33,8 @@
     // Configure the view for the selected state
 }
 
-- (void) setLabelText : (NSString*) text {
-    [_settingsLabel setText:text];
-}
-
 - (void) setEnable : (BOOL) enable {
-    [_settingsLabel setTextColor:enable?[UIColor grayColor]:[UIColor blackColor]];
+    [self.textLabel setTextColor:enable?[UIColor blackColor]:[UIColor grayColor]];
     [_settingsSwitch setEnabled:enable];
 }
 

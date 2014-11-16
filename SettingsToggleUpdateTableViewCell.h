@@ -10,10 +10,7 @@
 
 @interface SettingsToggleUpdateTableViewCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UISwitch *settingsSwitch;
-@property (weak, nonatomic) IBOutlet UILabel *settingsLabel;
-
 - (IBAction)switchChanged:(id)sender;
-- (void) setLabelText : (NSString*) text;
 - (void) setEnable : (BOOL) enable;
 
 @end

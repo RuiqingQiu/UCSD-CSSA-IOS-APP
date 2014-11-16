@@ -9,7 +9,6 @@
 #import "SettingsUpdatePeriodTableViewCell.h"
 
 @implementation SettingsUpdatePeriodTableViewCell
-@synthesize settingsLabel = _settingsLabel;
 @synthesize settingsSlider = _settingsSlider;
 
 - (void)awakeFromNib {
@@ -18,7 +17,7 @@
         [[NSUserDefaults standardUserDefaults] setInteger:60 forKey:@"updatePeriodInSeconds"];
     NSInteger period = [[NSUserDefaults standardUserDefaults] integerForKey:@"updatePeriodInSeconds"];
     NSString *labelText = [@"Update every " stringByAppendingFormat:@"%lds",(long)period];
-    [_settingsLabel setText:labelText];
+    [self.textLabel setText:labelText];
     float sliderValue;
     if (period<=15)
         sliderValue = period/5 - 1;
@@ -59,7 +58,7 @@
             break;
     }
     NSString *labelText = [@"Update every " stringByAppendingString:periodText];
-    [_settingsLabel setText:labelText];
+    [self.textLabel setText:labelText];
     [[NSUserDefaults standardUserDefaults] setInteger:period forKey:@"updatePeriodInSeconds"];
     NSLog(@"updatePeriodInSeconds updated to %ld",(long)period);
 }
@@ -71,7 +70,7 @@
 }
 
 - (void) setEnable : (BOOL) enable {
-    [_settingsLabel setTextColor:enable?[UIColor grayColor]:[UIColor blackColor]];
+    [self.textLabel setTextColor:enable?[UIColor blackColor]:[UIColor grayColor]];
     [_settingsSlider setEnabled:enable];
 }
 

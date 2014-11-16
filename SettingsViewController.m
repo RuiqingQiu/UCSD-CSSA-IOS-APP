@@ -26,39 +26,60 @@ bool isOfficer;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 3;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell;
+    NSString *simpleTableIdentifier;
     
-    if (indexPath.row == 0)
+    switch (indexPath.row)
     {
-        NSString *simpleTableIdentifier = @"ToggleUpdate";
-    
-        cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-    
-        
-        if (cell == nil) {
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SettingsToggleUpdate" owner:self options:nil];
-            cell = (SettingsToggleUpdateTableViewCell*)[nib objectAtIndex:0];
-        }
-        [(SettingsToggleUpdateTableViewCell*)cell setLabelText:@"Update my location"];
-    }
-    else
-    {
-        NSString *simpleTableIdentifier = @"UpdatePeriod";
-        
-        cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
-        
-        if (cell == nil)
+        case 0:
         {
-            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SettingsUpdatePeriod" owner:self options:nil];
-            cell = (SettingsUpdatePeriodTableViewCell*)[nib objectAtIndex:0];
+            simpleTableIdentifier = @"SimpleTableItem";
+            
+            cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+            
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+            }
+            
+            cell.textLabel.text = @"Officer location update settings";
+            cell.textLabel.font = [UIFont boldSystemFontOfSize:cell.textLabel.font.pointSize];
+            break;
         }
+            
+        case 1:
+        {
+            simpleTableIdentifier = @"ToggleUpdate";
+    
+            cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    
         
+            if (cell == nil) {
+                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SettingsToggleUpdate" owner:self options:nil];
+                cell = (SettingsToggleUpdateTableViewCell*)[nib objectAtIndex:0];
+            }
+            cell.textLabel.text=@"Update my location";
+            break;
+        }
+            
+        case 2:
+        {
+            simpleTableIdentifier = @"UpdatePeriod";
+        
+            cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+        
+            if (cell == nil)
+            {
+                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SettingsUpdatePeriod" owner:self options:nil];
+                cell = (SettingsUpdatePeriodTableViewCell*)[nib objectAtIndex:0];
+            }
+            break;
+        }
     }
         
     return cell;
@@ -106,8 +127,9 @@ bool isOfficer;
         NSDictionary *res = [NSJSONSerialization JSONObjectWithData:result options:NSJSONReadingMutableLeaves error:nil];
         isOfficer = [res valueForKey:@"isOfficer"]?YES:NO;
     }
-    //[(SettingsUpdatePeriodTableViewCell*)[_SettingsTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]] setEnable:isOfficer];
-    //[(SettingsToggleUpdateTableViewCell*)[_SettingsTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]] setEnable:isOfficer];
+    [_SettingsTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]].textLabel.textColor=isOfficer?[UIColor blackColor]:[UIColor grayColor];
+    [(SettingsUpdatePeriodTableViewCell*)[_SettingsTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]] setEnable:isOfficer];
+    [(SettingsToggleUpdateTableViewCell*)[_SettingsTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]] setEnable:isOfficer];
     
 }
 
