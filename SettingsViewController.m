@@ -9,6 +9,7 @@
 #import "SettingsViewController.h"
 #import "SettingsToggleUpdateTableViewCell.h"
 #import "SettingsUpdatePeriodTableViewCell.h"
+#import "SettingsButtonsTableViewCell.h"
 
 
 @interface SettingsViewController ()
@@ -30,7 +31,7 @@ NSTimer* ulutimer;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 4;
+    return 5;
 }
 
 
@@ -105,6 +106,20 @@ NSTimer* ulutimer;
             }
             break;
         }
+            
+        case 4:
+        {
+            simpleTableIdentifier = @"SettingsButtons";
+            
+            cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+            
+            
+            if (cell == nil) {
+                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SettingsButtons" owner:self options:nil];
+                cell = (SettingsButtonsTableViewCell*)[nib objectAtIndex:0];
+            }
+            break;
+        }
     }
         
     return cell;
@@ -156,6 +171,7 @@ NSTimer* ulutimer;
     [_SettingsTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]].textLabel.textColor=isOfficer?[UIColor blackColor]:[UIColor grayColor];
     [(SettingsUpdatePeriodTableViewCell*)[_SettingsTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]] setEnable:isOfficer];
     [(SettingsToggleUpdateTableViewCell*)[_SettingsTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]] setEnable:isOfficer];
+    [(SettingsButtonsTableViewCell*)[_SettingsTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]] setEnable:isOfficer];
 }
 
 -(void) viewDidAppear:(BOOL)animated
@@ -169,7 +185,10 @@ NSTimer* ulutimer;
     {
         double time = [[NSDate date] timeIntervalSince1970];
         double lastUpdate = [[NSUserDefaults standardUserDefaults] doubleForKey:@"lastUpdateLocation"];
-        [_SettingsTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]].textLabel.text = [NSString stringWithFormat:@"Last update: %ld seconds ago",(long)(time-lastUpdate)];
+        if (lastUpdate>0)
+            [_SettingsTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]].textLabel.text = [NSString stringWithFormat:@"Last update: %ld seconds ago",(long)(time-lastUpdate)];
+        else
+            [_SettingsTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]].textLabel.text = @"Removing location data from server";
     }
     else
         [_SettingsTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]].textLabel.text = @"Last update: Never";
