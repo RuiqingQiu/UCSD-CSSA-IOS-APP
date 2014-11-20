@@ -10,6 +10,8 @@
 #import "MapViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
+#import "TalkToServer.h"
+
 @implementation SettingsButtonsTableViewCell
 
 @synthesize SettingsButtonUpdateManually = _SettingsButtonUpdateManually;

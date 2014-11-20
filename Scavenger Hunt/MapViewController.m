@@ -281,6 +281,7 @@ NSTimer *timer;
 {
     double time = [[NSDate date] timeIntervalSince1970];
     [[NSUserDefaults standardUserDefaults] setDouble:time forKey:@"lastUpdateLocation"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                 [[NSNumber numberWithDouble:latitude] stringValue],@"latitude",
                                 [[NSNumber numberWithDouble:longitude]stringValue],@"longitude",
@@ -312,6 +313,7 @@ NSTimer *timer;
 {
     double time = [[NSDate date] timeIntervalSince1970];
     [[NSUserDefaults standardUserDefaults] setDouble:time forKey:@"lastUpdateLocation"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                 [[NSNumber numberWithDouble:latitude] stringValue],@"latitude",
                                 [[NSNumber numberWithDouble:longitude]stringValue],@"longitude",

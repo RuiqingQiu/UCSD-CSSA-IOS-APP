@@ -14,7 +14,10 @@
 - (void)awakeFromNib {
     // Initialization code
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"is_updating"]==nil)   //initialize
+    {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"is_updating"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
         //TODO check if is officer
     BOOL is_updating = [[NSUserDefaults standardUserDefaults] boolForKey:@"is_updating"];
     [_settingsSwitch setOn:is_updating animated:NO];

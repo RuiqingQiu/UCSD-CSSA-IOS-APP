@@ -192,7 +192,7 @@ NSTimer* ulutimer;
     }
     else
         [_SettingsTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]].textLabel.text = @"Last update: Never";
-    NSLog(@"Last update updated!");
+    //NSLog(@"Last update updated!");
 }
 
 -(void) viewWillDisappear:(BOOL)animated

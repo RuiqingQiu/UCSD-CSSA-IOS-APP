@@ -127,7 +127,8 @@ bool editOrNot = YES;
             NSLog(@"value: %@", valueAsString);
             //do login
             if ([keyAsString isEqualToString:@"rkey"]) {
-                 [[NSUserDefaults standardUserDefaults] setObject:valueAsString forKey:keyAsString];
+                [[NSUserDefaults standardUserDefaults] setObject:valueAsString forKey:keyAsString];
+                [[NSUserDefaults standardUserDefaults] synchronize];
                 [self viewWillAppear:NO];
             }
             

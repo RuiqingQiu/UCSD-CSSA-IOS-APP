@@ -45,6 +45,7 @@
 		47F1524A19B3B37E006FCEDD /* JobHunter_Career_center.png in Resources */ = {isa = PBXBuildFile; fileRef = 47F1524919B3B37E006FCEDD /* JobHunter_Career_center.png */; };
 		4839D1F81A19C5F400D4CCBC /* SettingsButtonsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4839D1F61A19C5F400D4CCBC /* SettingsButtonsTableViewCell.m */; };
 		4857913C1A1DB3AC00170816 /* SettingsButtons.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4857913B1A1DB3AC00170816 /* SettingsButtons.xib */; };
+		4857913F1A1DBB3B00170816 /* TalkToServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 4857913E1A1DBB3B00170816 /* TalkToServer.m */; };
 		48C9ACFD1A0E9BCB00721E85 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C9ACFC1A0E9BCB00721E85 /* SettingsViewController.m */; };
 		48C9ACFF1A0E9FB600721E85 /* SettingsToggleUpdate.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48C9ACFE1A0E9FB600721E85 /* SettingsToggleUpdate.xib */; };
 		48C9AD021A0EA01800721E85 /* SettingsToggleUpdateTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 48C9AD011A0EA01800721E85 /* SettingsToggleUpdateTableViewCell.m */; };
@@ -129,6 +130,8 @@
 		4839D1F51A19C5F400D4CCBC /* SettingsButtonsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsButtonsTableViewCell.h; sourceTree = "<group>"; };
 		4839D1F61A19C5F400D4CCBC /* SettingsButtonsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsButtonsTableViewCell.m; sourceTree = "<group>"; };
 		4857913B1A1DB3AC00170816 /* SettingsButtons.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsButtons.xib; sourceTree = "<group>"; };
+		4857913D1A1DBB3B00170816 /* TalkToServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TalkToServer.h; sourceTree = "<group>"; };
+		4857913E1A1DBB3B00170816 /* TalkToServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TalkToServer.m; sourceTree = "<group>"; };
 		48C9ACFB1A0E9BCB00721E85 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		48C9ACFC1A0E9BCB00721E85 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		48C9ACFE1A0E9FB600721E85 /* SettingsToggleUpdate.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SettingsToggleUpdate.xib; sourceTree = "<group>"; };
@@ -212,6 +215,8 @@
 				4857913B1A1DB3AC00170816 /* SettingsButtons.xib */,
 				4839D1F51A19C5F400D4CCBC /* SettingsButtonsTableViewCell.h */,
 				4839D1F61A19C5F400D4CCBC /* SettingsButtonsTableViewCell.m */,
+				4857913D1A1DBB3B00170816 /* TalkToServer.h */,
+				4857913E1A1DBB3B00170816 /* TalkToServer.m */,
 				48C9ACFE1A0E9FB600721E85 /* SettingsToggleUpdate.xib */,
 				48C9AD001A0EA01800721E85 /* SettingsToggleUpdateTableViewCell.h */,
 				48C9AD011A0EA01800721E85 /* SettingsToggleUpdateTableViewCell.m */,
@@ -456,6 +461,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47F1523519A944E4006FCEDD /* BadgeManager.m in Sources */,
+				4857913F1A1DBB3B00170816 /* TalkToServer.m in Sources */,
 				48C9AD091A1749FD00721E85 /* SettingsUpdatePeriodTableViewCell.m in Sources */,
 				470069EF19A90A2D0092604F /* SHMapViewController.m in Sources */,
 				5B73DB1A1A17EB12000834A9 /* WYStoryboardPopoverSegue.m in Sources */,
