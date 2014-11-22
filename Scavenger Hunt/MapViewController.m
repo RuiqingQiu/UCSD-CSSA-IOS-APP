@@ -27,9 +27,9 @@ double latitude, longitude;
 static BOOL locationStarted = FALSE;
 static BOOL updateLocation = TRUE;
 NSString *rkey;
-
 //Timer for update
 NSTimer *timer;
+NSMutableArray *anno_list;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -98,18 +98,20 @@ NSTimer *timer;
     [nearby addTarget:self action:@selector(showNearbyList:) forControlEvents:UIControlEventTouchUpInside];
     [self.myMapView addSubview:nearby];
     
-    
+    anno_list = [NSMutableArray array];
 }
 -(void)buttonDidTap:(UIButton *)sender{
     [self loadDataWithRKey:rkey];
 }
 
 -(void)showNearbyList:(UIButton *)sender{
+    NSLog(@"show near by list");
     UIView *btn = (UIView *)sender;
     //[self loadDataWithRKey:str];
     NearbyViewController *nearbyVC = [self.storyboard instantiateViewControllerWithIdentifier:@"NearbyViewController"];
-    nearbyVC.preferredContentSize = CGSizeMake(100, 200);
+    nearbyVC.preferredContentSize = CGSizeMake(200, 200);
     nearbyVC.title = @"nearby people";
+    nearbyVC.anno_list = anno_list.copy;
     
     popoverController = [[WYPopoverController alloc] initWithContentViewController:nearbyVC];
     popoverController.delegate = self;
@@ -347,6 +349,7 @@ NSTimer *timer;
 
 -(void)loadDataWithRKey:(NSString*) rkey
 {
+    [anno_list removeAllObjects];
     [self.myMapView removeAnnotations:myMapView.annotations];   // show all values
     if(rkey == nil){
         return;
@@ -385,7 +388,7 @@ NSTimer *timer;
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     NSLog(@"mapview connectionDidFinishLoading");
     NSLog(@"Succeeded! Received %lu bytes of data",(unsigned long)[responseData length]);
-    
+    [anno_list removeAllObjects];
     // convert to JSON
     NSError *myError = nil;
     NSLog(@"self response data, %@", responseData);
@@ -413,9 +416,9 @@ NSTimer *timer;
             //Loop through all the data in the dictionary and put markers
             for(int i = 0; i < dic.count; i++){
                 NSLog(@"zzzz%@", [[value objectAtIndex:i]objectForKey:@"name"]);
-                NSLog(@"latitude%@", [[value objectAtIndex:i]objectForKey:@"latitude"]);
-                NSLog(@"longitude%@", [[value objectAtIndex:i]objectForKey:@"longitude"]);
-                NSLog(@"avatar_url%@", [[value objectAtIndex:i]objectForKey:@"avatar_small"]);
+                //NSLog(@"latitude%@", [[value objectAtIndex:i]objectForKey:@"latitude"]);
+                //NSLog(@"longitude%@", [[value objectAtIndex:i]objectForKey:@"longitude"]);
+                //NSLog(@"avatar_url%@", [[value objectAtIndex:i]objectForKey:@"avatar_small"]);
                 
                 NSString* url =[[value objectAtIndex:i]objectForKey:@"avatar_small"];
                 
@@ -428,6 +431,8 @@ NSTimer *timer;
                 CLLocationCoordinate2D tmp = CLLocationCoordinate2DMake([[[value objectAtIndex:i]objectForKey:@"latitude"] doubleValue],[[[value objectAtIndex:i]objectForKey:@"longitude"] doubleValue]);
                 Annotation *place_anno = [[Annotation alloc]initWithTitle:[[value objectAtIndex:i]objectForKey:@"name"] Location:tmp image_url:url];
                 [self.myMapView addAnnotation:place_anno];
+                [anno_list addObject:place_anno];
+                NSLog(@"anno list size %lu", (unsigned long)[anno_list count]);
             }
         }
     }

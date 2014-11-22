@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#include "Annotation.h"
 
 @interface NearbyViewController : UIViewController
-
+- (void)updateCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath;
+@property (nonatomic, weak) IBOutlet UITableView* tableView;
+@property NSMutableArray* anno_list;
 @end

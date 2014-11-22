@@ -75,7 +75,7 @@
 		AA34240119F32DB60075A3DF /* map_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = AA34240019F32DB60075A3DF /* map_avatar.png */; };
 		AA34240319F330D90075A3DF /* map_pin_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = AA34240219F330D90075A3DF /* map_pin_v2.png */; };
 		AA6EA24D19F481FE00208893 /* splash screen.png in Resources */ = {isa = PBXBuildFile; fileRef = AA6EA24C19F481FE00208893 /* splash screen.png */; };
-		AA6EA24F19F4821600208893 /* Icon13 .png in Resources */ = {isa = PBXBuildFile; fileRef = AA6EA24E19F4821600208893 /* Icon13 .png */; };
+		AA6EA24F19F4821600208893 /* Icon13.png in Resources */ = {isa = PBXBuildFile; fileRef = AA6EA24E19F4821600208893 /* Icon13.png */; };
 		AA6EA25119F4929300208893 /* crown-7.png in Resources */ = {isa = PBXBuildFile; fileRef = AA6EA25019F4929300208893 /* crown-7.png */; };
 		AA6EA25319F493A300208893 /* pin-map-7.png in Resources */ = {isa = PBXBuildFile; fileRef = AA6EA25219F493A300208893 /* pin-map-7.png */; };
 		AA6EA25519F4948800208893 /* origami-7.png in Resources */ = {isa = PBXBuildFile; fileRef = AA6EA25419F4948800208893 /* origami-7.png */; };
@@ -172,7 +172,7 @@
 		AA34240019F32DB60075A3DF /* map_avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_avatar.png; sourceTree = "<group>"; };
 		AA34240219F330D90075A3DF /* map_pin_v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_pin_v2.png; sourceTree = "<group>"; };
 		AA6EA24C19F481FE00208893 /* splash screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash screen.png"; sourceTree = "<group>"; };
-		AA6EA24E19F4821600208893 /* Icon13 .png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon13 .png"; sourceTree = "<group>"; };
+		AA6EA24E19F4821600208893 /* Icon13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon13.png; sourceTree = "<group>"; };
 		AA6EA25019F4929300208893 /* crown-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crown-7.png"; sourceTree = "<group>"; };
 		AA6EA25219F493A300208893 /* pin-map-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin-map-7.png"; sourceTree = "<group>"; };
 		AA6EA25419F4948800208893 /* origami-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "origami-7.png"; sourceTree = "<group>"; };
@@ -291,7 +291,7 @@
 				AA6EA25419F4948800208893 /* origami-7.png */,
 				AA6EA25219F493A300208893 /* pin-map-7.png */,
 				AA6EA25019F4929300208893 /* crown-7.png */,
-				AA6EA24E19F4821600208893 /* Icon13 .png */,
+				AA6EA24E19F4821600208893 /* Icon13.png */,
 				AA6EA24C19F481FE00208893 /* splash screen.png */,
 				AAF65FF619F3887100C9D6EB /* icon_v4.png */,
 				AA20373719F3802B0076BEF3 /* icon_v3.png */,
@@ -472,7 +472,7 @@
 				AA20803419F26F1100AD7FFD /* rsz_icon1.png in Resources */,
 				47F1524619A95145006FCEDD /* A_bite_of_Mexico_Goodies.png in Resources */,
 				5282C85D19F49F6D00301F20 /* Poster_scavengerhuntcs2.png in Resources */,
-				AA6EA24F19F4821600208893 /* Icon13 .png in Resources */,
+				AA6EA24F19F4821600208893 /* Icon13.png in Resources */,
 				523A28DA19F388950094999E /* Poster_halloween.png in Resources */,
 				47F1524119A95145006FCEDD /* Stone_bear.png in Resources */,
 				48C9AD061A1748D200721E85 /* SettingsUpdatePeriod.xib in Resources */,

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface SHAppDelegate : UIResponder <UIApplicationDelegate>
-
+@property UITableView *tableView;
 @property (strong, nonatomic) UIWindow *window;
 
 @end
