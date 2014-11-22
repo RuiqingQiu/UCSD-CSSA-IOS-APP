@@ -7,6 +7,8 @@
 //
 #import "MapViewController.h"
 #import "Annotation.h"
+#import "NearbyViewController.h"
+
 
 #define IS_IOS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
 
@@ -18,11 +20,10 @@
 @implementation MapViewController
 @synthesize myMapView;
 @synthesize locationManager;
-
+@synthesize popoverController;
 UIApplication *app;
 static NSMutableData *responseData;
 double latitude, longitude;
-NSString* str;
 BOOL locationStarted = FALSE;
 NSString *rkey;
 
@@ -90,9 +91,36 @@ NSTimer *timer;
     [button1 addTarget:self action:@selector(buttonDidTap:) forControlEvents:UIControlEventTouchUpInside];
     [self.myMapView addSubview:button1];
     
+    UIButton *nearby = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    nearby.frame = CGRectMake(15, 475, 100, 30);
+    [nearby setTitle:@"Nearby" forState:UIControlStateNormal];
+    [nearby addTarget:self action:@selector(showNearbyList:) forControlEvents:UIControlEventTouchUpInside];
+    [self.myMapView addSubview:nearby];
+    
+    
 }
 -(void)buttonDidTap:(UIButton *)sender{
-    [self loadDataWithRKey:str];
+    [self loadDataWithRKey:rkey];
+}
+
+-(void)showNearbyList:(UIButton *)sender{
+    UIView *btn = (UIView *)sender;
+    //[self loadDataWithRKey:str];
+    NearbyViewController *nearbyVC = [self.storyboard instantiateViewControllerWithIdentifier:@"NearbyViewController"];
+    nearbyVC.preferredContentSize = CGSizeMake(100, 200);
+    nearbyVC.title = @"nearby people";
+    
+    popoverController = [[WYPopoverController alloc] initWithContentViewController:nearbyVC];
+    popoverController.delegate = self;
+    popoverController.passthroughViews = @[btn];
+    popoverController.popoverLayoutMargins = UIEdgeInsetsMake(10, 10, 10, 10);
+    popoverController.wantsDefaultContentAppearance = NO;
+    
+    [popoverController presentPopoverFromRect:btn.bounds
+                                               inView:btn
+                             permittedArrowDirections:WYPopoverArrowDirectionAny
+                                             animated:YES
+                                              options:WYPopoverAnimationOptionFadeWithScale];
 }
 
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
@@ -222,11 +250,10 @@ NSTimer *timer;
     //[locationManager startUpdatingLocation];
     responseData = [NSMutableData data];
     [super viewWillAppear:animated];
-    id obj = [[NSUserDefaults standardUserDefaults]objectForKey:@"rkey"];
-    str = (NSString*)obj;
-    rkey = (NSString*)obj;
-    NSLog(@"key %@", str);
-    [self loadDataWithRKey:str];
+    rkey = [[NSUserDefaults standardUserDefaults] stringForKey:@"rkey"];
+    NSLog(@"key %@", rkey);
+    [self loadDataWithRKey:rkey];
+    [self send:nil];    //update when first opened.
     timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(send:) userInfo:nil repeats:YES];
 }
 -(void)viewDidAppear:(BOOL)animated
@@ -253,6 +280,8 @@ NSTimer *timer;
 - (void)send:(NSTimer *)timer
 {
     double time = [[NSDate date] timeIntervalSince1970];
+    [[NSUserDefaults standardUserDefaults] setDouble:time forKey:@"lastUpdateLocation"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                 [[NSNumber numberWithDouble:latitude] stringValue],@"latitude",
                                 [[NSNumber numberWithDouble:longitude]stringValue],@"longitude",
@@ -264,26 +293,27 @@ NSTimer *timer;
                                                        options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
                                                          error:&error];
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://c.zinsser.me/updateLocation.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://b.ucsdcssa.org/updateLocation.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     
     
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     NSData* data = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     [request setHTTPMethod:@"POST"];
-    id obj = [[NSUserDefaults standardUserDefaults]objectForKey:@"rkey"];
-    NSString* rkey = (NSString*)obj;
+    rkey = [[NSUserDefaults standardUserDefaults]stringForKey:@"rkey"];
     NSLog(@"update location, key %@", rkey);
     NSString* str_tmp = [NSString stringWithFormat:@"rkey=%@&latitude=%@&longitude=%@", rkey,[[NSNumber numberWithDouble:latitude] stringValue], [[NSNumber numberWithDouble:longitude]stringValue]];
     NSLog(@"%@",str_tmp);
     [request setHTTPBody:[str_tmp dataUsingEncoding:NSUTF8StringEncoding]];
     NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
-    [self loadDataWithRKey:str];
+    [self loadDataWithRKey:rkey];
 }
 
 /* For sending location data */
 - (void)sendBackground:(NSTimer *)timer
 {
     double time = [[NSDate date] timeIntervalSince1970];
+    [[NSUserDefaults standardUserDefaults] setDouble:time forKey:@"lastUpdateLocation"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                 [[NSNumber numberWithDouble:latitude] stringValue],@"latitude",
                                 [[NSNumber numberWithDouble:longitude]stringValue],@"longitude",
@@ -295,14 +325,13 @@ NSTimer *timer;
                                                        options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
                                                          error:&error];
     
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://c.zinsser.me/updateLocation.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://b.ucsdcssa.org/updateLocation.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     
     
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     NSData* data = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     [request setHTTPMethod:@"POST"];
-    id obj = [[NSUserDefaults standardUserDefaults]objectForKey:@"rkey"];
-    NSString* rkey = (NSString*)obj;
+    rkey = [[NSUserDefaults standardUserDefaults]stringForKey:@"rkey"];
     NSLog(@"update location, key %@", rkey);
     NSString* str_tmp = [NSString stringWithFormat:@"rkey=%@&latitude=%@&longitude=%@", rkey,[[NSNumber numberWithDouble:latitude] stringValue], [[NSNumber numberWithDouble:longitude]stringValue]];
     NSLog(@"%@",str_tmp);
@@ -319,7 +348,7 @@ NSTimer *timer;
         return;
     }
     //TODO, change it to load location
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://c.zinsser.me/getLocation.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://b.ucsdcssa.org/getLocation.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     
     [request setHTTPMethod:@"POST"];
     

@@ -14,20 +14,15 @@ bool editOrNot = YES;
 -(void)viewWillAppear:(BOOL)animated {
     self.responseData = [NSMutableData data];
     [super viewWillAppear:animated];
-    id obj = [[NSUserDefaults standardUserDefaults]objectForKey:@"rkey"];
-    //test
-    //obj = nil;
-    //
-    if (obj == nil) {
-        //show loginview
-        self.view = loginView;
-    }else{
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"rkey"] == nil)
+        self.view = loginView;      //show loginview
+    else
         self.view = profileView;
-        
-    }
-    NSString* str = (NSString*)obj;
-    NSLog(@"key %@", str);
-    [self loadDataWithRKey:str];
+    
+    NSString* rkey = [[NSUserDefaults standardUserDefaults] stringForKey:@"rkey"];
+    NSLog(@"rkey %@", rkey);
+    [self loadDataWithRKey:rkey];
     arr = [[NSArray alloc]initWithObjects:@"",@"ERC", @"Marshall", @"Muir", @"Revelle", @"Warren", @"Sixth",nil];
     //self.navigationController.navigationBar.hidden = YES;
 }
@@ -72,7 +67,7 @@ bool editOrNot = YES;
     if(rkey == nil){
         return;
     }
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://c.zinsser.me/getProfile.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://b.ucsdcssa.org/getProfile.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     
     [request setHTTPMethod:@"POST"];
     
@@ -127,12 +122,13 @@ bool editOrNot = YES;
         NSString *valueAsString = (NSString *)value;
         NSLog(@"%@",[[connection currentRequest].URL absoluteString]);
         
-        if ([[[connection currentRequest].URL absoluteString]isEqualToString:@"http://c.zinsser.me/login.php"]) {
+        if ([[[connection currentRequest].URL absoluteString]isEqualToString:@"http://b.ucsdcssa.org/login.php"]) {
             NSLog(@"key: %@", keyAsString);
             NSLog(@"value: %@", valueAsString);
             //do login
             if ([keyAsString isEqualToString:@"rkey"]) {
-                 [[NSUserDefaults standardUserDefaults] setObject:valueAsString forKey:keyAsString];
+                [[NSUserDefaults standardUserDefaults] setObject:valueAsString forKey:keyAsString];
+                [[NSUserDefaults standardUserDefaults] synchronize];
                 [self viewWillAppear:NO];
             }
             
@@ -220,11 +216,14 @@ bool editOrNot = YES;
 }
 
 - (IBAction)login:(id)sender {
-    NSString * timestamp = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]];
-    int i_time = [timestamp intValue];
+    NSString * timestampJson = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://www.convert-unix-time.com/api?timestamp=now"] encoding:NSUTF8StringEncoding error:nil];
+    NSDictionary * timestampDictionary = [NSJSONSerialization JSONObjectWithData:[timestampJson dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
+    int i_time = [[timestampDictionary valueForKey:@"timestamp"] intValue];
+    //NSString * timestamp = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]];
+    //int i_time = [timestamp intValue];
     int tkey = i_time^1212496151;
     NSString* s_tkey = [NSString stringWithFormat:@"%i",tkey];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://c.zinsser.me/login.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://b.ucsdcssa.org/login.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
     
     [request setHTTPMethod:@"POST"];
     
