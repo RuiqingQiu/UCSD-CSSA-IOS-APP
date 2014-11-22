@@ -18,4 +18,6 @@
 //@property (nonatomic, strong) NSMutableData *responseData;
 -(void)sendBackground:(NSTimer*)timer;
 -(void)send:(NSTimer*) timer;
+-(void)setTimerInterval:(int) time_interval;
+-(void)setUpdateLocation:(BOOL) updating;
 @end

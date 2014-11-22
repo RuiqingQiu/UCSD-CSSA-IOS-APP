@@ -24,8 +24,8 @@
 UIApplication *app;
 static NSMutableData *responseData;
 double latitude, longitude;
-BOOL locationStarted = FALSE;
-BOOL updateLocation = TRUE;
+static BOOL locationStarted = FALSE;
+static BOOL updateLocation = TRUE;
 NSString *rkey;
 
 //Timer for update
@@ -425,8 +425,7 @@ NSTimer *timer;
                     NSLog(@"is null");
                 }
                 
-                CLLocationCoordinate2D tmp = CLLocationCoordinate2DMake([[[value objectAtIndex:i]objectForKey:@"latitude"] doubleValue],[[[value objectAtIndex:i]objectForKey:@"longitude"] doubleValue]
-);
+                CLLocationCoordinate2D tmp = CLLocationCoordinate2DMake([[[value objectAtIndex:i]objectForKey:@"latitude"] doubleValue],[[[value objectAtIndex:i]objectForKey:@"longitude"] doubleValue]);
                 Annotation *place_anno = [[Annotation alloc]initWithTitle:[[value objectAtIndex:i]objectForKey:@"name"] Location:tmp image_url:url];
                 [self.myMapView addAnnotation:place_anno];
             }
@@ -452,7 +451,7 @@ NSTimer *timer;
     timer = [NSTimer scheduledTimerWithTimeInterval:time_interval target:self selector:@selector(send:) userInfo:nil repeats:YES];
 }
 -(void)setUpdateLocation:(BOOL) updating{
-    
+    updateLocation = updating;
 }
 
 
