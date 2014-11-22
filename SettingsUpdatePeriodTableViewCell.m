@@ -14,7 +14,10 @@
 - (void)awakeFromNib {
     // Initialization code
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"updatePeriodInSeconds"] == nil)
+    {
         [[NSUserDefaults standardUserDefaults] setInteger:60 forKey:@"updatePeriodInSeconds"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
     NSInteger period = [[NSUserDefaults standardUserDefaults] integerForKey:@"updatePeriodInSeconds"];
     NSString *labelText = [@"Update every " stringByAppendingFormat:@"%lds",(long)period];
     [self.textLabel setText:labelText];
@@ -60,6 +63,7 @@
     NSString *labelText = [@"Update every " stringByAppendingString:periodText];
     [self.textLabel setText:labelText];
     [[NSUserDefaults standardUserDefaults] setInteger:period forKey:@"updatePeriodInSeconds"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     NSLog(@"updatePeriodInSeconds updated to %ld",(long)period);
 }
 

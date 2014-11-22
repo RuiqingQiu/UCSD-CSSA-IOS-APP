@@ -14,20 +14,15 @@ bool editOrNot = YES;
 -(void)viewWillAppear:(BOOL)animated {
     self.responseData = [NSMutableData data];
     [super viewWillAppear:animated];
-    id obj = [[NSUserDefaults standardUserDefaults]objectForKey:@"rkey"];
-    //test
-    //obj = nil;
-    //
-    if (obj == nil) {
-        //show loginview
-        self.view = loginView;
-    }else{
+    
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"rkey"] == nil)
+        self.view = loginView;      //show loginview
+    else
         self.view = profileView;
-        
-    }
-    NSString* str = (NSString*)obj;
-    NSLog(@"key %@", str);
-    [self loadDataWithRKey:str];
+    
+    NSString* rkey = [[NSUserDefaults standardUserDefaults] stringForKey:@"rkey"];
+    NSLog(@"rkey %@", rkey);
+    [self loadDataWithRKey:rkey];
     arr = [[NSArray alloc]initWithObjects:@"",@"ERC", @"Marshall", @"Muir", @"Revelle", @"Warren", @"Sixth",nil];
     //self.navigationController.navigationBar.hidden = YES;
 }
@@ -132,7 +127,8 @@ bool editOrNot = YES;
             NSLog(@"value: %@", valueAsString);
             //do login
             if ([keyAsString isEqualToString:@"rkey"]) {
-                 [[NSUserDefaults standardUserDefaults] setObject:valueAsString forKey:keyAsString];
+                [[NSUserDefaults standardUserDefaults] setObject:valueAsString forKey:keyAsString];
+                [[NSUserDefaults standardUserDefaults] synchronize];
                 [self viewWillAppear:NO];
             }
             

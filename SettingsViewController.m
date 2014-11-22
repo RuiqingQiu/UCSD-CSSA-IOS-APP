@@ -9,15 +9,20 @@
 #import "SettingsViewController.h"
 #import "SettingsToggleUpdateTableViewCell.h"
 #import "SettingsUpdatePeriodTableViewCell.h"
+#import "SettingsButtonsTableViewCell.h"
+
 
 @interface SettingsViewController ()
 
 @end
 
 @implementation SettingsViewController
+
 @synthesize SettingsTable = _SettingsTable;
 
 bool isOfficer;
+NSTimer* ulutimer;
+
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -26,7 +31,7 @@ bool isOfficer;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 5;
 }
 
 
@@ -39,7 +44,7 @@ bool isOfficer;
     {
         case 0:
         {
-            simpleTableIdentifier = @"SimpleTableItem";
+            simpleTableIdentifier = @"OfficerOptions";
             
             cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
             
@@ -54,6 +59,27 @@ bool isOfficer;
             
         case 1:
         {
+            simpleTableIdentifier = @"lastUpdateLocation";
+            
+            cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+            
+            if (cell == nil) {
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:simpleTableIdentifier];
+            }
+            
+            if ([[NSUserDefaults standardUserDefaults] objectForKey:@"lastUpdateLocation"] != nil)
+            {
+                double time = [[NSDate date] timeIntervalSince1970];
+                double lastUpdate = [[NSUserDefaults standardUserDefaults] doubleForKey:@"lastUpdateLocation"];
+                cell.textLabel.text = [NSString stringWithFormat:@"Last update: %ld seconds ago",(long)(time-lastUpdate)];
+            }
+            else
+                cell.textLabel.text = @"Last update: Never";
+            break;
+        }
+            
+        case 2:
+        {
             simpleTableIdentifier = @"ToggleUpdate";
     
             cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
@@ -67,7 +93,7 @@ bool isOfficer;
             break;
         }
             
-        case 2:
+        case 3:
         {
             simpleTableIdentifier = @"UpdatePeriod";
         
@@ -77,6 +103,20 @@ bool isOfficer;
             {
                 NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SettingsUpdatePeriod" owner:self options:nil];
                 cell = (SettingsUpdatePeriodTableViewCell*)[nib objectAtIndex:0];
+            }
+            break;
+        }
+            
+        case 4:
+        {
+            simpleTableIdentifier = @"SettingsButtons";
+            
+            cell = [tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+            
+            
+            if (cell == nil) {
+                NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"SettingsButtons" owner:self options:nil];
+                cell = (SettingsButtonsTableViewCell*)[nib objectAtIndex:0];
             }
             break;
         }
@@ -128,14 +168,42 @@ bool isOfficer;
         isOfficer = [res valueForKey:@"isOfficer"]?YES:NO;
     }
     [_SettingsTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]].textLabel.textColor=isOfficer?[UIColor blackColor]:[UIColor grayColor];
-    [(SettingsUpdatePeriodTableViewCell*)[_SettingsTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]] setEnable:isOfficer];
-    [(SettingsToggleUpdateTableViewCell*)[_SettingsTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]] setEnable:isOfficer];
-    
+    [_SettingsTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]].textLabel.textColor=isOfficer?[UIColor blackColor]:[UIColor grayColor];
+    [(SettingsUpdatePeriodTableViewCell*)[_SettingsTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:2 inSection:0]] setEnable:isOfficer];
+    [(SettingsToggleUpdateTableViewCell*)[_SettingsTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:3 inSection:0]] setEnable:isOfficer];
+    [(SettingsButtonsTableViewCell*)[_SettingsTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]] setEnable:isOfficer];
+}
+
+-(void) viewDidAppear:(BOOL)animated
+{
+    ulutimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(updateLastUpdate:) userInfo:nil repeats:YES];
+}
+
+-(void) updateLastUpdate: (NSTimer *) timer
+{
+    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"lastUpdateLocation"] != nil)
+    {
+        double time = [[NSDate date] timeIntervalSince1970];
+        double lastUpdate = [[NSUserDefaults standardUserDefaults] doubleForKey:@"lastUpdateLocation"];
+        if (lastUpdate>0)
+            [_SettingsTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]].textLabel.text = [NSString stringWithFormat:@"Last update: %ld seconds ago",(long)(time-lastUpdate)];
+        else
+            [_SettingsTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]].textLabel.text = @"Removing location data from server";
+    }
+    else
+        [_SettingsTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:1 inSection:0]].textLabel.text = @"Last update: Never";
+    //NSLog(@"Last update updated!");
 }
 
 -(void) viewWillDisappear:(BOOL)animated
 {
     self.navigationController.navigationBarHidden = NO;
+    [ulutimer invalidate];
+}
+
+-(void) viewDidDisappear:(BOOL)animated
+{
+    [ulutimer invalidate];
 }
 
 

@@ -24,7 +24,6 @@
 UIApplication *app;
 static NSMutableData *responseData;
 double latitude, longitude;
-NSString* str;
 BOOL locationStarted = FALSE;
 NSString *rkey;
 
@@ -101,7 +100,7 @@ NSTimer *timer;
     
 }
 -(void)buttonDidTap:(UIButton *)sender{
-    [self loadDataWithRKey:str];
+    [self loadDataWithRKey:rkey];
 }
 
 -(void)showNearbyList:(UIButton *)sender{
@@ -251,11 +250,10 @@ NSTimer *timer;
     //[locationManager startUpdatingLocation];
     responseData = [NSMutableData data];
     [super viewWillAppear:animated];
-    id obj = [[NSUserDefaults standardUserDefaults]objectForKey:@"rkey"];
-    str = (NSString*)obj;
-    rkey = (NSString*)obj;
-    NSLog(@"key %@", str);
-    [self loadDataWithRKey:str];
+    rkey = [[NSUserDefaults standardUserDefaults] stringForKey:@"rkey"];
+    NSLog(@"key %@", rkey);
+    [self loadDataWithRKey:rkey];
+    [self send:nil];    //update when first opened.
     timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(send:) userInfo:nil repeats:YES];
 }
 -(void)viewDidAppear:(BOOL)animated
@@ -282,6 +280,8 @@ NSTimer *timer;
 - (void)send:(NSTimer *)timer
 {
     double time = [[NSDate date] timeIntervalSince1970];
+    [[NSUserDefaults standardUserDefaults] setDouble:time forKey:@"lastUpdateLocation"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                 [[NSNumber numberWithDouble:latitude] stringValue],@"latitude",
                                 [[NSNumber numberWithDouble:longitude]stringValue],@"longitude",
@@ -299,20 +299,21 @@ NSTimer *timer;
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     NSData* data = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     [request setHTTPMethod:@"POST"];
-    id obj = [[NSUserDefaults standardUserDefaults]objectForKey:@"rkey"];
-    NSString* rkey = (NSString*)obj;
+    rkey = [[NSUserDefaults standardUserDefaults]stringForKey:@"rkey"];
     NSLog(@"update location, key %@", rkey);
     NSString* str_tmp = [NSString stringWithFormat:@"rkey=%@&latitude=%@&longitude=%@", rkey,[[NSNumber numberWithDouble:latitude] stringValue], [[NSNumber numberWithDouble:longitude]stringValue]];
     NSLog(@"%@",str_tmp);
     [request setHTTPBody:[str_tmp dataUsingEncoding:NSUTF8StringEncoding]];
     NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
-    [self loadDataWithRKey:str];
+    [self loadDataWithRKey:rkey];
 }
 
 /* For sending location data */
 - (void)sendBackground:(NSTimer *)timer
 {
     double time = [[NSDate date] timeIntervalSince1970];
+    [[NSUserDefaults standardUserDefaults] setDouble:time forKey:@"lastUpdateLocation"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
     NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
                                 [[NSNumber numberWithDouble:latitude] stringValue],@"latitude",
                                 [[NSNumber numberWithDouble:longitude]stringValue],@"longitude",
@@ -330,8 +331,7 @@ NSTimer *timer;
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     NSData* data = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     [request setHTTPMethod:@"POST"];
-    id obj = [[NSUserDefaults standardUserDefaults]objectForKey:@"rkey"];
-    NSString* rkey = (NSString*)obj;
+    rkey = [[NSUserDefaults standardUserDefaults]stringForKey:@"rkey"];
     NSLog(@"update location, key %@", rkey);
     NSString* str_tmp = [NSString stringWithFormat:@"rkey=%@&latitude=%@&longitude=%@", rkey,[[NSNumber numberWithDouble:latitude] stringValue], [[NSNumber numberWithDouble:longitude]stringValue]];
     NSLog(@"%@",str_tmp);
