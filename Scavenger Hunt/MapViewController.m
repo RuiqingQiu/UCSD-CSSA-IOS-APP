@@ -25,6 +25,7 @@ UIApplication *app;
 static NSMutableData *responseData;
 double latitude, longitude;
 BOOL locationStarted = FALSE;
+BOOL updateLocation = TRUE;
 NSString *rkey;
 
 //Timer for update
@@ -116,11 +117,7 @@ NSTimer *timer;
     popoverController.popoverLayoutMargins = UIEdgeInsetsMake(10, 10, 10, 10);
     popoverController.wantsDefaultContentAppearance = NO;
     
-    [popoverController presentPopoverFromRect:btn.bounds
-                                               inView:btn
-                             permittedArrowDirections:WYPopoverArrowDirectionAny
-                                             animated:YES
-                                              options:WYPopoverAnimationOptionFadeWithScale];
+    [popoverController presentPopoverFromRect:btn.bounds inView:btn permittedArrowDirections:WYPopoverArrowDirectionAny animated:YES options:WYPopoverAnimationOptionFadeWithScale];
 }
 
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
@@ -252,9 +249,13 @@ NSTimer *timer;
     [super viewWillAppear:animated];
     rkey = [[NSUserDefaults standardUserDefaults] stringForKey:@"rkey"];
     NSLog(@"key %@", rkey);
-    [self loadDataWithRKey:rkey];
-    [self send:nil];    //update when first opened.
-    timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(send:) userInfo:nil repeats:YES];
+    if(updateLocation){
+        [self loadDataWithRKey:rkey];
+        [self send:nil];    //update when first opened.
+    }
+    if(!timer){
+        timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(send:) userInfo:nil repeats:YES];
+    }
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -269,8 +270,8 @@ NSTimer *timer;
     //[locationManager stopUpdatingLocation];
     if ([timer isValid]){
         // the timer is valid and running, how about invalidating it
-        [timer invalidate];
-        timer = nil;
+        //[timer invalidate];
+        //timer = nil;
         //self.navigationController.navigationBar.hidden = NO;
     }
 }
@@ -279,6 +280,8 @@ NSTimer *timer;
 /* For sending location data */
 - (void)send:(NSTimer *)timer
 {
+    if(updateLocation){
+
     double time = [[NSDate date] timeIntervalSince1970];
     [[NSUserDefaults standardUserDefaults] setDouble:time forKey:@"lastUpdateLocation"];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -306,6 +309,7 @@ NSTimer *timer;
     [request setHTTPBody:[str_tmp dataUsingEncoding:NSUTF8StringEncoding]];
     NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
     [self loadDataWithRKey:rkey];
+    }
 }
 
 /* For sending location data */
@@ -442,6 +446,12 @@ NSTimer *timer;
     
 }
 - (void)mapView:(MKMapView *)mapView didDeselectAnnotation:(MKAnnotationView *)view{
+    
+}
+-(void)setTimerInterval:(int) time_interval{
+    timer = [NSTimer scheduledTimerWithTimeInterval:time_interval target:self selector:@selector(send:) userInfo:nil repeats:YES];
+}
+-(void)setUpdateLocation:(BOOL) updating{
     
 }
 
