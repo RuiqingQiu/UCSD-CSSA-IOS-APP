@@ -210,40 +210,16 @@
 		476EA96519A7FCB8004BC6B1 = {
 			isa = PBXGroup;
 			children = (
-				48C9ACFB1A0E9BCB00721E85 /* SettingsViewController.h */,
-				48C9ACFC1A0E9BCB00721E85 /* SettingsViewController.m */,
-				4857913B1A1DB3AC00170816 /* SettingsButtons.xib */,
-				4839D1F51A19C5F400D4CCBC /* SettingsButtonsTableViewCell.h */,
-				4839D1F61A19C5F400D4CCBC /* SettingsButtonsTableViewCell.m */,
+				AA4232391A211687000AF7AA /* Map */,
+				AA4232381A211674000AF7AA /* Register */,
+				AA4232371A211661000AF7AA /* Event */,
+				AA4232361A211656000AF7AA /* Profile */,
+				AA4232351A21163A000AF7AA /* Scavenger */,
+				AA4232341A211626000AF7AA /* Setting */,
 				4857913D1A1DBB3B00170816 /* TalkToServer.h */,
 				4857913E1A1DBB3B00170816 /* TalkToServer.m */,
-				48C9ACFE1A0E9FB600721E85 /* SettingsToggleUpdate.xib */,
-				48C9AD001A0EA01800721E85 /* SettingsToggleUpdateTableViewCell.h */,
-				48C9AD011A0EA01800721E85 /* SettingsToggleUpdateTableViewCell.m */,
-				48C9AD051A1748D200721E85 /* SettingsUpdatePeriod.xib */,
-				48C9AD071A1749FD00721E85 /* SettingsUpdatePeriodTableViewCell.h */,
-				48C9AD081A1749FD00721E85 /* SettingsUpdatePeriodTableViewCell.m */,
-				AA20802E19F2653100AD7FFD /* Annotation.m */,
-				AA20803019F2654600AD7FFD /* Annotation.h */,
-				AA20802919F2646100AD7FFD /* MapViewController.h */,
-				5B73DB1B1A17EE18000834A9 /* NearbyViewController.h */,
-				5B73DB1C1A17EE19000834A9 /* NearbyViewController.m */,
-				AA20802A19F2646100AD7FFD /* MapViewController.m */,
 				5B73DB141A17EB12000834A9 /* WYPopoverController */,
 				47F1523619A9512D006FCEDD /* src */,
-				47F1523319A944E4006FCEDD /* BadgeManager.h */,
-				47F1523419A944E4006FCEDD /* BadgeManager.m */,
-				47F1523019A93F5C006FCEDD /* Badge.h */,
-				47F1523119A93F5C006FCEDD /* Badge.m */,
-				470069EC19A90A2D0092604F /* SHMapViewController.h */,
-				470069ED19A90A2D0092604F /* SHMapViewController.m */,
-				470069EE19A90A2D0092604F /* SHMapViewController.xib */,
-				84D76CE119EEE6DC0043945F /* ProfileViewController.h */,
-				84D76CE219EEE6DC0043945F /* ProfileViewController.m */,
-				523A28D419F374840094999E /* EventViewController.h */,
-				523A28D519F374840094999E /* EventViewController.m */,
-				523BBDAE19EB13EA006FABC8 /* RegisterViewController.h */,
-				523BBDAF19EB1428006FABC8 /* RegisterViewController.m */,
 				476EA97719A7FCB8004BC6B1 /* com.ucsdcssa.sh */,
 				476EA97019A7FCB8004BC6B1 /* Frameworks */,
 				476EA96F19A7FCB8004BC6B1 /* Products */,
@@ -352,6 +328,78 @@
 				5B73DB181A17EB12000834A9 /* WYStoryboardPopoverSegue.m */,
 			);
 			path = WYPopoverController;
+			sourceTree = "<group>";
+		};
+		AA4232341A211626000AF7AA /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				48C9ACFE1A0E9FB600721E85 /* SettingsToggleUpdate.xib */,
+				48C9AD001A0EA01800721E85 /* SettingsToggleUpdateTableViewCell.h */,
+				48C9AD011A0EA01800721E85 /* SettingsToggleUpdateTableViewCell.m */,
+				48C9AD051A1748D200721E85 /* SettingsUpdatePeriod.xib */,
+				48C9AD071A1749FD00721E85 /* SettingsUpdatePeriodTableViewCell.h */,
+				48C9AD081A1749FD00721E85 /* SettingsUpdatePeriodTableViewCell.m */,
+				48C9ACFB1A0E9BCB00721E85 /* SettingsViewController.h */,
+				48C9ACFC1A0E9BCB00721E85 /* SettingsViewController.m */,
+				4857913B1A1DB3AC00170816 /* SettingsButtons.xib */,
+				4839D1F51A19C5F400D4CCBC /* SettingsButtonsTableViewCell.h */,
+				4839D1F61A19C5F400D4CCBC /* SettingsButtonsTableViewCell.m */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
+		AA4232351A21163A000AF7AA /* Scavenger */ = {
+			isa = PBXGroup;
+			children = (
+				47F1523319A944E4006FCEDD /* BadgeManager.h */,
+				47F1523419A944E4006FCEDD /* BadgeManager.m */,
+				47F1523019A93F5C006FCEDD /* Badge.h */,
+				47F1523119A93F5C006FCEDD /* Badge.m */,
+				470069EC19A90A2D0092604F /* SHMapViewController.h */,
+				470069ED19A90A2D0092604F /* SHMapViewController.m */,
+				470069EE19A90A2D0092604F /* SHMapViewController.xib */,
+			);
+			name = Scavenger;
+			sourceTree = "<group>";
+		};
+		AA4232361A211656000AF7AA /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				84D76CE119EEE6DC0043945F /* ProfileViewController.h */,
+				84D76CE219EEE6DC0043945F /* ProfileViewController.m */,
+			);
+			name = Profile;
+			sourceTree = "<group>";
+		};
+		AA4232371A211661000AF7AA /* Event */ = {
+			isa = PBXGroup;
+			children = (
+				523A28D419F374840094999E /* EventViewController.h */,
+				523A28D519F374840094999E /* EventViewController.m */,
+			);
+			name = Event;
+			sourceTree = "<group>";
+		};
+		AA4232381A211674000AF7AA /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				523BBDAE19EB13EA006FABC8 /* RegisterViewController.h */,
+				523BBDAF19EB1428006FABC8 /* RegisterViewController.m */,
+			);
+			name = Register;
+			sourceTree = "<group>";
+		};
+		AA4232391A211687000AF7AA /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				AA20802E19F2653100AD7FFD /* Annotation.m */,
+				AA20803019F2654600AD7FFD /* Annotation.h */,
+				AA20802919F2646100AD7FFD /* MapViewController.h */,
+				5B73DB1B1A17EE18000834A9 /* NearbyViewController.h */,
+				5B73DB1C1A17EE19000834A9 /* NearbyViewController.m */,
+				AA20802A19F2646100AD7FFD /* MapViewController.m */,
+			);
+			name = Map;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
