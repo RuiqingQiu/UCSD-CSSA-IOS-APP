@@ -11,6 +11,7 @@
 @interface TalkToServer : NSObject
 
 + (BOOL) signUpWithUsername:(NSString*)username password:(NSString*)password name:(NSString*)name department:(NSInteger)department position:(NSString*)position college:(NSInteger)college major:(NSString*)major motto:(NSString*)motto errorString:(NSString**)errorString;
-
++ (BOOL) signInWithUsername:(NSString*)username password:(NSString*)password name:(NSString**)name department:(NSInteger*)department position:(NSString**)position college:(NSInteger*)college major:(NSString**)major motto:(NSString**)motto errorString:(NSString**)errorString;
++ (BOOL) isOfficerWithErrorString:(NSString**)errorString;
 
 @end
