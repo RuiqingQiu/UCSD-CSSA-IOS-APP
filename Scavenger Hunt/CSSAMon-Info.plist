@@ -30,7 +30,8 @@
 	<string>The spirit of stack overflow is coders helping coders</string>
 	<key>UIAppFonts</key>
 	<array>
-		<string>lthj.TTF</string>
+		<string>STXIHEI.tff</string>
+		<string></string>
 	</array>
 	<key>UIApplicationExitsOnSuspend</key>
 	<false/>

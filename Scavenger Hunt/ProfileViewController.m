@@ -10,6 +10,7 @@
 #include <CommonCrypto/CommonDigest.h>
 @implementation ProfileViewController
 NSArray* arr;
+NSArray* departmentArray;
 bool editOrNot = YES;
 -(void)viewWillAppear:(BOOL)animated {
     self.responseData = [NSMutableData data];
@@ -24,6 +25,7 @@ bool editOrNot = YES;
     NSLog(@"rkey %@", rkey);
     [self loadDataWithRKey:rkey];
     arr = [[NSArray alloc]initWithObjects:@"",@"ERC", @"Marshall", @"Muir", @"Revelle", @"Warren", @"Sixth",nil];
+    departmentArray = [[NSArray alloc]initWithObjects:@"非officer", @"PM", @"学术部", @"宣传部", @"文体部", @"技术部",@"外联部", @"Advisor&前辈", @"其他officer",nil];
     //self.navigationController.navigationBar.hidden = YES;
 }
 
@@ -157,8 +159,11 @@ bool editOrNot = YES;
             if ([keyAsString isEqualToString:@"name"]) {
                 [nameField setText:valueAsString];
             }
-            if ([keyAsString isEqualToString:@"position"]) {
-                [positionField setText:valueAsString];
+            
+            //NSLog(@"%@", );
+            if ([keyAsString isEqualToString:@"department"]) {
+                NSString* de = [departmentArray objectAtIndex:[valueAsString intValue]];
+                [positionField setText:de];
             }
             if ([keyAsString isEqualToString:@"college"]) {
                 NSString* colle = [arr objectAtIndex:[valueAsString intValue]];
@@ -205,6 +210,7 @@ bool editOrNot = YES;
     }
     else
     {
+        nameField.enabled = NO;
         collegeField.enabled = NO;
         majorField.enabled = NO;
         mottoField.enabled =NO;
