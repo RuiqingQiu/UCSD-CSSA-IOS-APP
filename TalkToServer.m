@@ -22,7 +22,7 @@
     return  output;
 }
 
-+ (NSString*) getRkeyWithErrorString: (NSString**)errorString
++ (NSString*) getRkeyWithPerrorString: (NSString**)errorString
 {
     if (errorString != nil)
         *errorString = nil;
@@ -71,7 +71,7 @@
     return time ^ 1212496151;
 }
 
-+ (BOOL) signUpWithUsername:(NSString*)username password:(NSString*)password name:(NSString*)name department:(NSInteger)department position:(NSString*)position college:(NSInteger)college major:(NSString*)major motto:(NSString*)motto errorString:(NSString**)errorString
++ (BOOL) signUpWithUsername:(NSString*)username password:(NSString*)password name:(NSString*)name department:(NSInteger)department position:(NSString*)position college:(NSInteger)college major:(NSString*)major motto:(NSString*)motto PerrorString:(NSString**)errorString
 {
     if (errorString != nil)
         *errorString = nil;
@@ -115,7 +115,7 @@
     }
     [[NSUserDefaults standardUserDefaults] setObject:[parsedDict objectForKey:@"rkey"] forKey:@"rkey"];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    if ([parsedDict objectForKey:@"rkey"] != [self getRkeyWithErrorString:nil])
+    if ([parsedDict objectForKey:@"rkey"] != [self getRkeyWithPerrorString:nil])
     {
         if (errorString != nil)
             *errorString = @"Can't set rkey";
@@ -124,7 +124,7 @@
     return NO;
 }
 
-+ (BOOL) signInWithUsername:(NSString*)username password:(NSString*)password name:(NSString**)name department:(NSInteger*)department position:(NSString**)position college:(NSInteger*)college major:(NSString**)major motto:(NSString**)motto errorString:(NSString**)errorString
++ (BOOL) signInWithUsername:(NSString*)username password:(NSString*)password Pname:(NSString**)name Pdepartment:(NSInteger*)department Pposition:(NSString**)position Pcollege:(NSInteger*)college Pmajor:(NSString**)major Pmotto:(NSString**)motto PerrorString:(NSString**)errorString
 {
     if (errorString != nil)
         *errorString = nil;
@@ -156,7 +156,7 @@
     }
     [[NSUserDefaults standardUserDefaults] setObject:[parsedDict objectForKey:@"rkey"] forKey:@"rkey"];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    if ([parsedDict objectForKey:@"rkey"] != [self getRkeyWithErrorString:nil])
+    if ([parsedDict objectForKey:@"rkey"] != [self getRkeyWithPerrorString:nil])
     {
         if (errorString != nil)
             *errorString = @"Can't set rkey";
@@ -171,14 +171,14 @@
     return NO;
 }
 
-+ (BOOL) isOfficerWithErrorString:(NSString**)errorString
++ (BOOL) isOfficerWithPerrorString:(NSString**)errorString
 {
     if (errorString != nil)
         *errorString = nil;
     NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://b.ucsdcssa.org/isOfficer.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];
     [request setHTTPMethod:@"POST"];
     NSString* getRkeyError = nil;
-    NSString* rkey = [self getRkeyWithErrorString:&getRkeyError];
+    NSString* rkey = [self getRkeyWithPerrorString:&getRkeyError];
     if (getRkeyError != nil)
     {
         if (errorString != nil)
@@ -204,6 +204,53 @@
         return NO;
     }
     return [[parsedDict valueForKey:@"isOfficer"] boolValue];
+}
+
++ (BOOL) updateProfileWithName:(NSString*)name department:(NSInteger)department position:(NSString*)position college:(NSInteger)college major:(NSString*)major motto:(NSString*)motto PerrorString:(NSString**)errorString
+{
+    if (errorString != nil)
+        *errorString = nil;
+    if (department<0 || department>8)
+    {
+        if (errorString != nil)
+            *errorString = @"Department invalid";
+        return YES;
+    }
+    if (college<0 || college>6)
+    {
+        if (errorString != nil)
+            *errorString = @"College invalid";
+        return YES;
+    }
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://b.ucsdcssa.org/updateProfile.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];
+    [request setHTTPMethod:@"POST"];
+    NSString* getRkeyError = nil;
+    NSString* rkey = [self getRkeyWithPerrorString:&getRkeyError];
+    if (getRkeyError != nil)
+    {
+        if (errorString != nil)
+            *errorString = getRkeyError;
+        return NO;
+    }
+    NSString* post = [NSString stringWithFormat:@"rkey=%@&name=%@&department=%ld&position=%@&college=%ld&major=%@&motto=%@",rkey,name?name:@"",(long)department,position?position:@"",(long)college,major?major:@"",motto?motto:@""];
+    [request setHTTPBody:[post dataUsingEncoding:NSUTF8StringEncoding]];
+    NSError* error = nil;
+    NSURLResponse* response = nil;
+    NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    if (error != nil)
+    {
+        if (errorString != nil)
+            *errorString = @"Failed to connect to server";
+        return YES;
+    }
+    NSDictionary* parsedDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    if ([[parsedDict valueForKey:@"return"] intValue] != 0)
+    {
+        if (errorString != nil)
+            *errorString = [parsedDict objectForKey:@"err"];
+        return YES;
+    }
+    return NO;
 }
 
 @end
