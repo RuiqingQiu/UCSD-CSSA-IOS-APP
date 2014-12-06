@@ -163,9 +163,15 @@
         return YES;
     }
     if (name != nil) *name = [parsedDict objectForKey:@"name"];
-    if (department != nil) *department = [[parsedDict valueForKey:@"department"] intValue];
+    if (department != nil && ![[parsedDict objectForKey:@"department"] isEqual:[NSNull null]])
+        *department = [[parsedDict valueForKey:@"department"] intValue];
+    else
+        *department = 0;
     if (position != nil) *position = [parsedDict objectForKey:@"position"];
-    if (college != nil) *college = [[parsedDict valueForKey:@"college"] intValue];
+    if (college != nil && ![[parsedDict objectForKey:@"college"] isEqual:[NSNull null]])
+        *college = [[parsedDict valueForKey:@"college"] intValue];
+    else
+        *college = 0;
     if (major != nil) *major = [parsedDict objectForKey:@"major"];
     if (motto != nil) *motto = [parsedDict objectForKey:@"motto"];
     return NO;
@@ -250,6 +256,58 @@
             *errorString = [parsedDict objectForKey:@"err"];
         return YES;
     }
+    return NO;
+}
+
++ (BOOL) getProfileWithId:(NSInteger)id_ Pname:(NSString**)name PisOfficer:(BOOL*)isOfficer Pdepartment:(NSInteger*)department Pposition:(NSString**)position Pcollege:(NSInteger*)college Pmajor:(NSString**)major Pmotto:(NSString**)motto PerrorString:(NSString**)errorString
+//using id_ because id is a reserved word
+{
+    if (errorString != nil)
+        *errorString = nil;
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://b.ucsdcssa.org/getProfile.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];
+    [request setHTTPMethod:@"POST"];
+    NSString* getRkeyError = nil;
+    NSString* rkey = [self getRkeyWithPerrorString:&getRkeyError];
+    if (getRkeyError != nil)
+    {
+        if (errorString != nil)
+            *errorString = getRkeyError;
+        return NO;
+    }
+    NSString* post = [NSString stringWithFormat:@"rkey=%@&profile_id=%ld",rkey,(long)id_];
+    [request setHTTPBody:[post dataUsingEncoding:NSUTF8StringEncoding]];
+    NSError* error = nil;
+    NSURLResponse* response = nil;
+    NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    if (error != nil)
+    {
+        if (errorString != nil)
+            *errorString = @"Failed to connect to server";
+        return YES;
+    }
+    NSDictionary* parsedDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    if ([[parsedDict valueForKey:@"return"] intValue] != 0)
+    {
+        if (errorString != nil)
+            *errorString = [parsedDict objectForKey:@"err"];
+        return YES;
+    }
+    if (name != nil) *name = [parsedDict objectForKey:@"name"];
+    if (isOfficer != nil && ![[parsedDict objectForKey:@"isOfficer"] isEqual:[NSNull null]])
+        *isOfficer = [[parsedDict valueForKey:@"isOfficer"] boolValue];
+    else
+        *isOfficer = NO;
+    if (department != nil && ![[parsedDict objectForKey:@"department"] isEqual:[NSNull null]])
+        *department = [[parsedDict valueForKey:@"department"] intValue];
+    else
+        *department = 0;
+    if (position != nil) *position = [parsedDict objectForKey:@"position"];
+    if (college != nil && ![[parsedDict objectForKey:@"college"] isEqual:[NSNull null]])
+        *college = [[parsedDict valueForKey:@"college"] intValue];
+    else
+        *college = 0;
+    if (major != nil) *major = [parsedDict objectForKey:@"major"];
+    if (motto != nil) *motto = [parsedDict objectForKey:@"motto"];
     return NO;
 }
 
