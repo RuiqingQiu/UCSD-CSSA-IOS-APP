@@ -333,14 +333,14 @@
 		AA4232341A211626000AF7AA /* Setting */ = {
 			isa = PBXGroup;
 			children = (
+				48C9ACFB1A0E9BCB00721E85 /* SettingsViewController.h */,
+				48C9ACFC1A0E9BCB00721E85 /* SettingsViewController.m */,
 				48C9ACFE1A0E9FB600721E85 /* SettingsToggleUpdate.xib */,
 				48C9AD001A0EA01800721E85 /* SettingsToggleUpdateTableViewCell.h */,
 				48C9AD011A0EA01800721E85 /* SettingsToggleUpdateTableViewCell.m */,
 				48C9AD051A1748D200721E85 /* SettingsUpdatePeriod.xib */,
 				48C9AD071A1749FD00721E85 /* SettingsUpdatePeriodTableViewCell.h */,
 				48C9AD081A1749FD00721E85 /* SettingsUpdatePeriodTableViewCell.m */,
-				48C9ACFB1A0E9BCB00721E85 /* SettingsViewController.h */,
-				48C9ACFC1A0E9BCB00721E85 /* SettingsViewController.m */,
 				4857913B1A1DB3AC00170816 /* SettingsButtons.xib */,
 				4839D1F51A19C5F400D4CCBC /* SettingsButtonsTableViewCell.h */,
 				4839D1F61A19C5F400D4CCBC /* SettingsButtonsTableViewCell.m */,
