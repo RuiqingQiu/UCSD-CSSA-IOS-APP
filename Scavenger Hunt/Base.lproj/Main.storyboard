@@ -455,22 +455,22 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zk1-Ky-G8Q">
                                 <rect key="frame" x="33" y="64" width="120" height="120"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdg-Qq-f8m">
-                                <rect key="frame" x="256" y="25" width="64" height="20"/>
-                                <state key="normal" image="logout_big.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="signOut:" destination="1cM-Ye-UYb" eventType="touchUpInside" id="LLk-Ih-sZ4"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FmO-b6-nLV">
-                                <rect key="frame" x="260" y="72" width="44" height="17"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="40" placeholderIntrinsicHeight="16" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FmO-b6-nLV">
+                                <rect key="frame" x="260" y="72" width="40" height="16"/>
                                 <state key="normal" image="edit.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="editProfile:" destination="1cM-Ye-UYb" eventType="touchUpInside" id="uQW-2y-7n7"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdg-Qq-f8m">
+                                <rect key="frame" x="252" y="27" width="60" height="20"/>
+                                <state key="normal" image="smalllogout.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="signOut:" destination="1cM-Ye-UYb" eventType="touchUpInside" id="LLk-Ih-sZ4"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -547,10 +547,10 @@
         <image name="Poster_halloween_v2.png" width="540" height="540"/>
         <image name="background2.png" width="703" height="416"/>
         <image name="crown-7.png" width="30" height="30"/>
-        <image name="edit.png" width="67" height="25"/>
-        <image name="logout_big.png" width="1528" height="512"/>
+        <image name="edit.png" width="44" height="16"/>
         <image name="origami-7.png" width="30" height="30"/>
         <image name="pin-map-7.png" width="30" height="30"/>
+        <image name="smalllogout.png" width="60" height="20"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

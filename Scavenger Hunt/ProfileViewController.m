@@ -7,10 +7,19 @@
 //
 
 #import "ProfileViewController.h"
+#import "TalkToServer.h"
 #include <CommonCrypto/CommonDigest.h>
 @implementation ProfileViewController
+NSString* loginName;
+NSString* password;
+NSString* name;
+NSString* department;
+NSString* college;
+NSString* major;
+NSString* motto;
 NSArray* arr;
 NSArray* departmentArray;
+
 bool editOrNot = YES;
 -(void)viewWillAppear:(BOOL)animated {
     self.responseData = [NSMutableData data];
@@ -145,8 +154,6 @@ bool editOrNot = YES;
                 }
             }
         }else{
-            NSLog(@"%@", keyAsString);
-            NSLog(@"%@", valueAsString);
             positionField.backgroundColor = [UIColor clearColor];
             //nameField.background = [UIColor clearColor];
             collegeField.backgroundColor = [UIColor clearColor];
@@ -156,22 +163,27 @@ bool editOrNot = YES;
                 continue;
             }
             if ([keyAsString isEqualToString:@"name"]) {
+                name = valueAsString;
                 [nameField setText:valueAsString];
             }
             
             //NSLog(@"%@", );
             if ([keyAsString isEqualToString:@"department"]) {
+                department = valueAsString;
                 NSString* de = [departmentArray objectAtIndex:[valueAsString intValue]];
                 [positionField setText:de];
             }
             if ([keyAsString isEqualToString:@"college"]) {
+                college = valueAsString;
                 NSString* colle = [arr objectAtIndex:[valueAsString intValue]];
                 [collegeField setText:colle];
             }
             if ([keyAsString isEqualToString:@"major"]) {
+                major = valueAsString;
                 [majorField setText:valueAsString];
             }
             if ([keyAsString isEqualToString:@"motto"]) {
+                motto = valueAsString;
                 [mottoField setText:valueAsString];
 
             }
@@ -190,31 +202,46 @@ bool editOrNot = YES;
         NSLog(@"icon: %@", icon);
     }
 
+    
+    
+    
+    
+    
 }
 
 
 
 - (IBAction)editProfile:(id)sender
 {
+
     
+
     if(editOrNot == YES)
     {
         nameField.enabled = YES;
         majorField.enabled = YES;
         mottoField.enabled = YES;
         [editButton setTitle:@"Save" forState:UIControlStateNormal];
+        [editButton setImage:[UIImage imageNamed:@"icon_save.png"] forState:UIControlStateNormal];
         editButton.titleLabel.font = [UIFont systemFontOfSize:15];
         [nameField becomeFirstResponder];
         editOrNot = NO;
     }
     else
     {
+        name = nameField.text;
+        major = majorField.text;
+        motto = mottoField.text;
+        NSLog(@"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        NSLog(@"%@",name);
+        [TalkToServer updateProfileWithName:name department:department position:nil college:college major:major motto:motto PerrorString:nil];
         nameField.enabled = NO;
         collegeField.enabled = NO;
         majorField.enabled = NO;
-        mottoField.enabled =NO;
+        mottoField.enabled = NO;
         editOrNot = YES;
         [editButton setTitle:@"Edit" forState:UIControlStateNormal];
+        [editButton setImage:[UIImage imageNamed:@"edit.png"] forState:UIControlStateNormal];
         editButton.titleLabel.font = [UIFont systemFontOfSize:15];
     }
      

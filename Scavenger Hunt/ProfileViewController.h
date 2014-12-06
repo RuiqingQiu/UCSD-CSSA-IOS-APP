@@ -20,15 +20,8 @@
 
     IBOutlet UITextField *mottoField;
 
-    ;
-    /*
-    __weak IBOutlet UILabel *Motto;
-    __weak IBOutlet UILabel *Status;
-    __weak IBOutlet UILabel *Major;
-    __weak IBOutlet UILabel *College;
-    __weak IBOutlet UILabel *JobTitle;
-     */
-    
+
+
     IBOutlet UIButton *editButton;
     IBOutlet UIButton *signoutButton;
      
