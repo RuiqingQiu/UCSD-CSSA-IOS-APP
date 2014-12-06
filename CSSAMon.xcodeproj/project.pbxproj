@@ -440,7 +440,7 @@
 				ORGANIZATIONNAME = "Ruiqing Qiu";
 				TargetAttributes = {
 					476EA96D19A7FCB8004BC6B1 = {
-						DevelopmentTeam = RC47RUQEKD;
+						DevelopmentTeam = 87JW9TVDXS;
 					};
 				};
 			};
@@ -480,7 +480,7 @@
 				AA34240319F330D90075A3DF /* map_pin_v2.png in Resources */,
 				47F1524219A95145006FCEDD /* Home_for_4_years_Geisel.png in Resources */,
 				AA20803419F26F1100AD7FFD /* rsz_icon1.png in Resources */,
-				AA6EA24F19F4821600208893 /* Icon13 .png in Resources */,
+				AA6EA24F19F4821600208893 /* Icon13.png in Resources */,
 				523A28DA19F388950094999E /* Poster_halloween.png in Resources */,
 				47F1524119A95145006FCEDD /* Stone_bear.png in Resources */,
 				48C9AD061A1748D200721E85 /* SettingsUpdatePeriod.xib in Resources */,

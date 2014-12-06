@@ -56,7 +56,6 @@ bool editOrNot = YES;
     [loging_user resignFirstResponder];
     [nameField resignFirstResponder];
     [positionField resignFirstResponder];
-    //[collegeField resignFirstResponder];
     [majorField resignFirstResponder];
     [mottoField resignFirstResponder];
     
@@ -238,8 +237,7 @@ bool editOrNot = YES;
     //NSData *receive;
     NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
     [connection setAccessibilityHint:@"login"];
-    //[request setAccessibilityHint:@"login"];
-    //NSLog(@"%@",timestamp);
+
 }
 - (IBAction)dismissLoginName:(id)sender
 {
