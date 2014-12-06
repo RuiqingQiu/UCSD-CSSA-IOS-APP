@@ -174,6 +174,11 @@ NSTimer* ulutimer;
     [(SettingsButtonsTableViewCell*)[_SettingsTable cellForRowAtIndexPath:[NSIndexPath indexPathForRow:4 inSection:0]] setEnable:isOfficer];
 }
 
+- (void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
 -(void) viewDidAppear:(BOOL)animated
 {
     ulutimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(updateLastUpdate:) userInfo:nil repeats:YES];
