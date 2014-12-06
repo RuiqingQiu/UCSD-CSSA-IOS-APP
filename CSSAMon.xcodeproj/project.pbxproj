@@ -80,6 +80,8 @@
 		AA6EA25119F4929300208893 /* crown-7.png in Resources */ = {isa = PBXBuildFile; fileRef = AA6EA25019F4929300208893 /* crown-7.png */; };
 		AA6EA25319F493A300208893 /* pin-map-7.png in Resources */ = {isa = PBXBuildFile; fileRef = AA6EA25219F493A300208893 /* pin-map-7.png */; };
 		AA6EA25519F4948800208893 /* origami-7.png in Resources */ = {isa = PBXBuildFile; fileRef = AA6EA25419F4948800208893 /* origami-7.png */; };
+		AADF44081A338E8800DB9B99 /* EAIntroPage.m in Sources */ = {isa = PBXBuildFile; fileRef = AADF44051A338E8800DB9B99 /* EAIntroPage.m */; };
+		AADF44091A338E8800DB9B99 /* EAIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = AADF44071A338E8800DB9B99 /* EAIntroView.m */; };
 		AAF65FF719F3887100C9D6EB /* icon_v4.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF65FF619F3887100C9D6EB /* icon_v4.png */; };
 /* End PBXBuildFile section */
 
@@ -180,6 +182,10 @@
 		AA6EA25019F4929300208893 /* crown-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crown-7.png"; sourceTree = "<group>"; };
 		AA6EA25219F493A300208893 /* pin-map-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin-map-7.png"; sourceTree = "<group>"; };
 		AA6EA25419F4948800208893 /* origami-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "origami-7.png"; sourceTree = "<group>"; };
+		AADF44041A338E8800DB9B99 /* EAIntroPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroPage.h; sourceTree = "<group>"; };
+		AADF44051A338E8800DB9B99 /* EAIntroPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroPage.m; sourceTree = "<group>"; };
+		AADF44061A338E8800DB9B99 /* EAIntroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroView.h; sourceTree = "<group>"; };
+		AADF44071A338E8800DB9B99 /* EAIntroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroView.m; sourceTree = "<group>"; };
 		AAF65FF619F3887100C9D6EB /* icon_v4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_v4.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -214,6 +220,10 @@
 		476EA96519A7FCB8004BC6B1 = {
 			isa = PBXGroup;
 			children = (
+				AADF44041A338E8800DB9B99 /* EAIntroPage.h */,
+				AADF44051A338E8800DB9B99 /* EAIntroPage.m */,
+				AADF44061A338E8800DB9B99 /* EAIntroView.h */,
+				AADF44071A338E8800DB9B99 /* EAIntroView.m */,
 				AA4232391A211687000AF7AA /* Map */,
 				AA4232381A211674000AF7AA /* Register */,
 				AA4232371A211661000AF7AA /* Event */,
@@ -480,7 +490,7 @@
 				AA34240319F330D90075A3DF /* map_pin_v2.png in Resources */,
 				47F1524219A95145006FCEDD /* Home_for_4_years_Geisel.png in Resources */,
 				AA20803419F26F1100AD7FFD /* rsz_icon1.png in Resources */,
-				AA6EA24F19F4821600208893 /* Icon13 .png in Resources */,
+				AA6EA24F19F4821600208893 /* Icon13.png in Resources */,
 				523A28DA19F388950094999E /* Poster_halloween.png in Resources */,
 				47F1524119A95145006FCEDD /* Stone_bear.png in Resources */,
 				48C9AD061A1748D200721E85 /* SettingsUpdatePeriod.xib in Resources */,
@@ -525,11 +535,13 @@
 				5B73DB1D1A17EE19000834A9 /* NearbyViewController.m in Sources */,
 				AA20802F19F2653100AD7FFD /* Annotation.m in Sources */,
 				47F1523219A93F5C006FCEDD /* Badge.m in Sources */,
+				AADF44091A338E8800DB9B99 /* EAIntroView.m in Sources */,
 				AA20802B19F2646100AD7FFD /* MapViewController.m in Sources */,
 				5B73DB191A17EB12000834A9 /* WYPopoverController.m in Sources */,
 				84D76CE319EEE6DC0043945F /* ProfileViewController.m in Sources */,
 				523A28D619F374840094999E /* EventViewController.m in Sources */,
 				48C9ACFD1A0E9BCB00721E85 /* SettingsViewController.m in Sources */,
+				AADF44081A338E8800DB9B99 /* EAIntroPage.m in Sources */,
 				476EA97E19A7FCB8004BC6B1 /* main.m in Sources */,
 				476EA98219A7FCB8004BC6B1 /* SHAppDelegate.m in Sources */,
 				48C9AD021A0EA01800721E85 /* SettingsToggleUpdateTableViewCell.m in Sources */,
