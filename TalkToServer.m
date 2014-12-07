@@ -388,4 +388,51 @@
     return NO;
 }
 
++ (NSArray*) getLocationWithPerrorString:(NSString**)errorString
+{
+    if (errorString != nil)
+        *errorString = nil;
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://b.ucsdcssa.org/getLocation.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];
+    [request setHTTPMethod:@"POST"];
+    NSString* getRkeyError = nil;
+    NSString* rkey = [self getRkeyWithPerrorString:&getRkeyError];
+    if (getRkeyError != nil)
+    {
+        if (errorString != nil)
+            *errorString = getRkeyError;
+        return nil;
+    }
+    NSString* post = [NSString stringWithFormat:@"rkey=%@",rkey];
+    [request setHTTPBody:[post dataUsingEncoding:NSUTF8StringEncoding]];
+    NSError* error = nil;
+    NSURLResponse* response = nil;
+    NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    if (error != nil)
+    {
+        if (errorString != nil)
+            *errorString = @"Failed to connect to server";
+        return nil;
+    }
+    NSDictionary* parsedDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    if ([[parsedDict objectForKey:@"return"] isEqual:[NSNull null]])
+    {
+        if (errorString != nil)
+            *errorString = @"Failed to connect to server";
+        return nil;
+    }
+    if ([[parsedDict valueForKey:@"return"] intValue] != 0)
+    {
+        if (errorString != nil)
+            *errorString = [parsedDict objectForKey:@"err"];
+        return nil;
+    }
+    if ([[parsedDict objectForKey:@"result"] isEqual:[NSNull null]])
+    {
+        if (errorString != nil)
+            *errorString = @"Failed to connect to server";
+        return nil;
+    }
+    return (NSArray*)[parsedDict objectForKey:@"result"];
+}
+
 @end
