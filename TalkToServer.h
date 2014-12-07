@@ -17,4 +17,6 @@
 + (BOOL) getProfileWithId:(NSInteger)id_ Pname:(NSString**)name PisOfficer:(BOOL*)isOfficer Pdepartment:(NSInteger*)department Pposition:(NSString**)position Pcollege:(NSInteger*)college Pmajor:(NSString**)major Pmotto:(NSString**)motto PerrorString:(NSString**)errorString;
 + (BOOL) updateLocationWithLatitude:(double)latitude longitude:(double)longitude PerrorString:(NSString**)errorString;
 + (NSArray*) getLocationWithPerrorString:(NSString**)errorString;
++ (BOOL) isSharingLocationWithPerrorString:(NSString**)errorString;
++ (BOOL) deleteLocationWithPerrorString:(NSString**)errorString;
 @end
