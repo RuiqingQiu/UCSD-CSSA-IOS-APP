@@ -62,7 +62,7 @@
     {
         NSError* error2 = nil;
         NSDictionary* parsedDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&error2];
-        if (error2 != nil)
+        if (error2 != nil || [[parsedDict objectForKey:@"timestamp"] isEqual:[NSNull null]])
             time = [[NSDate date] timeIntervalSince1970];
         else
             time = [[parsedDict valueForKey:@"timestamp" ] intValue];
@@ -71,7 +71,7 @@
     return time ^ 1212496151;
 }
 
-+ (BOOL) signUpWithUsername:(NSString*)username password:(NSString*)password name:(NSString*)name department:(NSInteger)department position:(NSString*)position college:(NSInteger)college major:(NSString*)major motto:(NSString*)motto PerrorString:(NSString**)errorString
++ (BOOL) signUpWithUsername:(NSString*)username password:(NSString*)password name:(NSString*)name department:(NSInteger)department position:(NSString*)position college:(NSInteger)college major:(NSString*)major motto:(NSString*)motto Pavatar_large:(UIImage**)avatar_large PerrorString:(NSString**)errorString
 {
     if (errorString != nil)
         *errorString = nil;
@@ -107,6 +107,12 @@
         return YES;
     }
     NSDictionary* parsedDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    if ([[parsedDict objectForKey:@"return"] isEqual:[NSNull null]])
+    {
+        if (errorString != nil)
+            *errorString = @"Failed to connect to server";
+        return YES;
+    }
     if ([[parsedDict valueForKey:@"return"] intValue] != 0)
     {
         if (errorString != nil)
@@ -121,10 +127,15 @@
             *errorString = @"Can't set rkey";
         return YES;
     }
+    if (avatar_large != nil)
+    {
+        NSData * tmpData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[parsedDict objectForKey:@"avatar_large"]]];
+        *avatar_large = [UIImage imageWithData:tmpData];
+    }
     return NO;
 }
 
-+ (BOOL) signInWithUsername:(NSString*)username password:(NSString*)password Pname:(NSString**)name Pdepartment:(NSInteger*)department Pposition:(NSString**)position Pcollege:(NSInteger*)college Pmajor:(NSString**)major Pmotto:(NSString**)motto PerrorString:(NSString**)errorString
++ (BOOL) signInWithUsername:(NSString*)username password:(NSString*)password Pname:(NSString**)name Pavatar_large:(UIImage**)avatar_large Pdepartment:(NSInteger*)department Pposition:(NSString**)position Pcollege:(NSInteger*)college Pmajor:(NSString**)major Pmotto:(NSString**)motto PerrorString:(NSString**)errorString
 {
     if (errorString != nil)
         *errorString = nil;
@@ -148,6 +159,12 @@
         return YES;
     }
     NSDictionary* parsedDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    if ([[parsedDict objectForKey:@"return"] isEqual:[NSNull null]])
+    {
+        if (errorString != nil)
+            *errorString = @"Failed to connect to server";
+        return YES;
+    }
     if ([[parsedDict valueForKey:@"return"] intValue] != 0)
     {
         if (errorString != nil)
@@ -163,6 +180,11 @@
         return YES;
     }
     if (name != nil) *name = [parsedDict objectForKey:@"name"];
+    if (avatar_large != nil)
+    {
+        NSData * tmpData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[parsedDict objectForKey:@"avatar_large"]]];
+        *avatar_large = [UIImage imageWithData:tmpData];
+    }
     if (department != nil && ![[parsedDict objectForKey:@"department"] isEqual:[NSNull null]])
         *department = [[parsedDict valueForKey:@"department"] intValue];
     else
@@ -203,10 +225,22 @@
         return NO;
     }
     NSDictionary* parsedDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    if ([[parsedDict objectForKey:@"return"] isEqual:[NSNull null]])
+    {
+        if (errorString != nil)
+            *errorString = @"Failed to connect to server";
+        return NO;
+    }
     if ([[parsedDict valueForKey:@"return"] intValue] != 0)
     {
         if (errorString != nil)
             *errorString = [parsedDict objectForKey:@"err"];
+        return NO;
+    }
+    if ([[parsedDict objectForKey:@"isOfficer"] isEqual:[NSNull null]])
+    {
+        if (errorString != nil)
+            *errorString = @"Failed to connect to server";
         return NO;
     }
     return [[parsedDict valueForKey:@"isOfficer"] boolValue];
@@ -236,7 +270,7 @@
     {
         if (errorString != nil)
             *errorString = getRkeyError;
-        return NO;
+        return YES;
     }
     NSString* post = [NSString stringWithFormat:@"rkey=%@&name=%@&department=%ld&position=%@&college=%ld&major=%@&motto=%@",rkey,name?name:@"",(long)department,position?position:@"",(long)college,major?major:@"",motto?motto:@""];
     [request setHTTPBody:[post dataUsingEncoding:NSUTF8StringEncoding]];
@@ -250,6 +284,12 @@
         return YES;
     }
     NSDictionary* parsedDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    if ([[parsedDict objectForKey:@"return"] isEqual:[NSNull null]])
+    {
+        if (errorString != nil)
+            *errorString = @"Failed to connect to server";
+        return YES;
+    }
     if ([[parsedDict valueForKey:@"return"] intValue] != 0)
     {
         if (errorString != nil)
@@ -259,7 +299,7 @@
     return NO;
 }
 
-+ (BOOL) getProfileWithId:(NSInteger)id_ Pname:(NSString**)name PisOfficer:(BOOL*)isOfficer Pdepartment:(NSInteger*)department Pposition:(NSString**)position Pcollege:(NSInteger*)college Pmajor:(NSString**)major Pmotto:(NSString**)motto PerrorString:(NSString**)errorString
++ (BOOL) getProfileWithId:(NSInteger)id_ Pname:(NSString**)name Pavatar_large:(UIImage**)avatar_large PisOfficer:(BOOL*)isOfficer Pdepartment:(NSInteger*)department Pposition:(NSString**)position Pcollege:(NSInteger*)college Pmajor:(NSString**)major Pmotto:(NSString**)motto PerrorString:(NSString**)errorString
 //using id_ because id is a reserved word
 {
     if (errorString != nil)
@@ -272,7 +312,7 @@
     {
         if (errorString != nil)
             *errorString = getRkeyError;
-        return NO;
+        return YES;
     }
     NSString* post = [NSString stringWithFormat:@"rkey=%@&profile_id=%ld",rkey,(long)id_];
     [request setHTTPBody:[post dataUsingEncoding:NSUTF8StringEncoding]];
@@ -286,6 +326,12 @@
         return YES;
     }
     NSDictionary* parsedDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    if ([[parsedDict objectForKey:@"return"] isEqual:[NSNull null]])
+    {
+        if (errorString != nil)
+            *errorString = @"Failed to connect to server";
+        return YES;
+    }
     if ([[parsedDict valueForKey:@"return"] intValue] != 0)
     {
         if (errorString != nil)
@@ -293,6 +339,11 @@
         return YES;
     }
     if (name != nil) *name = [parsedDict objectForKey:@"name"];
+    if (avatar_large != nil)
+    {
+        NSData * tmpData = [NSData dataWithContentsOfURL:[NSURL URLWithString:[parsedDict objectForKey:@"avatar_large"]]];
+        *avatar_large = [UIImage imageWithData:tmpData];
+    }
     if (isOfficer != nil && ![[parsedDict objectForKey:@"isOfficer"] isEqual:[NSNull null]])
         *isOfficer = [[parsedDict valueForKey:@"isOfficer"] boolValue];
     else
@@ -308,6 +359,192 @@
         *college = 0;
     if (major != nil) *major = [parsedDict objectForKey:@"major"];
     if (motto != nil) *motto = [parsedDict objectForKey:@"motto"];
+    return NO;
+}
+
++ (BOOL) updateLocationWithLatitude:(double)latitude longitude:(double)longitude PerrorString:(NSString**)errorString
+{
+    if (errorString != nil)
+        *errorString = nil;
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://b.ucsdcssa.org/updateLocation.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];
+    [request setHTTPMethod:@"POST"];
+    NSString* getRkeyError = nil;
+    NSString* rkey = [self getRkeyWithPerrorString:&getRkeyError];
+    if (getRkeyError != nil)
+    {
+        if (errorString != nil)
+            *errorString = getRkeyError;
+        return YES;
+    }
+    NSString* post = [NSString stringWithFormat:@"rkey=%@&latitude=%lf&longitude=%lf",rkey,latitude,longitude];
+    [request setHTTPBody:[post dataUsingEncoding:NSUTF8StringEncoding]];
+    NSError* error = nil;
+    NSURLResponse* response = nil;
+    NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    if (error != nil)
+    {
+        if (errorString != nil)
+            *errorString = @"Failed to connect to server";
+        return YES;
+    }
+    NSDictionary* parsedDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    if ([[parsedDict objectForKey:@"return"] isEqual:[NSNull null]])
+    {
+        if (errorString != nil)
+            *errorString = @"Failed to connect to server";
+        return YES;
+    }
+    if ([[parsedDict valueForKey:@"return"] intValue] != 0)
+    {
+        if (errorString != nil)
+            *errorString = [parsedDict objectForKey:@"err"];
+        return YES;
+    }
+    return NO;
+}
+
++ (NSArray*) getLocationWithPerrorString:(NSString**)errorString
+// use
+// UIImage * foo = [[RETURNED_ARRAY objectAtIndex:i] objectForKey:@"avatar_large"]
+// to get small images
+{
+    if (errorString != nil)
+        *errorString = nil;
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://b.ucsdcssa.org/getLocation.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];
+    [request setHTTPMethod:@"POST"];
+    NSString* getRkeyError = nil;
+    NSString* rkey = [self getRkeyWithPerrorString:&getRkeyError];
+    if (getRkeyError != nil)
+    {
+        if (errorString != nil)
+            *errorString = getRkeyError;
+        return nil;
+    }
+    NSString* post = [NSString stringWithFormat:@"rkey=%@",rkey];
+    [request setHTTPBody:[post dataUsingEncoding:NSUTF8StringEncoding]];
+    NSError* error = nil;
+    NSURLResponse* response = nil;
+    NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    if (error != nil)
+    {
+        if (errorString != nil)
+            *errorString = @"Failed to connect to server";
+        return nil;
+    }
+    NSDictionary* parsedDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    if ([[parsedDict objectForKey:@"return"] isEqual:[NSNull null]])
+    {
+        if (errorString != nil)
+            *errorString = @"Failed to connect to server";
+        return nil;
+    }
+    if ([[parsedDict valueForKey:@"return"] intValue] != 0)
+    {
+        if (errorString != nil)
+            *errorString = [parsedDict objectForKey:@"err"];
+        return nil;
+    }
+    if ([[parsedDict objectForKey:@"result"] isEqual:[NSNull null]])
+    {
+        if (errorString != nil)
+            *errorString = @"Failed to connect to server";
+        return nil;
+    }
+    NSArray* tmpArray = [parsedDict objectForKey:@"result"];
+    for (int i = 0; i < tmpArray.count; i++)
+    {
+        NSData * tmpData = [NSData dataWithContentsOfURL:[[tmpArray objectAtIndex:i] objectForKey:@"avatar_small"]];
+        [[tmpArray objectAtIndex:i] setObject:[UIImage imageWithData:tmpData] forKey:@"avatar_small"];
+    }
+    return tmpArray;
+}
+
++ (BOOL) isSharingLocationWithPerrorString:(NSString**)errorString
+//You have to check if errorString is nil
+{
+    if (errorString != nil)
+        *errorString = nil;
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://b.ucsdcssa.org/isSharingLocation.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];
+    [request setHTTPMethod:@"POST"];
+    NSString* getRkeyError = nil;
+    NSString* rkey = [self getRkeyWithPerrorString:&getRkeyError];
+    if (getRkeyError != nil)
+    {
+        if (errorString != nil)
+            *errorString = getRkeyError;
+        return NO;
+    }
+    NSString* post = [NSString stringWithFormat:@"rkey=%@",rkey];
+    [request setHTTPBody:[post dataUsingEncoding:NSUTF8StringEncoding]];
+    NSError* error = nil;
+    NSURLResponse* response = nil;
+    NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    if (error != nil)
+    {
+        if (errorString != nil)
+            *errorString = @"Failed to connect to server";
+        return NO;
+    }
+    NSDictionary* parsedDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    if ([[parsedDict objectForKey:@"return"] isEqual:[NSNull null]])
+    {
+        if (errorString != nil)
+            *errorString = @"Failed to connect to server";
+        return NO;
+    }
+    if ([[parsedDict valueForKey:@"return"] intValue] != 0)
+    {
+        if (errorString != nil)
+            *errorString = [parsedDict objectForKey:@"err"];
+        return NO;
+    }
+    if ([[parsedDict objectForKey:@"isSharingLocation"] isEqual:[NSNull null]])
+    {
+        if (errorString != nil)
+            *errorString = @"Failed to connect to server";
+        return NO;
+    }
+    return [[parsedDict valueForKey:@"isSharingLocation"] boolValue];
+}
+
++ (BOOL) deleteLocationWithPerrorString:(NSString**)errorString
+{
+    if (errorString != nil)
+        *errorString = nil;
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://b.ucsdcssa.org/deleteLocation.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];
+    [request setHTTPMethod:@"POST"];
+    NSString* getRkeyError = nil;
+    NSString* rkey = [self getRkeyWithPerrorString:&getRkeyError];
+    if (getRkeyError != nil)
+    {
+        if (errorString != nil)
+            *errorString = getRkeyError;
+        return YES;
+    }
+    NSString* post = [NSString stringWithFormat:@"rkey=%@",rkey];
+    [request setHTTPBody:[post dataUsingEncoding:NSUTF8StringEncoding]];
+    NSError* error = nil;
+    NSURLResponse* response = nil;
+    NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    if (error != nil)
+    {
+        if (errorString != nil)
+            *errorString = @"Failed to connect to server";
+        return YES;
+    }
+    NSDictionary* parsedDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    if ([[parsedDict objectForKey:@"return"] isEqual:[NSNull null]])
+    {
+        if (errorString != nil)
+            *errorString = @"Failed to connect to server";
+        return YES;
+    }
+    if ([[parsedDict valueForKey:@"return"] intValue] != 0)
+    {
+        if (errorString != nil)
+            *errorString = [parsedDict objectForKey:@"err"];
+        return YES;
+    }
     return NO;
 }
 
