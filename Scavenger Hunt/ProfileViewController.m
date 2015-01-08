@@ -13,8 +13,8 @@
 NSString* loginName;
 NSString* password;
 NSString* name;
-NSString* department;
-NSString* college;
+NSInteger departmentInt;
+NSInteger collegeInt;
 NSString* major;
 NSString* motto;
 NSArray* arr;
@@ -169,12 +169,12 @@ bool editOrNot = YES;
             
             //NSLog(@"%@", );
             if ([keyAsString isEqualToString:@"department"]) {
-                department = valueAsString;
+                departmentInt = [valueAsString intValue];
                 NSString* de = [departmentArray objectAtIndex:[valueAsString intValue]];
                 [positionField setText:de];
             }
             if ([keyAsString isEqualToString:@"college"]) {
-                college = valueAsString;
+                collegeInt = [valueAsString intValue];
                 NSString* colle = [arr objectAtIndex:[valueAsString intValue]];
                 [collegeField setText:colle];
             }
@@ -234,13 +234,12 @@ bool editOrNot = YES;
         motto = mottoField.text;
         NSLog(@"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         NSLog(@"%@",name);
-        [TalkToServer updateProfileWithName:name department:department position:nil college:college major:major motto:motto PerrorString:nil];
+        [TalkToServer updateProfileWithName:name department:departmentInt position:nil college:collegeInt major:major motto:motto PerrorString:nil];
         nameField.enabled = NO;
         collegeField.enabled = NO;
         majorField.enabled = NO;
         mottoField.enabled = NO;
         editOrNot = YES;
-        [editButton setTitle:@"Edit" forState:UIControlStateNormal];
         [editButton setImage:[UIImage imageNamed:@"edit.png"] forState:UIControlStateNormal];
         editButton.titleLabel.font = [UIFont systemFontOfSize:15];
     }
