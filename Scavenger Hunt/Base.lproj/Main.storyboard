@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2AK-7q-WAG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2AK-7q-WAG">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -362,7 +362,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="gml-4W-t90"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="house-7.png" id="gml-4W-t90"/>
                     <connections>
                         <outlet property="SettingsTable" destination="zv5-gm-rhK" id="WsM-99-DmN"/>
                     </connections>
@@ -548,6 +548,7 @@
         <image name="background2.png" width="703" height="416"/>
         <image name="crown-7.png" width="30" height="30"/>
         <image name="edit.png" width="67" height="25"/>
+        <image name="house-7.png" width="30" height="30"/>
         <image name="logout_big.png" width="1528" height="512"/>
         <image name="origami-7.png" width="30" height="30"/>
         <image name="pin-map-7.png" width="30" height="30"/>
