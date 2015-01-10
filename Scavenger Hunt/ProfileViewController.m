@@ -170,13 +170,16 @@ bool editOrNot = YES;
             //NSLog(@"%@", );
             if ([keyAsString isEqualToString:@"department"]) {
                 departmentInt = [valueAsString intValue];
+                NSLog(@"%ld!!",(long)departmentInt);
                 NSString* de = [departmentArray objectAtIndex:[valueAsString intValue]];
                 [positionField setText:de];
             }
             if ([keyAsString isEqualToString:@"college"]) {
-                collegeInt = [valueAsString intValue];
                 NSString* colle = [arr objectAtIndex:[valueAsString intValue]];
+                collegeInt = [valueAsString intValue];
+                NSLog(@"%ld!!!!",(long)collegeInt);
                 [collegeField setText:colle];
+                
             }
             if ([keyAsString isEqualToString:@"major"]) {
                 major = valueAsString;
@@ -210,11 +213,8 @@ bool editOrNot = YES;
 }
 
 
-
 - (IBAction)editProfile:(id)sender
 {
-
-    
 
     if(editOrNot == YES)
     {
@@ -232,8 +232,6 @@ bool editOrNot = YES;
         name = nameField.text;
         major = majorField.text;
         motto = mottoField.text;
-        NSLog(@"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
-        NSLog(@"%@",name);
         [TalkToServer updateProfileWithName:name department:departmentInt position:nil college:collegeInt major:major motto:motto PerrorString:nil];
         nameField.enabled = NO;
         collegeField.enabled = NO;
