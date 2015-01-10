@@ -43,7 +43,26 @@
 
 - (IBAction)removeMyLocation:(id)sender
 {
-    NSLog(@"removemylocation");
+    NSString* error = nil;
+    if ([TalkToServer deleteLocationWithPerrorString:&error])
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Remove failed!"
+                                                    message:error
+                                                   delegate:nil
+                                          cancelButtonTitle:@"OK"
+                                          otherButtonTitles:nil];
+        [alert show];
+    }
+    else
+    {
+        
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Remove succeeded!"
+                                                        message:nil
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
 }
 
 - (void)setEnable:(BOOL)enable
