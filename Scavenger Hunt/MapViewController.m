@@ -238,7 +238,7 @@ NSMutableArray *anno_list;
 }
 -(void)tapRight
 {
-    
+    NSLog(@"Information query");
 }
 -(void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views
 {
