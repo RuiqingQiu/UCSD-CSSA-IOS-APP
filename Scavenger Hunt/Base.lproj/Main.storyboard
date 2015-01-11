@@ -362,7 +362,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="gml-4W-t90"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="house-7.png" id="gml-4W-t90"/>
                     <connections>
                         <outlet property="SettingsTable" destination="zv5-gm-rhK" id="WsM-99-DmN"/>
                     </connections>

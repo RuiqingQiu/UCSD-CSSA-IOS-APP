@@ -9,6 +9,8 @@
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import "WYPopoverController.h"
+#import "EAIntroView.h"
+
 @interface MapViewController : UIViewController<MKMapViewDelegate>
 //@property (weak, nonatomic) IBOutlet MKMapView *myMapView;
 @property (strong, nonatomic) IBOutlet MKMapView *myMapView;

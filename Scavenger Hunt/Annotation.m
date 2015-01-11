@@ -38,8 +38,11 @@
     //All annotation is map_avatar.png
     annotationView.image = [UIImage imageNamed:@"map_pin_v3.png"];
     //For the right side to have an information button
-    annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    
+    UIButton *right=[UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    [right addTarget:self action:@selector(tapRight) forControlEvents:UIControlEventTouchUpInside];
+    annotationView.rightCalloutAccessoryView = right;
+
+
 
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:image_url]];
     UIImageView *leftIconView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:imageData]];
@@ -47,6 +50,12 @@
 
 
     return annotationView;
+}
+
+//To get the user profile
+-(void)tapRight
+{
+    NSLog(@"Information query");
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {
