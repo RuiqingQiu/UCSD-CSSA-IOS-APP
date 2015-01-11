@@ -21,16 +21,25 @@
     IBOutlet UITextField *mottoField;
 
 
-
+    IBOutlet UIPickerView *collegePicker;
+    IBOutlet UIPickerView *departmentPicker;
     IBOutlet UIButton *editButton;
     IBOutlet UIButton *signoutButton;
      
+    IBOutlet UIButton *departmentButton;
+    IBOutlet UIButton *collegeButton;
     IBOutlet UITextField *loging_user;
     IBOutlet UITextField *login_pass;
     IBOutlet UIImageView *avatar;
     IBOutlet UIView *loginView;
     IBOutlet UIView *profileView;
+    IBOutlet UINavigationBar *bar;
+    bool departmentShow;
+    bool collegeShow;
 }
+- (IBAction)doneButton:(id)sender;
+
+- (IBAction)chooseCollege:(id)sender;
 - (IBAction)editProfile:(id)sender;
 - (IBAction)login:(id)sender;
 - (IBAction)dismissLoginName:(id)sender;
@@ -42,6 +51,7 @@
 - (IBAction)signOut:(id)sender;
 - (IBAction)dismissMotto:(id)sender;
 - (IBAction)dismissCollege:(id)sender;
+- (IBAction)chooseDepartment:(id)sender;
 - (IBAction)didBeginEditing:(id)sender;
 - (IBAction)didEndEditing:(id)sender;
 @property (nonatomic, strong) NSMutableData *responseData;

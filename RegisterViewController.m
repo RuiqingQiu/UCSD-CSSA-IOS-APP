@@ -134,8 +134,7 @@
     }
     NSNumber *department = [NSNumber numberWithInteger: departmentNumber];
     
-    NSLog(@"%@",department);
-    NSLog(@"!!!!!!!!!!!!!!!!");
+  
     
     NSString *mottoString = mottoField.text;
     NSUserDefaults *defaults5 = [NSUserDefaults standardUserDefaults];
@@ -171,10 +170,7 @@
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     NSData* data = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
     [request setHTTPMethod:@"POST"];
-    //[request setValue:@"application/json" forHTTPHeaderField:@"Accept"];
-    //[request setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-    //[request setValue:[NSString stringWithFormat:@"%d", [jsonData length]] forHTTPHeaderField:@"Content-Length"];
-    //[request setHTTPBody: data];
+
     NSString* str = [NSString stringWithFormat:@"tkey=%@&username=%@&passwd=%@&name=%@&department=%@&college=%@&major=%@&motto=%@", tkeyString,loginNameString, [self md5:passwordString],nameString,department,college,majorString,mottoString];
     NSLog(@"!!!!!!!!!!!!!@##!#!!!!!!!!!!");
     NSLog(@"%@",str);
@@ -280,7 +276,6 @@
 }
 
 
-
 - (IBAction)dismissMajor:(id)sender{
     [sender resignFirstResponder];
 }
@@ -290,11 +285,6 @@
 }
 
 
-
-- (IBAction)departmentPressed:(id)sender {
-    departmentShow = true;
-     [self hideAndShow];
-}
 
 
 
@@ -407,38 +397,29 @@
     if(collegeShow == true && departmentShow == false)
     {
         [picker setHidden:NO];
+        [departmentPicker setHidden:YES];
         //[bar setHidden:NO];
         
     }
-    else
-    {
-        [picker setHidden:YES];
-        //[bar setHidden:YES];
-        
-    }
-    
     
     if(departmentShow == true && collegeShow == false)
     {
         [departmentPicker setHidden:NO];
+        [picker setHidden:YES];
         //[bar setHidden:NO];
         
     }
-    else
-    {
-        [departmentPicker setHidden:YES];
-        //[bar setHidden:YES];
-        
-        
-    }
-    
-    
+       
 }
 
 -(IBAction)btnPressed:(id)sender
 {
-    collegeShow = true;
-    [self hideAndShow];
+    if(collegeShow == false)
+    {
+        collegeShow = true;
+        departmentShow = false;
+        [self hideAndShow];
+    }
     
 }
 
@@ -450,6 +431,16 @@
     collegeShow = false;
     departmentShow = false;
     
+}
+
+
+- (IBAction)departmentPressed:(id)sender {
+    if(departmentShow == false)
+    {
+        departmentShow = true;
+        collegeShow = false;
+        [self hideAndShow];
+    }
 }
 
 

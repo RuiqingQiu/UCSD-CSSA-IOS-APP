@@ -19,8 +19,40 @@ NSString* major;
 NSString* motto;
 NSArray* arr;
 NSArray* departmentArray;
+NSArray* dataArray;
 
 bool editOrNot = YES;
+
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    
+    // Initialize Data
+    dataArray = [[NSArray alloc]initWithObjects:@"ERC", @"Marshall", @"Muir", @"Revelle", @"Warren", @"Sixth",nil];
+    
+    departmentArray = [[NSArray alloc]initWithObjects:@"非officer", @"PM", @"学术", @"宣传", @"文体", @"技术",@"外联", @"Advisor&前辈", @"其他officer",nil];
+    departmentShow = FALSE;
+    collegeShow = FALSE;
+    
+    collegePicker.delegate = self;
+    departmentPicker.delegate = self;
+    [departmentPicker setHidden:YES];
+    [collegePicker setHidden:YES];
+    [bar setHidden:YES];
+    
+    self.responseData = [NSMutableData data];
+    
+    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(keyboardHide:)];
+    //设置成NO表示当前控件响应后会传播到其他控件上，默认为YES。
+    tapGestureRecognizer.cancelsTouchesInView = NO;
+    //将触摸事件添加到当前view
+    [self.view addGestureRecognizer:tapGestureRecognizer];
+}
+
+
+
 -(void)viewWillAppear:(BOOL)animated {
     self.responseData = [NSMutableData data];
     [super viewWillAppear:animated];
@@ -64,7 +96,7 @@ bool editOrNot = YES;
     [login_pass resignFirstResponder];
     [loging_user resignFirstResponder];
     [nameField resignFirstResponder];
-    [positionField resignFirstResponder];
+    //[positionField resignFirstResponder];
     [majorField resignFirstResponder];
     [mottoField resignFirstResponder];
     
@@ -170,14 +202,14 @@ bool editOrNot = YES;
             //NSLog(@"%@", );
             if ([keyAsString isEqualToString:@"department"]) {
                 departmentInt = [valueAsString intValue];
-                NSLog(@"%ld!!",(long)departmentInt);
+                //NSLog(@"%ld!!",(long)departmentInt);
                 NSString* de = [departmentArray objectAtIndex:[valueAsString intValue]];
                 [positionField setText:de];
             }
             if ([keyAsString isEqualToString:@"college"]) {
                 NSString* colle = [arr objectAtIndex:[valueAsString intValue]];
                 collegeInt = [valueAsString intValue];
-                NSLog(@"%ld!!!!",(long)collegeInt);
+                //NSLog(@"%ld!!!!",(long)collegeInt);
                 [collegeField setText:colle];
                 
             }
@@ -205,13 +237,26 @@ bool editOrNot = YES;
         NSLog(@"icon: %@", icon);
     }
 
-    
-    
-    
-    
+
     
 }
 
+
+
+- (IBAction)doneButton:(id)sender {
+    
+    [collegePicker setHidden:YES];
+    [departmentPicker setHidden:YES];
+    [bar setHidden:YES];
+    collegeShow = false;
+    departmentShow = false;
+}
+
+- (IBAction)chooseCollege:(id)sender {
+    collegeShow = true;
+    departmentShow = false;
+    [self hideAndShow];
+}
 
 - (IBAction)editProfile:(id)sender
 {
@@ -221,6 +266,8 @@ bool editOrNot = YES;
         nameField.enabled = YES;
         majorField.enabled = YES;
         mottoField.enabled = YES;
+        departmentButton.enabled = YES;
+        collegeButton.enabled = YES;
         [editButton setTitle:@"Save" forState:UIControlStateNormal];
         [editButton setImage:[UIImage imageNamed:@"icon_save.png"] forState:UIControlStateNormal];
         editButton.titleLabel.font = [UIFont systemFontOfSize:15];
@@ -229,10 +276,110 @@ bool editOrNot = YES;
     }
     else
     {
+        NSString *collegeString = collegeField.text;
+        NSString *choice = @"请选择";
+        NSString *erc = @"ERC";
+        NSString *marshall = @"Marshall";
+        NSString *muir = @"Muir";
+        NSString *revelle = @"Revelle";
+        NSString *warren = @"Warren";
+        NSString *sixth = @"Sixth";
+        int collegeNumber;
+        if([collegeString isEqualToString:choice])
+        {
+            collegeNumber = 0;
+        }
+        else if ([collegeString isEqualToString:erc])
+        {
+            collegeNumber = 1;
+        }
+        else if ([collegeString isEqualToString:marshall])
+        {
+            collegeNumber = 2;
+        }
+        else if ([collegeString isEqualToString:muir])
+        {
+            collegeNumber = 3;
+        }
+        else if ([collegeString isEqualToString:revelle])
+        {
+            collegeNumber = 4;
+        }
+        else if ([collegeString isEqualToString:warren])
+        {
+            collegeNumber = 5;
+        }
+        else if ([collegeString isEqualToString:sixth])
+        {
+            collegeNumber = 6;
+        }
+        //NSNumber *college = [NSNumber numberWithInteger: collegeNumber];
+        //NSLog(@"%@",collegeString);
+        
+        
+        
+        NSString *departmentString = positionField.text;
+        //NSString *choice = @"请选择";
+        NSString *pm = @"PM";
+        NSString *xs= @"学术部";
+        NSString *xc = @"宣传部";
+        NSString *wt = @"文体部";
+        NSString *js= @"技术部";
+        NSString *wl = @"外联部";
+        NSString *ad = @"Advisor&前辈";
+        NSString *qt = @"其他officer";
+        
+        
+        
+        NSLog(@"@%@",departmentString);
+        int departmentNumber;
+        if([departmentString isEqualToString:choice])
+        {
+            departmentNumber = 0;
+        }
+        else if ([departmentString isEqualToString:pm])
+        {
+            departmentNumber= 1;
+        }
+        else if ([departmentString isEqualToString:xs])
+        {
+            departmentNumber = 2;
+        }
+        else if ([departmentString isEqualToString:xc])
+        {
+            departmentNumber= 3;
+        }
+        else if ([departmentString isEqualToString:wt])
+        {
+            departmentNumber = 4;
+        }
+        else if ([departmentString isEqualToString:js])
+        {
+            departmentNumber= 5;
+        }
+        else if ([departmentString isEqualToString:wl])
+        {
+            departmentNumber = 6;
+        }
+        else if ([departmentString isEqualToString:ad])
+        {
+            departmentNumber= 7;
+        }
+        else if ([departmentString isEqualToString:qt])
+        {
+            departmentNumber = 8;
+        }
+        //NSNumber *departmentInt = [NSNumber numberWithInteger: departmentNumber];
+        
         name = nameField.text;
         major = majorField.text;
         motto = mottoField.text;
-        [TalkToServer updateProfileWithName:name department:departmentInt position:nil college:collegeInt major:major motto:motto PerrorString:nil];
+        if(departmentNumber == 1)
+        {
+        NSLog(@"@%d!!!!!!!",departmentNumber);
+            NSLog(@"@%d@@@@@@@@",collegeNumber);
+        }
+        [TalkToServer updateProfileWithName:name department:departmentNumber position:nil college:collegeNumber major:major motto:motto PerrorString:nil];
         nameField.enabled = NO;
         collegeField.enabled = NO;
         majorField.enabled = NO;
@@ -240,6 +387,11 @@ bool editOrNot = YES;
         editOrNot = YES;
         [editButton setImage:[UIImage imageNamed:@"edit.png"] forState:UIControlStateNormal];
         editButton.titleLabel.font = [UIFont systemFontOfSize:15];
+        [bar setHidden:YES];
+        [collegePicker setHidden:YES];
+        [departmentPicker setHidden:YES];
+        departmentButton.enabled = NO;
+        collegeButton.enabled = NO;
     }
      
 }
@@ -285,10 +437,6 @@ bool editOrNot = YES;
     [[NSUserDefaults standardUserDefaults] removePersistentDomainForName:appDomain];
     self.view = loginView;
     
-    
-    
-    
-    
 }
 
 - (IBAction)dismissMotto:(id)sender {
@@ -300,6 +448,13 @@ bool editOrNot = YES;
     [sender resignFirstResponder];
 }
 
+
+- (IBAction)chooseDepartment:(id)sender {
+    departmentShow = true;
+    collegeShow = false;
+    [self hideAndShow];
+    
+    }
 
 - (IBAction)didBeginEditing:(id)sender {
     
@@ -336,6 +491,97 @@ bool editOrNot = YES;
         [output appendFormat:@"%02x", digest[i]];
     
     return  output;
+    
+}
+
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    
+    if([pickerView isEqual: collegePicker]){
+        // return the appropriate number of components, for instance
+        return [dataArray count];
+    }
+    
+    if([pickerView isEqual: departmentPicker]){
+        // return the appropriate number of components, for instance
+        return [departmentArray count];
+    }
+    
+    return nil;
+    
+}
+
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    
+    //[button setTitle:[dataArray objectAtIndex:row] forState:UIControlStateNormal];
+    
+    if([pickerView isEqual: collegePicker]){
+        // return the appropriate number of components, for instance
+        [collegeField setText:[dataArray objectAtIndex:row]];
+    }
+    
+    if([pickerView isEqual: departmentPicker]){
+        // return the appropriate number of components, for instance
+        [positionField setText:[departmentArray objectAtIndex:row]];
+    }
+    
+}
+
+
+-(NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    
+    if([pickerView isEqual: collegePicker]){
+        // return the appropriate number of components, for instance
+        return [dataArray objectAtIndex:row];
+    }
+    
+    if([pickerView isEqual: departmentPicker]){
+        // return the appropriate number of components, for instance
+        return [departmentArray objectAtIndex:row];
+    }
+    
+    return nil;
+    
+}
+
+-(void)hideAndShow
+{
+    [bar setHidden:NO];
+    if(collegeShow == true && departmentShow == false)
+    {
+        [collegePicker setHidden:NO];
+        //[bar setHidden:NO];
+        [departmentPicker setHidden:YES];
+        
+    }
+    
+    if(departmentShow == true && collegeShow == false)
+    {
+        [departmentPicker setHidden:NO];
+        [collegePicker setHidden:YES];
+        //[bar setHidden:NO];
+        
+    }
+    
+    
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+{
+    
+    if([pickerView isEqual: collegePicker]){
+        // return the appropriate number of components, for instance
+        return 1;
+    }
+    
+    if([pickerView isEqual: departmentPicker]){
+        // return the appropriate number of components, for instance
+        return 1;
+    }
+    return 1;
     
 }
 

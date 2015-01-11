@@ -409,11 +409,6 @@
                                 <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="18"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LrC-iI-VEj">
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ugp-Mr-W4y" userLabel="majorField">
                                 <rect key="frame" x="91" y="255" width="189" height="30"/>
                                 <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="18"/>
@@ -455,7 +450,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zk1-Ky-G8Q">
                                 <rect key="frame" x="33" y="64" width="120" height="120"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="40" placeholderIntrinsicHeight="16" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FmO-b6-nLV">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" placeholderIntrinsicWidth="40" placeholderIntrinsicHeight="16" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FmO-b6-nLV" userLabel="editButton">
                                 <rect key="frame" x="260" y="72" width="40" height="16"/>
                                 <state key="normal" image="edit.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -464,7 +459,7 @@
                                     <action selector="editProfile:" destination="1cM-Ye-UYb" eventType="touchUpInside" id="uQW-2y-7n7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdg-Qq-f8m">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdg-Qq-f8m" userLabel="logoutButton">
                                 <rect key="frame" x="252" y="27" width="60" height="20"/>
                                 <state key="normal" image="smalllogout.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -473,6 +468,43 @@
                                     <action selector="signOut:" destination="1cM-Ye-UYb" eventType="touchUpInside" id="LLk-Ih-sZ4"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u5g-Ta-RxD" userLabel="departmentButton">
+                                <rect key="frame" x="166" y="105" width="134" height="30"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="chooseDepartment:" destination="1cM-Ye-UYb" eventType="touchUpInside" id="NJy-hc-CCK"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2jq-PD-hMN" userLabel="departmentPicker">
+                                <rect key="frame" x="0.0" y="357" width="320" height="162"/>
+                            </pickerView>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pcS-ma-Dng" userLabel="collegePicker">
+                                <rect key="frame" x="0.0" y="357" width="320" height="162"/>
+                            </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MxE-1h-3oy" userLabel="collegeButton">
+                                <rect key="frame" x="91" y="204" width="189" height="30"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="chooseCollege:" destination="1cM-Ye-UYb" eventType="touchUpInside" id="QTO-P9-7eW"/>
+                                </connections>
+                            </button>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uZS-Yh-d9q">
+                                <rect key="frame" x="0.0" y="338" width="320" height="44"/>
+                                <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.74999999999999978"/>
+                                <items>
+                                    <navigationItem id="gda-RZ-l4j">
+                                        <barButtonItem key="rightBarButtonItem" title="完成" id="DEW-lb-3jC">
+                                            <connections>
+                                                <action selector="doneButton:" destination="1cM-Ye-UYb" id="ohD-59-Snz"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -480,7 +512,12 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="avatar" destination="Zk1-Ky-G8Q" id="PRf-E7-V0e"/>
+                        <outlet property="bar" destination="uZS-Yh-d9q" id="a5v-BE-ncA"/>
+                        <outlet property="collegeButton" destination="MxE-1h-3oy" id="jzL-em-aOj"/>
                         <outlet property="collegeField" destination="s1y-Qv-GUo" id="TVv-JZ-neK"/>
+                        <outlet property="collegePicker" destination="pcS-ma-Dng" id="dFN-EZ-oAu"/>
+                        <outlet property="departmentButton" destination="u5g-Ta-RxD" id="flf-5g-zbm"/>
+                        <outlet property="departmentPicker" destination="2jq-PD-hMN" id="c3u-Ag-RyB"/>
                         <outlet property="editButton" destination="FmO-b6-nLV" id="eWo-wC-mhe"/>
                         <outlet property="loginView" destination="1vh-hR-hID" id="kWX-tz-qKT"/>
                         <outlet property="login_pass" destination="95N-TH-IbZ" id="Lrr-qw-nx1"/>
@@ -539,7 +576,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="265" y="98"/>
+            <point key="canvasLocation" x="265" y="71"/>
         </scene>
     </scenes>
     <resources>
