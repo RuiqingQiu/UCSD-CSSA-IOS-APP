@@ -62,6 +62,11 @@
 		523A28E019F38CE80094999E /* Poster_halloween_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 523A28DF19F38CE80094999E /* Poster_halloween_v2.png */; };
 		523BBDB019EB1428006FABC8 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 523BBDAF19EB1428006FABC8 /* RegisterViewController.m */; };
 		5282C85919F4798B00301F20 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 5282C85819F4798B00301F20 /* background.png */; };
+		52C89BE51A338C4E00A7FC83 /* icon_save.png in Resources */ = {isa = PBXBuildFile; fileRef = 52C89BE41A338C4E00A7FC83 /* icon_save.png */; };
+		52C89BE71A3392F600A7FC83 /* smalllogout.png in Resources */ = {isa = PBXBuildFile; fileRef = 52C89BE61A3392F600A7FC83 /* smalllogout.png */; };
+		52C89BEB1A339AF900A7FC83 /* edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 52C89BE81A339AF900A7FC83 /* edit.png */; };
+		52C89BEC1A339AF900A7FC83 /* icon_save.png in Resources */ = {isa = PBXBuildFile; fileRef = 52C89BE91A339AF900A7FC83 /* icon_save.png */; };
+		52C89BED1A339AF900A7FC83 /* smalllogout.png in Resources */ = {isa = PBXBuildFile; fileRef = 52C89BEA1A339AF900A7FC83 /* smalllogout.png */; };
 		5B73DB191A17EB12000834A9 /* WYPopoverController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B73DB161A17EB12000834A9 /* WYPopoverController.m */; };
 		5B73DB1A1A17EB12000834A9 /* WYStoryboardPopoverSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B73DB181A17EB12000834A9 /* WYStoryboardPopoverSegue.m */; };
 		5B73DB1D1A17EE19000834A9 /* NearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B73DB1C1A17EE19000834A9 /* NearbyViewController.m */; };
@@ -161,6 +166,11 @@
 		523BBDAF19EB1428006FABC8 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		5282C85819F4798B00301F20 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		5282C85C19F49F6D00301F20 /* Poster_scavengerhuntcs2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Poster_scavengerhuntcs2.png; sourceTree = "<group>"; };
+		52C89BE41A338C4E00A7FC83 /* icon_save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_save.png; sourceTree = "<group>"; };
+		52C89BE61A3392F600A7FC83 /* smalllogout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smalllogout.png; sourceTree = "<group>"; };
+		52C89BE81A339AF900A7FC83 /* edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit.png; sourceTree = "<group>"; };
+		52C89BE91A339AF900A7FC83 /* icon_save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_save.png; sourceTree = "<group>"; };
+		52C89BEA1A339AF900A7FC83 /* smalllogout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smalllogout.png; sourceTree = "<group>"; };
 		5B73DB151A17EB12000834A9 /* WYPopoverController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYPopoverController.h; sourceTree = "<group>"; };
 		5B73DB161A17EB12000834A9 /* WYPopoverController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYPopoverController.m; sourceTree = "<group>"; };
 		5B73DB171A17EB12000834A9 /* WYStoryboardPopoverSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYStoryboardPopoverSegue.h; sourceTree = "<group>"; };
@@ -318,9 +328,14 @@
 				AAF65FF619F3887100C9D6EB /* icon_v4.png */,
 				AA20373719F3802B0076BEF3 /* icon_v3.png */,
 				AA20373519F376880076BEF3 /* map_pin_v3.png */,
+				52C89BE41A338C4E00A7FC83 /* icon_save.png */,
 				5207226A1A1867BC004BC133 /* edit_big.png */,
+				52C89BE61A3392F600A7FC83 /* smalllogout.png */,
 				520722721A186DC1004BC133 /* background2.png */,
 				5207226B1A1867BC004BC133 /* logout_big.png */,
+				52C89BE81A339AF900A7FC83 /* edit.png */,
+				52C89BE91A339AF900A7FC83 /* icon_save.png */,
+				52C89BEA1A339AF900A7FC83 /* smalllogout.png */,
 				5207226E1A186935004BC133 /* edit.png */,
 				AA20373119F36E150076BEF3 /* Icon_v2.png */,
 				AA34240219F330D90075A3DF /* map_pin_v2.png */,
@@ -459,7 +474,7 @@
 				ORGANIZATIONNAME = "Ruiqing Qiu";
 				TargetAttributes = {
 					476EA96D19A7FCB8004BC6B1 = {
-						DevelopmentTeam = RC47RUQEKD;
+						DevelopmentTeam = 87JW9TVDXS;
 					};
 				};
 			};
@@ -496,7 +511,9 @@
 				520722731A186DC1004BC133 /* background2.png in Resources */,
 				476EA98A19A7FCB8004BC6B1 /* Images.xcassets in Resources */,
 				476EA97C19A7FCB8004BC6B1 /* InfoPlist.strings in Resources */,
+				52C89BED1A339AF900A7FC83 /* smalllogout.png in Resources */,
 				47F1524019A95145006FCEDD /* Sun_god_hug.png in Resources */,
+				52C89BEC1A339AF900A7FC83 /* icon_save.png in Resources */,
 				AA34240319F330D90075A3DF /* map_pin_v2.png in Resources */,
 				47F1524219A95145006FCEDD /* Home_for_4_years_Geisel.png in Resources */,
 				AA20803419F26F1100AD7FFD /* rsz_icon1.png in Resources */,
@@ -518,15 +535,17 @@
 				47F1524819A9534D006FCEDD /* UC_Sea_ovt.png in Resources */,
 				523789E919F331F600391CC3 /* login_avatar.png in Resources */,
 				AA6EA25119F4929300208893 /* crown-7.png in Resources */,
+				52C89BE51A338C4E00A7FC83 /* icon_save.png in Resources */,
 				5207226C1A1867BC004BC133 /* edit_big.png in Resources */,
 				47F1523F19A95145006FCEDD /* Xueba_help_me_AS_Notes.png in Resources */,
 				AA6EA25519F4948800208893 /* origami-7.png in Resources */,
+				52C89BEB1A339AF900A7FC83 /* edit.png in Resources */,
 				476EA98519A7FCB8004BC6B1 /* Main.storyboard in Resources */,
 				AA20373219F36E150076BEF3 /* Icon_v2.png in Resources */,
 				AA6EA24D19F481FE00208893 /* splash screen.png in Resources */,
 				AAF154BA1A6AE98800BAB052 /* settings.png in Resources */,
 				476EA9A919A7FD50004BC6B1 /* GoogleMaps.bundle in Resources */,
-				AA0B04901A61AC1B003F4852 /* house-7.png in Resources */,
+				52C89BE71A3392F600A7FC83 /* smalllogout.png in Resources */,
 				523A28DC19F38AA50094999E /* login_avatar_v2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
