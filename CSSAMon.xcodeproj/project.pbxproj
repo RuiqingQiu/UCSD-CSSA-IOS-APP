@@ -83,6 +83,8 @@
 		AA6EA25519F4948800208893 /* origami-7.png in Resources */ = {isa = PBXBuildFile; fileRef = AA6EA25419F4948800208893 /* origami-7.png */; };
 		AADF44081A338E8800DB9B99 /* EAIntroPage.m in Sources */ = {isa = PBXBuildFile; fileRef = AADF44051A338E8800DB9B99 /* EAIntroPage.m */; };
 		AADF44091A338E8800DB9B99 /* EAIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = AADF44071A338E8800DB9B99 /* EAIntroView.m */; };
+		AAF154BA1A6AE98800BAB052 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF154B91A6AE98800BAB052 /* settings.png */; };
+		AAF154BE1A6AEB9C00BAB052 /* nearby.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF154BD1A6AEB9C00BAB052 /* nearby.png */; };
 		AAF65FF719F3887100C9D6EB /* icon_v4.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF65FF619F3887100C9D6EB /* icon_v4.png */; };
 /* End PBXBuildFile section */
 
@@ -188,6 +190,8 @@
 		AADF44051A338E8800DB9B99 /* EAIntroPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroPage.m; sourceTree = "<group>"; };
 		AADF44061A338E8800DB9B99 /* EAIntroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroView.h; sourceTree = "<group>"; };
 		AADF44071A338E8800DB9B99 /* EAIntroView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroView.m; sourceTree = "<group>"; };
+		AAF154B91A6AE98800BAB052 /* settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = settings.png; sourceTree = "<group>"; };
+		AAF154BD1A6AEB9C00BAB052 /* nearby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nearby.png; sourceTree = "<group>"; };
 		AAF65FF619F3887100C9D6EB /* icon_v4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_v4.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -303,6 +307,8 @@
 		47F1523619A9512D006FCEDD /* src */ = {
 			isa = PBXGroup;
 			children = (
+				AAF154BD1A6AEB9C00BAB052 /* nearby.png */,
+				AAF154B91A6AE98800BAB052 /* settings.png */,
 				AA0B048F1A61AC1B003F4852 /* house-7.png */,
 				AA6EA25419F4948800208893 /* origami-7.png */,
 				AA6EA25219F493A300208893 /* pin-map-7.png */,
@@ -480,6 +486,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAF154BE1A6AEB9C00BAB052 /* nearby.png in Resources */,
 				47F1524419A95145006FCEDD /* Big_red_chair.png in Resources */,
 				5207226F1A186935004BC133 /* edit.png in Resources */,
 				5282C85919F4798B00301F20 /* background.png in Resources */,
@@ -517,6 +524,7 @@
 				476EA98519A7FCB8004BC6B1 /* Main.storyboard in Resources */,
 				AA20373219F36E150076BEF3 /* Icon_v2.png in Resources */,
 				AA6EA24D19F481FE00208893 /* splash screen.png in Resources */,
+				AAF154BA1A6AE98800BAB052 /* settings.png in Resources */,
 				476EA9A919A7FD50004BC6B1 /* GoogleMaps.bundle in Resources */,
 				AA0B04901A61AC1B003F4852 /* house-7.png in Resources */,
 				523A28DC19F38AA50094999E /* login_avatar_v2.png in Resources */,

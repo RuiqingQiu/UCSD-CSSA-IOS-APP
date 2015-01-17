@@ -30,6 +30,11 @@
     
     return result;
 }
+-(void)tapRight
+{
+    //NSLog(@"hello");
+    [MapViewController right_function];
+}
 
 -(MKAnnotationView*)annotationView{
     MKAnnotationView *annotationView = [[MKAnnotationView alloc] initWithAnnotation:self reuseIdentifier:@"MyCustomAnnotation"];
@@ -42,20 +47,12 @@
     [right addTarget:self action:@selector(tapRight) forControlEvents:UIControlEventTouchUpInside];
     annotationView.rightCalloutAccessoryView = right;
 
-
-
     NSData *imageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:image_url]];
     UIImageView *leftIconView = [[UIImageView alloc] initWithImage:[UIImage imageWithData:imageData]];
     annotationView.leftCalloutAccessoryView = leftIconView;
 
 
     return annotationView;
-}
-
-//To get the user profile
--(void)tapRight
-{
-    NSLog(@"Information query");
 }
 
 - (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view {

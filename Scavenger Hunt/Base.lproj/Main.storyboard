@@ -339,7 +339,7 @@
             </objects>
             <point key="canvasLocation" x="815" y="-24"/>
         </scene>
-        <!--Item-->
+        <!--Setting-->
         <scene sceneID="nOm-B4-tLw">
             <objects>
                 <viewController id="tpM-FG-tse" customClass="SettingsViewController" sceneMemberID="viewController">
@@ -362,7 +362,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="house-7.png" id="gml-4W-t90"/>
+                    <tabBarItem key="tabBarItem" title="Setting" image="settings.png" id="gml-4W-t90"/>
                     <connections>
                         <outlet property="SettingsTable" destination="zv5-gm-rhK" id="WsM-99-DmN"/>
                     </connections>
@@ -548,10 +548,10 @@
         <image name="background2.png" width="703" height="416"/>
         <image name="crown-7.png" width="30" height="30"/>
         <image name="edit.png" width="67" height="25"/>
-        <image name="house-7.png" width="30" height="30"/>
         <image name="logout_big.png" width="1528" height="512"/>
         <image name="origami-7.png" width="30" height="30"/>
         <image name="pin-map-7.png" width="30" height="30"/>
+        <image name="settings.png" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

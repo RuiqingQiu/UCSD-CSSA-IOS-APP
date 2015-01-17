@@ -86,21 +86,30 @@ NSMutableArray *anno_list;
     self.myMapView.showsUserLocation=YES;
     self.myMapView.region=region;
     
+    [UIButton buttonWithType:UIButtonTypeSystem];
+    
     UIButton *button1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button1.frame = CGRectMake(225, 475, 100, 30);
-    [button1 setTitle:@"Refresh" forState:UIControlStateNormal];
+    NSLog(@"width is %f\n",self.view.frame.size.width);
+    button1.frame = CGRectMake(self.view.frame.size.width*8/10, 475, 40, 40);
+    [UIColor clearColor];
+    UIImage *btnImage = [UIImage imageNamed:@"refresh0.png"];
+    [button1 setImage:btnImage forState:UIControlStateNormal];
     [button1 addTarget:self action:@selector(buttonDidTap:) forControlEvents:UIControlEventTouchUpInside];
+    button1.tintColor = [UIColor blackColor];
     [self.myMapView addSubview:button1];
     
     UIButton *nearby = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    nearby.frame = CGRectMake(15, 475, 100, 30);
-    [nearby setTitle:@"Nearby" forState:UIControlStateNormal];
+    nearby.frame = CGRectMake(self.view.frame.size.width/10, 475, 50, 50);
+    UIImage *btnImage2 = [UIImage imageNamed:@"nearby.png"];
+    nearby.tintColor = [UIColor blackColor];
+    [nearby setImage:btnImage2 forState:UIControlStateNormal];
     [nearby addTarget:self action:@selector(showNearbyList:) forControlEvents:UIControlEventTouchUpInside];
     [self.myMapView addSubview:nearby];
     
     //Create an empty anno list
     anno_list = [NSMutableArray array];
     
+    //Tutorial part when first time opened up the app
     EAIntroPage *page1 = [EAIntroPage page];
     page1.title = @"Hello world";
     page1.titlePositionY = 500;
@@ -223,7 +232,10 @@ NSMutableArray *anno_list;
     return pinView;
     
 }
-
++(void)right_function{
+    NSLog(@"hello");
+    //ProfileViewController *profile = [[ProfileViewController alloc]init];
+}
 -(void)tapLeft
 {
     NSString *str=[NSArray array];
