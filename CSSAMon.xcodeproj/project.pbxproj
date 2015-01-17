@@ -71,7 +71,6 @@
 		5B73DB1A1A17EB12000834A9 /* WYStoryboardPopoverSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B73DB181A17EB12000834A9 /* WYStoryboardPopoverSegue.m */; };
 		5B73DB1D1A17EE19000834A9 /* NearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B73DB1C1A17EE19000834A9 /* NearbyViewController.m */; };
 		84D76CE319EEE6DC0043945F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D76CE219EEE6DC0043945F /* ProfileViewController.m */; };
-		AA0B04901A61AC1B003F4852 /* house-7.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0B048F1A61AC1B003F4852 /* house-7.png */; };
 		AA20373219F36E150076BEF3 /* Icon_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20373119F36E150076BEF3 /* Icon_v2.png */; };
 		AA20373619F376880076BEF3 /* map_pin_v3.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20373519F376880076BEF3 /* map_pin_v3.png */; };
 		AA20373819F3802B0076BEF3 /* icon_v3.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20373719F3802B0076BEF3 /* icon_v3.png */; };
@@ -474,7 +473,7 @@
 				ORGANIZATIONNAME = "Ruiqing Qiu";
 				TargetAttributes = {
 					476EA96D19A7FCB8004BC6B1 = {
-						DevelopmentTeam = 87JW9TVDXS;
+						DevelopmentTeam = RC47RUQEKD;
 					};
 				};
 			};

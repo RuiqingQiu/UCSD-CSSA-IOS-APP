@@ -181,6 +181,8 @@ NSTimer* ulutimer;
 -(void) viewDidAppear:(BOOL)animated
 {
     ulutimer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(updateLastUpdate:) userInfo:nil repeats:YES];
+    self.navigationController.navigationBar.hidden = YES;
+
 }
 
 -(void) updateLastUpdate: (NSTimer *) timer
@@ -207,6 +209,7 @@ NSTimer* ulutimer;
 
 -(void) viewDidDisappear:(BOOL)animated
 {
+    self.navigationController.navigationBar.hidden = YES;
     [ulutimer invalidate];
 }
 

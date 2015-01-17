@@ -109,28 +109,28 @@ NSMutableArray *anno_list;
     //Create an empty anno list
     anno_list = [NSMutableArray array];
     
-    //Tutorial part when first time opened up the app
-    EAIntroPage *page1 = [EAIntroPage page];
-    page1.title = @"Hello world";
-    page1.titlePositionY = 500;
-    page1.desc = @"Welcome to CSSAMon";
-    page1.descPositionY = 480;
-    page1.bgImage = [UIImage imageNamed:@"Sun_god_hug.png"];
-    // custom
-    EAIntroPage *page2 = [EAIntroPage page];
-    page2.title = @"CSSAMon\nGotta Catch Them All";
-    page2.titleFont = [UIFont fontWithName:@"Georgia-BoldItalic" size:20];
-    page2.titlePositionY = 250;
-    page2.desc = @"You will now be redirected to CSSAMon Map";
-    page2.descFont = [UIFont fontWithName:@"Georgia-Italic" size:18];
-    page2.descPositionY = 200;
-    //page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Sun_god_hug.png"]];
-    //page2.titleIconPositionY = 20;
-    // custom view from nib
-    //EAIntroPage *page3 = [EAIntroPage pageWithCustomViewFromNibNamed:@"IntroPage"];
-    //page3.bgImage = [UIImage imageNamed:@"bg2"];
-    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:self.view.bounds andPages:@[page1,page2]];
-    [intro showInView:self.view animateDuration:0.0];
+//    //Tutorial part when first time opened up the app
+//    EAIntroPage *page1 = [EAIntroPage page];
+//    page1.title = @"Hello world";
+//    page1.titlePositionY = 500;
+//    page1.desc = @"Welcome to CSSAMon";
+//    page1.descPositionY = 480;
+//    page1.bgImage = [UIImage imageNamed:@"Sun_god_hug.png"];
+//    // custom
+//    EAIntroPage *page2 = [EAIntroPage page];
+//    page2.title = @"CSSAMon\nGotta Catch Them All";
+//    page2.titleFont = [UIFont fontWithName:@"Georgia-BoldItalic" size:20];
+//    page2.titlePositionY = 250;
+//    page2.desc = @"You will now be redirected to CSSAMon Map";
+//    page2.descFont = [UIFont fontWithName:@"Georgia-Italic" size:18];
+//    page2.descPositionY = 200;
+//    //page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Sun_god_hug.png"]];
+//    //page2.titleIconPositionY = 20;
+//    // custom view from nib
+//    //EAIntroPage *page3 = [EAIntroPage pageWithCustomViewFromNibNamed:@"IntroPage"];
+//    //page3.bgImage = [UIImage imageNamed:@"bg2"];
+//    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:self.view.bounds andPages:@[page1,page2]];
+//    [intro showInView:self.view animateDuration:0.0];
     
 }
 -(void)buttonDidTap:(UIButton *)sender{
