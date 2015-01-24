@@ -10,6 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import "WYPopoverController.h"
 #import "EAIntroView.h"
+#import "ProfileViewController.h"
 
 @interface MapViewController : UIViewController<MKMapViewDelegate>
 //@property (weak, nonatomic) IBOutlet MKMapView *myMapView;
@@ -22,4 +23,5 @@
 -(void)send:(NSTimer*) timer;
 -(void)setTimerInterval:(int) time_interval;
 -(void)setUpdateLocation:(BOOL) updating;
++(void)right_function;
 @end

@@ -79,42 +79,51 @@ NSMutableArray *anno_list;
     self.myMapView.showsUserLocation=YES;
     self.myMapView.region=region;
     
+    [UIButton buttonWithType:UIButtonTypeSystem];
+    
     UIButton *button1 = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button1.frame = CGRectMake(225, 475, 100, 30);
-    [button1 setTitle:@"Refresh" forState:UIControlStateNormal];
+    NSLog(@"width is %f\n",self.view.frame.size.width);
+    button1.frame = CGRectMake(self.view.frame.size.width*8/10, 475, 40, 40);
+    [UIColor clearColor];
+    UIImage *btnImage = [UIImage imageNamed:@"refresh0.png"];
+    [button1 setImage:btnImage forState:UIControlStateNormal];
     [button1 addTarget:self action:@selector(buttonDidTap:) forControlEvents:UIControlEventTouchUpInside];
+    button1.tintColor = [UIColor blackColor];
     [self.myMapView addSubview:button1];
     
     UIButton *nearby = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    nearby.frame = CGRectMake(15, 475, 100, 30);
-    [nearby setTitle:@"Nearby" forState:UIControlStateNormal];
+    nearby.frame = CGRectMake(self.view.frame.size.width/10, 475, 50, 50);
+    UIImage *btnImage2 = [UIImage imageNamed:@"nearby.png"];
+    nearby.tintColor = [UIColor blackColor];
+    [nearby setImage:btnImage2 forState:UIControlStateNormal];
     [nearby addTarget:self action:@selector(showNearbyList:) forControlEvents:UIControlEventTouchUpInside];
     [self.myMapView addSubview:nearby];
     
     //Create an empty anno list
     anno_list = [NSMutableArray array];
     
-    EAIntroPage *page1 = [EAIntroPage page];
-    page1.title = @"Hello world";
-    page1.titlePositionY = 500;
-    page1.desc = @"Welcome to CSSAMon";
-    page1.descPositionY = 480;
-    page1.bgImage = [UIImage imageNamed:@"Sun_god_hug.png"];
-    // custom
-    EAIntroPage *page2 = [EAIntroPage page];
-    page2.title = @"CSSAMon\nGotta Catch Them All";
-    page2.titleFont = [UIFont fontWithName:@"Georgia-BoldItalic" size:20];
-    page2.titlePositionY = 250;
-    page2.desc = @"You will now be redirected to CSSAMon Map";
-    page2.descFont = [UIFont fontWithName:@"Georgia-Italic" size:18];
-    page2.descPositionY = 200;
-    //page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Sun_god_hug.png"]];
-    //page2.titleIconPositionY = 20;
-    // custom view from nib
-    //EAIntroPage *page3 = [EAIntroPage pageWithCustomViewFromNibNamed:@"IntroPage"];
-    //page3.bgImage = [UIImage imageNamed:@"bg2"];
-    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:self.view.bounds andPages:@[page1,page2]];
-    [intro showInView:self.view animateDuration:0.0];
+//    //Tutorial part when first time opened up the app
+//    EAIntroPage *page1 = [EAIntroPage page];
+//    page1.title = @"Hello world";
+//    page1.titlePositionY = 500;
+//    page1.desc = @"Welcome to CSSAMon";
+//    page1.descPositionY = 480;
+//    page1.bgImage = [UIImage imageNamed:@"Sun_god_hug.png"];
+//    // custom
+//    EAIntroPage *page2 = [EAIntroPage page];
+//    page2.title = @"CSSAMon\nGotta Catch Them All";
+//    page2.titleFont = [UIFont fontWithName:@"Georgia-BoldItalic" size:20];
+//    page2.titlePositionY = 250;
+//    page2.desc = @"You will now be redirected to CSSAMon Map";
+//    page2.descFont = [UIFont fontWithName:@"Georgia-Italic" size:18];
+//    page2.descPositionY = 200;
+//    //page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Sun_god_hug.png"]];
+//    //page2.titleIconPositionY = 20;
+//    // custom view from nib
+//    //EAIntroPage *page3 = [EAIntroPage pageWithCustomViewFromNibNamed:@"IntroPage"];
+//    //page3.bgImage = [UIImage imageNamed:@"bg2"];
+//    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:self.view.bounds andPages:@[page1,page2]];
+//    [intro showInView:self.view animateDuration:0.0];
     
 }
 -(void)buttonDidTap:(UIButton *)sender{
@@ -212,7 +221,10 @@ NSMutableArray *anno_list;
     return pinView;
     
 }
-
++(void)right_function{
+    NSLog(@"hello");
+    //ProfileViewController *profile = [[ProfileViewController alloc]init];
+}
 -(void)tapLeft
 {
     NSString *str=[NSArray array];

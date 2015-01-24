@@ -7,6 +7,7 @@
 //
 #import <Foundation/Foundation.h>
 #import <MapKit/MapKit.h>
+#import "MapViewController.h"
 //Custom class for annotation
 @interface Annotation : NSObject<MKAnnotation>
 //用属性实现协议里面的方法，同时提供类外的接口
