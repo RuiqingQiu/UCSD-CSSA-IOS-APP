@@ -228,7 +228,7 @@ NSMutableArray *anno_list;
     NSLog(@"hello");
     //MapViewController *viewController = [map.storyboard instantiateViewControllerWithIdentifier:@"ProfileViewController"];
     //[map.view addSubview:viewController.view];
-    [map performSegueWithIdentifier:@"AAA" sender:map];
+    [map performSegueWithIdentifier:@"MapProfileSegue" sender:map];
 
     //MapViewController *viewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"MapViewController"];
     //ProfileViewController *profile = [[ProfileViewController alloc]init];

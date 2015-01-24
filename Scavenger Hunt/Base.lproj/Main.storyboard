@@ -119,10 +119,11 @@
                     <toolbarItems>
                         <barButtonItem title="Item" id="1A2-LM-2hT">
                             <connections>
-                                <segue destination="1cM-Ye-UYb" kind="push" identifier="AAA" id="Zge-Be-nLM"/>
+                                <segue destination="a2t-ec-ZD7" kind="push" identifier="MapProfileSegue" id="8nN-gx-77i"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
+                    <navigationItem key="navigationItem" id="JuG-wQ-w9H"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="myMapView" destination="IhT-Bu-F8c" id="3eh-WX-JRW"/>
@@ -131,7 +132,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="333" y="-634"/>
+            <point key="canvasLocation" x="629" y="-1346"/>
         </scene>
         <!--Register-->
         <scene sceneID="EDF-ad-N7d">
@@ -370,15 +371,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="XRj-QU-doM"/>
-                    <connections>
-                        <segue destination="vXZ-lx-hvc" kind="push" identifier="pushToProfile" id="jqv-CJ-7pk"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h71-Nq-Ywt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1352" y="-978"/>
         </scene>
-        <!--Item-->
+        <!--Setting-->
         <scene sceneID="nOm-B4-tLw">
             <objects>
                 <viewController id="tpM-FG-tse" customClass="SettingsViewController" sceneMemberID="viewController">
@@ -625,7 +623,6 @@
         <image name="background2.png" width="703" height="416"/>
         <image name="crown-7.png" width="30" height="30"/>
         <image name="edit.png" width="44" height="16"/>
-        <image name="house-7.png" width="30" height="30"/>
         <image name="origami-7.png" width="30" height="30"/>
         <image name="pin-map-7.png" width="30" height="30"/>
         <image name="settings.png" width="30" height="30"/>
@@ -638,6 +635,5 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="0Zb-zg-Fbg"/>
-        <segue reference="Zge-Be-nLM"/>
     </inferredMetricsTieBreakers>
 </document>
