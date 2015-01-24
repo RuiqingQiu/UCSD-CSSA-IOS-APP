@@ -10,6 +10,8 @@
 #import "NearbyViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import <Parse/Parse.h>
+#import "MapProfileViewController.h"
+#import "TalkToServer.h"
 
 #define IS_IOS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
 
@@ -123,28 +125,28 @@ NSMutableArray *anno_list;
 //        }
 //    }];
     
-    //    //Tutorial part when first time opened up the app
-    //    EAIntroPage *page1 = [EAIntroPage page];
-    //    page1.title = @"Hello world";
-    //    page1.titlePositionY = 500;
-    //    page1.desc = @"Welcome to CSSAMon";
-    //    page1.descPositionY = 480;
-    //    page1.bgImage = [UIImage imageNamed:@"Sun_god_hug.png"];
-    //    // custom
-    //    EAIntroPage *page2 = [EAIntroPage page];
-    //    page2.title = @"CSSAMon\nGotta Catch Them All";
-    //    page2.titleFont = [UIFont fontWithName:@"Georgia-BoldItalic" size:20];
-    //    page2.titlePositionY = 250;
-    //    page2.desc = @"You will now be redirected to CSSAMon Map";
-    //    page2.descFont = [UIFont fontWithName:@"Georgia-Italic" size:18];
-    //    page2.descPositionY = 200;
-    //    //page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Sun_god_hug.png"]];
-    //    //page2.titleIconPositionY = 20;
-    //    // custom view from nib
-    //    //EAIntroPage *page3 = [EAIntroPage pageWithCustomViewFromNibNamed:@"IntroPage"];
-    //    //page3.bgImage = [UIImage imageNamed:@"bg2"];
-    //    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:self.view.bounds andPages:@[page1,page2]];
-    //    [intro showInView:self.view animateDuration:0.0];
+    //Tutorial part when first time opened up the app
+//    EAIntroPage *page1 = [EAIntroPage page];
+//    page1.title = @"Hello world";
+//    page1.titlePositionY = 500;
+//    page1.desc = @"Welcome to CSSAMon";
+//    page1.descPositionY = 480;
+//    page1.bgImage = [UIImage imageNamed:@"Sun_god_hug.png"];
+//    // custom
+//    EAIntroPage *page2 = [EAIntroPage page];
+//    page2.title = @"CSSAMon\nGotta Catch Them All";
+//    page2.titleFont = [UIFont fontWithName:@"Georgia-BoldItalic" size:20];
+//    page2.titlePositionY = 250;
+//    page2.desc = @"You will now be redirected to CSSAMon Map";
+//    page2.descFont = [UIFont fontWithName:@"Georgia-Italic" size:18];
+//    page2.descPositionY = 200;
+//    //page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Sun_god_hug.png"]];
+//    //page2.titleIconPositionY = 20;
+//    // custom view from nib
+//    //EAIntroPage *page3 = [EAIntroPage pageWithCustomViewFromNibNamed:@"IntroPage"];
+//    //page3.bgImage = [UIImage imageNamed:@"bg2"];
+//    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:self.view.bounds andPages:@[page1,page2]];
+//    [intro showInView:self.view animateDuration:0.0];
     
 }
 -(void)buttonDidTap:(UIButton *)sender{
@@ -369,101 +371,98 @@ NSMutableArray *anno_list;
 {
     [anno_list removeAllObjects];
     [self.myMapView removeAnnotations:myMapView.annotations];   // show all values
-    if(rkey == nil){
-        return;
-    }
-    //TODO, change it to load location
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://b.ucsdcssa.org/getLocation.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
-    
-    [request setHTTPMethod:@"POST"];
-    
-    NSString* str = [NSString stringWithFormat:@"rkey=%@", rkey];
-    [request setHTTPBody:[str dataUsingEncoding:NSUTF8StringEncoding]];
-    NSLog(@"load data");
-    
-    
-    
-    //NSData *receive;
-    NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
-}
-
-/* Loading other users' location */
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    NSLog(@"didReceiveResponse");
-    [responseData setLength:0];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    [responseData appendData:data];
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    NSLog(@"didFailWithError");
-    NSLog([NSString stringWithFormat:@"Connection failed: %@", [error description]]);
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    NSLog(@"mapview connectionDidFinishLoading");
-    NSLog(@"Succeeded! Received %lu bytes of data",(unsigned long)[responseData length]);
-    [anno_list removeAllObjects];
-    // convert to JSON
-    NSError *myError = nil;
-    NSLog(@"self response data, %@", responseData);
-    NSDictionary *res = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:&myError];
-    for(id key in res) {
-        NSLog(@"mapview in loop");
-        id value = [res objectForKey:key];
-        
-        NSString *keyAsString = (NSString *)key;
-        NSString *valueAsString = (NSString *)value;
-        
-        NSLog(@"key: %@", keyAsString);
-        NSLog(@"value: %@", valueAsString);
-        
-        
-        double latitude;
-        double longitude;
-        if(valueAsString == [NSNull null]){
-            continue;
-        }
-        //Check if it's the result
-        if([keyAsString isEqualToString:@"result"]){
-            NSArray*dic = (NSArray*)value;
-            
-            //Loop through all the data in the dictionary and put markers
-            for(int i = 0; i < dic.count; i++){
-                NSLog(@"zzzz%@", [[value objectAtIndex:i]objectForKey:@"name"]);
-                //NSLog(@"latitude%@", [[value objectAtIndex:i]objectForKey:@"latitude"]);
-                //NSLog(@"longitude%@", [[value objectAtIndex:i]objectForKey:@"longitude"]);
-                //NSLog(@"avatar_url%@", [[value objectAtIndex:i]objectForKey:@"avatar_small"]);
-                
-                NSString* url =[[value objectAtIndex:i]objectForKey:@"avatar_small"];
-                
-                NSLog(@"%@", url);
-                if([url isEqual:[NSNull null]]){
-                    url = @"";
-                    NSLog(@"is null");
-                }
-                
-                CLLocationCoordinate2D tmp = CLLocationCoordinate2DMake([[[value objectAtIndex:i]objectForKey:@"latitude"] doubleValue],[[[value objectAtIndex:i]objectForKey:@"longitude"] doubleValue]);
-                Annotation *place_anno = [[Annotation alloc]initWithTitle:[[value objectAtIndex:i]objectForKey:@"name"] Location:tmp image_url:url user_id:[[value objectAtIndex:i]objectForKey:@"id"]];
-                [self.myMapView addAnnotation:place_anno];
-                [anno_list addObject:place_anno];
-                NSLog(@"anno list size %lu", (unsigned long)[anno_list count]);
-            }
-        }
-    }
-    
-    // extract specific value...
-    NSArray *results = [res objectForKey:@"results"];
-    
-    for (NSDictionary *result in results) {
-        NSString *icon = [result objectForKey:@"icon"];
-        NSLog(@"icon: %@", icon);
+    NSString* error = nil;
+    NSArray* userData = [TalkToServer getLocationWithPerrorString:&error];
+    for(int i = 0; i < userData.count; i++){
+        CLLocationCoordinate2D tmp = CLLocationCoordinate2DMake([[[userData objectAtIndex:i]objectForKey:@"latitude"] doubleValue],[[[userData objectAtIndex:i]objectForKey:@"longitude"] doubleValue]);
+        Annotation *place_anno = [[Annotation alloc]
+            initWithTitle:[[userData objectAtIndex:i]objectForKey:@"name"]
+            Location:tmp
+            image_url:[[userData objectAtIndex:i]objectForKey:@"avatar_small"]
+            user_id:[[userData objectAtIndex:i]objectForKey:@"officerId"]];
+        [self.myMapView addAnnotation:place_anno];
+        [anno_list addObject:place_anno];
+        NSLog(@"anno list size %lu", (unsigned long)[anno_list count]);
     }
 }
 
+///* Loading other users' location */
+//
+//- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
+//    NSLog(@"didReceiveResponse");
+//    [responseData setLength:0];
+//}
+//
+//- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
+//    [responseData appendData:data];
+//}
+//
+//- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+//    NSLog(@"didFailWithError");
+//    NSLog([NSString stringWithFormat:@"Connection failed: %@", [error description]]);
+//}
+//
+//- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+//    NSLog(@"mapview connectionDidFinishLoading");
+//    NSLog(@"Succeeded! Received %lu bytes of data",(unsigned long)[responseData length]);
+//    [anno_list removeAllObjects];
+//    // convert to JSON
+//    NSError *myError = nil;
+//    NSLog(@"self response data, %@", responseData);
+//    NSDictionary *res = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:&myError];
+//    for(id key in res) {
+//        NSLog(@"mapview in loop");
+//        id value = [res objectForKey:key];
+//        
+//        NSString *keyAsString = (NSString *)key;
+//        NSString *valueAsString = (NSString *)value;
+//        
+//        NSLog(@"key: %@", keyAsString);
+//        NSLog(@"value: %@", valueAsString);
+//        
+//        
+//        double latitude;
+//        double longitude;
+//        if(valueAsString == [NSNull null]){
+//            continue;
+//        }
+//        //Check if it's the result
+//        if([keyAsString isEqualToString:@"result"]){
+//            NSArray*dic = (NSArray*)value;
+//            
+//            //Loop through all the data in the dictionary and put markers
+//            for(int i = 0; i < dic.count; i++){
+//                NSLog(@"zzzz%@", [[value objectAtIndex:i]objectForKey:@"name"]);
+//                //NSLog(@"latitude%@", [[value objectAtIndex:i]objectForKey:@"latitude"]);
+//                //NSLog(@"longitude%@", [[value objectAtIndex:i]objectForKey:@"longitude"]);
+//                //NSLog(@"avatar_url%@", [[value objectAtIndex:i]objectForKey:@"avatar_small"]);
+//                
+//                NSString* url =[[value objectAtIndex:i]objectForKey:@"avatar_small"];
+//                
+//                NSLog(@"%@", url);
+//                if([url isEqual:[NSNull null]]){
+//                    url = @"";
+//                    NSLog(@"is null");
+//                }
+//                
+//                CLLocationCoordinate2D tmp = CLLocationCoordinate2DMake([[[value objectAtIndex:i]objectForKey:@"latitude"] doubleValue],[[[value objectAtIndex:i]objectForKey:@"longitude"] doubleValue]);
+//                Annotation *place_anno = [[Annotation alloc]initWithTitle:[[value objectAtIndex:i]objectForKey:@"name"] Location:tmp image_url:url user_id:[[value objectAtIndex:i]objectForKey:@"id"]];
+//                [self.myMapView addAnnotation:place_anno];
+//                [anno_list addObject:place_anno];
+//                NSLog(@"anno list size %lu", (unsigned long)[anno_list count]);
+//            }
+//        }
+//    }
+//    
+//    // extract specific value...
+//    NSArray *results = [res objectForKey:@"results"];
+//    
+//    for (NSDictionary *result in results) {
+//        NSString *icon = [result objectForKey:@"icon"];
+//        NSLog(@"icon: %@", icon);
+//    }
+//}
+//
 - (void)mapView:(MKMapView *)mapView didSelectAnnotation:(MKAnnotationView *)view{
     
 }
