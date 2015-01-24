@@ -62,6 +62,7 @@
 		523A28E019F38CE80094999E /* Poster_halloween_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 523A28DF19F38CE80094999E /* Poster_halloween_v2.png */; };
 		523BBDB019EB1428006FABC8 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 523BBDAF19EB1428006FABC8 /* RegisterViewController.m */; };
 		5282C85919F4798B00301F20 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 5282C85819F4798B00301F20 /* background.png */; };
+		5297926C1A6AF3F00006FD29 /* MapProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5297926B1A6AF3F00006FD29 /* MapProfileController.m */; };
 		52C89BE51A338C4E00A7FC83 /* icon_save.png in Resources */ = {isa = PBXBuildFile; fileRef = 52C89BE41A338C4E00A7FC83 /* icon_save.png */; };
 		52C89BE71A3392F600A7FC83 /* smalllogout.png in Resources */ = {isa = PBXBuildFile; fileRef = 52C89BE61A3392F600A7FC83 /* smalllogout.png */; };
 		52C89BEB1A339AF900A7FC83 /* edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 52C89BE81A339AF900A7FC83 /* edit.png */; };
@@ -71,7 +72,6 @@
 		5B73DB1A1A17EB12000834A9 /* WYStoryboardPopoverSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B73DB181A17EB12000834A9 /* WYStoryboardPopoverSegue.m */; };
 		5B73DB1D1A17EE19000834A9 /* NearbyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5B73DB1C1A17EE19000834A9 /* NearbyViewController.m */; };
 		84D76CE319EEE6DC0043945F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84D76CE219EEE6DC0043945F /* ProfileViewController.m */; };
-		AA0B04901A61AC1B003F4852 /* house-7.png in Resources */ = {isa = PBXBuildFile; fileRef = AA0B048F1A61AC1B003F4852 /* house-7.png */; };
 		AA20373219F36E150076BEF3 /* Icon_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20373119F36E150076BEF3 /* Icon_v2.png */; };
 		AA20373619F376880076BEF3 /* map_pin_v3.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20373519F376880076BEF3 /* map_pin_v3.png */; };
 		AA20373819F3802B0076BEF3 /* icon_v3.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20373719F3802B0076BEF3 /* icon_v3.png */; };
@@ -164,6 +164,8 @@
 		523BBDAF19EB1428006FABC8 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		5282C85819F4798B00301F20 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		5282C85C19F49F6D00301F20 /* Poster_scavengerhuntcs2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Poster_scavengerhuntcs2.png; sourceTree = "<group>"; };
+		5297926A1A6AF3F00006FD29 /* MapProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapProfileController.h; sourceTree = "<group>"; };
+		5297926B1A6AF3F00006FD29 /* MapProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapProfileController.m; sourceTree = "<group>"; };
 		52C89BE41A338C4E00A7FC83 /* icon_save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_save.png; sourceTree = "<group>"; };
 		52C89BE61A3392F600A7FC83 /* smalllogout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smalllogout.png; sourceTree = "<group>"; };
 		52C89BE81A339AF900A7FC83 /* edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit.png; sourceTree = "<group>"; };
@@ -430,9 +432,11 @@
 				AA20802E19F2653100AD7FFD /* Annotation.m */,
 				AA20803019F2654600AD7FFD /* Annotation.h */,
 				AA20802919F2646100AD7FFD /* MapViewController.h */,
+				AA20802A19F2646100AD7FFD /* MapViewController.m */,
 				5B73DB1B1A17EE18000834A9 /* NearbyViewController.h */,
 				5B73DB1C1A17EE19000834A9 /* NearbyViewController.m */,
-				AA20802A19F2646100AD7FFD /* MapViewController.m */,
+				5297926A1A6AF3F00006FD29 /* MapProfileController.h */,
+				5297926B1A6AF3F00006FD29 /* MapProfileController.m */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -568,6 +572,7 @@
 				476EA97E19A7FCB8004BC6B1 /* main.m in Sources */,
 				476EA98219A7FCB8004BC6B1 /* SHAppDelegate.m in Sources */,
 				48C9AD021A0EA01800721E85 /* SettingsToggleUpdateTableViewCell.m in Sources */,
+				5297926C1A6AF3F00006FD29 /* MapProfileController.m in Sources */,
 				4839D1F81A19C5F400D4CCBC /* SettingsButtonsTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

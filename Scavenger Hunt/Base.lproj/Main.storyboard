@@ -38,7 +38,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y3T-ut-bnb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-839" y="-705"/>
+            <point key="canvasLocation" x="-1457" y="-391"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="kdU-QN-HH1">
@@ -116,13 +116,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="pin-map-7.png" id="9YE-pO-i48"/>
+                    <navigationItem key="navigationItem" id="7nr-QL-LYW"/>
                     <connections>
                         <outlet property="myMapView" destination="IhT-Bu-F8c" id="3eh-WX-JRW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="277" y="-612"/>
+            <point key="canvasLocation" x="529" y="-696"/>
         </scene>
         <!--Register-->
         <scene sceneID="EDF-ad-N7d">
@@ -338,6 +339,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nAC-kA-Bt8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="815" y="-24"/>
+        </scene>
+        <!--Map Profile Controller-->
+        <scene sceneID="75K-0n-pXL">
+            <objects>
+                <viewController id="a2t-ec-ZD7" customClass="MapProfileController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9fJ-2w-jPj"/>
+                        <viewControllerLayoutGuide type="bottom" id="aTW-2c-DFh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EtO-K6-Sde">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gDW-9l-0BD">
+                                <rect key="frame" x="112" y="274" width="46" height="30"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="XRj-QU-doM"/>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="push" identifier="pushToProfile" id="jqv-CJ-7pk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h71-Nq-Ywt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1352" y="-978"/>
         </scene>
         <!--Item-->
         <scene sceneID="nOm-B4-tLw">
@@ -585,6 +616,7 @@
         <image name="background2.png" width="703" height="416"/>
         <image name="crown-7.png" width="30" height="30"/>
         <image name="edit.png" width="44" height="16"/>
+        <image name="house-7.png" width="30" height="30"/>
         <image name="origami-7.png" width="30" height="30"/>
         <image name="pin-map-7.png" width="30" height="30"/>
         <image name="smalllogout.png" width="60" height="20"/>
@@ -594,4 +626,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="jqv-CJ-7pk"/>
+    </inferredMetricsTieBreakers>
 </document>
