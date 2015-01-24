@@ -8,6 +8,7 @@
 #import "MapViewController.h"
 #import "Annotation.h"
 #import "NearbyViewController.h"
+#import "TalkToServer.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import "MapProfileViewController.h"
 
