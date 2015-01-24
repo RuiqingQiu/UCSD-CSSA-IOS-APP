@@ -60,7 +60,7 @@ NSMutableArray *anno_list;
     map = self;
     [super viewDidLoad];
     locationManager = [[CLLocationManager alloc] init];
-    
+
     if(IS_IOS_8_OR_LATER){
         [locationManager requestWhenInUseAuthorization];
         [locationManager requestAlwaysAuthorization];
