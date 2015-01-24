@@ -86,6 +86,7 @@
 		AA6EA25119F4929300208893 /* crown-7.png in Resources */ = {isa = PBXBuildFile; fileRef = AA6EA25019F4929300208893 /* crown-7.png */; };
 		AA6EA25319F493A300208893 /* pin-map-7.png in Resources */ = {isa = PBXBuildFile; fileRef = AA6EA25219F493A300208893 /* pin-map-7.png */; };
 		AA6EA25519F4948800208893 /* origami-7.png in Resources */ = {isa = PBXBuildFile; fileRef = AA6EA25419F4948800208893 /* origami-7.png */; };
+		AAA4F2661A74291C005E5AA6 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA4F2651A74291C005E5AA6 /* FacebookSDK.framework */; };
 		AADF44081A338E8800DB9B99 /* EAIntroPage.m in Sources */ = {isa = PBXBuildFile; fileRef = AADF44051A338E8800DB9B99 /* EAIntroPage.m */; };
 		AADF44091A338E8800DB9B99 /* EAIntroView.m in Sources */ = {isa = PBXBuildFile; fileRef = AADF44071A338E8800DB9B99 /* EAIntroView.m */; };
 		AAF154BA1A6AE98800BAB052 /* settings.png in Resources */ = {isa = PBXBuildFile; fileRef = AAF154B91A6AE98800BAB052 /* settings.png */; };
@@ -166,7 +167,6 @@
 		523BBDAF19EB1428006FABC8 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		5282C85819F4798B00301F20 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		5282C85C19F49F6D00301F20 /* Poster_scavengerhuntcs2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Poster_scavengerhuntcs2.png; sourceTree = "<group>"; };
-		5297926A1A6AF3F00006FD29 /* MapProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapProfileController.h; sourceTree = "<group>"; };
 		5297926B1A6AF3F00006FD29 /* MapProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapProfileController.m; sourceTree = "<group>"; };
 		52C89BE41A338C4E00A7FC83 /* icon_save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_save.png; sourceTree = "<group>"; };
 		52C89BE61A3392F600A7FC83 /* smalllogout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smalllogout.png; sourceTree = "<group>"; };
@@ -198,6 +198,7 @@
 		AA6EA25019F4929300208893 /* crown-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crown-7.png"; sourceTree = "<group>"; };
 		AA6EA25219F493A300208893 /* pin-map-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin-map-7.png"; sourceTree = "<group>"; };
 		AA6EA25419F4948800208893 /* origami-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "origami-7.png"; sourceTree = "<group>"; };
+		AAA4F2651A74291C005E5AA6 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		AADF44041A338E8800DB9B99 /* EAIntroPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroPage.h; sourceTree = "<group>"; };
 		AADF44051A338E8800DB9B99 /* EAIntroPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAIntroPage.m; sourceTree = "<group>"; };
 		AADF44061A338E8800DB9B99 /* EAIntroView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAIntroView.h; sourceTree = "<group>"; };
@@ -217,6 +218,7 @@
 				476EA9BF19A7FDD1004BC6B1 /* SystemConfiguration.framework in Frameworks */,
 				476EA9BD19A7FDCB004BC6B1 /* QuartzCore.framework in Frameworks */,
 				476EA9BB19A7FDC6004BC6B1 /* OpenGLES.framework in Frameworks */,
+				AAA4F2661A74291C005E5AA6 /* FacebookSDK.framework in Frameworks */,
 				476EA9B919A7FDBF004BC6B1 /* libz.dylib in Frameworks */,
 				476EA9B719A7FDBB004BC6B1 /* libicucore.dylib in Frameworks */,
 				476EA9B519A7FDB2004BC6B1 /* libc++.dylib in Frameworks */,
@@ -238,6 +240,7 @@
 		476EA96519A7FCB8004BC6B1 = {
 			isa = PBXGroup;
 			children = (
+				AAA4F2651A74291C005E5AA6 /* FacebookSDK.framework */,
 				AADF44041A338E8800DB9B99 /* EAIntroPage.h */,
 				AADF44051A338E8800DB9B99 /* EAIntroPage.m */,
 				AADF44061A338E8800DB9B99 /* EAIntroView.h */,

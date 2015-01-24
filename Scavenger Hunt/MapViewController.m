@@ -8,6 +8,7 @@
 #import "MapViewController.h"
 #import "Annotation.h"
 #import "NearbyViewController.h"
+#import <FacebookSDK/FacebookSDK.h>
 
 
 #define IS_IOS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
@@ -104,8 +105,9 @@ NSMutableArray *anno_list;
     
     //Create an empty anno list
     anno_list = [NSMutableArray array];
+
     
-//    //Tutorial part when first time opened up the app
+    //Tutorial part when first time opened up the app
 //    EAIntroPage *page1 = [EAIntroPage page];
 //    page1.title = @"Hello world";
 //    page1.titlePositionY = 500;
