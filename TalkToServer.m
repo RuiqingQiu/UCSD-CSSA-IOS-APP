@@ -404,9 +404,6 @@
 }
 
 + (NSArray*) getLocationWithPerrorString:(NSString**)errorString
-// use
-// UIImage * foo = [[RETURNED_ARRAY objectAtIndex:i] objectForKey:@"avatar_large"]
-// to get small images
 {
     if (errorString != nil)
         *errorString = nil;
@@ -451,11 +448,12 @@
         return nil;
     }
     NSArray* tmpArray = [parsedDict objectForKey:@"result"];
+    /* Initially designed to load all images
     for (int i = 0; i < tmpArray.count; i++)
     {
         NSData * tmpData = [NSData dataWithContentsOfURL:[[tmpArray objectAtIndex:i] objectForKey:@"avatar_small"]];
         [[tmpArray objectAtIndex:i] setObject:[UIImage imageWithData:tmpData] forKey:@"avatar_small"];
-    }
+    } */
     return tmpArray;
 }
 
