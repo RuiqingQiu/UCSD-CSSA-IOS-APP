@@ -9,7 +9,7 @@
 #import "Annotation.h"
 #import "NearbyViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
-
+#import <Parse/Parse.h>
 
 #define IS_IOS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
 
@@ -105,7 +105,25 @@ NSMutableArray *anno_list;
     
     //Create an empty anno list
     anno_list = [NSMutableArray array];
-
+    
+    
+    //Parse
+//    PFUser *user = [PFUser user];
+//    user.username = @"my name";
+//    user.password = @"my pass";
+//    user.email = @"email@example.com";
+//    
+//    // other fields can be set if you want to save more information
+//    user[@"phone"] = @"650-555-0000";
+//    
+//    [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (!error) {
+//            // Hooray! Let them use the app now.
+//        } else {
+//            NSString *errorString = [error userInfo][@"error"];
+//            // Show the errorString somewhere and let the user try again.
+//        }
+//    }];
     
     //Tutorial part when first time opened up the app
 //    EAIntroPage *page1 = [EAIntroPage page];
@@ -462,7 +480,7 @@ NSMutableArray *anno_list;
                 }
                 
                 CLLocationCoordinate2D tmp = CLLocationCoordinate2DMake([[[value objectAtIndex:i]objectForKey:@"latitude"] doubleValue],[[[value objectAtIndex:i]objectForKey:@"longitude"] doubleValue]);
-                Annotation *place_anno = [[Annotation alloc]initWithTitle:[[value objectAtIndex:i]objectForKey:@"name"] Location:tmp image_url:url];
+                Annotation *place_anno = [[Annotation alloc]initWithTitle:[[value objectAtIndex:i]objectForKey:@"name"] Location:tmp image_url:url user_id:[[value objectAtIndex:i]objectForKey:@"id"]];
                 [self.myMapView addAnnotation:place_anno];
                 [anno_list addObject:place_anno];
                 NSLog(@"anno list size %lu", (unsigned long)[anno_list count]);

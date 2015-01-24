@@ -11,6 +11,7 @@
 #import "SHMapViewController.h"
 #import "MapViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
+#import <Parse/Parse.h>
 #define UPDATE_LOCATION_INTERVAL 60
 
 NSTimer* t;
@@ -20,6 +21,9 @@ NSTimer* t;
 {
     [GMSServices provideAPIKey:@"AIzaSyD2GLdXS-BZVWmXFtrtHDm2aMhcHlNCaQw"];
     // Override point for customization after application launch.
+    [Parse setApplicationId:@"SJsvvY8Oj1CQjmiYAlzaWVBP5JdXFyiOmUcNWUBF"
+                  clientKey:@"sTD4M779q1jje6lTs9GJ3slZXE8MLspbBthrfb2B"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
     return YES;
 }
