@@ -58,7 +58,7 @@ NSMutableArray *anno_list;
     map = self;
     [super viewDidLoad];
     locationManager = [[CLLocationManager alloc] init];
-    
+
     if(IS_IOS_8_OR_LATER){
         [locationManager requestWhenInUseAuthorization];
         [locationManager requestAlwaysAuthorization];
@@ -103,6 +103,7 @@ NSMutableArray *anno_list;
     
     //Create an empty anno list
     anno_list = [NSMutableArray array];
+
     
     //    //Tutorial part when first time opened up the app
     //    EAIntroPage *page1 = [EAIntroPage page];

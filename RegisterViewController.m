@@ -7,6 +7,7 @@
 //
 #import "RegisterViewController.h"
 #include <CommonCrypto/CommonDigest.h>
+#import <FacebookSDK/FacebookSDK.h>
 
 @interface RegisterViewController ()
 @property (nonatomic, strong) NSMutableData *responseData;
@@ -313,6 +314,12 @@
     tapGestureRecognizer.cancelsTouchesInView = NO;
     //将触摸事件添加到当前view
     [self.view addGestureRecognizer:tapGestureRecognizer];
+    
+    //Facebook login, tested and it works.
+    FBLoginView *loginView = [[FBLoginView alloc] init];
+    [self.view addSubview:loginView];
+    loginView.frame = CGRectOffset(loginView.frame, (self.view.center.x - (loginView.frame.size.width / 2)),  self.view.center.y + (loginView.frame.size.height*4));
+    [self.view addSubview:loginView];
 }
 
 
