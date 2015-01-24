@@ -62,6 +62,7 @@
 		523A28E019F38CE80094999E /* Poster_halloween_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = 523A28DF19F38CE80094999E /* Poster_halloween_v2.png */; };
 		523BBDB019EB1428006FABC8 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 523BBDAF19EB1428006FABC8 /* RegisterViewController.m */; };
 		5282C85919F4798B00301F20 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 5282C85819F4798B00301F20 /* background.png */; };
+		5297926C1A6AF3F00006FD29 /* MapProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5297926B1A6AF3F00006FD29 /* MapProfileController.m */; };
 		52C89BE51A338C4E00A7FC83 /* icon_save.png in Resources */ = {isa = PBXBuildFile; fileRef = 52C89BE41A338C4E00A7FC83 /* icon_save.png */; };
 		52C89BE71A3392F600A7FC83 /* smalllogout.png in Resources */ = {isa = PBXBuildFile; fileRef = 52C89BE61A3392F600A7FC83 /* smalllogout.png */; };
 		52C89BEB1A339AF900A7FC83 /* edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 52C89BE81A339AF900A7FC83 /* edit.png */; };
@@ -165,6 +166,8 @@
 		523BBDAF19EB1428006FABC8 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		5282C85819F4798B00301F20 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		5282C85C19F49F6D00301F20 /* Poster_scavengerhuntcs2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Poster_scavengerhuntcs2.png; sourceTree = "<group>"; };
+		5297926A1A6AF3F00006FD29 /* MapProfileController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapProfileController.h; sourceTree = "<group>"; };
+		5297926B1A6AF3F00006FD29 /* MapProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapProfileController.m; sourceTree = "<group>"; };
 		52C89BE41A338C4E00A7FC83 /* icon_save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_save.png; sourceTree = "<group>"; };
 		52C89BE61A3392F600A7FC83 /* smalllogout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smalllogout.png; sourceTree = "<group>"; };
 		52C89BE81A339AF900A7FC83 /* edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit.png; sourceTree = "<group>"; };
@@ -575,6 +578,7 @@
 				476EA97E19A7FCB8004BC6B1 /* main.m in Sources */,
 				476EA98219A7FCB8004BC6B1 /* SHAppDelegate.m in Sources */,
 				48C9AD021A0EA01800721E85 /* SettingsToggleUpdateTableViewCell.m in Sources */,
+				5297926C1A6AF3F00006FD29 /* MapProfileController.m in Sources */,
 				4839D1F81A19C5F400D4CCBC /* SettingsButtonsTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

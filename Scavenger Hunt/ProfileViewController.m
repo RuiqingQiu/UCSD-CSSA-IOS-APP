@@ -23,7 +23,6 @@ NSArray* dataArray;
 
 bool editOrNot = YES;
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -67,7 +66,7 @@ bool editOrNot = YES;
     [self loadDataWithRKey:rkey];
     arr = [[NSArray alloc]initWithObjects:@"",@"ERC", @"Marshall", @"Muir", @"Revelle", @"Warren", @"Sixth",nil];
     departmentArray = [[NSArray alloc]initWithObjects:@"非officer", @"PM", @"学术部", @"宣传部", @"文体部", @"技术部",@"外联部", @"Advisor&前辈", @"其他officer",nil];
-    //self.navigationController.navigationBar.hidden = YES;
+
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -96,7 +95,6 @@ bool editOrNot = YES;
     [login_pass resignFirstResponder];
     [loging_user resignFirstResponder];
     [nameField resignFirstResponder];
-    //[positionField resignFirstResponder];
     [majorField resignFirstResponder];
     [mottoField resignFirstResponder];
     
@@ -187,7 +185,6 @@ bool editOrNot = YES;
             }
         }else{
             positionField.backgroundColor = [UIColor clearColor];
-            //nameField.background = [UIColor clearColor];
             collegeField.backgroundColor = [UIColor clearColor];
             majorField.backgroundColor = [UIColor clearColor];
             mottoField.backgroundColor = [UIColor clearColor];
@@ -313,10 +310,7 @@ bool editOrNot = YES;
         {
             collegeNumber = 6;
         }
-        //NSNumber *college = [NSNumber numberWithInteger: collegeNumber];
-        //NSLog(@"%@",collegeString);
-        
-        
+
         
         NSString *departmentString = positionField.text;
         //NSString *choice = @"请选择";
@@ -369,16 +363,10 @@ bool editOrNot = YES;
         {
             departmentNumber = 8;
         }
-        //NSNumber *departmentInt = [NSNumber numberWithInteger: departmentNumber];
         
         name = nameField.text;
         major = majorField.text;
         motto = mottoField.text;
-        if(departmentNumber == 1)
-        {
-        NSLog(@"@%d!!!!!!!",departmentNumber);
-            NSLog(@"@%d@@@@@@@@",collegeNumber);
-        }
         [TalkToServer updateProfileWithName:name department:departmentNumber position:nil college:collegeNumber major:major motto:motto PerrorString:nil];
         nameField.enabled = NO;
         collegeField.enabled = NO;
@@ -400,8 +388,7 @@ bool editOrNot = YES;
     NSString * timestampJson = [NSString stringWithContentsOfURL:[NSURL URLWithString:@"http://www.convert-unix-time.com/api?timestamp=now"] encoding:NSUTF8StringEncoding error:nil];
     NSDictionary * timestampDictionary = [NSJSONSerialization JSONObjectWithData:[timestampJson dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:nil];
     int i_time = [[timestampDictionary valueForKey:@"timestamp"] intValue];
-    //NSString * timestamp = [NSString stringWithFormat:@"%f",[[NSDate date] timeIntervalSince1970]];
-    //int i_time = [timestamp intValue];
+
     int tkey = i_time^1212496151;
     NSString* s_tkey = [NSString stringWithFormat:@"%i",tkey];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://b.ucsdcssa.org/login.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];

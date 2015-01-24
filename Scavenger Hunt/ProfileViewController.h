@@ -11,8 +11,6 @@
 @interface ProfileViewController : UIViewController
 {
     
-    
-
     IBOutlet UITextField *positionField;
     IBOutlet UITextField *nameField;
     IBOutlet UITextField *collegeField;

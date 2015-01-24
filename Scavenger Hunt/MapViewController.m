@@ -52,13 +52,6 @@ NSMutableArray *anno_list;
 
 #pragma mark - View lifecycle
 
-/*
- // Implement loadView to create a view hierarchy programmatically, without using a nib.
- - (void)loadView
- {
- }
- */
-
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
@@ -179,10 +172,6 @@ NSMutableArray *anno_list;
     }
     NSLog(@"mapview did finish loading");*/
 }
-//与tableViewCell一样
-//在[self.myMapView addAnnotation:anno];后， 会马上调用这个协议中的方法 返回一个MKAnnotationView供地图显示
-//注意：在地图本身去添加用户位置的时候（小蓝点）也会调用这个方法
-//mapView:regionWillChangeAnimated:
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
@@ -251,6 +240,10 @@ NSMutableArray *anno_list;
 -(void)tapRight
 {
     NSLog(@"Information query");
+    
+    [self performSegueWithIdentifier:@"pushToProfile" sender:self];
+    
+    
 }
 -(void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views
 {
