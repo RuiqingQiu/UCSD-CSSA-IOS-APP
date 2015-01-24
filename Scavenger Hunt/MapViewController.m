@@ -24,11 +24,9 @@ static MapViewController* map = nil;
 @synthesize locationManager;
 @synthesize popoverController;
 UIApplication *app;
-static NSMutableData *responseData;
 double latitude, longitude;
 static BOOL locationStarted = FALSE;
 static BOOL updateLocation = TRUE;
-NSString *rkey;
 //Timer for update
 NSTimer *timer;
 NSMutableArray *anno_list;
@@ -107,32 +105,32 @@ NSMutableArray *anno_list;
     anno_list = [NSMutableArray array];
 
     
-    //Tutorial part when first time opened up the app
-//    EAIntroPage *page1 = [EAIntroPage page];
-//    page1.title = @"Hello world";
-//    page1.titlePositionY = 500;
-//    page1.desc = @"Welcome to CSSAMon";
-//    page1.descPositionY = 480;
-//    page1.bgImage = [UIImage imageNamed:@"Sun_god_hug.png"];
-//    // custom
-//    EAIntroPage *page2 = [EAIntroPage page];
-//    page2.title = @"CSSAMon\nGotta Catch Them All";
-//    page2.titleFont = [UIFont fontWithName:@"Georgia-BoldItalic" size:20];
-//    page2.titlePositionY = 250;
-//    page2.desc = @"You will now be redirected to CSSAMon Map";
-//    page2.descFont = [UIFont fontWithName:@"Georgia-Italic" size:18];
-//    page2.descPositionY = 200;
-//    //page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Sun_god_hug.png"]];
-//    //page2.titleIconPositionY = 20;
-//    // custom view from nib
-//    //EAIntroPage *page3 = [EAIntroPage pageWithCustomViewFromNibNamed:@"IntroPage"];
-//    //page3.bgImage = [UIImage imageNamed:@"bg2"];
-//    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:self.view.bounds andPages:@[page1,page2]];
-//    [intro showInView:self.view animateDuration:0.0];
+    //    //Tutorial part when first time opened up the app
+    //    EAIntroPage *page1 = [EAIntroPage page];
+    //    page1.title = @"Hello world";
+    //    page1.titlePositionY = 500;
+    //    page1.desc = @"Welcome to CSSAMon";
+    //    page1.descPositionY = 480;
+    //    page1.bgImage = [UIImage imageNamed:@"Sun_god_hug.png"];
+    //    // custom
+    //    EAIntroPage *page2 = [EAIntroPage page];
+    //    page2.title = @"CSSAMon\nGotta Catch Them All";
+    //    page2.titleFont = [UIFont fontWithName:@"Georgia-BoldItalic" size:20];
+    //    page2.titlePositionY = 250;
+    //    page2.desc = @"You will now be redirected to CSSAMon Map";
+    //    page2.descFont = [UIFont fontWithName:@"Georgia-Italic" size:18];
+    //    page2.descPositionY = 200;
+    //    //page2.titleIconView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Sun_god_hug.png"]];
+    //    //page2.titleIconPositionY = 20;
+    //    // custom view from nib
+    //    //EAIntroPage *page3 = [EAIntroPage pageWithCustomViewFromNibNamed:@"IntroPage"];
+    //    //page3.bgImage = [UIImage imageNamed:@"bg2"];
+    //    EAIntroView *intro = [[EAIntroView alloc] initWithFrame:self.view.bounds andPages:@[page1,page2]];
+    //    [intro showInView:self.view animateDuration:0.0];
     
 }
 -(void)buttonDidTap:(UIButton *)sender{
-    [self loadDataWithRKey:rkey];
+    [self loadPins];
 }
 
 -(void)showNearbyList:(UIButton *)sender{
@@ -155,24 +153,20 @@ NSMutableArray *anno_list;
 
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation
 {
-    
     CLLocation *location=userLocation.location;
     latitude = location.coordinate.latitude;
     longitude = location.coordinate.longitude;
     CLLocationCoordinate2D center=location.coordinate;
     //[self.myMapView setCenterCoordinate:center animated:YES];
-    NSLog(@"update location");
-    //Send data for updating location
-    //[self send];
-    
 }
+
 - (void)mapViewDidFinishLoadingMap:(MKMapView *)mapView{
     /*NSLog(@"%d",self.myMapView.annotations.count);
-    for (id<MKAnnotation> currentAnnotation in self.myMapView.annotations) {
-        [self.myMapView selectAnnotation:currentAnnotation animated:FALSE];
-        NSLog(@"here");
-    }
-    NSLog(@"mapview did finish loading");*/
+     for (id<MKAnnotation> currentAnnotation in self.myMapView.annotations) {
+     [self.myMapView selectAnnotation:currentAnnotation animated:FALSE];
+     NSLog(@"here");
+     }
+     NSLog(@"mapview did finish loading");*/
 }
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
@@ -231,7 +225,7 @@ NSMutableArray *anno_list;
     //MapViewController *viewController = [map.storyboard instantiateViewControllerWithIdentifier:@"ProfileViewController"];
     //[map.view addSubview:viewController.view];
     [map performSegueWithIdentifier:@"MapProfileSegue" sender:map];
-
+    
     //MapViewController *viewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"MapViewController"];
     //ProfileViewController *profile = [[ProfileViewController alloc]init];
 }
@@ -280,7 +274,7 @@ NSMutableArray *anno_list;
 - (void)viewDidUnload
 {
     [super viewDidUnload];
-
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -290,18 +284,13 @@ NSMutableArray *anno_list;
 }
 
 -(void)viewWillAppear:(BOOL)animated {
-    //[locationManager startUpdatingLocation];
-    responseData = [NSMutableData data];
     [super viewWillAppear:animated];
-    rkey = [[NSUserDefaults standardUserDefaults] stringForKey:@"rkey"];
-    NSLog(@"key %@", rkey);
+    [self loadPins];
     if(updateLocation){
-        NSLog(@"test");
-        [self loadDataWithRKey:rkey];
-        [self send:nil];    //update when first opened.
+        [self updateLocation:nil];    //update when first opened.
     }
     if(!timer){
-        timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(send:) userInfo:nil repeats:YES];
+        timer = [NSTimer scheduledTimerWithTimeInterval:60 target:self selector:@selector(updateLocation:) userInfo:nil repeats:YES];
     }
 }
 -(void)viewDidAppear:(BOOL)animated
@@ -326,169 +315,50 @@ NSMutableArray *anno_list;
 
 
 /* For sending location data */
-- (void)send:(NSTimer *)timer
+- (void)updateLocation:(NSTimer *)timer
 {
     if(updateLocation){
-
-    double time = [[NSDate date] timeIntervalSince1970];
-    [[NSUserDefaults standardUserDefaults] setDouble:time forKey:@"lastUpdateLocation"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                [[NSNumber numberWithDouble:latitude] stringValue],@"latitude",
-                                [[NSNumber numberWithDouble:longitude]stringValue],@"longitude",
-                                nil];
-    NSLog(@"%@",dictionary);
-    
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionary
-                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
-                                                         error:&error];
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://b.ucsdcssa.org/updateLocation.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
-    
-    
-    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    NSData* data = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
-    [request setHTTPMethod:@"POST"];
-    rkey = [[NSUserDefaults standardUserDefaults]stringForKey:@"rkey"];
-    NSLog(@"update location, key %@", rkey);
-    NSString* str_tmp = [NSString stringWithFormat:@"rkey=%@&latitude=%@&longitude=%@", rkey,[[NSNumber numberWithDouble:latitude] stringValue], [[NSNumber numberWithDouble:longitude]stringValue]];
-    NSLog(@"%@",str_tmp);
-    [request setHTTPBody:[str_tmp dataUsingEncoding:NSUTF8StringEncoding]];
-    NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
-    [self loadDataWithRKey:rkey];
+        
+        double time = [[NSDate date] timeIntervalSince1970];
+        [[NSUserDefaults standardUserDefaults] setDouble:time forKey:@"lastUpdateLocation"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        NSString* error = nil;
+        [TalkToServer updateLocationWithLatitude:latitude longitude:longitude PerrorString:&error];
+        if (error)
+            [[[UIAlertView alloc] initWithTitle:@"Sending location failed!" message:error delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
     }
 }
 
 /* For sending location data */
 - (void)sendBackground:(NSTimer *)timer
 {
-    double time = [[NSDate date] timeIntervalSince1970];
-    [[NSUserDefaults standardUserDefaults] setDouble:time forKey:@"lastUpdateLocation"];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:
-                                [[NSNumber numberWithDouble:latitude] stringValue],@"latitude",
-                                [[NSNumber numberWithDouble:longitude]stringValue],@"longitude",
-                                nil];
-    NSLog(@"%@",dictionary);
-    
-    NSError *error;
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:dictionary
-                                                       options:NSJSONWritingPrettyPrinted // Pass 0 if you don't care about the readability of the generated string
-                                                         error:&error];
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://b.ucsdcssa.org/updateLocation.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
-    
-    
-    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    NSData* data = [jsonString dataUsingEncoding:NSUTF8StringEncoding];
-    [request setHTTPMethod:@"POST"];
-    rkey = [[NSUserDefaults standardUserDefaults]stringForKey:@"rkey"];
-    NSLog(@"update location, key %@", rkey);
-    NSString* str_tmp = [NSString stringWithFormat:@"rkey=%@&latitude=%@&longitude=%@", rkey,[[NSNumber numberWithDouble:latitude] stringValue], [[NSNumber numberWithDouble:longitude]stringValue]];
-    NSLog(@"%@",str_tmp);
-    [request setHTTPBody:[str_tmp dataUsingEncoding:NSUTF8StringEncoding]];
-    NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
-
+    if(updateLocation){
+        
+        double time = [[NSDate date] timeIntervalSince1970];
+        [[NSUserDefaults standardUserDefaults] setDouble:time forKey:@"lastUpdateLocation"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        NSString* error = nil;
+        [TalkToServer updateLocationWithLatitude:latitude longitude:longitude PerrorString:&error];
+        
+    }
 }
+
 /* For loading datas */
 
--(void)loadDataWithRKey:(NSString*) rkey
+-(void)loadPins
 {
     [anno_list removeAllObjects];
     [self.myMapView removeAnnotations:myMapView.annotations];   // show all values
-    if(rkey == nil){
-        return;
-    }
-    //TODO, change it to load location
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://b.ucsdcssa.org/getLocation.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0];
-    
-    [request setHTTPMethod:@"POST"];
-    
-    NSString* str = [NSString stringWithFormat:@"rkey=%@", rkey];
-    [request setHTTPBody:[str dataUsingEncoding:NSUTF8StringEncoding]];
-    NSLog(@"load data");
-    
-    
-    
-    //NSData *receive;
-    NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
-}
-
-/* Loading other users' location */
-
-- (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
-    NSLog(@"didReceiveResponse");
-    [responseData setLength:0];
-}
-
-- (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    [responseData appendData:data];
-}
-
-- (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    NSLog(@"didFailWithError");
-    NSLog([NSString stringWithFormat:@"Connection failed: %@", [error description]]);
-}
-
-- (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    NSLog(@"mapview connectionDidFinishLoading");
-    NSLog(@"Succeeded! Received %lu bytes of data",(unsigned long)[responseData length]);
-    [anno_list removeAllObjects];
-    // convert to JSON
-    NSError *myError = nil;
-    NSLog(@"self response data, %@", responseData);
-    NSDictionary *res = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableLeaves error:&myError];
-    for(id key in res) {
-        NSLog(@"mapview in loop");
-        id value = [res objectForKey:key];
-        
-        NSString *keyAsString = (NSString *)key;
-        NSString *valueAsString = (NSString *)value;
-        
-        NSLog(@"key: %@", keyAsString);
-        NSLog(@"value: %@", valueAsString);
-        
-        
-        double latitude;
-        double longitude;
-        if(valueAsString == [NSNull null]){
-            continue;
-        }
-        //Check if it's the result
-        if([keyAsString isEqualToString:@"result"]){
-            NSArray*dic = (NSArray*)value;
-            
-            //Loop through all the data in the dictionary and put markers
-            for(int i = 0; i < dic.count; i++){
-                NSLog(@"zzzz%@", [[value objectAtIndex:i]objectForKey:@"name"]);
-                //NSLog(@"latitude%@", [[value objectAtIndex:i]objectForKey:@"latitude"]);
-                //NSLog(@"longitude%@", [[value objectAtIndex:i]objectForKey:@"longitude"]);
-                //NSLog(@"avatar_url%@", [[value objectAtIndex:i]objectForKey:@"avatar_small"]);
-                
-                NSString* url =[[value objectAtIndex:i]objectForKey:@"avatar_small"];
-                
-                NSLog(@"%@", url);
-                if([url isEqual:[NSNull null]]){
-                    url = @"";
-                    NSLog(@"is null");
-                }
-                
-                CLLocationCoordinate2D tmp = CLLocationCoordinate2DMake([[[value objectAtIndex:i]objectForKey:@"latitude"] doubleValue],[[[value objectAtIndex:i]objectForKey:@"longitude"] doubleValue]);
-                Annotation *place_anno = [[Annotation alloc]initWithTitle:[[value objectAtIndex:i]objectForKey:@"name"] Location:tmp image_url:url];
-                [self.myMapView addAnnotation:place_anno];
-                [anno_list addObject:place_anno];
-                NSLog(@"anno list size %lu", (unsigned long)[anno_list count]);
-            }
-        }
-    }
-    
-    // extract specific value...
-    NSArray *results = [res objectForKey:@"results"];
-    
-    for (NSDictionary *result in results) {
-        NSString *icon = [result objectForKey:@"icon"];
-        NSLog(@"icon: %@", icon);
+    NSString* error = nil;
+    NSArray* userData = [TalkToServer getLocationWithPerrorString:&error];
+    for(int i = 0; i < userData.count; i++){
+        CLLocationCoordinate2D tmp = CLLocationCoordinate2DMake([[[userData objectAtIndex:i]objectForKey:@"latitude"] doubleValue],[[[userData objectAtIndex:i]objectForKey:@"longitude"] doubleValue]);
+        Annotation *place_anno = [[Annotation alloc]initWithTitle:[[userData objectAtIndex:i]objectForKey:@"name"] Location:tmp image_url:[[userData objectAtIndex:i]objectForKey:@"avatar_small"]];
+        [self.myMapView addAnnotation:place_anno];
+        [anno_list addObject:place_anno];
+        NSLog(@"anno list size %lu", (unsigned long)[anno_list count]);
     }
 }
 
