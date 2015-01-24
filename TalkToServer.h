@@ -26,4 +26,8 @@
 //You have to check if errorString is nil. If is not nil, returned value invalid.
 
 + (BOOL) deleteLocationWithPerrorString:(NSString**)errorString;
+
++ (BOOL) sendChatWithReceiverId:(NSInteger)to msg:(NSInteger)msg PerrorString:(NSString**)errorString;
++ (NSArray*) getChatWithPerrorString:(NSString**)errorString;
++ (BOOL) readChatWithChatId:(NSInteger)chat_id PerrorString:(NSString**)errorString;
 @end
