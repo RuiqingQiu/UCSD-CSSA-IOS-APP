@@ -32,8 +32,10 @@
 }
 -(void)tapRight
 {
-    //NSLog(@"hello");
+    NSLog(@"tab right anno");
     [MapViewController right_function];
+    //MapViewController *viewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"MapViewController"];
+
 }
 
 -(MKAnnotationView*)annotationView{

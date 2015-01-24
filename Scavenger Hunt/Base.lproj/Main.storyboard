@@ -116,13 +116,22 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" image="pin-map-7.png" id="9YE-pO-i48"/>
+                    <toolbarItems>
+                        <barButtonItem title="Item" id="1A2-LM-2hT">
+                            <connections>
+                                <segue destination="1cM-Ye-UYb" kind="push" identifier="AAA" id="Zge-Be-nLM"/>
+                            </connections>
+                        </barButtonItem>
+                    </toolbarItems>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="myMapView" destination="IhT-Bu-F8c" id="3eh-WX-JRW"/>
+                        <segue destination="OaN-3n-DIR" kind="modal" identifier="profile" id="0Zb-zg-Fbg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="277" y="-612"/>
+            <point key="canvasLocation" x="333" y="-634"/>
         </scene>
         <!--Register-->
         <scene sceneID="EDF-ad-N7d">
@@ -374,7 +383,7 @@
         <!--Profile-->
         <scene sceneID="SHb-ti-y6i">
             <objects>
-                <viewController id="1cM-Ye-UYb" customClass="ProfileViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ProfileViewController" id="1cM-Ye-UYb" customClass="ProfileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="BLs-KQ-Yxi"/>
                         <viewControllerLayoutGuide type="bottom" id="MZl-0B-wK4"/>
@@ -509,6 +518,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Profile" image="crown-7.png" id="OPw-lw-CQK"/>
+                    <navigationItem key="navigationItem" id="CGO-VF-1tu"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
                         <outlet property="avatar" destination="Zk1-Ky-G8Q" id="PRf-E7-V0e"/>
@@ -566,7 +576,7 @@
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                             <connections>
-                                <segue destination="OaN-3n-DIR" kind="push" id="50c-ND-F0O"/>
+                                <segue destination="OaN-3n-DIR" kind="push" identifier="RegisterSegue" id="50c-ND-F0O"/>
                             </connections>
                         </button>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Before_you_die.png" translatesAutoresizingMaskIntoConstraints="NO" id="Yjp-En-Nra">
@@ -595,4 +605,8 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="0Zb-zg-Fbg"/>
+        <segue reference="Zge-Be-nLM"/>
+    </inferredMetricsTieBreakers>
 </document>

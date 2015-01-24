@@ -17,6 +17,7 @@
 -(void)tapRight;
 -(void)tapLeft;
 @end
+static MapViewController* map = nil;
 @implementation MapViewController
 @synthesize myMapView;
 @synthesize locationManager;
@@ -30,6 +31,7 @@ NSString *rkey;
 //Timer for update
 NSTimer *timer;
 NSMutableArray *anno_list;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -61,6 +63,7 @@ NSMutableArray *anno_list;
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
+    map = self;
     [super viewDidLoad];
     locationManager = [[CLLocationManager alloc] init];
     
@@ -234,19 +237,16 @@ NSMutableArray *anno_list;
 }
 +(void)right_function{
     NSLog(@"hello");
+    //MapViewController *viewController = [map.storyboard instantiateViewControllerWithIdentifier:@"ProfileViewController"];
+    //[map.view addSubview:viewController.view];
+    [map performSegueWithIdentifier:@"AAA" sender:map];
+
+    //MapViewController *viewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"MapViewController"];
     //ProfileViewController *profile = [[ProfileViewController alloc]init];
 }
--(void)tapLeft
++(void)tapLeft
 {
-    NSString *str=[NSArray array];
-    if ([str isKindOfClass:[NSString class]]==YES)
-    {
-        ;
-    }
-    else if([str isKindOfClass:[NSArray class]]==YES)
-    {
-        ;
-    }
+    NSLog(@"hello1111");
 }
 -(void)tapRight
 {
@@ -303,6 +303,7 @@ NSMutableArray *anno_list;
 -(void)viewDidDisappear:(BOOL)animated
 {
     self.navigationController.navigationBar.hidden = NO;
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated{
