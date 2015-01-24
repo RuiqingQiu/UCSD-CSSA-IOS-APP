@@ -63,6 +63,7 @@
 		523BBDB019EB1428006FABC8 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 523BBDAF19EB1428006FABC8 /* RegisterViewController.m */; };
 		5282C85919F4798B00301F20 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 5282C85819F4798B00301F20 /* background.png */; };
 		5297926C1A6AF3F00006FD29 /* MapProfileController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5297926B1A6AF3F00006FD29 /* MapProfileController.m */; };
+		529C56091A7435D900A652CD /* MapProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 529C56081A7435D900A652CD /* MapProfileViewController.m */; };
 		52C89BE51A338C4E00A7FC83 /* icon_save.png in Resources */ = {isa = PBXBuildFile; fileRef = 52C89BE41A338C4E00A7FC83 /* icon_save.png */; };
 		52C89BE71A3392F600A7FC83 /* smalllogout.png in Resources */ = {isa = PBXBuildFile; fileRef = 52C89BE61A3392F600A7FC83 /* smalllogout.png */; };
 		52C89BEB1A339AF900A7FC83 /* edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 52C89BE81A339AF900A7FC83 /* edit.png */; };
@@ -169,6 +170,8 @@
 		5282C85819F4798B00301F20 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		5282C85C19F49F6D00301F20 /* Poster_scavengerhuntcs2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Poster_scavengerhuntcs2.png; sourceTree = "<group>"; };
 		5297926B1A6AF3F00006FD29 /* MapProfileController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapProfileController.m; sourceTree = "<group>"; };
+		529C56071A7435D900A652CD /* MapProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapProfileViewController.h; path = "Scavenger Hunt/MapProfileViewController.h"; sourceTree = "<group>"; };
+		529C56081A7435D900A652CD /* MapProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapProfileViewController.m; path = "Scavenger Hunt/MapProfileViewController.m"; sourceTree = "<group>"; };
 		52C89BE41A338C4E00A7FC83 /* icon_save.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_save.png; sourceTree = "<group>"; };
 		52C89BE61A3392F600A7FC83 /* smalllogout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = smalllogout.png; sourceTree = "<group>"; };
 		52C89BE81A339AF900A7FC83 /* edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = edit.png; sourceTree = "<group>"; };
@@ -447,6 +450,8 @@
 				5B73DB1C1A17EE19000834A9 /* NearbyViewController.m */,
 				AA20802919F2646100AD7FFD /* MapViewController.h */,
 				AA20802A19F2646100AD7FFD /* MapViewController.m */,
+				529C56071A7435D900A652CD /* MapProfileViewController.h */,
+				529C56081A7435D900A652CD /* MapProfileViewController.m */,
 			);
 			name = Map;
 			sourceTree = "<group>";
@@ -482,7 +487,7 @@
 				ORGANIZATIONNAME = "Ruiqing Qiu";
 				TargetAttributes = {
 					476EA96D19A7FCB8004BC6B1 = {
-						DevelopmentTeam = RC47RUQEKD;
+						DevelopmentTeam = 87JW9TVDXS;
 					};
 				};
 			};
@@ -567,6 +572,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				47F1523519A944E4006FCEDD /* BadgeManager.m in Sources */,
+				529C56091A7435D900A652CD /* MapProfileViewController.m in Sources */,
 				4857913F1A1DBB3B00170816 /* TalkToServer.m in Sources */,
 				48C9AD091A1749FD00721E85 /* SettingsUpdatePeriodTableViewCell.m in Sources */,
 				470069EF19A90A2D0092604F /* SHMapViewController.m in Sources */,

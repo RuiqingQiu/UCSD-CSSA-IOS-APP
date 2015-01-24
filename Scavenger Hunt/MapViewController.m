@@ -9,7 +9,7 @@
 #import "Annotation.h"
 #import "NearbyViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
-
+#import "MapProfileViewController.h"
 
 #define IS_IOS_8_OR_LATER ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)
 
@@ -235,6 +235,14 @@ NSMutableArray *anno_list;
     //MapViewController *viewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"MapViewController"];
     //ProfileViewController *profile = [[ProfileViewController alloc]init];
 }
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    MapProfileViewController *controller = segue.destinationViewController;
+    //NSIndexPath *selectedPath = [self.tableView indexPathForSelectedRow];
+    controller.number = 1;
+}
+
 +(void)tapLeft
 {
     NSLog(@"hello1111");
@@ -247,6 +255,11 @@ NSMutableArray *anno_list;
     
     
 }
+
+
+
+
+
 -(void)mapView:(MKMapView *)mapView didAddAnnotationViews:(NSArray *)views
 {
     NSLog(@"%@",views);
