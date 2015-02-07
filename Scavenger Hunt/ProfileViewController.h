@@ -52,5 +52,7 @@
 - (IBAction)chooseDepartment:(id)sender;
 - (IBAction)didBeginEditing:(id)sender;
 - (IBAction)didEndEditing:(id)sender;
+- (IBAction)touchDown:(id)sender;
+
 @property (nonatomic, strong) NSMutableData *responseData;
 @end

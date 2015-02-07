@@ -362,51 +362,51 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="background2.png" translatesAutoresizingMaskIntoConstraints="NO" id="AnF-PB-Dlw">
-                                <rect key="frame" x="0.0" y="64" width="320" height="142"/>
+                                <rect key="frame" x="0.0" y="40" width="320" height="142"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r01-IN-QwN" userLabel="avatar">
+                                <rect key="frame" x="33" y="95" width="120" height="120"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="学院：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vsg-02-jKV">
-                                <rect key="frame" x="33" y="255" width="73" height="30"/>
+                                <rect key="frame" x="33" y="236" width="73" height="30"/>
                                 <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="18"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r01-IN-QwN" userLabel="avatar">
-                                <rect key="frame" x="33" y="114" width="120" height="120"/>
-                            </imageView>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="motton" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X4d-AC-u55" userLabel="mottoField">
-                                <rect key="frame" x="98" y="350" width="189" height="111"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X4d-AC-u55" userLabel="mottoField">
+                                <rect key="frame" x="91" y="331" width="189" height="111"/>
                                 <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="college" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wg6-rL-Lbs" userLabel="collegeField">
-                                <rect key="frame" x="91" y="249" width="189" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wg6-rL-Lbs" userLabel="collegeField">
+                                <rect key="frame" x="91" y="236" width="189" height="30"/>
                                 <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="铭言：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U05-Xf-XRw">
-                                <rect key="frame" x="33" y="350" width="73" height="22"/>
+                                <rect key="frame" x="33" y="331" width="73" height="22"/>
                                 <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="18"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="major" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i70-r9-bAw" userLabel="majorField">
-                                <rect key="frame" x="91" y="302" width="189" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="i70-r9-bAw" userLabel="majorField">
+                                <rect key="frame" x="91" y="281" width="189" height="30"/>
                                 <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="专业：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kd8-xS-9Gs">
-                                <rect key="frame" x="33" y="302" width="73" height="26"/>
+                                <rect key="frame" x="33" y="283" width="73" height="26"/>
                                 <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="18"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xb9-qB-qAC" userLabel="nameField">
-                                <rect key="frame" x="170" y="121" width="92" height="27"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xb9-qB-qAC" userLabel="nameField">
+                                <rect key="frame" x="170" y="109" width="92" height="27"/>
                                 <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
                                     <action selector="dismissNmae:" destination="1cM-Ye-UYb" eventType="editingDidEndOnExit" id="iIh-kv-UnY"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="department" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Nx-Rk-cW9" userLabel="department">
-                                <rect key="frame" x="164" y="165" width="116" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5Nx-Rk-cW9" userLabel="department">
+                                <rect key="frame" x="170" y="152" width="116" height="30"/>
                                 <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             </textField>
@@ -505,6 +505,7 @@
                                     <action selector="didBeginEditing:" destination="1cM-Ye-UYb" eventType="editingDidBegin" id="YSU-NT-z4C"/>
                                     <action selector="didEndEditing:" destination="1cM-Ye-UYb" eventType="editingDidEnd" id="ZnV-gw-Amv"/>
                                     <action selector="dismissMajor:" destination="1cM-Ye-UYb" eventType="editingDidEndOnExit" id="gHd-Tc-PpZ"/>
+                                    <action selector="touchDown:" destination="1cM-Ye-UYb" eventType="touchDown" id="6Zv-IT-QCi"/>
                                 </connections>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="学院：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v4V-KE-FnR">
@@ -525,6 +526,7 @@
                                     <action selector="didBeginEditing:" destination="1cM-Ye-UYb" eventType="editingDidBegin" id="hJ6-bi-8Qp"/>
                                     <action selector="didEndEditing:" destination="1cM-Ye-UYb" eventType="editingDidEnd" id="FkD-Kc-SXg"/>
                                     <action selector="dismissMotto:" destination="1cM-Ye-UYb" eventType="editingDidEndOnExit" id="iUD-GM-FVc"/>
+                                    <action selector="touchDown:" destination="1cM-Ye-UYb" eventType="touchDown" id="KLI-h6-3Pe"/>
                                 </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DeZ-Js-Tqi" userLabel="nameField">
@@ -533,6 +535,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
                                     <action selector="dismissNmae:" destination="1cM-Ye-UYb" eventType="editingDidEndOnExit" id="V9R-ht-bMN"/>
+                                    <action selector="touchDown:" destination="1cM-Ye-UYb" eventType="touchDown" id="Kha-XU-dyB"/>
                                 </connections>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zk1-Ky-G8Q">
