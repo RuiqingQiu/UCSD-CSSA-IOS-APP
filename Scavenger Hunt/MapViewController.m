@@ -97,7 +97,7 @@ NSMutableArray *anno_list;
     
     UIButton *nearby = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     nearby.frame = CGRectMake(self.view.frame.size.width/10, 475, 50, 50);
-    UIImage *btnImage2 = [UIImage imageNamed:@"nearby.png"];
+    UIImage *btnImage2 = [UIImage imageNamed:@"nearby1.png"];
     nearby.tintColor = [UIColor blackColor];
     [nearby setImage:btnImage2 forState:UIControlStateNormal];
     [nearby addTarget:self action:@selector(showNearbyList:) forControlEvents:UIControlEventTouchUpInside];

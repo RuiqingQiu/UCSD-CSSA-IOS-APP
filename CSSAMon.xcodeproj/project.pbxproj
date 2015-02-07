@@ -87,6 +87,7 @@
 		AA6EA25119F4929300208893 /* crown-7.png in Resources */ = {isa = PBXBuildFile; fileRef = AA6EA25019F4929300208893 /* crown-7.png */; };
 		AA6EA25319F493A300208893 /* pin-map-7.png in Resources */ = {isa = PBXBuildFile; fileRef = AA6EA25219F493A300208893 /* pin-map-7.png */; };
 		AA6EA25519F4948800208893 /* origami-7.png in Resources */ = {isa = PBXBuildFile; fileRef = AA6EA25419F4948800208893 /* origami-7.png */; };
+		AA7CDEB71A7D67EF0004866C /* nearby1.png in Resources */ = {isa = PBXBuildFile; fileRef = AA7CDEB61A7D67EF0004866C /* nearby1.png */; };
 		AAA4F2661A74291C005E5AA6 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA4F2651A74291C005E5AA6 /* FacebookSDK.framework */; };
 		AAA4F2681A74344A005E5AA6 /* refresh0.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA4F2671A74344A005E5AA6 /* refresh0.png */; };
 		AAA4F26C1A743700005E5AA6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA4F26A1A743700005E5AA6 /* Parse.framework */; };
@@ -211,6 +212,7 @@
 		AA6EA25019F4929300208893 /* crown-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crown-7.png"; sourceTree = "<group>"; };
 		AA6EA25219F493A300208893 /* pin-map-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin-map-7.png"; sourceTree = "<group>"; };
 		AA6EA25419F4948800208893 /* origami-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "origami-7.png"; sourceTree = "<group>"; };
+		AA7CDEB61A7D67EF0004866C /* nearby1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nearby1.png; sourceTree = "<group>"; };
 		AAA4F2651A74291C005E5AA6 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		AAA4F2671A74344A005E5AA6 /* refresh0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh0.png; sourceTree = "<group>"; };
 		AAA4F26A1A743700005E5AA6 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 		47F1523619A9512D006FCEDD /* src */ = {
 			isa = PBXGroup;
 			children = (
+				AA7CDEB61A7D67EF0004866C /* nearby1.png */,
 				AAA4F2671A74344A005E5AA6 /* refresh0.png */,
 				AAF154BD1A6AEB9C00BAB052 /* nearby.png */,
 				AAF154B91A6AE98800BAB052 /* settings.png */,
@@ -523,7 +526,7 @@
 				ORGANIZATIONNAME = "Ruiqing Qiu";
 				TargetAttributes = {
 					476EA96D19A7FCB8004BC6B1 = {
-						DevelopmentTeam = 87JW9TVDXS;
+						DevelopmentTeam = RC47RUQEKD;
 					};
 				};
 			};
@@ -588,6 +591,7 @@
 				52C89BE51A338C4E00A7FC83 /* icon_save.png in Resources */,
 				5207226C1A1867BC004BC133 /* edit_big.png in Resources */,
 				47F1523F19A95145006FCEDD /* Xueba_help_me_AS_Notes.png in Resources */,
+				AA7CDEB71A7D67EF0004866C /* nearby1.png in Resources */,
 				AA6EA25519F4948800208893 /* origami-7.png in Resources */,
 				52C89BEB1A339AF900A7FC83 /* edit.png in Resources */,
 				476EA98519A7FCB8004BC6B1 /* Main.storyboard in Resources */,
