@@ -187,12 +187,12 @@
     }
     if (department != nil && ![[parsedDict objectForKey:@"department"] isEqual:[NSNull null]])
         *department = [[parsedDict valueForKey:@"department"] intValue];
-    else
+    else if (department != nil)
         *department = 0;
     if (position != nil) *position = [parsedDict objectForKey:@"position"];
     if (college != nil && ![[parsedDict objectForKey:@"college"] isEqual:[NSNull null]])
         *college = [[parsedDict valueForKey:@"college"] intValue];
-    else
+    else if (college != nil)
         *college = 0;
     if (major != nil) *major = [parsedDict objectForKey:@"major"];
     if (motto != nil) *motto = [parsedDict objectForKey:@"motto"];
@@ -346,16 +346,16 @@
     }
     if (isOfficer != nil && ![[parsedDict objectForKey:@"isOfficer"] isEqual:[NSNull null]])
         *isOfficer = [[parsedDict valueForKey:@"isOfficer"] boolValue];
-    else
+    else if (isOfficer != nil)
         *isOfficer = NO;
     if (department != nil && ![[parsedDict objectForKey:@"department"] isEqual:[NSNull null]])
         *department = [[parsedDict valueForKey:@"department"] intValue];
-    else
+    else if (department != nil)
         *department = 0;
     if (position != nil) *position = [parsedDict objectForKey:@"position"];
     if (college != nil && ![[parsedDict objectForKey:@"college"] isEqual:[NSNull null]])
         *college = [[parsedDict valueForKey:@"college"] intValue];
-    else
+    else if (college != nil)
         *college = 0;
     if (major != nil) *major = [parsedDict objectForKey:@"major"];
     if (motto != nil) *motto = [parsedDict objectForKey:@"motto"];
