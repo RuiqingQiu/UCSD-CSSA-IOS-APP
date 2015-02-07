@@ -187,12 +187,12 @@
     }
     if (department != nil && ![[parsedDict objectForKey:@"department"] isEqual:[NSNull null]])
         *department = [[parsedDict valueForKey:@"department"] intValue];
-    else
+    else if (department != nil)
         *department = 0;
     if (position != nil) *position = [parsedDict objectForKey:@"position"];
     if (college != nil && ![[parsedDict objectForKey:@"college"] isEqual:[NSNull null]])
         *college = [[parsedDict valueForKey:@"college"] intValue];
-    else
+    else if (college != nil)
         *college = 0;
     if (major != nil) *major = [parsedDict objectForKey:@"major"];
     if (motto != nil) *motto = [parsedDict objectForKey:@"motto"];
@@ -347,16 +347,16 @@
     }
     if (isOfficer != nil && ![[parsedDict objectForKey:@"isOfficer"] isEqual:[NSNull null]])
         *isOfficer = [[parsedDict valueForKey:@"isOfficer"] boolValue];
-    else
+    else if (isOfficer != nil)
         *isOfficer = NO;
     if (department != nil && ![[parsedDict objectForKey:@"department"] isEqual:[NSNull null]])
         *department = [[parsedDict valueForKey:@"department"] intValue];
-    else
+    else if (department != nil)
         *department = 0;
     if (position != nil) *position = [parsedDict objectForKey:@"position"];
     if (college != nil && ![[parsedDict objectForKey:@"college"] isEqual:[NSNull null]])
         *college = [[parsedDict valueForKey:@"college"] intValue];
-    else
+    else if (college != nil)
         *college = 0;
     if (major != nil) *major = [parsedDict objectForKey:@"major"];
     NSLog(@"hello %@",[parsedDict objectForKey:@"name"]);
@@ -547,5 +547,136 @@
     }
     return NO;
 }
+
++ (BOOL) sendChatWithReceiverId:(NSInteger)to msg:(NSInteger)msg PerrorString:(NSString**)errorString
+{
+    if (errorString != nil)
+        *errorString = nil;
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://b.ucsdcssa.org/sendChat.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];
+    [request setHTTPMethod:@"POST"];
+    NSString* getRkeyError = nil;
+    NSString* rkey = [self getRkeyWithPerrorString:&getRkeyError];
+    if (getRkeyError != nil)
+    {
+        if (errorString != nil)
+            *errorString = getRkeyError;
+        return YES;
+    }
+    NSString* post = [NSString stringWithFormat:@"rkey=%@&to=%ld&msg=%ld",rkey,(long)to,(long)msg];
+    [request setHTTPBody:[post dataUsingEncoding:NSUTF8StringEncoding]];
+    NSError* error = nil;
+    NSURLResponse* response = nil;
+    NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    if (error != nil)
+    {
+        if (errorString != nil)
+            *errorString = @"Failed to connect to server";
+        return YES;
+    }
+    NSDictionary* parsedDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    if ([[parsedDict objectForKey:@"return"] isEqual:[NSNull null]])
+    {
+        if (errorString != nil)
+            *errorString = @"Failed to connect to server";
+        return YES;
+    }
+    if ([[parsedDict valueForKey:@"return"] intValue] != 0)
+    {
+        if (errorString != nil)
+            *errorString = [parsedDict objectForKey:@"err"];
+        return YES;
+    }
+    return NO;
+}
+
++ (NSArray*) getChatWithPerrorString:(NSString**)errorString
+{
+    if (errorString != nil)
+        *errorString = nil;
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://b.ucsdcssa.org/getChat.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];
+    [request setHTTPMethod:@"POST"];
+    NSString* getRkeyError = nil;
+    NSString* rkey = [self getRkeyWithPerrorString:&getRkeyError];
+    if (getRkeyError != nil)
+    {
+        if (errorString != nil)
+            *errorString = getRkeyError;
+        return nil;
+    }
+    NSString* post = [NSString stringWithFormat:@"rkey=%@",rkey];
+    [request setHTTPBody:[post dataUsingEncoding:NSUTF8StringEncoding]];
+    NSError* error = nil;
+    NSURLResponse* response = nil;
+    NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    if (error != nil)
+    {
+        if (errorString != nil)
+            *errorString = @"Failed to connect to server";
+        return nil;
+    }
+    NSDictionary* parsedDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    if ([[parsedDict objectForKey:@"return"] isEqual:[NSNull null]])
+    {
+        if (errorString != nil)
+            *errorString = @"Failed to connect to server";
+        return nil;
+    }
+    if ([[parsedDict valueForKey:@"return"] intValue] != 0)
+    {
+        if (errorString != nil)
+            *errorString = [parsedDict objectForKey:@"err"];
+        return nil;
+    }
+    if ([[parsedDict objectForKey:@"result"] isEqual:[NSNull null]])
+    {
+        if (errorString != nil)
+            *errorString = @"Failed to connect to server";
+        return nil;
+    }
+    NSArray* tmpArray = [parsedDict objectForKey:@"result"];
+    return tmpArray;
+}
+
++ (BOOL) readChatWithChatId:(NSInteger)chat_id PerrorString:(NSString**)errorString
+{
+    if (errorString != nil)
+        *errorString = nil;
+    NSMutableURLRequest* request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:@"http://b.ucsdcssa.org/readChat.php"] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];
+    [request setHTTPMethod:@"POST"];
+    NSString* getRkeyError = nil;
+    NSString* rkey = [self getRkeyWithPerrorString:&getRkeyError];
+    if (getRkeyError != nil)
+    {
+        if (errorString != nil)
+            *errorString = getRkeyError;
+        return YES;
+    }
+    NSString* post = [NSString stringWithFormat:@"rkey=%@&chat_id=%ld",rkey,(long)chat_id];
+    [request setHTTPBody:[post dataUsingEncoding:NSUTF8StringEncoding]];
+    NSError* error = nil;
+    NSURLResponse* response = nil;
+    NSData* data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
+    if (error != nil)
+    {
+        if (errorString != nil)
+            *errorString = @"Failed to connect to server";
+        return YES;
+    }
+    NSDictionary* parsedDict = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+    if ([[parsedDict objectForKey:@"return"] isEqual:[NSNull null]])
+    {
+        if (errorString != nil)
+            *errorString = @"Failed to connect to server";
+        return YES;
+    }
+    if ([[parsedDict valueForKey:@"return"] intValue] != 0)
+    {
+        if (errorString != nil)
+            *errorString = [parsedDict objectForKey:@"err"];
+        return YES;
+    }
+    return NO;
+}
+
 
 @end
