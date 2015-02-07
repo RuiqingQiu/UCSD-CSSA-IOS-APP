@@ -7,6 +7,7 @@
 //
 
 #import "MapProfileViewController.h"
+
 #import "TalkToServer.h"
 
 @interface MapProfileViewController ()
@@ -16,46 +17,54 @@
 @implementation MapProfileViewController
 
 NSArray* departmentArray;
-//NSInteger id = self.number;
-//NSString* peopleName;
-UIImage* avatar_large;
+NSArray* collegeArray;
+NSString* departmentName;
+NSString* collegeName;
+/*UIImage* avatar_large;
 BOOL* isOfficer;
 NSInteger* department;
+NSString* departmentName;
 NSString* name;
 NSString* position;
 NSInteger* college;
+NSInteger* collegeName;
 NSString* g_major;
 NSString* motto;
-
+*/
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSLog(@"@%ld",(long)self.number);
-    
+    //NSLog(@"@%ld",(long)self.number);
+    collegeArray = [[NSArray alloc]initWithObjects:@"ERC", @"Marshall", @"Muir", @"Revelle", @"Warren", @"Sixth",nil];
     departmentArray = [[NSArray alloc]initWithObjects:@"非officer", @"PM", @"学术部", @"宣传部", @"文体部", @"技术部",@"外联部", @"Advisor&前辈", @"其他officer",nil];
     
     UIImage* avatar_large;
-    BOOL* isOfficer;
-    NSInteger* department;
+    BOOL isOfficer;
+    BOOL b;
+    NSInteger department;
     NSString* name;
     NSString* position;
-    NSInteger* college;
+    NSInteger college;
     NSString* major;
     NSString* motto;
-//getProfileWithId:(NSInteger)id_
-//Pname:(NSString**)name Pavatar_large:(UIImage**)avatar_large PisOfficer:(BOOL*)isOfficer Pdepartment:(NSInteger*)department Pposition:(NSString**)position Pcollege:(NSInteger*)college Pmajor:(NSString**)major Pmotto:(NSString**)motto PerrorString:(NSString**)errorString
     
-    [TalkToServer getProfileWithId:self.number Pname:nil Pavatar_large:&avatar_large PisOfficer:nil Pdepartment:department Pposition:&position Pcollege:college Pmajor:&major Pmotto:&motto PerrorString:nil];
-    g_major = major;
-    NSLog(@"%@",g_major);
+    b = [TalkToServer getProfileWithId:self.number  Pname:&name Pavatar_large:&avatar_large PisOfficer:nil Pdepartment:&department Pposition:&position Pcollege:&college Pmajor:&major Pmotto:&motto PerrorString:nil];
+    //g_major = college;
+    NSLog(@"%d!!!!",department);
     
-     
     
-    /*[TalkToServer updateProfileWithName:name department:*department position:position college:*college major: major major:major motto:motto PerrorString:nil];*/
+    departmentName = [departmentArray objectAtIndex:department];
+    collegeName = [collegeArray objectAtIndex:college-1];
+    [_nameField setText:name];
+    [_departmentField setText:departmentName];
+    [_collegeField setText:collegeName];
+    [_majorField setText:major];
+    [_mottoField setText:motto];
+    [_avatar setImage:avatar_large];
     
-    //[TalkToServer updateProfileWithName:name department:*department position:nil college:*college major:major motto:motto PerrorString:nil];
-    // Do any additional setup after loading the view.
-}
+    
+    
+   }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

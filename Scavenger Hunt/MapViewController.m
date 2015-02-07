@@ -258,6 +258,7 @@ NSInteger profileId;
     MapProfileViewController *controller = segue.destinationViewController;
     //NSIndexPath *selectedPath = [self.tableView indexPathForSelectedRow];
     controller.number = profileId;
+    //NSLog(@"%d###",controller.number);
 }
 
 +(void)tapLeft

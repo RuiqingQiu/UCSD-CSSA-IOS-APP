@@ -369,7 +369,7 @@
                                 <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="18"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r01-IN-QwN">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="r01-IN-QwN" userLabel="avatar">
                                 <rect key="frame" x="33" y="114" width="120" height="120"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="top" text="motton" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="X4d-AC-u55" userLabel="mottoField">
@@ -397,7 +397,7 @@
                                 <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="18"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xb9-qB-qAC" userLabel="nameField">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xb9-qB-qAC" userLabel="nameField">
                                 <rect key="frame" x="170" y="121" width="92" height="27"/>
                                 <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -414,6 +414,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="XRj-QU-doM"/>
+                    <connections>
+                        <outlet property="avatar" destination="r01-IN-QwN" id="D7x-RA-E1K"/>
+                        <outlet property="collegeField" destination="wg6-rL-Lbs" id="zuF-by-LN8"/>
+                        <outlet property="departmentField" destination="5Nx-Rk-cW9" id="R7f-as-zfm"/>
+                        <outlet property="majorField" destination="i70-r9-bAw" id="Kwi-WK-mnP"/>
+                        <outlet property="mottoField" destination="X4d-AC-u55" id="Azg-9Z-6OL"/>
+                        <outlet property="nameField" destination="xb9-qB-qAC" id="3el-JY-JyE"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h71-Nq-Ywt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

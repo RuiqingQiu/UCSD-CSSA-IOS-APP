@@ -21,6 +21,7 @@
         coordinate = location;
         image_url = url;
         user_id = m_user_id;
+        NSLog(@"%@userid",m_user_id);
     }
     
     return self;
@@ -37,7 +38,9 @@
 -(void)tapRight
 {
     NSLog(@"tab right anno");
-    [MapViewController right_function:user_id];
+    NSInteger a = [user_id integerValue];
+    [MapViewController right_function:a];
+    NSLog(@"%@###",user_id);
     //MapViewController *viewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"MapViewController"];
 
 }
