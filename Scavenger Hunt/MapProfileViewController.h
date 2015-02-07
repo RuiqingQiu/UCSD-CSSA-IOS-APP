@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface MapProfileViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UITextField *departmentField;
 
 @property (nonatomic) NSInteger number;
 @end

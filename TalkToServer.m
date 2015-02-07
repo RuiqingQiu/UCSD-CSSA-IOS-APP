@@ -299,7 +299,8 @@
     return NO;
 }
 
-+ (BOOL) getProfileWithId:(NSInteger)id_ Pname:(NSString**)name Pavatar_large:(UIImage**)avatar_large PisOfficer:(BOOL*)isOfficer Pdepartment:(NSInteger*)department Pposition:(NSString**)position Pcollege:(NSInteger*)college Pmajor:(NSString**)major Pmotto:(NSString**)motto PerrorString:(NSString**)errorString
++ (BOOL) getProfileWithId:(NSInteger)id_
+                    Pname:(NSString**)name Pavatar_large:(UIImage**)avatar_large PisOfficer:(BOOL*)isOfficer Pdepartment:(NSInteger*)department Pposition:(NSString**)position Pcollege:(NSInteger*)college Pmajor:(NSString**)major Pmotto:(NSString**)motto PerrorString:(NSString**)errorString
 //using id_ because id is a reserved word
 {
     if (errorString != nil)
@@ -358,6 +359,7 @@
     else
         *college = 0;
     if (major != nil) *major = [parsedDict objectForKey:@"major"];
+    NSLog(@"hello %@",[parsedDict objectForKey:@"name"]);
     if (motto != nil) *motto = [parsedDict objectForKey:@"motto"];
     return NO;
 }

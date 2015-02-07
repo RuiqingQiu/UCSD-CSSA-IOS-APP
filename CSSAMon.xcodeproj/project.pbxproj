@@ -480,8 +480,8 @@
 		AA4232391A211687000AF7AA /* Map */ = {
 			isa = PBXGroup;
 			children = (
-				AA20802E19F2653100AD7FFD /* Annotation.m */,
 				AA20803019F2654600AD7FFD /* Annotation.h */,
+				AA20802E19F2653100AD7FFD /* Annotation.m */,
 				5B73DB1B1A17EE18000834A9 /* NearbyViewController.h */,
 				5B73DB1C1A17EE19000834A9 /* NearbyViewController.m */,
 				AA20802919F2646100AD7FFD /* MapViewController.h */,

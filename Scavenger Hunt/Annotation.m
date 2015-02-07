@@ -37,7 +37,7 @@
 -(void)tapRight
 {
     NSLog(@"tab right anno");
-    [MapViewController right_function];
+    [MapViewController right_function:user_id];
     //MapViewController *viewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"MapViewController"];
 
 }
