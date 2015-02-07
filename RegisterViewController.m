@@ -316,7 +316,8 @@
     [self.view addGestureRecognizer:tapGestureRecognizer];
     
     //Facebook login, tested and it works.
-    FBLoginView *loginView = [[FBLoginView alloc] init];
+    FBLoginView *loginView = [[FBLoginView alloc] initWithReadPermissions:@[@"public_profile"]];
+    loginView.delegate = self;
     [self.view addSubview:loginView];
     loginView.frame = CGRectOffset(loginView.frame, (self.view.center.x - (loginView.frame.size.width / 2)),  self.view.center.y + (loginView.frame.size.height*4));
     [self.view addSubview:loginView];
@@ -448,6 +449,16 @@
         collegeShow = false;
         [self hideAndShow];
     }
+}
+
+
+- (void)loginViewFetchedUserInfo:(FBLoginView *)loginView
+                            user:(id<FBGraphUser>)user {
+    FBProfilePictureView * profilePictureView;
+    profilePictureView.profileID = user.id;
+    [self.view addSubview:profilePictureView];
+    [nameField setText:user.name];
+    
 }
 
 
