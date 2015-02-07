@@ -187,12 +187,12 @@
     }
     if (department != nil && ![[parsedDict objectForKey:@"department"] isEqual:[NSNull null]])
         *department = [[parsedDict valueForKey:@"department"] intValue];
-    else
+    else if (department != nil)
         *department = 0;
     if (position != nil) *position = [parsedDict objectForKey:@"position"];
     if (college != nil && ![[parsedDict objectForKey:@"college"] isEqual:[NSNull null]])
         *college = [[parsedDict valueForKey:@"college"] intValue];
-    else
+    else if (college != nil)
         *college = 0;
     if (major != nil) *major = [parsedDict objectForKey:@"major"];
     if (motto != nil) *motto = [parsedDict objectForKey:@"motto"];
@@ -299,7 +299,8 @@
     return NO;
 }
 
-+ (BOOL) getProfileWithId:(NSInteger)id_ Pname:(NSString**)name Pavatar_large:(UIImage**)avatar_large PisOfficer:(BOOL*)isOfficer Pdepartment:(NSInteger*)department Pposition:(NSString**)position Pcollege:(NSInteger*)college Pmajor:(NSString**)major Pmotto:(NSString**)motto PerrorString:(NSString**)errorString
++ (BOOL) getProfileWithId:(NSInteger)id_
+                    Pname:(NSString**)name Pavatar_large:(UIImage**)avatar_large PisOfficer:(BOOL*)isOfficer Pdepartment:(NSInteger*)department Pposition:(NSString**)position Pcollege:(NSInteger*)college Pmajor:(NSString**)major Pmotto:(NSString**)motto PerrorString:(NSString**)errorString
 //using id_ because id is a reserved word
 {
     if (errorString != nil)
@@ -346,18 +347,19 @@
     }
     if (isOfficer != nil && ![[parsedDict objectForKey:@"isOfficer"] isEqual:[NSNull null]])
         *isOfficer = [[parsedDict valueForKey:@"isOfficer"] boolValue];
-    else
+    else if (isOfficer != nil)
         *isOfficer = NO;
     if (department != nil && ![[parsedDict objectForKey:@"department"] isEqual:[NSNull null]])
         *department = [[parsedDict valueForKey:@"department"] intValue];
-    else
+    else if (department != nil)
         *department = 0;
     if (position != nil) *position = [parsedDict objectForKey:@"position"];
     if (college != nil && ![[parsedDict objectForKey:@"college"] isEqual:[NSNull null]])
         *college = [[parsedDict valueForKey:@"college"] intValue];
-    else
+    else if (college != nil)
         *college = 0;
     if (major != nil) *major = [parsedDict objectForKey:@"major"];
+    NSLog(@"hello %@",[parsedDict objectForKey:@"name"]);
     if (motto != nil) *motto = [parsedDict objectForKey:@"motto"];
     return NO;
 }

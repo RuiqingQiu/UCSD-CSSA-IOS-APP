@@ -10,5 +10,12 @@
 
 @interface MapProfileViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIImageView *avatar;
+@property (strong, nonatomic) IBOutlet UITextField *nameField;
+@property (strong, nonatomic) IBOutlet UITextField *departmentField;
+@property (strong, nonatomic) IBOutlet UITextField *collegeField;
+@property (strong, nonatomic) IBOutlet UITextField *majorField;
+@property (strong, nonatomic) IBOutlet UITextField *mottoField;
+
 @property (nonatomic) NSInteger number;
 @end

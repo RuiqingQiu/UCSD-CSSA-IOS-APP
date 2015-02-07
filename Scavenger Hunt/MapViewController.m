@@ -8,6 +8,7 @@
 #import "MapViewController.h"
 #import "Annotation.h"
 #import "NearbyViewController.h"
+#import "TalkToServer.h"
 #import <FacebookSDK/FacebookSDK.h>
 #import <Parse/Parse.h>
 #import "MapProfileViewController.h"
@@ -32,7 +33,7 @@ static BOOL updateLocation = TRUE;
 //Timer for update
 NSTimer *timer;
 NSMutableArray *anno_list;
-
+NSInteger profileId;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -240,8 +241,10 @@ NSMutableArray *anno_list;
     return pinView;
     
 }
-+(void)right_function{
++(void)right_function:(NSInteger) id
+{
     NSLog(@"hello");
+    profileId = id;
     //MapViewController *viewController = [map.storyboard instantiateViewControllerWithIdentifier:@"ProfileViewController"];
     //[map.view addSubview:viewController.view];
     [map performSegueWithIdentifier:@"MapProfileSegue" sender:map];
@@ -254,7 +257,8 @@ NSMutableArray *anno_list;
 {
     MapProfileViewController *controller = segue.destinationViewController;
     //NSIndexPath *selectedPath = [self.tableView indexPathForSelectedRow];
-    controller.number = 1;
+    controller.number = profileId;
+    //NSLog(@"%d###",controller.number);
 }
 
 +(void)tapLeft
