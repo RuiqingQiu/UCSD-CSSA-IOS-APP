@@ -81,7 +81,7 @@ UITableView *tableView;
     //Send information
     if (indexPath.section == 0)
     {
-        switch(indexPath.row){
+        switch(indexPath.row+1){
             case 0:
                 [TalkToServer sendChatWithReceiverId:person_to msg:0 PerrorString:nil];
                 break;
@@ -94,8 +94,11 @@ UITableView *tableView;
             case 3:
                 [TalkToServer sendChatWithReceiverId:person_to msg:3 PerrorString:nil];
                 break;
-            default:
+            case 4:
                 [TalkToServer sendChatWithReceiverId:person_to msg:4 PerrorString:nil];
+                break;
+            default:
+                [TalkToServer sendChatWithReceiverId:person_to msg:5 PerrorString:nil];
                 break;
         }
 
