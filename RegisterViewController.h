@@ -43,6 +43,8 @@
 
 -(IBAction)btnPressed:(id)sender;
 -(IBAction)doneButton:(id)sender;
+- (IBAction)beginEditing:(id)sender;
+- (IBAction)endEditing:(id)sender;
 
 @end
 

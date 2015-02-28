@@ -27,7 +27,13 @@ bool editOrNot = YES;
 {
     [super viewDidLoad];
     
-    
+    nameField.enabled = NO;
+    majorField.enabled = NO;
+    mottoField.enabled = NO;
+    departmentButton.enabled = NO;
+    collegeButton.enabled = NO;
+    editOrNot = YES;
+    [editButton setImage:[UIImage imageNamed:@"edit.png"] forState:UIControlStateNormal];
     // Initialize Data
     dataArray = [[NSArray alloc]initWithObjects:@"ERC", @"Marshall", @"Muir", @"Revelle", @"Warren", @"Sixth",nil];
     
@@ -78,7 +84,16 @@ bool editOrNot = YES;
     if ([[NSUserDefaults standardUserDefaults] objectForKey:@"rkey"] == nil)
         self.view = loginView;      //show loginview
     else
+    {
         self.view = profileView;
+    nameField.enabled = NO;
+    majorField.enabled = NO;
+    mottoField.enabled = NO;
+    departmentButton.enabled = NO;
+    collegeButton.enabled = NO;
+    editOrNot = YES;
+    [editButton setImage:[UIImage imageNamed:@"edit.png"] forState:UIControlStateNormal];
+    }
     
     NSString* rkey = [[NSUserDefaults standardUserDefaults] stringForKey:@"rkey"];
     NSLog(@"rkey %@", rkey);
@@ -470,6 +485,15 @@ bool editOrNot = YES;
 - (IBAction)didEndEditing:(id)sender {
     [self animateTextField: self up: NO];
 }
+
+- (IBAction)touchDown:(id)sender {
+    [collegePicker setHidden:YES];
+    [departmentPicker setHidden:YES];
+    [bar setHidden:YES];
+}
+
+
+
 - (void) animateTextField: (UITextField*) textField up: (BOOL) up
 {
     const int movementDistance = 80; // tweak as needed

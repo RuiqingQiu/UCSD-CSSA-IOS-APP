@@ -16,6 +16,7 @@
 
 @implementation RegisterViewController
 @synthesize responseData = _responseData;
+FBLoginView *loginView;
 
 - (IBAction)save:(id)sender;
 {
@@ -178,9 +179,7 @@
     [request setHTTPBody:[str dataUsingEncoding:NSUTF8StringEncoding]];
     //NSData *receive;
     NSURLConnection *connection = [[NSURLConnection alloc]initWithRequest:request delegate:self];
-    //if (connection) {
-    //    receive = [[NSMutableData data] retain];
-    //}
+
    
 
 }
@@ -316,9 +315,9 @@
     [self.view addGestureRecognizer:tapGestureRecognizer];
     
     //Facebook login, tested and it works.
-    FBLoginView *loginView = [[FBLoginView alloc] init];
+    loginView = [[FBLoginView alloc] init];
     [self.view addSubview:loginView];
-    loginView.frame = CGRectOffset(loginView.frame, (self.view.center.x - (loginView.frame.size.width / 2)),  self.view.center.y + (loginView.frame.size.height*4));
+    loginView.frame = CGRectOffset(loginView.frame, (self.view.center.x - (loginView.frame.size.width / 2)),  self.view.center.y + (loginView.frame.size.height*3.5));
     [self.view addSubview:loginView];
 }
 
@@ -405,6 +404,7 @@
     {
         [picker setHidden:NO];
         [departmentPicker setHidden:YES];
+        loginView.hidden = YES;
         //[bar setHidden:NO];
         
     }
@@ -413,9 +413,18 @@
     {
         [departmentPicker setHidden:NO];
         [picker setHidden:YES];
+        loginView.hidden = YES;
         //[bar setHidden:NO];
         
     }
+    
+    if(departmentShow == false && collegeShow == false)
+    {
+        loginView.hidden = FALSE;
+        //[bar setHidden:NO];
+        
+    }
+
        
 }
 
@@ -437,7 +446,17 @@
     [bar setHidden:YES];
     collegeShow = false;
     departmentShow = false;
+    loginView.hidden = FALSE;
     
+    
+}
+
+- (IBAction)beginEditing:(id)sender {
+    [self animateTextField: self up: YES];
+}
+
+- (IBAction)endEditing:(id)sender {
+    [self animateTextField: self up: NO];
 }
 
 
@@ -448,6 +467,20 @@
         collegeShow = false;
         [self hideAndShow];
     }
+}
+
+- (void) animateTextField: (UITextField*) textField up: (BOOL) up
+{
+    const int movementDistance = 80; // tweak as needed
+    const float movementDuration = 0.3f; // tweak as needed
+    
+    int movement = (up ? -movementDistance : movementDistance);
+    
+    [UIView beginAnimations: @"anim" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
 }
 
 

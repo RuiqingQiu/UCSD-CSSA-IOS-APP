@@ -16,8 +16,6 @@
     IBOutlet UITextField *collegeField;
     IBOutlet UITextField *majorField;
 
-    IBOutlet UITextField *mottoField;
-
 
     IBOutlet UIPickerView *collegePicker;
     IBOutlet UIPickerView *departmentPicker;
@@ -32,6 +30,8 @@
     IBOutlet UIView *loginView;
     IBOutlet UIView *profileView;
     IBOutlet UINavigationBar *bar;
+
+    IBOutlet UITextField *mottoField;
     bool departmentShow;
     bool collegeShow;
 }
@@ -52,5 +52,7 @@
 - (IBAction)chooseDepartment:(id)sender;
 - (IBAction)didBeginEditing:(id)sender;
 - (IBAction)didEndEditing:(id)sender;
+- (IBAction)touchDown:(id)sender;
+
 @property (nonatomic, strong) NSMutableData *responseData;
 @end
