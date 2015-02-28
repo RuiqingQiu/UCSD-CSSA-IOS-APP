@@ -19,7 +19,7 @@ NSArray* chat_list;
 UITableView *tableView;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    chat_list = [[NSArray alloc] initWithObjects:@"= =!", @"约吗", @"你好", @"再见", nil];
+    chat_list = [[NSArray alloc] initWithObjects:@"= =!", @"约吗", @"你好", @"再见", @"傻吊", @"蠢驴", @"别BB", nil];
 
     // Do any additional setup after loading the view.
 }
@@ -97,8 +97,14 @@ UITableView *tableView;
             case 4:
                 [TalkToServer sendChatWithReceiverId:person_to msg:4 PerrorString:nil];
                 break;
-            default:
+            case 5:
                 [TalkToServer sendChatWithReceiverId:person_to msg:5 PerrorString:nil];
+                break;
+            case 6:
+                [TalkToServer sendChatWithReceiverId:person_to msg:6 PerrorString:nil];
+                break;
+            default:
+                [TalkToServer sendChatWithReceiverId:person_to msg:7 PerrorString:nil];
                 break;
         }
 
@@ -125,6 +131,15 @@ UITableView *tableView;
 
             case 3:
                 cell.textLabel.text = [chat_list objectAtIndex:3];
+                break;
+            case 4:
+                cell.textLabel.text = [chat_list objectAtIndex:4];
+                break;
+            case 5:
+                cell.textLabel.text = [chat_list objectAtIndex:5];
+                break;
+            case 6:
+                cell.textLabel.text = [chat_list objectAtIndex:6];
                 break;
             default:
                 cell.textLabel.text = @"hello";

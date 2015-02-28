@@ -14,7 +14,7 @@ NSArray* chat_history;
 @implementation ChatHistoryTableViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
-    chat_list = [[NSArray alloc] initWithObjects:@"0", @"= =!", @"约吗", @"你好", @"再见", @"5", @"6", @"7", @"8", @"9", nil];
+    chat_list = [[NSArray alloc] initWithObjects:@"0", @"= =!", @"约吗", @"你好", @"再见", @"傻吊", @"蠢驴", @"7", @"8", @"9", nil];
     //Msg range 1 to 8
     chat_history = [TalkToServer getChatWithPerrorString:nil];
     
@@ -34,6 +34,15 @@ NSArray* chat_history;
     return [chat_history count]+1;
 }
 
+-(UIImage *) getImageFromURL:(NSString *)fileURL {
+    UIImage * result;
+    
+    NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:fileURL]];
+    result = [UIImage imageWithData:data];
+    
+    return result;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
@@ -50,6 +59,7 @@ NSArray* chat_history;
         NSString *str2 = @"】对你说：";
         NSString *str = [NSString stringWithFormat: @"%@%@%@%@", str1, [[chat_history objectAtIndex:indexPath.row-1] objectForKey:@"from_name"], str2, [chat_list objectAtIndex: [[[chat_history objectAtIndex:indexPath.row-1] objectForKey:@"msg"] intValue]]];
         //[] 对【】说：
+        cell.imageView.image = [self getImageFromURL:[[chat_history objectAtIndex:indexPath.row-1] objectForKey:@"from_avatar"]];
         cell.textLabel.text = str;
     }
     return cell;
