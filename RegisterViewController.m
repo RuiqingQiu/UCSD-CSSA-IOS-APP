@@ -451,6 +451,14 @@ FBLoginView *loginView;
     
 }
 
+- (IBAction)beginEditing:(id)sender {
+    [self animateTextField: self up: YES];
+}
+
+- (IBAction)endEditing:(id)sender {
+    [self animateTextField: self up: NO];
+}
+
 
 - (IBAction)departmentPressed:(id)sender {
     if(departmentShow == false)
@@ -459,6 +467,20 @@ FBLoginView *loginView;
         collegeShow = false;
         [self hideAndShow];
     }
+}
+
+- (void) animateTextField: (UITextField*) textField up: (BOOL) up
+{
+    const int movementDistance = 80; // tweak as needed
+    const float movementDuration = 0.3f; // tweak as needed
+    
+    int movement = (up ? -movementDistance : movementDistance);
+    
+    [UIView beginAnimations: @"anim" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
 }
 
 

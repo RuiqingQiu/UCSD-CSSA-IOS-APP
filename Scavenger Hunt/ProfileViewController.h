@@ -16,8 +16,6 @@
     IBOutlet UITextField *collegeField;
     IBOutlet UITextField *majorField;
 
-    IBOutlet UITextField *mottoField;
-
 
     IBOutlet UIPickerView *collegePicker;
     IBOutlet UIPickerView *departmentPicker;
@@ -32,6 +30,8 @@
     IBOutlet UIView *loginView;
     IBOutlet UIView *profileView;
     IBOutlet UINavigationBar *bar;
+
+    IBOutlet UITextField *mottoField;
     bool departmentShow;
     bool collegeShow;
 }
