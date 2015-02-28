@@ -9,6 +9,8 @@
 #import "ProfileViewController.h"
 #import "TalkToServer.h"
 #include <CommonCrypto/CommonDigest.h>
+#import "ChatHistoryTableViewController.h"
+
 @implementation ProfileViewController
 NSString* loginName;
 NSString* password;
