@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WYPopoverController.h"
+#import "ChatHistoryTableViewController.h"
 
 @interface MapProfileViewController : UIViewController
+
+@property WYPopoverController* popoverController;
 
 @property (strong, nonatomic) IBOutlet UIImageView *avatar;
 @property (strong, nonatomic) IBOutlet UITextField *nameField;

@@ -80,6 +80,9 @@
 		AA20802D19F2649A00AD7FFD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA20802C19F2649A00AD7FFD /* MapKit.framework */; };
 		AA20802F19F2653100AD7FFD /* Annotation.m in Sources */ = {isa = PBXBuildFile; fileRef = AA20802E19F2653100AD7FFD /* Annotation.m */; };
 		AA20803419F26F1100AD7FFD /* rsz_icon1.png in Resources */ = {isa = PBXBuildFile; fileRef = AA20803319F26F1100AD7FFD /* rsz_icon1.png */; };
+		AA29E49B1A86AACE00C21482 /* sayhi.png in Resources */ = {isa = PBXBuildFile; fileRef = AA29E4991A86AACE00C21482 /* sayhi.png */; };
+		AA29E49C1A86AACE00C21482 /* sayhistory.png in Resources */ = {isa = PBXBuildFile; fileRef = AA29E49A1A86AACE00C21482 /* sayhistory.png */; };
+		AA29E49F1A86ADA800C21482 /* ChatSelectController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA29E49E1A86ADA800C21482 /* ChatSelectController.m */; };
 		AA34240119F32DB60075A3DF /* map_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = AA34240019F32DB60075A3DF /* map_avatar.png */; };
 		AA34240319F330D90075A3DF /* map_pin_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = AA34240219F330D90075A3DF /* map_pin_v2.png */; };
 		AA6EA24D19F481FE00208893 /* splash screen.png in Resources */ = {isa = PBXBuildFile; fileRef = AA6EA24C19F481FE00208893 /* splash screen.png */; };
@@ -88,6 +91,7 @@
 		AA6EA25319F493A300208893 /* pin-map-7.png in Resources */ = {isa = PBXBuildFile; fileRef = AA6EA25219F493A300208893 /* pin-map-7.png */; };
 		AA6EA25519F4948800208893 /* origami-7.png in Resources */ = {isa = PBXBuildFile; fileRef = AA6EA25419F4948800208893 /* origami-7.png */; };
 		AA7CDEB71A7D67EF0004866C /* nearby1.png in Resources */ = {isa = PBXBuildFile; fileRef = AA7CDEB61A7D67EF0004866C /* nearby1.png */; };
+		AA8AA25E1AA24F0E00D0162B /* ChatHistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA8AA25D1AA24F0E00D0162B /* ChatHistoryTableViewController.m */; };
 		AAA4F2661A74291C005E5AA6 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA4F2651A74291C005E5AA6 /* FacebookSDK.framework */; };
 		AAA4F2681A74344A005E5AA6 /* refresh0.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA4F2671A74344A005E5AA6 /* refresh0.png */; };
 		AAA4F26C1A743700005E5AA6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA4F26A1A743700005E5AA6 /* Parse.framework */; };
@@ -205,6 +209,10 @@
 		AA20802E19F2653100AD7FFD /* Annotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Annotation.m; path = "Scavenger Hunt/Annotation.m"; sourceTree = "<group>"; wrapsLines = 0; };
 		AA20803019F2654600AD7FFD /* Annotation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Annotation.h; path = "Scavenger Hunt/Annotation.h"; sourceTree = "<group>"; };
 		AA20803319F26F1100AD7FFD /* rsz_icon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rsz_icon1.png; sourceTree = "<group>"; };
+		AA29E4991A86AACE00C21482 /* sayhi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sayhi.png; sourceTree = "<group>"; };
+		AA29E49A1A86AACE00C21482 /* sayhistory.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sayhistory.png; sourceTree = "<group>"; };
+		AA29E49D1A86ADA800C21482 /* ChatSelectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatSelectController.h; sourceTree = "<group>"; };
+		AA29E49E1A86ADA800C21482 /* ChatSelectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatSelectController.m; sourceTree = "<group>"; };
 		AA34240019F32DB60075A3DF /* map_avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_avatar.png; sourceTree = "<group>"; };
 		AA34240219F330D90075A3DF /* map_pin_v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_pin_v2.png; sourceTree = "<group>"; };
 		AA6EA24C19F481FE00208893 /* splash screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash screen.png"; sourceTree = "<group>"; };
@@ -213,6 +221,8 @@
 		AA6EA25219F493A300208893 /* pin-map-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pin-map-7.png"; sourceTree = "<group>"; };
 		AA6EA25419F4948800208893 /* origami-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "origami-7.png"; sourceTree = "<group>"; };
 		AA7CDEB61A7D67EF0004866C /* nearby1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nearby1.png; sourceTree = "<group>"; };
+		AA8AA25C1AA24F0E00D0162B /* ChatHistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatHistoryTableViewController.h; sourceTree = "<group>"; };
+		AA8AA25D1AA24F0E00D0162B /* ChatHistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatHistoryTableViewController.m; sourceTree = "<group>"; };
 		AAA4F2651A74291C005E5AA6 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		AAA4F2671A74344A005E5AA6 /* refresh0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh0.png; sourceTree = "<group>"; };
 		AAA4F26A1A743700005E5AA6 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -365,6 +375,8 @@
 		47F1523619A9512D006FCEDD /* src */ = {
 			isa = PBXGroup;
 			children = (
+				AA29E4991A86AACE00C21482 /* sayhi.png */,
+				AA29E49A1A86AACE00C21482 /* sayhistory.png */,
 				AA7CDEB61A7D67EF0004866C /* nearby1.png */,
 				AAA4F2671A74344A005E5AA6 /* refresh0.png */,
 				AAF154BD1A6AEB9C00BAB052 /* nearby.png */,
@@ -483,6 +495,10 @@
 		AA4232391A211687000AF7AA /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				AA8AA25C1AA24F0E00D0162B /* ChatHistoryTableViewController.h */,
+				AA8AA25D1AA24F0E00D0162B /* ChatHistoryTableViewController.m */,
+				AA29E49D1A86ADA800C21482 /* ChatSelectController.h */,
+				AA29E49E1A86ADA800C21482 /* ChatSelectController.m */,
 				AA20803019F2654600AD7FFD /* Annotation.h */,
 				AA20802E19F2653100AD7FFD /* Annotation.m */,
 				5B73DB1B1A17EE18000834A9 /* NearbyViewController.h */,
@@ -577,6 +593,7 @@
 				48C9ACFF1A0E9FB600721E85 /* SettingsToggleUpdate.xib in Resources */,
 				AA6EA25319F493A300208893 /* pin-map-7.png in Resources */,
 				47F1524A19B3B37E006FCEDD /* JobHunter_Career_center.png in Resources */,
+				AA29E49C1A86AACE00C21482 /* sayhistory.png in Resources */,
 				523789EA19F331F600391CC3 /* background.png in Resources */,
 				47F1524519A95145006FCEDD /* Before_you_die.png in Resources */,
 				523A28E019F38CE80094999E /* Poster_halloween_v2.png in Resources */,
@@ -593,6 +610,7 @@
 				47F1523F19A95145006FCEDD /* Xueba_help_me_AS_Notes.png in Resources */,
 				AA7CDEB71A7D67EF0004866C /* nearby1.png in Resources */,
 				AA6EA25519F4948800208893 /* origami-7.png in Resources */,
+				AA29E49B1A86AACE00C21482 /* sayhi.png in Resources */,
 				52C89BEB1A339AF900A7FC83 /* edit.png in Resources */,
 				476EA98519A7FCB8004BC6B1 /* Main.storyboard in Resources */,
 				AA20373219F36E150076BEF3 /* Icon_v2.png in Resources */,
@@ -621,8 +639,10 @@
 				5B73DB1D1A17EE19000834A9 /* NearbyViewController.m in Sources */,
 				AA20802F19F2653100AD7FFD /* Annotation.m in Sources */,
 				47F1523219A93F5C006FCEDD /* Badge.m in Sources */,
+				AA8AA25E1AA24F0E00D0162B /* ChatHistoryTableViewController.m in Sources */,
 				AADF44091A338E8800DB9B99 /* EAIntroView.m in Sources */,
 				AA20802B19F2646100AD7FFD /* MapViewController.m in Sources */,
+				AA29E49F1A86ADA800C21482 /* ChatSelectController.m in Sources */,
 				5B73DB191A17EB12000834A9 /* WYPopoverController.m in Sources */,
 				84D76CE319EEE6DC0043945F /* ProfileViewController.m in Sources */,
 				523A28D619F374840094999E /* EventViewController.m in Sources */,

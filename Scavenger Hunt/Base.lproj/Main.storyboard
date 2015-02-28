@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2AK-7q-WAG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="2AK-7q-WAG">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
@@ -425,7 +425,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h71-Nq-Ywt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1352" y="-978"/>
+            <point key="canvasLocation" x="1390" y="-874"/>
         </scene>
         <!--Setting-->
         <scene sceneID="nOm-B4-tLw">
@@ -617,6 +617,7 @@
                         <outlet property="positionField" destination="QTH-gD-tVk" id="cpK-mz-wTH"/>
                         <outlet property="profileView" destination="bdF-uH-78r" id="kZs-ac-sYX"/>
                         <outlet property="signoutButton" destination="vdg-Qq-f8m" id="v9O-Dc-1sG"/>
+                        <segue destination="t5b-7B-8gy" kind="push" identifier="ChatHistorySegue" id="GEy-To-WRg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ycd-nO-D2f" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -666,6 +667,51 @@
                 </view>
             </objects>
             <point key="canvasLocation" x="265" y="71"/>
+        </scene>
+        <!--Chat History Table View Controller-->
+        <scene sceneID="9eK-Ve-w7F">
+            <objects>
+                <tableViewController id="t5b-7B-8gy" customClass="ChatHistoryTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="dlQ-qB-1gr">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="PpU-0M-AH5">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" restorationIdentifier="ChatHistoryTable" tableViewCell="PpU-0M-AH5" id="7Gd-1t-6kT">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="t5b-7B-8gy" id="B2B-ZT-289"/>
+                            <outlet property="delegate" destination="t5b-7B-8gy" id="PcE-lr-sDP"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="TSg-bg-07v"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z8E-jV-7m8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="869" y="675"/>
+        </scene>
+        <!--Chat Select Controller-->
+        <scene sceneID="pwa-Ge-oJ9">
+            <objects>
+                <viewController storyboardIdentifier="ChatSelectController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="gyX-pf-nev" customClass="ChatSelectController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qWj-qu-IoI"/>
+                        <viewControllerLayoutGuide type="bottom" id="b5W-F9-Xbz"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="r8J-iB-XjY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="B8x-Bf-HsS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1457" y="-391"/>
         </scene>
     </scenes>
     <resources>

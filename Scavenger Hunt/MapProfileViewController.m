@@ -9,12 +9,15 @@
 #import "MapProfileViewController.h"
 
 #import "TalkToServer.h"
+#import "WYPopoverController.h"
+#import "ChatSelectController.h"
 
 @interface MapProfileViewController ()
 
 @end
 
 @implementation MapProfileViewController
+@synthesize popoverController;
 
 NSArray* departmentArray;
 NSArray* collegeArray;
@@ -49,8 +52,6 @@ NSString* motto;
     NSString* motto;
     
     b = [TalkToServer getProfileWithId:self.number  Pname:&name Pavatar_large:&avatar_large PisOfficer:nil Pdepartment:&department Pposition:&position Pcollege:&college Pmajor:&major Pmotto:&motto PerrorString:nil];
-    //g_major = college;
-    NSLog(@"%d!!!!",department);
     
     
     departmentName = [departmentArray objectAtIndex:department];
@@ -62,9 +63,34 @@ NSString* motto;
     [_mottoField setText:motto];
     [_avatar setImage:avatar_large];
     
+    //Adding buttons for chat
+    UIButton *sayhi = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    sayhi.frame = CGRectMake(self.view.frame.size.width*7/10, 475, 70, 70);
+    UIImage *btnImage2 = [UIImage imageNamed:@"sayhi.png"];
+    [sayhi setTintColor:[UIColor colorWithRed:161/256.0f  green:135/256.0f  blue:135/256.0f  alpha:1]];
+
+    [sayhi setImage:btnImage2 forState:UIControlStateNormal];
+    [sayhi addTarget:self action:@selector(sayhi:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:sayhi];
+        
+}
+
+-(void)sayhi:(UIButton *)sender{
+    NSLog(@"show chat list");
+    UIView *btn = (UIView *)sender;
+    //[self loadDataWithRKey:str];
+    ChatSelectController *charVC = [self.storyboard instantiateViewControllerWithIdentifier:@"ChatSelectController"];
+    charVC.preferredContentSize = CGSizeMake(200, 200);
+    charVC.title = @"chat selection";
+    charVC.person_to = self.number;
+    popoverController = [[WYPopoverController alloc] initWithContentViewController:charVC];
+    popoverController.delegate = self;
+    popoverController.passthroughViews = @[btn];
+    popoverController.popoverLayoutMargins = UIEdgeInsetsMake(10, 10, 10, 10);
+    popoverController.wantsDefaultContentAppearance = NO;
     
-    
-   }
+    [popoverController presentPopoverFromRect:btn.bounds inView:btn permittedArrowDirections:WYPopoverArrowDirectionAny animated:YES options:WYPopoverAnimationOptionFadeWithScale];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -72,40 +72,28 @@ UITableView *tableView;
     //[[cell imageView] setImage:[UIImage imageNamed:@"Icon13.png"]];
     //[[cell textLabel] setText:[NSString stringWithFormat:@"%ld",(long)[indexPath row]]];
     [self updateCell:cell atIndexPath:indexPath];
-     return cell;
+    return cell;
 }
 
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)aTableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [aTableView deselectRowAtIndexPath:indexPath animated:YES];
-    
+    //[aTableView deselectRowAtIndexPath:indexPath animated:YES];
+
     if (indexPath.section == 0)
     {
-        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
-        NSString* pdfPhotoSize = (indexPath.row == 0) ? @"large" : @"half";
-        [defaults setObject:pdfPhotoSize forKey:@"PDF_PHOTO_SIZE"];
-        [defaults synchronize];
-        
-        UITableViewCell* cell;
-        
-        indexPath = [NSIndexPath indexPathForRow:0 inSection:0];
-        cell = [self.tableView cellForRowAtIndexPath:indexPath];
-        [self updateCell:cell atIndexPath:indexPath];
-        
-        indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
-        cell = [self.tableView cellForRowAtIndexPath:indexPath];
-        [self updateCell:cell atIndexPath:indexPath];
+        Annotation* tmp =(Annotation*)[anno_list objectAtIndex:indexPath.row];
+        NSInteger a = [tmp.user_id integerValue];
+        [MapViewController right_function:a];
     }
+
 }
 
 #pragma mark - Private
 
 - (void)updateCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath
 {
-    NSString* pdfPhotoSize = [[NSUserDefaults standardUserDefaults] stringForKey:@"PDF_PHOTO_SIZE"];
-
     if (indexPath.section == 0)
     {
         Annotation* tmp =(Annotation*)[anno_list objectAtIndex:indexPath.row];
@@ -118,6 +106,7 @@ UITableView *tableView;
         cell.textLabel.text = @"End";
         cell.imageView.image = nil;
         cell.accessoryType = UITableViewCellAccessoryNone;
+        
     }
 }
 /*

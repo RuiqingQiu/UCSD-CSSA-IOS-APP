@@ -48,8 +48,27 @@ bool editOrNot = YES;
     tapGestureRecognizer.cancelsTouchesInView = NO;
     //将触摸事件添加到当前view
     [self.view addGestureRecognizer:tapGestureRecognizer];
+    
+    
+    UIButton *history = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    history.frame = CGRectMake(self.view.frame.size.width*7/10, 450, 70, 70);
+    UIImage *btnImage3 = [UIImage imageNamed:@"sayhistory.png"];
+    [history setTintColor:[UIColor colorWithRed:161/256.0f  green:135/256.0f  blue:135/256.0f  alpha:1]];
+    
+    [history setImage:btnImage3 forState:UIControlStateNormal];
+    [history addTarget:self action:@selector(history:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:history];
 }
 
+-(void)history:(UIButton *)sender{
+    NSLog(@"show history list");
+    [self performSegueWithIdentifier:@"ChatHistorySegue" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    ChatHistoryTableViewController *controller = segue.destinationViewController;
+}
 
 
 -(void)viewWillAppear:(BOOL)animated {

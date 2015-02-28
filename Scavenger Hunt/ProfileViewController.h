@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "ChatHistoryTableViewController.h"
 @interface ProfileViewController : UIViewController
 {
     

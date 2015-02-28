@@ -634,9 +634,12 @@
         return nil;
     }
     NSArray* tmpArray = [parsedDict objectForKey:@"result"];
+    //NSLog(tmpArray);
+    //NSLog([[tmpArray objectAtIndex:0] objectForKey:@"from"]);
     return tmpArray;
 }
 
+/* Tell the server this message is read */
 + (BOOL) readChatWithChatId:(NSInteger)chat_id PerrorString:(NSString**)errorString
 {
     if (errorString != nil)
