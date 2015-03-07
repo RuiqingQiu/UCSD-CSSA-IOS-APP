@@ -48,14 +48,20 @@ NSArray* chat_history;
     
     return result;
 }
-
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 60;
+}
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ChatHistoryTable"];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ChatHistoryTable"];
+        //cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"ChatHistoryTable"];
+        
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
+                                          reuseIdentifier:@"ChatHistoryTable"];
     }
     if(indexPath.row == 0){
     
@@ -72,6 +78,8 @@ NSArray* chat_history;
                 //[] 对【】说：
                 cell.imageView.image = [self getImageFromURL:[[chat_history objectAtIndex:indexPath.row-1]  objectForKey:@"from_avatar"]];
                 cell.textLabel.text = str;
+                cell.detailTextLabel.text = [[chat_history objectAtIndex:indexPath.row-1] objectForKey:@"time"];
+                cell.detailTextLabel.textColor = [UIColor grayColor];
                 [cell.textLabel setFont:[UIFont systemFontOfSize:13]];
             }
         }
