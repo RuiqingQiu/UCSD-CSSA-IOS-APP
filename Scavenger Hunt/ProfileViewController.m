@@ -22,6 +22,7 @@ NSString* motto;
 NSArray* arr;
 NSArray* departmentArray;
 NSArray* dataArray;
+UIButton *history;
 
 bool editOrNot = YES;
 
@@ -58,8 +59,8 @@ bool editOrNot = YES;
     [self.view addGestureRecognizer:tapGestureRecognizer];
     
     
-    UIButton *history = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    history.frame = CGRectMake(self.view.frame.size.width*7/10, 450, 70, 70);
+    history = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    history.frame = CGRectMake(self.view.frame.size.width*7/10, 440, 70, 70);
     UIImage *btnImage3 = [UIImage imageNamed:@"sayhistory.png"];
     [history setTintColor:[UIColor colorWithRed:161/256.0f  green:135/256.0f  blue:135/256.0f  alpha:1]];
     
@@ -283,12 +284,14 @@ bool editOrNot = YES;
     [bar setHidden:YES];
     collegeShow = false;
     departmentShow = false;
+    history.hidden = NO;
 }
 
 - (IBAction)chooseCollege:(id)sender {
     collegeShow = true;
     departmentShow = false;
     [self hideAndShow];
+    history.hidden = YES;
 }
 
 - (IBAction)editProfile:(id)sender
@@ -476,6 +479,7 @@ bool editOrNot = YES;
     departmentShow = true;
     collegeShow = false;
     [self hideAndShow];
+    history.hidden = YES;
     
     }
 
@@ -492,6 +496,7 @@ bool editOrNot = YES;
     [collegePicker setHidden:YES];
     [departmentPicker setHidden:YES];
     [bar setHidden:YES];
+    history.hidden = NO;
 }
 
 
@@ -597,6 +602,7 @@ bool editOrNot = YES;
         //[bar setHidden:NO];
         
     }
+    
     
     
 }
