@@ -22,4 +22,5 @@
 @property (strong, nonatomic) IBOutlet UITextField *mottoField;
 
 @property (nonatomic) NSInteger number;
+-(void)dismissSubview;
 @end

@@ -14,7 +14,7 @@ NSArray* chat_history;
 @implementation ChatHistoryTableViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
-    chat_list = [[NSArray alloc] initWithObjects:@"0", @"= =!", @"约吗", @"你好", @"再见", @"傻吊", @"蠢驴", @"别BB", @"8", @"9", nil];
+    chat_list = [[NSArray alloc] initWithObjects:@"0", @"「蜀将何在」", @"「呃...!」", @"「约吗？」", @"「让我一个人静静」", @"(┛`д´)┛", @"(눈‸눈)", @"┳━┳ノ( ' - 'ノ) ", nil];
     //Msg range 1 to 8
     chat_history = [TalkToServer getChatWithPerrorString:nil];
 //    if(chat_history){
@@ -62,12 +62,18 @@ NSArray* chat_history;
     }
     else{
         if([chat_history count] != 0){
-            NSString *str1 = @"【";
-            NSString *str2 = @"】对你说：";
-            NSString *str = [NSString stringWithFormat: @"%@%@%@%@", str1, [[chat_history objectAtIndex:indexPath.row-1] objectForKey:@"from_name"], str2, [chat_list objectAtIndex: [[[chat_history objectAtIndex:indexPath.row-1] objectForKey:@"msg"] intValue]]];
-            //[] 对【】说：
-            cell.imageView.image = [self getImageFromURL:[[chat_history objectAtIndex:indexPath.row-1]  objectForKey:@"from_avatar"]];
-            cell.textLabel.text = str;
+            if([[[chat_history objectAtIndex:indexPath.row-1] objectForKey:@"msg"] intValue] >= [chat_list count]){
+                
+            }
+            else{
+                NSString *str1 = @"【";
+                NSString *str2 = @"】对你说：";
+                NSString *str = [NSString stringWithFormat: @"%@%@%@%@", str1, [[chat_history objectAtIndex:indexPath.row-1] objectForKey:@"from_name"], str2, [chat_list objectAtIndex: [[[chat_history objectAtIndex:indexPath.row-1] objectForKey:@"msg"] intValue]]];
+                //[] 对【】说：
+                cell.imageView.image = [self getImageFromURL:[[chat_history objectAtIndex:indexPath.row-1]  objectForKey:@"from_avatar"]];
+                cell.textLabel.text = str;
+                [cell.textLabel setFont:[UIFont systemFontOfSize:13]];
+            }
         }
     }
     return cell;

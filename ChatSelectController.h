@@ -14,4 +14,5 @@
 - (void)updateCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath;
 @property (nonatomic, weak) IBOutlet UITableView* tableView;
 @property NSInteger person_to;
+@property WYPopoverController* popoverController;
 @end
