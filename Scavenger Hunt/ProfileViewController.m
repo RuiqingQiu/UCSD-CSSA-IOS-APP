@@ -443,15 +443,14 @@ bool editOrNot = YES;
 }
 - (IBAction)dismissLoginName:(id)sender
 {
-[sender resignFirstResponder];
-}
-
-- (IBAction)dismissNmae:(id)sender {
     [sender resignFirstResponder];
 }
+
+
 - (IBAction)dismissPassword:(id)sender
 {
-[sender resignFirstResponder];}
+    [sender resignFirstResponder];
+}
 
 - (IBAction)dismissPosition:(id)sender {
     [sender resignFirstResponder];
