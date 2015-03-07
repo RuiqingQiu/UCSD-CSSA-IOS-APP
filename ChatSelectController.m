@@ -7,19 +7,19 @@
 //
 
 #import "ChatSelectController.h"
-
+#import "MapProfileController.h"
 @interface ChatSelectController()
 
 @end
 NSArray* chat_list;
 @implementation ChatSelectController
 @synthesize person_to;
-
+@synthesize popoverController;
 
 UITableView *tableView;
 - (void)viewDidLoad {
     [super viewDidLoad];
-    chat_list = [[NSArray alloc] initWithObjects:@"= =!", @"约吗", @"你好", @"再见", @"傻吊", @"蠢驴", @"别BB", nil];
+    chat_list = [[NSArray alloc] initWithObjects:@"「蜀将何在」", @"「呃...!」", @"「约吗？」", @"「让我一个人静静」", @"(┛`д´)┛", @"(눈‸눈)", @"┳━┳ノ( ' - 'ノ) ", nil];
 
     // Do any additional setup after loading the view.
 }
@@ -104,10 +104,19 @@ UITableView *tableView;
                 [TalkToServer sendChatWithReceiverId:person_to msg:6 PerrorString:nil];
                 break;
             default:
-                [TalkToServer sendChatWithReceiverId:person_to msg:7 PerrorString:nil];
                 break;
         }
+        [popoverController dismissPopoverAnimated:YES];
+        popoverController.delegate = nil;
+        popoverController = nil;
 
+        UIAlertView *alert = [[UIAlertView alloc]initWithTitle: @"Message Status"
+                                                       message: @"You Message Has Been Sent."
+                                                      delegate: self
+                                             cancelButtonTitle:@"OK"
+                                             otherButtonTitles:nil];
+        [alert setTag:2];
+        [alert show];
     }
     
 }
@@ -128,7 +137,6 @@ UITableView *tableView;
             case 2:
                 cell.textLabel.text = [chat_list objectAtIndex:2];
                 break;
-
             case 3:
                 cell.textLabel.text = [chat_list objectAtIndex:3];
                 break;
@@ -142,7 +150,6 @@ UITableView *tableView;
                 cell.textLabel.text = [chat_list objectAtIndex:6];
                 break;
             default:
-                cell.textLabel.text = @"hello";
                 break;
         }
     }

@@ -19,6 +19,8 @@
 @implementation MapProfileViewController
 @synthesize popoverController;
 
+static UIViewController* mapProfileViewController;
+
 NSArray* departmentArray;
 NSArray* collegeArray;
 NSString* departmentName;
@@ -36,8 +38,10 @@ NSString* motto;
 */
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
     //NSLog(@"@%ld",(long)self.number);
+    mapProfileViewController = self;
     collegeArray = [[NSArray alloc]initWithObjects:@"ERC", @"Marshall", @"Muir", @"Revelle", @"Warren", @"Sixth",nil];
     departmentArray = [[NSArray alloc]initWithObjects:@"非officer", @"PM", @"学术部", @"宣传部", @"文体部", @"技术部",@"外联部", @"Advisor&前辈", @"其他officer",nil];
     
@@ -88,8 +92,16 @@ NSString* motto;
     popoverController.passthroughViews = @[btn];
     popoverController.popoverLayoutMargins = UIEdgeInsetsMake(10, 10, 10, 10);
     popoverController.wantsDefaultContentAppearance = NO;
-    
+    charVC.popoverController = popoverController;
     [popoverController presentPopoverFromRect:btn.bounds inView:btn permittedArrowDirections:WYPopoverArrowDirectionAny animated:YES options:WYPopoverAnimationOptionFadeWithScale];
+}
+
+
+- (void)done:(id)sender
+{
+    [popoverController dismissPopoverAnimated:YES];
+    popoverController.delegate = nil;
+    popoverController = nil;
 }
 
 - (void)didReceiveMemoryWarning {
