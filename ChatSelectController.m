@@ -106,6 +106,7 @@ UITableView *tableView;
             default:
                 break;
         }
+        //Disable the sending chat controller
         [popoverController dismissPopoverAnimated:YES];
         popoverController.delegate = nil;
         popoverController = nil;

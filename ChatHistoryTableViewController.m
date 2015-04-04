@@ -17,6 +17,7 @@ NSArray* chat_history;
     chat_list = [[NSArray alloc] initWithObjects:@"0", @"「蜀将何在」", @"「呃...!」", @"「约吗？」", @"「让我一个人静静」", @"(┛`д´)┛", @"(눈‸눈)", @"┳━┳ノ( ' - 'ノ) ", nil];
     //Msg range 1 to 8
     chat_history = [TalkToServer getChatWithPerrorString:nil];
+    self.tableView.allowsMultipleSelectionDuringEditing = NO;
 //    if(chat_history){
 //        for(int i = 0; i < [chat_history count]; i++){
 //            NSLog(@"to %@", [[chat_history objectAtIndex:i] objectForKey:@"to"]);
@@ -52,6 +53,27 @@ NSArray* chat_history;
 {
     return 60;
 }
+
+
+
+// Override to support conditional editing of the table view.
+// This only needs to be implemented if you are going to be returning NO
+// for some items. By default, all items are editable.
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return YES if you want the specified item to be editable.
+    return YES;
+}
+
+// Override to support editing the table view.
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //add code here for when you hit delete
+        //[tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:YES];
+        //Need to remove the data from the server and then reload the data
+        //[tableView reloadData];
+    }
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
