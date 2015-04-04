@@ -249,8 +249,7 @@ NSInteger profileId;
     //[map.view addSubview:viewController.view];
     [map performSegueWithIdentifier:@"MapProfileSegue" sender:map];
     
-    //MapViewController *viewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"MapViewController"];
-    //ProfileViewController *profile = [[ProfileViewController alloc]init];
+   
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
