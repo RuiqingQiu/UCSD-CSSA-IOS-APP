@@ -111,7 +111,7 @@ UITableView *tableView;
         popoverController = nil;
 
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle: @"Message Status"
-                                                       message: @"You Message Has Been Sent."
+                                                       message: @"Your Message has been sent."
                                                       delegate: self
                                              cancelButtonTitle:@"OK"
                                              otherButtonTitles:nil];

@@ -22,10 +22,11 @@
 -(void)tapLeft;
 @end
 static MapViewController* map = nil;
+static WYPopoverController* popoverController;
 @implementation MapViewController
 @synthesize myMapView;
 @synthesize locationManager;
-@synthesize popoverController;
+//@synthesize popoverController;
 UIApplication *app;
 double latitude, longitude;
 static BOOL locationStarted = FALSE;
