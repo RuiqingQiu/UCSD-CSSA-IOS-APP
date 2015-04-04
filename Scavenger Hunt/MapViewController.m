@@ -22,10 +22,11 @@
 -(void)tapLeft;
 @end
 static MapViewController* map = nil;
+static WYPopoverController* popoverController;
 @implementation MapViewController
 @synthesize myMapView;
 @synthesize locationManager;
-@synthesize popoverController;
+//@synthesize popoverController;
 UIApplication *app;
 double latitude, longitude;
 static BOOL locationStarted = FALSE;
@@ -249,6 +250,10 @@ NSInteger profileId;
     //[map.view addSubview:viewController.view];
     [map performSegueWithIdentifier:@"MapProfileSegue" sender:map];
     
+    [popoverController dismissPopoverAnimated:YES];
+    popoverController.delegate = nil;
+    popoverController = nil;
+
     //MapViewController *viewController = [[UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil] instantiateViewControllerWithIdentifier:@"MapViewController"];
     //ProfileViewController *profile = [[ProfileViewController alloc]init];
 }

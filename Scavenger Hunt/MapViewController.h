@@ -16,7 +16,7 @@
 //@property (weak, nonatomic) IBOutlet MKMapView *myMapView;
 @property (strong, nonatomic) IBOutlet MKMapView *myMapView;
 @property CLLocationManager *locationManager;
-@property WYPopoverController* popoverController;
+//@property WYPopoverController* popoverController;
 //For loading data from the server
 //@property (nonatomic, strong) NSMutableData *responseData;
 -(void)sendBackground:(NSTimer*)timer;
