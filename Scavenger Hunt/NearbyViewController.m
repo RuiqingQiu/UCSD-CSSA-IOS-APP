@@ -85,6 +85,8 @@ UITableView *tableView;
         Annotation* tmp =(Annotation*)[anno_list objectAtIndex:indexPath.row];
         NSInteger a = [tmp.user_id integerValue];
         [MapViewController right_function:a];
+        //[tableView setHidden:YES];
+        
     }
 
 }

@@ -319,6 +319,7 @@ FBLoginView *loginView;
     [self.view addSubview:loginView];
     loginView.frame = CGRectOffset(loginView.frame, (self.view.center.x - (loginView.frame.size.width / 2)),  self.view.center.y + (loginView.frame.size.height*3.5));
     [self.view addSubview:loginView];
+    [loginView setHidden:YES];
 }
 
 
@@ -405,6 +406,7 @@ FBLoginView *loginView;
         [picker setHidden:NO];
         [departmentPicker setHidden:YES];
         loginView.hidden = YES;
+        
         //[bar setHidden:NO];
         
     }
@@ -421,6 +423,8 @@ FBLoginView *loginView;
     if(departmentShow == false && collegeShow == false)
     {
         loginView.hidden = FALSE;
+        //
+        loginView.hidden = YES;
         //[bar setHidden:NO];
         
     }
@@ -447,7 +451,8 @@ FBLoginView *loginView;
     collegeShow = false;
     departmentShow = false;
     loginView.hidden = FALSE;
-    
+    //
+    loginView.hidden = YES;
     
 }
 
