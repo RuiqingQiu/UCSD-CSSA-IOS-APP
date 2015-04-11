@@ -85,6 +85,8 @@
 		AA29E49F1A86ADA800C21482 /* ChatSelectController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA29E49E1A86ADA800C21482 /* ChatSelectController.m */; };
 		AA34240119F32DB60075A3DF /* map_avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = AA34240019F32DB60075A3DF /* map_avatar.png */; };
 		AA34240319F330D90075A3DF /* map_pin_v2.png in Resources */ = {isa = PBXBuildFile; fileRef = AA34240219F330D90075A3DF /* map_pin_v2.png */; };
+		AA3566B11AD9A83400C5492C /* CAPartDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA3566AF1AD9A83400C5492C /* CAPartDViewController.m */; };
+		AA3566B21AD9A83400C5492C /* CAPartDViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA3566B01AD9A83400C5492C /* CAPartDViewController.xib */; };
 		AA6EA24D19F481FE00208893 /* splash screen.png in Resources */ = {isa = PBXBuildFile; fileRef = AA6EA24C19F481FE00208893 /* splash screen.png */; };
 		AA6EA24F19F4821600208893 /* Icon13.png in Resources */ = {isa = PBXBuildFile; fileRef = AA6EA24E19F4821600208893 /* Icon13.png */; };
 		AA6EA25119F4929300208893 /* crown-7.png in Resources */ = {isa = PBXBuildFile; fileRef = AA6EA25019F4929300208893 /* crown-7.png */; };
@@ -215,6 +217,9 @@
 		AA29E49E1A86ADA800C21482 /* ChatSelectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatSelectController.m; sourceTree = "<group>"; };
 		AA34240019F32DB60075A3DF /* map_avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_avatar.png; sourceTree = "<group>"; };
 		AA34240219F330D90075A3DF /* map_pin_v2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_pin_v2.png; sourceTree = "<group>"; };
+		AA3566AE1AD9A83400C5492C /* CAPartDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CAPartDViewController.h; sourceTree = "<group>"; };
+		AA3566AF1AD9A83400C5492C /* CAPartDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CAPartDViewController.m; sourceTree = "<group>"; };
+		AA3566B01AD9A83400C5492C /* CAPartDViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CAPartDViewController.xib; sourceTree = "<group>"; };
 		AA6EA24C19F481FE00208893 /* splash screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "splash screen.png"; sourceTree = "<group>"; };
 		AA6EA24E19F4821600208893 /* Icon13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon13.png; sourceTree = "<group>"; };
 		AA6EA25019F4929300208893 /* crown-7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "crown-7.png"; sourceTree = "<group>"; };
@@ -284,6 +289,7 @@
 		476EA96519A7FCB8004BC6B1 = {
 			isa = PBXGroup;
 			children = (
+				AA3566AD1AD9A81800C5492C /* Test */,
 				AAA4F26A1A743700005E5AA6 /* Parse.framework */,
 				AAA4F2651A74291C005E5AA6 /* FacebookSDK.framework */,
 				AADF44041A338E8800DB9B99 /* EAIntroPage.h */,
@@ -431,6 +437,16 @@
 				5B73DB181A17EB12000834A9 /* WYStoryboardPopoverSegue.m */,
 			);
 			path = WYPopoverController;
+			sourceTree = "<group>";
+		};
+		AA3566AD1AD9A81800C5492C /* Test */ = {
+			isa = PBXGroup;
+			children = (
+				AA3566AE1AD9A83400C5492C /* CAPartDViewController.h */,
+				AA3566AF1AD9A83400C5492C /* CAPartDViewController.m */,
+				AA3566B01AD9A83400C5492C /* CAPartDViewController.xib */,
+			);
+			name = Test;
 			sourceTree = "<group>";
 		};
 		AA4232341A211626000AF7AA /* Setting */ = {
@@ -613,6 +629,7 @@
 				AA29E49B1A86AACE00C21482 /* sayhi.png in Resources */,
 				52C89BEB1A339AF900A7FC83 /* edit.png in Resources */,
 				476EA98519A7FCB8004BC6B1 /* Main.storyboard in Resources */,
+				AA3566B21AD9A83400C5492C /* CAPartDViewController.xib in Resources */,
 				AA20373219F36E150076BEF3 /* Icon_v2.png in Resources */,
 				AA6EA24D19F481FE00208893 /* splash screen.png in Resources */,
 				AAF154BA1A6AE98800BAB052 /* settings.png in Resources */,
@@ -648,6 +665,7 @@
 				523A28D619F374840094999E /* EventViewController.m in Sources */,
 				48C9ACFD1A0E9BCB00721E85 /* SettingsViewController.m in Sources */,
 				AADF44081A338E8800DB9B99 /* EAIntroPage.m in Sources */,
+				AA3566B11AD9A83400C5492C /* CAPartDViewController.m in Sources */,
 				476EA97E19A7FCB8004BC6B1 /* main.m in Sources */,
 				476EA98219A7FCB8004BC6B1 /* SHAppDelegate.m in Sources */,
 				48C9AD021A0EA01800721E85 /* SettingsToggleUpdateTableViewCell.m in Sources */,

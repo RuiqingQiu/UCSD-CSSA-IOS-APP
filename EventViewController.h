@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "CAPartDViewController.h"
 @interface EventViewController : UIViewController
 {
 

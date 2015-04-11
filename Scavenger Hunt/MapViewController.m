@@ -108,7 +108,15 @@ NSArray *sorted_anno_list;
     
     //Create an empty anno list
     anno_list = [NSMutableArray array];
-    
+    sorted_anno_list = [NSArray array];
+//    UIButton *test = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+//    NSLog(@"width is %f\n",self.view.frame.size.width);
+//    test.frame = CGRectMake(self.view.frame.size.width*5/10, 475, 40, 40);
+//    [UIColor clearColor];
+//    [test setImage:btnImage forState:UIControlStateNormal];
+//    [test addTarget:self action:@selector(test:) forControlEvents:UIControlEventTouchUpInside];
+//    test.tintColor = [UIColor blackColor];
+//    [self.myMapView addSubview:test];
     
     //Parse
 //    PFUser *user = [PFUser user];
@@ -155,6 +163,7 @@ NSArray *sorted_anno_list;
 -(void)buttonDidTap:(UIButton *)sender{
     [self loadPins];
 }
+
 
 -(void)showNearbyList:(UIButton *)sender{
     NSLog(@"show near by list");

@@ -9,6 +9,7 @@
 #import "EventViewController.h"
 NSInteger text_num = 1;
 @implementation EventViewController
+
 -(void)viewDidAppear:(BOOL)animated
 {
     //self.navigationController.navigationBar.hidden;
@@ -53,7 +54,26 @@ NSInteger text_num = 1;
     //将触摸事件添加到当前view
     [rightRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.view addGestureRecognizer:rightRecognizer];
+    
+    //Create an empty anno list
+    UIButton *test = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    NSLog(@"width is %f\n",self.view.frame.size.width);
+    test.frame = CGRectMake(self.view.frame.size.width*5/10, 475, 40, 40);
+    [UIColor clearColor];
+    UIImage *btnImage = [UIImage imageNamed:@"refresh0.png"];
+    
+    [test setImage:btnImage forState:UIControlStateNormal];
+    [test addTarget:self action:@selector(test:) forControlEvents:UIControlEventTouchUpInside];
+    test.tintColor = [UIColor redColor];
+    [self.view addSubview:test];
+    
 }
+
+-(void)test:(UIButton *)sender{
+    CAPartDViewController *partDVC = [[CAPartDViewController alloc] init];
+    [self presentViewController:partDVC animated:YES completion:nil];
+}
+
 - (IBAction)changePage:(id)sender {
     
     
