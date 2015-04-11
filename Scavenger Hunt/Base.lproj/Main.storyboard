@@ -170,7 +170,7 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ftb-zn-Zyv" userLabel="姓名">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" background="textBox.png" translatesAutoresizingMaskIntoConstraints="NO" id="ftb-zn-Zyv" userLabel="姓名">
                                                 <rect key="frame" x="113" y="175" width="166" height="30"/>
                                                 <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -190,7 +190,7 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="required" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K2U-oj-KcZ" userLabel="用户名">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="required" textAlignment="center" minimumFontSize="17" background="textBox.png" translatesAutoresizingMaskIntoConstraints="NO" id="K2U-oj-KcZ" userLabel="用户名">
                                                 <rect key="frame" x="113" y="99" width="166" height="30"/>
                                                 <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -198,7 +198,7 @@
                                                     <action selector="dismissLoginName:" destination="OaN-3n-DIR" eventType="editingDidEndOnExit" id="UHn-uX-jUM"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="required" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uBZ-X9-8xI" userLabel="密码">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="required" textAlignment="center" minimumFontSize="17" background="textBox.png" translatesAutoresizingMaskIntoConstraints="NO" id="uBZ-X9-8xI" userLabel="密码">
                                                 <rect key="frame" x="113" y="137" width="166" height="30"/>
                                                 <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numbersAndPunctuation" returnKeyType="done" secureTextEntry="YES"/>
@@ -212,7 +212,7 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lh4-Pd-E3Q" userLabel="铭言">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" background="textBox.png" translatesAutoresizingMaskIntoConstraints="NO" id="lh4-Pd-E3Q" userLabel="铭言">
                                                 <rect key="frame" x="113" y="327" width="166" height="30"/>
                                                 <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -222,7 +222,7 @@
                                                     <action selector="endEditing:" destination="OaN-3n-DIR" eventType="editingDidEnd" id="cl8-ay-DiL"/>
                                                 </connections>
                                             </textField>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hGu-pZ-tmQ" userLabel="学院">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" background="textBox.png" translatesAutoresizingMaskIntoConstraints="NO" id="hGu-pZ-tmQ" userLabel="学院">
                                                 <rect key="frame" x="113" y="251" width="166" height="30"/>
                                                 <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -272,7 +272,7 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r6v-1f-CL3" userLabel="专业">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" background="textBox.png" translatesAutoresizingMaskIntoConstraints="NO" id="r6v-1f-CL3" userLabel="专业">
                                                 <rect key="frame" x="113" y="289" width="166" height="30"/>
                                                 <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="16"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done"/>
@@ -288,7 +288,7 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vpn-wr-819" userLabel="部门">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" background="textBox.png" translatesAutoresizingMaskIntoConstraints="NO" id="Vpn-wr-819" userLabel="部门">
                                                 <rect key="frame" x="113" y="214" width="166" height="30"/>
                                                 <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -553,12 +553,6 @@
                                     <action selector="chooseDepartment:" destination="1cM-Ye-UYb" eventType="touchUpInside" id="NJy-hc-CCK"/>
                                 </connections>
                             </button>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2jq-PD-hMN" userLabel="departmentPicker">
-                                <rect key="frame" x="0.0" y="357" width="320" height="162"/>
-                            </pickerView>
-                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pcS-ma-Dng" userLabel="collegePicker">
-                                <rect key="frame" x="0.0" y="357" width="320" height="162"/>
-                            </pickerView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MxE-1h-3oy" userLabel="collegeButton">
                                 <rect key="frame" x="91" y="204" width="189" height="30"/>
                                 <state key="normal">
@@ -568,6 +562,9 @@
                                     <action selector="chooseCollege:" destination="1cM-Ye-UYb" eventType="touchUpInside" id="QTO-P9-7eW"/>
                                 </connections>
                             </button>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nbH-LB-4oa" userLabel="collegePicker">
+                                <rect key="frame" x="0.0" y="369" width="320" height="162"/>
+                            </pickerView>
                             <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uZS-Yh-d9q">
                                 <rect key="frame" x="0.0" y="338" width="320" height="44"/>
                                 <rect key="contentStretch" x="0.0" y="0.0" width="1" height="0.74999999999999978"/>
@@ -603,6 +600,9 @@
                                     <action selector="touchDown:" destination="1cM-Ye-UYb" eventType="touchDown" id="XW1-Ui-9eJ"/>
                                 </connections>
                             </textField>
+                            <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2jq-PD-hMN" userLabel="departmentPicker">
+                                <rect key="frame" x="0.0" y="369" width="320" height="162"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -614,7 +614,7 @@
                         <outlet property="bar" destination="uZS-Yh-d9q" id="a5v-BE-ncA"/>
                         <outlet property="collegeButton" destination="MxE-1h-3oy" id="jzL-em-aOj"/>
                         <outlet property="collegeField" destination="s1y-Qv-GUo" id="TVv-JZ-neK"/>
-                        <outlet property="collegePicker" destination="pcS-ma-Dng" id="dFN-EZ-oAu"/>
+                        <outlet property="collegePicker" destination="nbH-LB-4oa" id="FBK-bt-afR"/>
                         <outlet property="departmentButton" destination="u5g-Ta-RxD" id="flf-5g-zbm"/>
                         <outlet property="departmentPicker" destination="2jq-PD-hMN" id="c3u-Ag-RyB"/>
                         <outlet property="editButton" destination="FmO-b6-nLV" id="eWo-wC-mhe"/>
@@ -635,33 +635,24 @@
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="用户名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vg5-dH-jC5">
-                            <rect key="frame" x="67" y="244" width="190" height="30"/>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="用户名" textAlignment="center" minimumFontSize="17" background="textBox.png" translatesAutoresizingMaskIntoConstraints="NO" id="Vg5-dH-jC5">
+                            <rect key="frame" x="70" y="257" width="180" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" returnKeyType="done"/>
                             <connections>
                                 <action selector="dismissLoginName:" destination="1cM-Ye-UYb" eventType="editingDidEndOnExit" id="zHN-vv-Q36"/>
                             </connections>
                         </textField>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="95N-TH-IbZ">
-                            <rect key="frame" x="67" y="294" width="190" height="30"/>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="密码" textAlignment="center" minimumFontSize="17" background="textBox.png" translatesAutoresizingMaskIntoConstraints="NO" id="95N-TH-IbZ">
+                            <rect key="frame" x="70" y="295" width="180" height="30"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
                             <connections>
                                 <action selector="dismissPassword:" destination="1cM-Ye-UYb" eventType="editingDidEndOnExit" id="TcE-S3-O6V"/>
                             </connections>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ElH-5A-CCc">
-                            <rect key="frame" x="39" y="347" width="120" height="30"/>
-                            <state key="normal" title="  登录">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="login:" destination="1cM-Ye-UYb" eventType="touchUpInside" id="Fe5-p7-A0I"/>
-                            </connections>
-                        </button>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i57-PY-y2O">
-                            <rect key="frame" x="167" y="347" width="114" height="30"/>
+                            <rect key="frame" x="42" y="402" width="237" height="39"/>
                             <state key="normal" title="注册">
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
@@ -669,14 +660,86 @@
                                 <segue destination="OaN-3n-DIR" kind="push" identifier="RegisterSegue" id="50c-ND-F0O"/>
                             </connections>
                         </button>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Before_you_die.png" translatesAutoresizingMaskIntoConstraints="NO" id="Yjp-En-Nra">
-                            <rect key="frame" x="82" y="72" width="160" height="154"/>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loginIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Yjp-En-Nra">
+                            <rect key="frame" x="91" y="66" width="139" height="137"/>
                         </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ElH-5A-CCc" userLabel="登录">
+                            <rect key="frame" x="77" y="362" width="166" height="32"/>
+                            <state key="normal" title=" " image="loginButton.png">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="login:" destination="1cM-Ye-UYb" eventType="touchUpInside" id="Fe5-p7-A0I"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="265" y="71"/>
+            <point key="canvasLocation" x="265" y="60"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="j22-6Z-7VE">
+            <objects>
+                <viewController id="iFR-IP-Bk0" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hDG-Wz-XMi"/>
+                        <viewControllerLayoutGuide type="bottom" id="VXw-iC-s6m"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BLf-dS-RQY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="CHf-W6-UDr">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="用户名" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="b9Q-Yi-Zkm">
+                                        <rect key="frame" x="65" y="233" width="190" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <connections>
+                                            <action selector="dismissLoginName:" destination="1cM-Ye-UYb" eventType="editingDidEndOnExit" id="TQu-d3-9wG"/>
+                                        </connections>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="heV-Wd-FDc">
+                                        <rect key="frame" x="65" y="271" width="190" height="30"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                        <connections>
+                                            <action selector="dismissPassword:" destination="1cM-Ye-UYb" eventType="editingDidEndOnExit" id="FHA-cq-mGW"/>
+                                        </connections>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L8d-ha-eMK">
+                                        <rect key="frame" x="82" y="323" width="157" height="31"/>
+                                        <state key="normal" title="  登录" image="loginButton.png">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="login:" destination="1cM-Ye-UYb" eventType="touchUpInside" id="LE8-cm-eao"/>
+                                        </connections>
+                                    </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="loginIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Xlc-15-Fq4">
+                                        <rect key="frame" x="85" y="46" width="150" height="148"/>
+                                    </imageView>
+                                    <pickerView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="x4c-NG-pGP" userLabel="departmentPicker">
+                                        <rect key="frame" x="0.0" y="441" width="320" height="162"/>
+                                    </pickerView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="foG-Cr-iNU">
+                                        <rect key="frame" x="60" y="367" width="201" height="37"/>
+                                        <state key="normal" title="注册">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="umt-e8-2Bh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="425" y="680"/>
         </scene>
         <!--Chat History Table View Controller-->
         <scene sceneID="9eK-Ve-w7F">
@@ -729,15 +792,17 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Before_you_die.png" width="600" height="600"/>
         <image name="Poster_halloween_v2.png" width="540" height="540"/>
         <image name="background2.png" width="703" height="416"/>
         <image name="crown-7.png" width="30" height="30"/>
         <image name="edit.png" width="44" height="16"/>
+        <image name="loginButton.png" width="336" height="66"/>
+        <image name="loginIcon.png" width="273" height="273"/>
         <image name="origami-7.png" width="30" height="30"/>
         <image name="pin-map-7.png" width="30" height="30"/>
         <image name="settings.png" width="30" height="30"/>
         <image name="smalllogout.png" width="60" height="20"/>
+        <image name="textBox.png" width="401" height="34"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
