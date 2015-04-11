@@ -14,6 +14,8 @@
 
 @implementation NearbyViewController
 @synthesize anno_list;
+@synthesize sorted_anno_list;
+
 UITableView *tableView;
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -55,7 +57,7 @@ UITableView *tableView;
     
     if (section == 0)
     {
-        result = [anno_list count];
+        result = [sorted_anno_list count];
     }
     return result;
 }
@@ -82,7 +84,7 @@ UITableView *tableView;
 
     if (indexPath.section == 0)
     {
-        Annotation* tmp =(Annotation*)[anno_list objectAtIndex:indexPath.row];
+        Annotation* tmp =(Annotation*)[sorted_anno_list objectAtIndex:indexPath.row];
         NSInteger a = [tmp.user_id integerValue];
         [MapViewController right_function:a];
         //[tableView setHidden:YES];
@@ -97,7 +99,7 @@ UITableView *tableView;
 {
     if (indexPath.section == 0)
     {
-        Annotation* tmp =(Annotation*)[anno_list objectAtIndex:indexPath.row];
+        Annotation* tmp =(Annotation*)[sorted_anno_list objectAtIndex:indexPath.row];
         cell.textLabel.text = tmp.title;
         cell.imageView.image = [tmp getImageFromURL:tmp.image_url];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
