@@ -15,10 +15,23 @@
 @implementation NearbyViewController
 @synthesize anno_list;
 @synthesize sorted_anno_list;
-
+@synthesize latitude, longitude;
 UITableView *tableView;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    for (Annotation *annotation in anno_list) {
+        CLLocationCoordinate2D coord = [annotation coordinate];
+        CLLocation *anotLocation = [[CLLocation alloc] initWithLatitude:coord.latitude longitude:coord.longitude];
+        CLLocation *self_location = [[CLLocation alloc] initWithLatitude: latitude longitude: longitude];
+        annotation.distance = [self_location distanceFromLocation:anotLocation];
+    }
+    
+    sorted_anno_list = [anno_list sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
+        NSNumber *first = [NSNumber numberWithDouble:[(Annotation*)a distance]];
+        NSNumber *second = [NSNumber numberWithDouble:[(Annotation*)b distance]];
+        return [first compare:second];
+    }];
+
 }
 
 - (void)didReceiveMemoryWarning {

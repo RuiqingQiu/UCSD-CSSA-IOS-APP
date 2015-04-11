@@ -35,7 +35,6 @@ static BOOL updateLocation = TRUE;
 NSTimer *timer;
 NSMutableArray *anno_list;
 NSInteger profileId;
-NSArray *sorted_anno_list;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -108,7 +107,6 @@ NSArray *sorted_anno_list;
     
     //Create an empty anno list
     anno_list = [NSMutableArray array];
-    sorted_anno_list = [NSArray array];
 //    UIButton *test = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 //    NSLog(@"width is %f\n",self.view.frame.size.width);
 //    test.frame = CGRectMake(self.view.frame.size.width*5/10, 475, 40, 40);
@@ -173,7 +171,8 @@ NSArray *sorted_anno_list;
     nearbyVC.preferredContentSize = CGSizeMake(200, 200);
     nearbyVC.title = @"nearby people";
     nearbyVC.anno_list = anno_list.copy;
-    nearbyVC.sorted_anno_list = sorted_anno_list.copy;
+    nearbyVC.latitude = latitude;
+    nearbyVC.longitude = longitude;
     
     popoverController = [[WYPopoverController alloc] initWithContentViewController:nearbyVC];
     popoverController.delegate = self;
@@ -404,19 +403,6 @@ NSArray *sorted_anno_list;
         [anno_list addObject:place_anno];
         NSLog(@"anno list size %lu", (unsigned long)[anno_list count]);
     }
-    for (Annotation *annotation in self.myMapView.annotations) {
-        CLLocationCoordinate2D coord = [annotation coordinate];
-        CLLocation *anotLocation = [[CLLocation alloc] initWithLatitude:coord.latitude longitude:coord.longitude];
-        CLLocation *self_location = [[CLLocation alloc] initWithLatitude: latitude longitude: longitude];
-        annotation.distance = [self_location distanceFromLocation:anotLocation];
-    }
-    
-    
-    sorted_anno_list = [self.myMapView.annotations sortedArrayUsingComparator:^NSComparisonResult(id a, id b) {
-        NSNumber *first = [NSNumber numberWithDouble:[(Annotation*)a distance]];
-        NSNumber *second = [NSNumber numberWithDouble:[(Annotation*)b distance]];
-        return [first compare:second];
-    }];
 }
 
 ///* Loading other users' location */

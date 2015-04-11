@@ -14,4 +14,5 @@
 @property (nonatomic, weak) IBOutlet UITableView* tableView;
 @property NSMutableArray* anno_list;
 @property NSArray * sorted_anno_list;
+@property double latitude, longitude;
 @end
