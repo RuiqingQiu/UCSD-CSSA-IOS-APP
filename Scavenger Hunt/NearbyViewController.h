@@ -13,4 +13,5 @@
 - (void)updateCell:(UITableViewCell*)cell atIndexPath:(NSIndexPath*)indexPath;
 @property (nonatomic, weak) IBOutlet UITableView* tableView;
 @property NSMutableArray* anno_list;
+@property NSArray * sorted_anno_list;
 @end
