@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CAPartDViewController">
@@ -24,25 +24,25 @@
                         <action selector="backToMainView:" destination="-1" eventType="touchUpInside" id="LQT-kM-y9m"/>
                     </connections>
                 </button>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="CA Group Animation" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9t-L0-kx0">
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Where to Eat" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E9t-L0-kx0">
                     <rect key="frame" x="50" y="38" width="221" height="47"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Before_you_die.png" translatesAutoresizingMaskIntoConstraints="NO" id="S2B-ep-ovu">
+                <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Bombay Coast.png" translatesAutoresizingMaskIntoConstraints="NO" id="S2B-ep-ovu">
                     <rect key="frame" x="101" y="150" width="119" height="150"/>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mu0-ux-Tzl">
                     <rect key="frame" x="100" y="408" width="121" height="31"/>
-                    <state key="normal" title="ReShuffle">
+                    <state key="normal" title="Pick One For ME">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="ReShuffle:" destination="-1" eventType="touchUpInside" id="27Y-WC-6aw"/>
                     </connections>
                 </button>
-                <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="A_bite_of_Mexico_Goodies.png" translatesAutoresizingMaskIntoConstraints="NO" id="4Py-3S-rEa">
+                <imageView autoresizesSubviews="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Hi Thai.png" translatesAutoresizingMaskIntoConstraints="NO" id="4Py-3S-rEa">
                     <rect key="frame" x="102" y="150" width="119" height="150"/>
                 </imageView>
             </subviews>
@@ -50,8 +50,8 @@
         </view>
     </objects>
     <resources>
-        <image name="A_bite_of_Mexico_Goodies.png" width="600" height="600"/>
-        <image name="Before_you_die.png" width="600" height="600"/>
+        <image name="Bombay Coast.png" width="250" height="250"/>
+        <image name="Hi Thai.png" width="250" height="250"/>
         <image name="sayhistory.png" width="130" height="130"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

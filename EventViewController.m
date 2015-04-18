@@ -13,7 +13,7 @@ NSInteger text_num = 1;
 -(void)viewDidAppear:(BOOL)animated
 {
     //self.navigationController.navigationBar.hidden;
-    imgarr = [NSArray arrayWithObjects:@"Poster_halloween_v2.png",@"Poster_scavengerhuntcs2.png", nil];
+    imgarr = [NSArray arrayWithObjects:@"Poster_halloween_v2.png",@"Poster_scavengerhuntcs2.png", @"Poster_halloween_v2.png", nil];
     [pageCtrl setNumberOfPages:[imgarr count]];
     
     self.navigationController.navigationBar.hidden = YES;
@@ -55,23 +55,16 @@ NSInteger text_num = 1;
     [rightRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.view addGestureRecognizer:rightRecognizer];
     
-    //Create an empty anno list
-    UIButton *test = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    NSLog(@"width is %f\n",self.view.frame.size.width);
-    test.frame = CGRectMake(self.view.frame.size.width*5/10, 475, 40, 40);
-    [UIColor clearColor];
-    UIImage *btnImage = [UIImage imageNamed:@"refresh0.png"];
     
-    [test setImage:btnImage forState:UIControlStateNormal];
-    [test addTarget:self action:@selector(test:) forControlEvents:UIControlEventTouchUpInside];
-    test.tintColor = [UIColor redColor];
-    [self.view addSubview:test];
+    //Add tap gesture
+    UITapGestureRecognizer *tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self  action:@selector(tapGesture:)];
     
-}
-
--(void)test:(UIButton *)sender{
-    CAPartDViewController *partDVC = [[CAPartDViewController alloc] init];
-    [self presentViewController:partDVC animated:YES completion:nil];
+    tapGesture.numberOfTapsRequired = 1;
+    
+    [tapGesture setDelegate:self];
+    
+    [self.view addGestureRecognizer:tapGesture];
+    
 }
 
 - (IBAction)changePage:(id)sender {
@@ -81,7 +74,7 @@ NSInteger text_num = 1;
 -(void)left:(UISwipeGestureRecognizer *)recog;
 {
     NSLog(@"left");
-    [self changePage2:nil];
+    [self change_page_left:nil];
 
 
 }
@@ -89,27 +82,20 @@ NSInteger text_num = 1;
 -(void)right:(UISwipeGestureRecognizer *)recog;
 {
     NSLog(@"right");
-    [self changePage3:nil];
+    [self change_page_right:nil];
 
     
 }
 
-- (IBAction)changePage2:(id)sender {
-    //NSLog(@"%d", pageCtrl.numberOfPages);
-    //NSInteger currentPage = pageCtrl.currentPage + 1;
-    //CGPoint offset = CGPointMake(currentPage * self.scrollView.frame.size.width, 0);
-    //[self.scrollView setContentOffset:offset animated:YES];
-    
-    if(pageCtrl.currentPage >= pageCtrl.numberOfPages-1){
-        pageCtrl.currentPage = 0;
-    }
-    else
-        pageCtrl.currentPage = pageCtrl.currentPage + 1;
-    //NSLog(@"%d", pageCtrl.currentPage);
+- (IBAction)change_page_left:(id)sender {
+
+    pageCtrl.currentPage = (pageCtrl.currentPage + 1) % pageCtrl.numberOfPages;
 
     int num = pageCtrl.currentPage;
     NSLog(@"%d", num);
     [img setImage:[UIImage imageNamed:(NSString*)[imgarr objectAtIndex:num]]];
+    
+    
     
     [UIView transitionWithView:self.view
                       duration:0.5f
@@ -122,16 +108,29 @@ NSInteger text_num = 1;
                     } completion:nil];
 }
 
-- (IBAction)changePage3:(id)sender {
-    //to right
-    // TO DO: finx order
-    
-    if(pageCtrl.currentPage >= pageCtrl.numberOfPages-1){
-        pageCtrl.currentPage = 0;
+- (void) tapGesture: (id)sender
+{
+    if(pageCtrl.currentPage == 1){
+        CAPartDViewController *partDVC = [[CAPartDViewController alloc] init];
+        [self presentViewController:partDVC animated:YES completion:nil];
     }
-    else
-        pageCtrl.currentPage = pageCtrl.currentPage + 1;
-    //NSLog(@"%d", pageCtrl.currentPage);
+
+}
+
+- (void) go_to_food:(id)sender
+{
+    NSLog(@"It works!");
+}
+
+
+- (IBAction)change_page_right:(id)sender {
+    
+    if(pageCtrl.currentPage - 1 < 0){
+        pageCtrl.currentPage = pageCtrl.numberOfPages - 1;
+    }
+    else{
+        pageCtrl.currentPage = (pageCtrl.currentPage - 1) % pageCtrl.numberOfPages;
+    }
     
     int num = pageCtrl.currentPage;
     NSLog(@"%d", num);
@@ -149,7 +148,7 @@ NSInteger text_num = 1;
 }
 - (IBAction)click:(id)sender {
   
-        [self changePage2:sender];
+        [self change_page_left:sender];
 }
 
 @end

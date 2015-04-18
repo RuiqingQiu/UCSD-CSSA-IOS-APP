@@ -97,6 +97,18 @@
 		AA6EA25519F4948800208893 /* origami-7.png in Resources */ = {isa = PBXBuildFile; fileRef = AA6EA25419F4948800208893 /* origami-7.png */; };
 		AA7CDEB71A7D67EF0004866C /* nearby1.png in Resources */ = {isa = PBXBuildFile; fileRef = AA7CDEB61A7D67EF0004866C /* nearby1.png */; };
 		AA8AA25E1AA24F0E00D0162B /* ChatHistoryTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AA8AA25D1AA24F0E00D0162B /* ChatHistoryTableViewController.m */; };
+		AA91DA9B1AE2F31700CC8661 /* Hi Thai.png in Resources */ = {isa = PBXBuildFile; fileRef = AA91DA8F1AE2F31700CC8661 /* Hi Thai.png */; };
+		AA91DA9C1AE2F31700CC8661 /* Bombay Coast.png in Resources */ = {isa = PBXBuildFile; fileRef = AA91DA901AE2F31700CC8661 /* Bombay Coast.png */; };
+		AA91DA9D1AE2F31700CC8661 /* Tapioca.png in Resources */ = {isa = PBXBuildFile; fileRef = AA91DA911AE2F31700CC8661 /* Tapioca.png */; };
+		AA91DA9E1AE2F31700CC8661 /* Subway.png in Resources */ = {isa = PBXBuildFile; fileRef = AA91DA921AE2F31700CC8661 /* Subway.png */; };
+		AA91DA9F1AE2F31700CC8661 /* Shogun.png in Resources */ = {isa = PBXBuildFile; fileRef = AA91DA931AE2F31700CC8661 /* Shogun.png */; };
+		AA91DAA01AE2F31700CC8661 /* Santorini.png in Resources */ = {isa = PBXBuildFile; fileRef = AA91DA941AE2F31700CC8661 /* Santorini.png */; };
+		AA91DAA11AE2F31700CC8661 /* Rubios.png in Resources */ = {isa = PBXBuildFile; fileRef = AA91DA951AE2F31700CC8661 /* Rubios.png */; };
+		AA91DAA21AE2F31700CC8661 /* RoundTable.png in Resources */ = {isa = PBXBuildFile; fileRef = AA91DA961AE2F31700CC8661 /* RoundTable.png */; };
+		AA91DAA31AE2F31700CC8661 /* Panda.png in Resources */ = {isa = PBXBuildFile; fileRef = AA91DA971AE2F31700CC8661 /* Panda.png */; };
+		AA91DAA41AE2F31700CC8661 /* JumbaJuice.png in Resources */ = {isa = PBXBuildFile; fileRef = AA91DA981AE2F31700CC8661 /* JumbaJuice.png */; };
+		AA91DAA51AE2F31700CC8661 /* Dlush.png in Resources */ = {isa = PBXBuildFile; fileRef = AA91DA991AE2F31700CC8661 /* Dlush.png */; };
+		AA91DAA61AE2F31700CC8661 /* Burger King.png in Resources */ = {isa = PBXBuildFile; fileRef = AA91DA9A1AE2F31700CC8661 /* Burger King.png */; };
 		AAA4F2661A74291C005E5AA6 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA4F2651A74291C005E5AA6 /* FacebookSDK.framework */; };
 		AAA4F2681A74344A005E5AA6 /* refresh0.png in Resources */ = {isa = PBXBuildFile; fileRef = AAA4F2671A74344A005E5AA6 /* refresh0.png */; };
 		AAA4F26C1A743700005E5AA6 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AAA4F26A1A743700005E5AA6 /* Parse.framework */; };
@@ -234,6 +246,18 @@
 		AA7CDEB61A7D67EF0004866C /* nearby1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = nearby1.png; sourceTree = "<group>"; };
 		AA8AA25C1AA24F0E00D0162B /* ChatHistoryTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatHistoryTableViewController.h; sourceTree = "<group>"; };
 		AA8AA25D1AA24F0E00D0162B /* ChatHistoryTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatHistoryTableViewController.m; sourceTree = "<group>"; };
+		AA91DA8F1AE2F31700CC8661 /* Hi Thai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Hi Thai.png"; sourceTree = "<group>"; };
+		AA91DA901AE2F31700CC8661 /* Bombay Coast.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Bombay Coast.png"; sourceTree = "<group>"; };
+		AA91DA911AE2F31700CC8661 /* Tapioca.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Tapioca.png; sourceTree = "<group>"; };
+		AA91DA921AE2F31700CC8661 /* Subway.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Subway.png; sourceTree = "<group>"; };
+		AA91DA931AE2F31700CC8661 /* Shogun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Shogun.png; sourceTree = "<group>"; };
+		AA91DA941AE2F31700CC8661 /* Santorini.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Santorini.png; sourceTree = "<group>"; };
+		AA91DA951AE2F31700CC8661 /* Rubios.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Rubios.png; sourceTree = "<group>"; };
+		AA91DA961AE2F31700CC8661 /* RoundTable.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RoundTable.png; sourceTree = "<group>"; };
+		AA91DA971AE2F31700CC8661 /* Panda.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Panda.png; sourceTree = "<group>"; };
+		AA91DA981AE2F31700CC8661 /* JumbaJuice.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = JumbaJuice.png; sourceTree = "<group>"; };
+		AA91DA991AE2F31700CC8661 /* Dlush.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Dlush.png; sourceTree = "<group>"; };
+		AA91DA9A1AE2F31700CC8661 /* Burger King.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Burger King.png"; sourceTree = "<group>"; };
 		AAA4F2651A74291C005E5AA6 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
 		AAA4F2671A74344A005E5AA6 /* refresh0.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = refresh0.png; sourceTree = "<group>"; };
 		AAA4F26A1A743700005E5AA6 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -387,6 +411,7 @@
 		47F1523619A9512D006FCEDD /* src */ = {
 			isa = PBXGroup;
 			children = (
+				AA91DAA71AE2F31F00CC8661 /* Food */,
 				52076D931AD99FF8002EE1D6 /* loginButton.png */,
 				AA29E4991A86AACE00C21482 /* sayhi.png */,
 				AA29E49A1A86AACE00C21482 /* sayhistory.png */,
@@ -536,6 +561,25 @@
 			name = Map;
 			sourceTree = "<group>";
 		};
+		AA91DAA71AE2F31F00CC8661 /* Food */ = {
+			isa = PBXGroup;
+			children = (
+				AA91DA8F1AE2F31700CC8661 /* Hi Thai.png */,
+				AA91DA901AE2F31700CC8661 /* Bombay Coast.png */,
+				AA91DA911AE2F31700CC8661 /* Tapioca.png */,
+				AA91DA921AE2F31700CC8661 /* Subway.png */,
+				AA91DA931AE2F31700CC8661 /* Shogun.png */,
+				AA91DA941AE2F31700CC8661 /* Santorini.png */,
+				AA91DA951AE2F31700CC8661 /* Rubios.png */,
+				AA91DA961AE2F31700CC8661 /* RoundTable.png */,
+				AA91DA971AE2F31700CC8661 /* Panda.png */,
+				AA91DA981AE2F31700CC8661 /* JumbaJuice.png */,
+				AA91DA991AE2F31700CC8661 /* Dlush.png */,
+				AA91DA9A1AE2F31700CC8661 /* Burger King.png */,
+			);
+			name = Food;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -567,7 +611,7 @@
 				ORGANIZATIONNAME = "Ruiqing Qiu";
 				TargetAttributes = {
 					476EA96D19A7FCB8004BC6B1 = {
-						DevelopmentTeam = 87JW9TVDXS;
+						DevelopmentTeam = RC47RUQEKD;
 					};
 				};
 			};
@@ -595,13 +639,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				AAF154BE1A6AEB9C00BAB052 /* nearby.png in Resources */,
+				AA91DA9D1AE2F31700CC8661 /* Tapioca.png in Resources */,
 				47F1524419A95145006FCEDD /* Big_red_chair.png in Resources */,
+				AA91DAA31AE2F31700CC8661 /* Panda.png in Resources */,
 				5207226F1A186935004BC133 /* edit.png in Resources */,
 				5282C85919F4798B00301F20 /* background.png in Resources */,
 				470069F019A90A2D0092604F /* SHMapViewController.xib in Resources */,
 				5207226D1A1867BC004BC133 /* logout_big.png in Resources */,
 				AA20373619F376880076BEF3 /* map_pin_v3.png in Resources */,
 				520722731A186DC1004BC133 /* background2.png in Resources */,
+				AA91DAA21AE2F31700CC8661 /* RoundTable.png in Resources */,
 				476EA98A19A7FCB8004BC6B1 /* Images.xcassets in Resources */,
 				476EA97C19A7FCB8004BC6B1 /* InfoPlist.strings in Resources */,
 				52076D921AD99E4F002EE1D6 /* loginIcon.png in Resources */,
@@ -609,8 +656,10 @@
 				47F1524019A95145006FCEDD /* Sun_god_hug.png in Resources */,
 				52C89BEC1A339AF900A7FC83 /* icon_save.png in Resources */,
 				AA34240319F330D90075A3DF /* map_pin_v2.png in Resources */,
+				AA91DA9C1AE2F31700CC8661 /* Bombay Coast.png in Resources */,
 				52076D941AD99FF8002EE1D6 /* loginButton.png in Resources */,
 				47F1524219A95145006FCEDD /* Home_for_4_years_Geisel.png in Resources */,
+				AA91DAA01AE2F31700CC8661 /* Santorini.png in Resources */,
 				AA20803419F26F1100AD7FFD /* rsz_icon1.png in Resources */,
 				AA6EA24F19F4821600208893 /* Icon13.png in Resources */,
 				523A28DA19F388950094999E /* Poster_halloween.png in Resources */,
@@ -619,7 +668,10 @@
 				4857913C1A1DB3AC00170816 /* SettingsButtons.xib in Resources */,
 				48C9ACFF1A0E9FB600721E85 /* SettingsToggleUpdate.xib in Resources */,
 				AA6EA25319F493A300208893 /* pin-map-7.png in Resources */,
+				AA91DA9B1AE2F31700CC8661 /* Hi Thai.png in Resources */,
 				47F1524A19B3B37E006FCEDD /* JobHunter_Career_center.png in Resources */,
+				AA91DAA41AE2F31700CC8661 /* JumbaJuice.png in Resources */,
+				AA91DAA11AE2F31700CC8661 /* Rubios.png in Resources */,
 				AA29E49C1A86AACE00C21482 /* sayhistory.png in Resources */,
 				523789EA19F331F600391CC3 /* background.png in Resources */,
 				47F1524519A95145006FCEDD /* Before_you_die.png in Resources */,
@@ -630,17 +682,21 @@
 				AAF65FF719F3887100C9D6EB /* icon_v4.png in Resources */,
 				AAA4F2681A74344A005E5AA6 /* refresh0.png in Resources */,
 				47F1524819A9534D006FCEDD /* UC_Sea_ovt.png in Resources */,
+				AA91DA9F1AE2F31700CC8661 /* Shogun.png in Resources */,
 				523789E919F331F600391CC3 /* login_avatar.png in Resources */,
 				AA6EA25119F4929300208893 /* crown-7.png in Resources */,
 				52C89BE51A338C4E00A7FC83 /* icon_save.png in Resources */,
 				5207226C1A1867BC004BC133 /* edit_big.png in Resources */,
 				47F1523F19A95145006FCEDD /* Xueba_help_me_AS_Notes.png in Resources */,
+				AA91DAA61AE2F31700CC8661 /* Burger King.png in Resources */,
 				AA7CDEB71A7D67EF0004866C /* nearby1.png in Resources */,
 				AA6EA25519F4948800208893 /* origami-7.png in Resources */,
 				AA29E49B1A86AACE00C21482 /* sayhi.png in Resources */,
 				52C89BEB1A339AF900A7FC83 /* edit.png in Resources */,
 				476EA98519A7FCB8004BC6B1 /* Main.storyboard in Resources */,
 				AA3566B21AD9A83400C5492C /* CAPartDViewController.xib in Resources */,
+				AA91DAA51AE2F31700CC8661 /* Dlush.png in Resources */,
+				AA91DA9E1AE2F31700CC8661 /* Subway.png in Resources */,
 				AA20373219F36E150076BEF3 /* Icon_v2.png in Resources */,
 				AA6EA24D19F481FE00208893 /* splash screen.png in Resources */,
 				AAF154BA1A6AE98800BAB052 /* settings.png in Resources */,
